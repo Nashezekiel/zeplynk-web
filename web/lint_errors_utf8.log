@@ -1,0 +1,275 @@
+﻿
+> web@0.1.0 lint
+> eslint
+
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\about\page.tsx
+   82:45  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  125:39  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  166:40  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  167:77  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\academy\page.tsx
+   3:15  warning  'Metadata' is defined but never used                             @typescript-eslint/no-unused-vars
+   8:5   warning  'ArrowRight' is defined but never used                           @typescript-eslint/no-unused-vars
+  10:5   warning  'CheckCircle' is defined but never used                          @typescript-eslint/no-unused-vars
+  13:5   warning  'Clock' is defined but never used                                @typescript-eslint/no-unused-vars
+  14:5   warning  'BookOpen' is defined but never used                             @typescript-eslint/no-unused-vars
+  16:5   warning  'Building2' is defined but never used                            @typescript-eslint/no-unused-vars
+  18:5   warning  'Star' is defined but never used                                 @typescript-eslint/no-unused-vars
+  72:36  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\admin\page.tsx
+   4:10  warning  'motion' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+   4:18  warning  'AnimatePresence' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+  14:5   warning  'Trash2' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+  60:17  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\admin\page.tsx:60:17
+  58 |                 .replace(/(^-|-$)+/g, '');
+  59 |             if (generatedSlug !== draft.slug) {
+> 60 |                 setDraft(prev => ({ ...prev, slug: generatedSlug }));
+     |                 ^^^^^^^^ Avoid calling setState() directly within an effect
+  61 |             }
+  62 |         }
+  63 |     }, [draft.title]);  react-hooks/set-state-in-effect
+  63:8   warning  React Hook useEffect has missing dependencies: 'draft.slug' and 'view'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               react-hooks/exhaustive-deps
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\ai\page.tsx
+  10:5  warning  'ArrowRight' is defined but never used   @typescript-eslint/no-unused-vars
+  15:5  warning  'CheckCircle' is defined but never used  @typescript-eslint/no-unused-vars
+  16:5  warning  'Cpu' is defined but never used          @typescript-eslint/no-unused-vars
+  17:5  warning  'Zap' is defined but never used          @typescript-eslint/no-unused-vars
+  18:5  warning  'Shield' is defined but never used       @typescript-eslint/no-unused-vars
+  19:5  warning  'Network' is defined but never used      @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\contact\page.tsx
+  7:10  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\industries\page.tsx
+   12:5   warning  'Search' is defined but never used                               @typescript-eslint/no-unused-vars
+   15:5   warning  'Cpu' is defined but never used                                  @typescript-eslint/no-unused-vars
+  117:35  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  242:32  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\news\[slug]\page.tsx
+  5:31  warning  'Tag' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\news\page.tsx
+  3:10  warning  'motion' is defined but never used        @typescript-eslint/no-unused-vars
+  6:36  warning  'ArrowUpRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\not-found.tsx
+   4:10  warning  'Zap' is defined but never used                                  @typescript-eslint/no-unused-vars
+  24:47  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  25:32  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  71:38  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  71:54  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\privacy\page.tsx
+    3:8   warning  'Link' is defined but never used                                 @typescript-eslint/no-unused-vars
+    4:10  warning  'Zap' is defined but never used                                  @typescript-eslint/no-unused-vars
+    5:10  warning  'useState' is defined but never used                             @typescript-eslint/no-unused-vars
+    6:10  warning  'Button' is defined but never used                               @typescript-eslint/no-unused-vars
+  172:43  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  172:72  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\register\page.tsx
+    6:5   warning  'Zap' is defined but never used                                  @typescript-eslint/no-unused-vars
+   90:84  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  334:39  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  338:40  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\services\page.tsx
+   7:10  warning  'ArrowRight' is defined but never used                           @typescript-eslint/no-unused-vars
+   7:22  warning  'Zap' is defined but never used                                  @typescript-eslint/no-unused-vars
+  62:71  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  63:95  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\solutions\page.tsx
+  6:70  warning  'Shield' is defined but never used  @typescript-eslint/no-unused-vars
+  6:78  warning  'Globe' is defined but never used   @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\app\web\WebContent.tsx
+    7:5   warning  'Globe' is defined but never used                                @typescript-eslint/no-unused-vars
+   10:5   warning  'CheckCircle' is defined but never used                          @typescript-eslint/no-unused-vars
+   11:5   warning  'Layers' is defined but never used                               @typescript-eslint/no-unused-vars
+  179:49  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  179:56  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  179:59  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  179:72  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  180:49  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  180:58  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  181:49  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  181:57  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  181:60  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  181:65  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  193:79  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\PageTransition.tsx
+  1:10  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+  1:21  warning  'useState' is defined but never used   @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\layout\Navbar.tsx
+   9:5   warning  'Laptop' is defined but never used           @typescript-eslint/no-unused-vars
+   9:13  warning  'BarChart3' is defined but never used        @typescript-eslint/no-unused-vars
+  10:5   warning  'Bot' is defined but never used              @typescript-eslint/no-unused-vars
+  27:11  warning  'router' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\AiSolutions.tsx
+   48:29  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   48:50  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   70:29  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   70:53  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   92:29  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   92:46  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  114:29  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  114:48  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\CaseStudyBlock.tsx
+  1:10  warning  'ArrowRight' is defined but never used   @typescript-eslint/no-unused-vars
+  1:41  warning  'CheckCircle' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\Hero.tsx
+  6:10  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\NewsSection.tsx
+  3:10  warning  'motion' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\Newsletter.tsx
+  87:94  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\ProcessMap.tsx
+   83:31  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  137:28  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\ServiceCards.tsx
+  98:115  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\Testimonials.tsx
+  41:32  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  62:37  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  62:59  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\about\AboutHero.tsx
+   4:15   warning  'Globe' is defined but never used                                @typescript-eslint/no-unused-vars
+   4:22   warning  'Target' is defined but never used                               @typescript-eslint/no-unused-vars
+  21:110  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\about\CoreValues.tsx
+  53:47  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\about\JourneyTimeline.tsx
+  46:55  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\academy\CorporateTraining.tsx
+  5:34  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\contact\ContactHero.tsx
+  4:25  warning  'Mail' is defined but never used   @typescript-eslint/no-unused-vars
+  4:31  warning  'Phone' is defined but never used  @typescript-eslint/no-unused-vars
+  4:38  warning  'Clock' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\contact\ContactMethods.tsx
+  25:66  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\sections\services\ServicesHero.tsx
+  4:20  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\ui\LogoLoop.tsx
+   4:10  warning  'useCallback' is defined but never used                                                                              @typescript-eslint/no-unused-vars
+  26:12  warning  'width' is assigned a value but never used                                                                           @typescript-eslint/no-unused-vars
+  55:21  error    Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\ui\Orb.tsx
+  200:13  error    Unexpected any. Specify a different type                                                                              @typescript-eslint/no-explicit-any
+  326:16  warning  'e' is defined but never used                                                                                         @typescript-eslint/no-unused-vars
+  330:6   warning  React Hook useEffect has missing dependencies: 'frag' and 'vert'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\ui\ScrollReveal.tsx
+   3:29  warning  'UseInViewOptions' is defined but never used          @typescript-eslint/no-unused-vars
+  25:5   warning  'staggerChildren' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  30:98  error    Unexpected any. Specify a different type              @typescript-eslint/no-explicit-any
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\ui\TechInfographic.tsx
+  10:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\ui\TechInfographic.tsx:10:9
+   8 |
+   9 |     useEffect(() => {
+> 10 |         setIsMounted(true);
+     |         ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  11 |     }, []);
+  12 |
+  13 |     if (!isMounted) return null;  react-hooks/set-state-in-effect
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\ui\ZepBot.tsx
+   5:78  warning  'ArrowRight' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             @typescript-eslint/no-unused-vars
+   6:10  warning  'Button' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+  44:40  error    Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\ui\ZepBot.tsx:44:40
+  42 |         if (!text.trim()) return;
+  43 |
+> 44 |         const userMsg: Message = { id: Date.now().toString(), text, sender: 'user', timestamp: new Date() };
+     |                                        ^^^^^^^^^^ Cannot call impure function
+  45 |         setMessages(prev => [...prev, userMsg]);
+  46 |         setInputValue('');
+  47 |         setIsTyping(true);  react-hooks/purity
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\ui\calendar.tsx
+  2:10  warning  'ChevronLeft' is defined but never used   @typescript-eslint/no-unused-vars
+  2:23  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\ui\command.tsx
+  24:11  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\ui\resizable.tsx
+  1:1  error  Do not use "@ts-nocheck" because it alters compilation errors  @typescript-eslint/ban-ts-comment
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\ui\sidebar.tsx
+  661:26  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\ui\sidebar.tsx:661:26
+  659 |   // Random width between 50 to 90%.
+  660 |   const width = React.useMemo(() => {
+> 661 |     return `${Math.floor(Math.random() * 40) + 50}%`;
+      |                          ^^^^^^^^^^^^^ Cannot call impure function
+  662 |   }, []);
+  663 |
+  664 |   return (  react-hooks/purity
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\components\ui\textarea.tsx
+  5:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\constants\news.ts
+  1:10  warning  'Calendar' is defined but never used  @typescript-eslint/no-unused-vars
+  1:20  warning  'Tag' is defined but never used       @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\hooks\use-toast.ts
+  15:7  warning  'actionTypes' is assigned a value but only used as a type  @typescript-eslint/no-unused-vars
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\tailwind.config.js
+  133:13  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+C:\Users\DELL\Desktop\zeplynkWeb\Zeplynk-main\Zeplynk-main\web\tailwind.config.ts
+  144:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+Γ£û 126 problems (60 errors, 66 warnings)
+

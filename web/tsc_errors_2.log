@@ -1,0 +1,62 @@
+app/academy/page.tsx(175,37): error TS2322: Type '{ children: string; variant: string; className: string; }' is not assignable to type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+  Property 'variant' does not exist on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+app/not-found.tsx(39,41): error TS2322: Type '{ children: string; variant: string; className: string; }' is not assignable to type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+  Property 'variant' does not exist on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+app/not-found.tsx(44,41): error TS2322: Type '{ children: string; variant: string; className: string; }' is not assignable to type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+  Property 'variant' does not exist on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+app/page.tsx(62,25): error TS2322: Type '{ children: string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+  Property 'size' does not exist on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+app/page.tsx(67,25): error TS2322: Type '{ children: string; variant: string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+  Property 'variant' does not exist on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+app/services/page.tsx(248,33): error TS2322: Type '{ children: string; variant: string; className: string; }' is not assignable to type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+  Property 'variant' does not exist on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+components/layout/Navbar.tsx(140,65): error TS2322: Type '{ children: string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+  Property 'size' does not exist on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+components/sections/Hero.tsx(63,37): error TS2322: Type '{ children: string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+  Property 'size' does not exist on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+components/sections/Hero.tsx(68,37): error TS2322: Type '{ children: string; variant: string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+  Property 'variant' does not exist on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+components/ui/alert.tsx(2,40): error TS2307: Cannot find module 'class-variance-authority' or its corresponding type declarations.
+components/ui/badge.tsx(2,40): error TS2307: Cannot find module 'class-variance-authority' or its corresponding type declarations.
+components/ui/badge.tsx(30,29): error TS2339: Property 'variant' does not exist on type 'BadgeProps'.
+components/ui/button.tsx(3,40): error TS2307: Cannot find module 'class-variance-authority' or its corresponding type declarations.
+components/ui/button.tsx(43,17): error TS2339: Property 'variant' does not exist on type 'ButtonProps'.
+components/ui/button.tsx(43,26): error TS2339: Property 'size' does not exist on type 'ButtonProps'.
+components/ui/calendar.tsx(55,9): error TS2353: Object literal may only specify known properties, and 'IconLeft' does not exist in type 'Partial<CustomComponents>'.
+components/ui/carousel.tsx(198,17): error TS2339: Property 'variant' does not exist on type 'Omit<ButtonProps & RefAttributes<HTMLButtonElement>, "ref">'.
+components/ui/carousel.tsx(198,38): error TS2339: Property 'size' does not exist on type 'Omit<ButtonProps & RefAttributes<HTMLButtonElement>, "ref">'.
+components/ui/carousel.tsx(204,7): error TS2322: Type '{ children: Element[]; prefix?: string | undefined; translate?: "yes" | "no" | undefined; content?: string | undefined; popover?: "" | "auto" | "manual" | "hint" | undefined; ... 288 more ...; className: string; }' is not assignable to type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+  Property 'variant' does not exist on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+components/ui/carousel.tsx(227,17): error TS2339: Property 'variant' does not exist on type 'Omit<ButtonProps & RefAttributes<HTMLButtonElement>, "ref">'.
+components/ui/carousel.tsx(227,38): error TS2339: Property 'size' does not exist on type 'Omit<ButtonProps & RefAttributes<HTMLButtonElement>, "ref">'.
+components/ui/carousel.tsx(233,7): error TS2322: Type '{ children: Element[]; prefix?: string | undefined; translate?: "yes" | "no" | undefined; content?: string | undefined; popover?: "" | "auto" | "manual" | "hint" | undefined; ... 288 more ...; className: string; }' is not assignable to type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+  Property 'variant' does not exist on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+components/ui/chart.tsx(117,7): error TS2339: Property 'payload' does not exist on type 'Omit<Omit<Props<ValueType, NameType>, PropertiesReadFromContext> & { active?: boolean | undefined; allowEscapeViewBox?: AllowInDimension | undefined; ... 24 more ...; wrapperStyle?: CSSProperties | undefined; } & ClassAttributes<...> & HTMLAttributes<...> & { ...; }, "ref">'.
+components/ui/chart.tsx(122,7): error TS2339: Property 'label' does not exist on type 'Omit<Omit<Props<ValueType, NameType>, PropertiesReadFromContext> & { active?: boolean | undefined; allowEscapeViewBox?: AllowInDimension | undefined; ... 24 more ...; wrapperStyle?: CSSProperties | undefined; } & ClassAttributes<...> & HTMLAttributes<...> & { ...; }, "ref">'.
+components/ui/chart.tsx(186,25): error TS7006: Parameter 'item' implicitly has an 'any' type.
+components/ui/chart.tsx(186,31): error TS7006: Parameter 'index' implicitly has an 'any' type.
+components/ui/chart.tsx(262,41): error TS2344: Type '"verticalAlign" | "payload"' does not satisfy the constraint '"string" | "media" | "spacing" | "order" | "height" | "width" | "rotate" | "scale" | "cursor" | "fill" | "stroke" | "strokeWidth" | "fontFamily" | "fontSize" | "fontWeight" | "letterSpacing" | ... 433 more ... | "onBBoxUpdate"'.
+  Type '"payload"' is not assignable to type '"string" | "media" | "spacing" | "order" | "height" | "width" | "rotate" | "scale" | "cursor" | "fill" | "stroke" | "strokeWidth" | "fontFamily" | "fontSize" | "fontWeight" | "letterSpacing" | ... 433 more ... | "onBBoxUpdate"'.
+components/ui/chart.tsx(273,19): error TS2339: Property 'length' does not exist on type '{}'.
+components/ui/chart.tsx(286,18): error TS2339: Property 'map' does not exist on type '{}'.
+components/ui/chart.tsx(286,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+components/ui/command.tsx(3,45): error TS2307: Cannot find module 'cmdk' or its corresponding type declarations.
+components/ui/label.tsx(3,40): error TS2307: Cannot find module 'class-variance-authority' or its corresponding type declarations.
+components/ui/navigation-menu.tsx(3,21): error TS2307: Cannot find module 'class-variance-authority' or its corresponding type declarations.
+components/ui/pagination.tsx(39,23): error TS2344: Type '"size"' does not satisfy the constraint 'keyof ButtonProps'.
+components/ui/pagination.tsx(68,5): error TS2783: 'size' is specified more than once, so this usage will be overwritten.
+components/ui/pagination.tsx(84,5): error TS2783: 'size' is specified more than once, so this usage will be overwritten.
+components/ui/resizable.tsx(2,37): error TS2307: Cannot find module 'react-resizable-panels' or its corresponding type declarations.
+components/ui/ScrollReveal.tsx(28,51): error TS2322: Type '`0px 0px -${number}px 0px`' is not assignable to type 'MarginType | undefined'.
+components/ui/sheet.tsx(2,40): error TS2307: Cannot find module 'class-variance-authority' or its corresponding type declarations.
+components/ui/sheet.tsx(57,6): error TS2339: Property 'side' does not exist on type 'SheetContentProps'.
+components/ui/sidebar.tsx(3,35): error TS2307: Cannot find module 'class-variance-authority' or its corresponding type declarations.
+components/ui/sidebar.tsx(213,13): error TS2322: Type '{ children: Element; "data-sidebar": string; "data-mobile": string; className: string; style: CSSProperties; side: "right" | "left"; }' is not assignable to type 'IntrinsicAttributes & SheetContentProps & RefAttributes<HTMLDivElement>'.
+  Property 'side' does not exist on type 'IntrinsicAttributes & SheetContentProps & RefAttributes<HTMLDivElement>'.
+components/ui/sidebar.tsx(278,7): error TS2322: Type '{ children: Element[]; prefix?: string | undefined; translate?: "yes" | "no" | undefined; content?: string | undefined; popover?: "" | "auto" | "manual" | "hint" | undefined; ... 289 more ...; onClick: (event: MouseEvent<...>) => void; }' is not assignable to type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+  Property 'variant' does not exist on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'.
+components/ui/toast.tsx(3,40): error TS2307: Cannot find module 'class-variance-authority' or its corresponding type declarations.
+components/ui/toggle-group.tsx(3,35): error TS2307: Cannot find module 'class-variance-authority' or its corresponding type declarations.
+components/ui/toggle.tsx(3,40): error TS2307: Cannot find module 'class-variance-authority' or its corresponding type declarations.
+hooks/use-toast.ts(155,22): error TS7006: Parameter 'open' implicitly has an 'any' type.
+lib/utils.spec.ts(1,38): error TS2307: Cannot find module 'vitest' or its corresponding type declarations.
