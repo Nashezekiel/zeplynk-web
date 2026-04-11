@@ -1,0 +1,13 @@
+Icon Check Results:
+OK: SiReact
+OK: SiNextdotjs
+OK: SiTypescript
+OK: SiTailwindcss
+OK: SiNodedotjs
+OK: SiPython
+OK: SiPostgresql
+OK: SiMongodb
+OK: SiDocker
+OK: SiAmazon
+OK: SiOpenai
+OK: FaJava

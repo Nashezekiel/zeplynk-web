@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * Enforcing Dark Mode as default for the revamp.
+   */
+  :root {
+    /* Base Colors - Dark Theme Default */
+    --background: 0 0% 0%; /* Pure Black */
+    --foreground: 0 0% 100%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary - Zeplynk Green (approx #28a745 -> 134 61% 41%) */
+    /* Making it slightly more vibrant for dark mode contrast if needed, but keeping standard for now */
+    --primary: 134 61% 41%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 134 61% 41%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Keeping light mode variables in a class if we ever need to switch back, but default is now dark */
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    /* ... other light mode vars omitted for now as we focus on dark revamp */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  }
+
+  .font-friendly {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  }
+}
+
+/* Utilities for the new look */
+@layer utilities {
+  .page-enter {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  .page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  }
+
+  .page-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .page-exit-active {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .smooth-link {
+    @apply transition-colors duration-200 ease-in-out;
+  }
+  
+  /* Glassmorphism utility */
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+  
+  .glass-card {
+    @apply bg-zinc-900/50 backdrop-blur-md border border-white/10 shadow-xl;
+  }
+  
+  /* Glow effects */
+  .glow-text {
+    text-shadow: 0 0 20px rgba(74, 222, 128, 0.5);
+  }
+}

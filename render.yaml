@@ -1,0 +1,14 @@
+# Render deployment configuration for ZEPLYNK Next.js app
+
+services:
+  - type: web
+    name: zeplynk-client
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    rootDir: web
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+    plan: free
+    autoDeploy: true
