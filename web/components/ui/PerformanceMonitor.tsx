@@ -51,12 +51,12 @@ export function PerformanceMonitor() {
       
       if (navigation) {
         setMetrics(prev => ({
-          fcp: navigation.responseStart - navigation.navigationStart,
+          ...prev,
+          fcp: navigation.responseStart - navigation.startTime,
           ttfb: navigation.responseStart - navigation.requestStart,
-          domContentLoaded: navigation.domContentLoadedEventEnd - navigation.navigationStart,
-          loadComplete: navigation.loadEventEnd - navigation.navigationStart,
-          ...prev
-        }));
+          domContentLoaded: navigation.domContentLoadedEventEnd - navigation.startTime,
+          loadComplete: navigation.loadEventEnd - navigation.startTime
+        } as PerformanceMetrics));
       }
     };
 
