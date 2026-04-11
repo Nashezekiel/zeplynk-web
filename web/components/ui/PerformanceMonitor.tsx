@@ -29,7 +29,8 @@ export function PerformanceMonitor() {
         }
         
         if (entry.entryType === 'first-input') {
-          setMetrics(prev => prev ? { ...prev, fid: entry.processingStart - entry.startTime } : { fid: entry.processingStart - entry.startTime } as PerformanceMetrics);
+          const firstInput = entry as any;
+          setMetrics(prev => prev ? { ...prev, fid: firstInput.processingStart - firstInput.startTime } : { fid: firstInput.processingStart - firstInput.startTime } as PerformanceMetrics);
         }
         
         if (entry.entryType === 'layout-shift') {
