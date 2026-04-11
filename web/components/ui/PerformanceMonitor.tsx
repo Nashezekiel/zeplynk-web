@@ -36,7 +36,7 @@ export function PerformanceMonitor() {
         if (entry.entryType === 'layout-shift') {
           setMetrics(prev => {
             const cls = prev ? prev.cls + (entry as any).value : (entry as any).value;
-            return { ...prev, cls };
+            return { ...prev, cls } as PerformanceMetrics;
           });
         }
       });
