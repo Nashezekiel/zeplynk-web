@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/academy`,
             lastModified: new Date(),
             changeFrequency: "weekly", // Academy might change more often
-            priority: 0.9,
+            priority: 1.0,
         },
         {
             url: `${baseUrl}/services`,
@@ -74,7 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/solutions`,
             lastModified: new Date(),
             changeFrequency: "monthly",
-            priority: 0.7,
+            priority: 0.9,
         },
         {
             url: `${baseUrl}/privacy`,

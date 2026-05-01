@@ -22,10 +22,14 @@ export const metadata: Metadata = {
     default: "Zeplynk — Web Engineering, AI Automation & Tech Academy",
   },
   description:
-    "Zeplynk delivers world-class web engineering, AI automation solutions, and tech education to transform businesses and careers across Nigeria and Africa.",
+    "Zeplynk provides comprehensive tech solutions and premier tech education. We deliver world-class web engineering and AI automation to transform businesses and careers.",
   keywords: [
+    "tech solutions",
+    "tech education",
+    "technology company",
+    "tech consulting",
     "web development Nigeria",
-    "AI automation Nigeria",
+    "AI automation Africa",
     "tech training Nigeria",
     "software engineering Africa",
     "Zeplynk",
@@ -59,7 +63,7 @@ export const metadata: Metadata = {
     siteName: "Zeplynk",
     title: "Zeplynk — Web Engineering, AI Automation & Tech Academy",
     description:
-      "Zeplynk delivers world-class web engineering, AI automation solutions, and tech education to transform businesses and careers across Nigeria and Africa.",
+      "Zeplynk provides comprehensive tech solutions and premier tech education. We deliver world-class web engineering and AI automation to transform businesses and careers.",
     images: [
       {
         url: "/opengraph-image.png",
@@ -126,8 +130,8 @@ export default function RootLayout({
       addressRegion: "Nigeria",
     },
     areaServed: ["NG", "ZA", "KE", "GH", "EG"], // Major African markets
-    knowsAbout: ["Web Development", "AI Automation", "Tech Education", "Software Engineering"],
-    serviceType: ["Web Engineering", "AI Solutions", "Tech Training"],
+    knowsAbout: ["Tech Solutions", "Tech Education", "Technology Consulting", "Web Development", "AI Automation", "Software Engineering"],
+    serviceType: ["Tech Solutions", "Tech Education", "Web Engineering", "AI Solutions", "Tech Training"],
   };
 
   const webpageJsonLd = {

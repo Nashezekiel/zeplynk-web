@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Digital Engineering & AI Automation",
+  title: "Premier Tech Solutions & Digital Engineering",
   description:
-    "Zeplynk provides top-tier web engineering, AI automation solutions, and tech education to transform businesses and careers across Nigeria and Africa.",
+    "Zeplynk provides comprehensive tech solutions, top-tier web engineering, AI automation, and tech education to transform businesses and careers across Nigeria and Africa.",
   keywords: [
+    "tech solutions provider",
+    "tech education programs",
+    "technology partner Africa",
     "web engineering Nigeria",
     "AI automation Africa",
     "tech startup Nigeria",
@@ -17,9 +20,9 @@ export const metadata: Metadata = {
     canonical: "https://zeplynk.com",
   },
   openGraph: {
-    title: "Zeplynk — Digital Engineering & AI Automation",
+    title: "Zeplynk — Premier Tech Solutions & Digital Engineering",
     description:
-      "Top-tier web engineering, AI automation solutions, and tech education for businesses and careers across Nigeria and Africa.",
+      "Comprehensive tech solutions, top-tier web engineering, AI automation, and tech education for businesses and careers across Nigeria and Africa.",
     url: "https://zeplynk.com",
     images: [
       {
@@ -32,9 +35,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zeplynk — Digital Engineering & AI Automation",
+    title: "Zeplynk — Premier Tech Solutions & Digital Engineering",
     description:
-      "Top-tier web engineering, AI automation & tech education across Nigeria and Africa.",
+      "Comprehensive tech solutions, web engineering, AI automation & tech education across Nigeria and Africa.",
     images: ["/opengraph-image.png"],
   },
 };
