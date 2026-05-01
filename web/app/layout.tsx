@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     shortcut: "/icon.png",
   },
   verification: {
-    google: "", // Add your Google Search Console verification token here
+    google: "D0pO1p7_Xcq_k1a8CajDzEjvQDgo2L4dJff7SfkAGt4", // Add your Google Search Console verification token here
   },
 };
 
