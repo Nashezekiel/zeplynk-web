@@ -2,42 +2,45 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Premier Tech Solutions & Digital Engineering",
+  title: "Tech Solutions & Web Development Company Nigeria | Zeplynk",
   description:
-    "Zeplynk provides comprehensive tech solutions, top-tier web engineering, AI automation, and tech education to transform businesses and careers across Nigeria and Africa.",
+    "Zeplynk is Nigeria's #1 tech solutions company in Kaduna. We build web applications, deliver AI automation, and train developers through Zeplynk Academy. Serving businesses across Nigeria and Africa.",
   keywords: [
-    "tech solutions provider",
-    "tech education programs",
-    "technology partner Africa",
-    "web engineering Nigeria",
-    "AI automation Africa",
-    "tech startup Nigeria",
+    "tech solutions Nigeria",
+    "web development company Nigeria",
+    "tech company Kaduna",
+    "web development Kaduna",
+    "AI automation Nigeria",
     "software development company Nigeria",
-    "AI solutions Africa",
+    "tech education Nigeria",
+    "coding bootcamp Nigeria",
     "Next.js agency Nigeria",
+    "tech solutions Kaduna Nigeria",
+    "northern Nigeria tech company",
+    "tech startup Kaduna",
   ],
   alternates: {
     canonical: "https://zeplynk.com",
   },
   openGraph: {
-    title: "Zeplynk — Premier Tech Solutions & Digital Engineering",
+    title: "Tech Solutions & Web Development Company Nigeria | Zeplynk",
     description:
-      "Comprehensive tech solutions, top-tier web engineering, AI automation, and tech education for businesses and careers across Nigeria and Africa.",
+      "Nigeria's premier tech solutions and education company in Kaduna. Web engineering, AI automation, and developer training across Nigeria and Africa.",
     url: "https://zeplynk.com",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Zeplynk — Digital Engineering & AI Automation",
+        alt: "Zeplynk — Tech Solutions & Web Development Nigeria",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zeplynk — Premier Tech Solutions & Digital Engineering",
+    title: "Tech Solutions & Web Development Company Nigeria | Zeplynk",
     description:
-      "Comprehensive tech solutions, web engineering, AI automation & tech education across Nigeria and Africa.",
+      "Nigeria's premier tech solutions company in Kaduna — web engineering, AI automation & developer training.",
     images: ["/opengraph-image.png"],
   },
 };

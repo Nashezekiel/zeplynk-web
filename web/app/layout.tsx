@@ -19,25 +19,30 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
     template: "%s | Zeplynk",
-    default: "Zeplynk — Web Engineering, AI Automation & Tech Academy",
+    default: "Tech Solutions & Web Development Company Nigeria | Zeplynk",
   },
   description:
-    "Zeplynk provides comprehensive tech solutions and premier tech education. We deliver world-class web engineering and AI automation to transform businesses and careers.",
+    "Zeplynk is Nigeria's premier tech solutions and education company based in Kaduna. We deliver web engineering, AI automation, software development, and tech training across Nigeria and Africa.",
   keywords: [
-    "tech solutions",
-    "tech education",
-    "technology company",
-    "tech consulting",
-    "web development Nigeria",
-    "AI automation Africa",
+    "tech solutions Nigeria",
+    "tech education Nigeria",
+    "technology company Nigeria",
+    "tech consulting Nigeria",
+    "web development company Nigeria",
+    "AI automation Nigeria",
     "tech training Nigeria",
-    "software engineering Africa",
+    "software engineering Nigeria",
     "Zeplynk",
-    "Next.js development",
-    "AI chatbot development",
-    "tech academy Nigeria",
-    "digital transformation Africa",
-    "software company Nigeria",
+    "Next.js agency Nigeria",
+    "AI chatbot development Nigeria",
+    "coding bootcamp Nigeria",
+    "tech company Kaduna",
+    "web development Kaduna",
+    "tech training Kaduna",
+    "software company Jos Nigeria",
+    "digital transformation Nigeria",
+    "tech solutions Kaduna Nigeria",
+    "northern Nigeria tech company",
   ],
   authors: [{ name: "Zeplynk", url: BASE_URL }],
   creator: "Zeplynk",
@@ -109,7 +114,14 @@ export default function RootLayout({
     url: BASE_URL,
     logo: `${BASE_URL}/theLogo-removebg-preview.png`,
     description:
-      "Zeplynk is a Nigerian technology company specialising in web engineering, AI automation, and tech education.",
+      "Zeplynk is a Nigerian tech solutions and education company based in Kaduna. It provides web development, AI automation, and software services, and operates Zeplynk Academy — a developer training program for Nigerian professionals.",
+    foundingDate: "2023",
+    founder: {
+      "@type": "Person",
+      name: "Nash Ezekiel Pam",
+      jobTitle: "Founder & CEO",
+      url: BASE_URL,
+    },
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -123,15 +135,62 @@ export default function RootLayout({
       "https://www.linkedin.com/company/zeplynk",
       "https://twitter.com/zeplynk",
       "https://www.instagram.com/zeplynk",
+      "https://github.com/zeplynk",
     ],
     address: {
       "@type": "PostalAddress",
+      addressLocality: "Kaduna",
+      addressRegion: "Kaduna State",
       addressCountry: "NG",
-      addressRegion: "Nigeria",
     },
-    areaServed: ["NG", "ZA", "KE", "GH", "EG"], // Major African markets
-    knowsAbout: ["Tech Solutions", "Tech Education", "Technology Consulting", "Web Development", "AI Automation", "Software Engineering"],
-    serviceType: ["Tech Solutions", "Tech Education", "Web Engineering", "AI Solutions", "Tech Training"],
+    areaServed: ["Kaduna", "Jos", "Nigeria", "Africa"],
+    knowsAbout: ["Tech Solutions", "Tech Education", "Technology Consulting", "Web Development", "AI Automation", "Software Engineering", "Coding Bootcamp"],
+    serviceType: ["Tech Solutions", "Tech Education", "Web Engineering", "AI Solutions", "Tech Training", "Software Development"],
+  };
+
+  const localBusinessJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ITService",
+    name: "Zeplynk",
+    description: "Premier tech solutions and education company in Kaduna, Nigeria. Offering web development, AI automation, software engineering, and developer training programs across Nigeria.",
+    url: BASE_URL,
+    telephone: "+234-806-726-3891",
+    email: "hello@zeplynk.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Kaduna",
+      addressRegion: "Kaduna State",
+      addressCountry: "NG",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 10.5105,
+      longitude: 7.4165,
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "17:00",
+      },
+    ],
+    priceRange: "₦₦",
+    areaServed: ["Kaduna", "Jos", "Abuja", "Lagos", "Nigeria", "Africa"],
+    sameAs: [
+      "https://www.linkedin.com/company/zeplynk",
+      "https://twitter.com/zeplynk",
+      "https://www.instagram.com/zeplynk",
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Zeplynk Tech Services",
+      itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Development Nigeria", description: "Custom web application development for Nigerian businesses" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Automation Nigeria", description: "AI-powered workflow automation for Nigerian companies" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Tech Training Kaduna", description: "Developer training and coding bootcamp programs in Kaduna" } },
+      ],
+    },
   };
 
   const webpageJsonLd = {
@@ -233,7 +292,7 @@ export default function RootLayout({
     },
   };
 
-  const allSchemas = [organizationJsonLd, webpageJsonLd, serviceJsonLd, educationalOrganizationJsonLd];
+  const allSchemas = [organizationJsonLd, localBusinessJsonLd, webpageJsonLd, serviceJsonLd, educationalOrganizationJsonLd];
 
   return (
     <html lang="en" suppressHydrationWarning>

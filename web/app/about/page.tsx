@@ -2,31 +2,35 @@ import type { Metadata } from "next";
 import AboutContent from "./AboutContent";
 
 export const metadata: Metadata = {
-    title: "About Us — Our Mission & Story",
+    title: "About Zeplynk — Tech Company Founded in Kaduna, Nigeria",
     description:
-        "Learn about Zeplynk — Nigeria's technology engineering and education company on a mission to democratise access to tech skills and world-class digital solutions across Africa.",
+        "Learn about Zeplynk — a tech solutions and education company founded in Kaduna, Nigeria by Nash Ezekiel Pam. On a mission to build world-class software and train the next generation of Nigerian developers.",
     keywords: [
         "about Zeplynk",
-        "tech company Nigeria",
-        "software company Africa",
+        "tech company Kaduna Nigeria",
+        "software company Nigeria",
         "tech education Nigeria",
         "Zeplynk story",
-        "web engineering company Africa",
+        "web development company Kaduna",
+        "Nigerian tech founder",
+        "Nash Ezekiel Pam",
+        "tech startup Kaduna Nigeria",
+        "northern Nigeria tech company",
     ],
     alternates: {
         canonical: "https://zeplynk.com/about",
     },
     openGraph: {
-        title: "About Zeplynk — Our Mission & Story",
+        title: "About Zeplynk — Tech Company Founded in Kaduna, Nigeria",
         description:
-            "Nigeria's technology engineering and education company, democratising access to world-class digital solutions across Africa.",
+            "Zeplynk is a tech solutions and education company founded in Kaduna, Nigeria. Building world-class software and training Nigerian developers.",
         url: "https://zeplynk.com/about",
     },
     twitter: {
         card: "summary_large_image",
-        title: "About Zeplynk — Our Mission & Story",
+        title: "About Zeplynk — Tech Company Founded in Kaduna, Nigeria",
         description:
-            "Nigeria's technology engineering and education company democratising digital solutions across Africa.",
+            "Tech solutions and education company founded in Kaduna, Nigeria. Building software and training developers across Nigeria.",
     },
 };
 

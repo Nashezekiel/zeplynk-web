@@ -74,13 +74,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/solutions`,
             lastModified: new Date(),
             changeFrequency: "monthly",
-            priority: 0.9,
+            priority: 1.0,
+        },
+        {
+            url: `${baseUrl}/insights`,
+            lastModified: new Date(),
+            changeFrequency: "weekly",
+            priority: 0.8,
         },
         {
             url: `${baseUrl}/privacy`,
             lastModified: new Date(),
             changeFrequency: "yearly",
             priority: 0.3,
+        },
+        // Location landing pages — critical for local SEO
+        {
+            url: `${baseUrl}/kaduna`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/jos`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
+        // Press page — helps AI/LLM entity recognition
+        {
+            url: `${baseUrl}/press`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.6,
         },
     ];
 }

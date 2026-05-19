@@ -1,222 +1,96 @@
-"use client";
+import type { Metadata } from "next";
+import SolutionsPageContent from "./SolutionsPageContent";
 
-import { motion } from "framer-motion";
-import { 
-    Zap, Bot, Laptop, Cloud, Database, 
-    Shield, BarChart3, ArrowRight, Code2 
-} from "lucide-react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import Particles from "@/components/ui/Particles";
-import SolutionSection from "@/components/sections/solutions/SolutionSection";
+export const metadata: Metadata = {
+    title: "Software Development & AI Automation Services Nigeria | Zeplynk",
+    description:
+        "Zeplynk delivers world-class software development, AI automation, cloud infrastructure, and cybersecurity services to businesses in Nigeria and Africa. Based in Kaduna — serving clients nationwide.",
+    keywords: [
+        "software development Nigeria",
+        "AI automation Nigeria",
+        "web development company Nigeria",
+        "cloud infrastructure Nigeria",
+        "cybersecurity Nigeria",
+        "Next.js development Nigeria",
+        "SaaS development Nigeria",
+        "API development Nigeria",
+        "software company Kaduna",
+        "enterprise software Nigeria",
+        "AI chatbot Nigeria",
+        "tech solutions Nigeria",
+    ],
+    alternates: {
+        canonical: "https://zeplynk.com/solutions",
+    },
+    openGraph: {
+        title: "Software Development & AI Automation Services Nigeria | Zeplynk",
+        description:
+            "World-class software development, AI automation, cloud infrastructure, and cybersecurity services for Nigerian businesses. Based in Kaduna.",
+        url: "https://zeplynk.com/solutions",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Software Development & AI Automation Services Nigeria | Zeplynk",
+        description:
+            "Software development, AI automation, cloud & cybersecurity services for Nigerian businesses — Zeplynk, Kaduna.",
+    },
+};
 
-const solutionCategories = [
-    {
-        id: "ai",
-        title: "AI & Intelligent Systems",
-        description: "Transform your business with cutting-edge artificial intelligence. From strategy to deployment, we build systems that learn, adapt, and scale your operations autonomously.",
-        icon: Bot,
-        image: "/images/solutions/ai.png",
-        accentColor: "text-purple-400",
-        bgColor: "bg-purple-500/10",
-        items: [
-            { name: "AI Strategy & Consulting", href: "/solutions#ai" },
-            { name: "Intelligent Automation", href: "/solutions#ai" },
-            { name: "Conversational AI", href: "/solutions#ai" },
-            { name: "Generative AI Solutions", href: "/solutions#ai" },
-            { name: "Computer Vision", href: "/solutions#ai" }
-        ]
-    },
-    {
-        id: "engineering",
-        title: "Digital Product Engineering",
-        description: "We engineer high-performance web and mobile platforms designed for global hyper-growth. Our products are secure, scalable, and built with modern architectural precision.",
-        icon: Laptop,
-        image: "/images/solutions/engineering.png",
-        accentColor: "text-blue-400",
-        bgColor: "bg-blue-500/10",
-        reversed: true,
-        items: [
-            { name: "Web Application Development", href: "/solutions#engineering" },
-            { name: "Mobile App Development", href: "/solutions#engineering" },
-            { name: "SaaS Product Development", href: "/solutions#engineering" },
-            { name: "API Development & Integration", href: "/solutions#engineering" },
-            { name: "UI/UX Engineering", href: "/solutions#engineering" }
-        ]
-    },
-    {
-        id: "cloud",
-        title: "Cloud & DevOps",
-        description: "Modernize your infrastructure with cloud-native solutions. We automate your delivery pipelines and manage complex cloud environments for maximum reliability.",
-        icon: Cloud,
-        image: "/images/solutions/cloud.png",
-        accentColor: "text-cyan-400",
-        bgColor: "bg-cyan-500/10",
-        items: [
-            { name: "Cloud Infrastructure", href: "/solutions#cloud" },
-            { name: "DevOps & CI/CD", href: "/solutions#cloud" },
-            { name: "Cloud Migration", href: "/solutions#cloud" },
-            { name: "Serverless Architecture", href: "/solutions#cloud" },
-            { name: "Monitoring & Observability", href: "/solutions#cloud" }
-        ]
-    },
-    {
-        id: "enterprise",
-        title: "Enterprise Systems",
-        description: "Streamline your core business processes with integrated enterprise solutions. We bridge the gap between legacy systems and modern workflow automation.",
-        icon: Database,
-        image: "/images/solutions/enterprise.png",
-        accentColor: "text-zgreen-400",
-        bgColor: "bg-zgreen-500/10",
-        reversed: true,
-        items: [
-            { name: "CRM & ERP Solutions", href: "/solutions#enterprise" },
-            { name: "Enterprise Integration", href: "/solutions#enterprise" },
-            { name: "Workflow Automation", href: "/solutions#enterprise" },
-            { name: "Data Warehousing", href: "/solutions#enterprise" }
-        ]
-    },
-    {
-        id: "security",
-        title: "Cybersecurity",
-        description: "Protect your digital assets with advanced security engineering. We provide proactive defense strategies and compliance governance to ensure complete business continuity.",
-        icon: Shield,
-        image: "/images/solutions/security.png",
-        accentColor: "text-red-400",
-        bgColor: "bg-red-500/10",
-        items: [
-            { name: "Application Security", href: "/solutions#security" },
-            { name: "Penetration Testing", href: "/solutions#security" },
-            { name: "Identity & Access Management", href: "/solutions#security" },
-            { name: "Compliance & Governance", href: "/solutions#security" }
-        ]
-    },
-    {
-        id: "data",
-        title: "Data & Analytics",
-        description: "Turn raw data into strategic intelligence. We build high-speed data pipelines and real-time dashboard systems that provide actionable business insights.",
-        icon: BarChart3,
-        image: "/images/solutions/data.png",
-        accentColor: "text-yellow-400",
-        bgColor: "bg-yellow-500/10",
-        reversed: true,
-        items: [
-            { name: "Business Intelligence", href: "/solutions#data" },
-            { name: "Real-Time Dashboards", href: "/solutions#data" },
-            { name: "Big Data Engineering", href: "/solutions#data" },
-            { name: "Customer Analytics", href: "/solutions#data" }
-        ]
-    }
-];
+const solutionsFaqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+        {
+            "@type": "Question",
+            name: "How much does web development cost in Nigeria?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Web development costs in Nigeria vary depending on complexity. A basic business website starts from ₦150,000. A custom web application or e-commerce platform typically ranges from ₦500,000 to ₦2,000,000+. Zeplynk provides a free consultation and tailored quote for every project.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "How long does it take to build a website in Nigeria?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "A simple website takes 1–2 weeks. A custom web application or SaaS product typically takes 4–12 weeks depending on features. Zeplynk provides a detailed project timeline during the initial strategy call.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "What AI automation services does Zeplynk offer in Nigeria?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Zeplynk offers AI chatbot development, workflow automation, generative AI integration, computer vision systems, and AI consulting for Nigerian businesses. We help companies reduce manual processes and scale operations using intelligent automation.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "Does Zeplynk work with small businesses in Nigeria?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Zeplynk works with businesses of all sizes in Nigeria — from startups and SMEs to large enterprises. We offer scalable solutions designed to grow with your business, with packages suited to different budgets.",
+            },
+        },
+        {
+            "@type": "Question",
+            name: "Where is Zeplynk based in Nigeria?",
+            acceptedAnswer: {
+                "@type": "Answer",
+                text: "Zeplynk is headquartered in Kaduna, Nigeria, and also serves clients in Jos, Abuja, Lagos, and across Nigeria. We work with clients remotely across Africa and globally.",
+            },
+        },
+    ],
+};
 
 export default function SolutionsPage() {
     return (
-        <main className="bg-black text-white relative">
-            {/* Global Background Effects */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-                <div className="absolute inset-0">
-                    <Particles
-                        particleCount={100}
-                        particleSpread={15}
-                        speed={0.03}
-                        particleColors={["#ffffff"]}
-                        moveParticlesOnHover={false}
-                        alphaParticles={true}
-                    />
-                </div>
-            </div>
-
-            {/* Hero Section */}
-            <div className="relative min-h-screen pt-32 flex items-center justify-center px-4 sm:px-6 lg:px-8 border-b border-white/5">
-                <div className="max-w-7xl mx-auto relative z-10">
-                    <div className="text-center">
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="text-5xl md:text-8xl font-bold mb-8 tracking-tighter leading-[0.9]"
-                        >
-                            Engineering The <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-400 to-zinc-600">Enterprise Future.</span>
-                        </motion.h1>
-                        
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-medium mb-12"
-                        >
-                            From AI strategy to global cloud infrastructure, we build the high-performance digital systems that drive measurable business impact.
-                        </motion.p>
-
-                        {/* Quick Jump Sub-Nav */}
-                        <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            className="flex flex-wrap justify-center gap-3"
-                        >
-                            {solutionCategories.map((cat) => (
-                                <Link 
-                                    key={cat.id} 
-                                    href={`#${cat.id}`}
-                                    className="px-6 py-3 rounded-2xl bg-white/5 border border-white/5 text-sm font-bold text-gray-400 hover:bg-white/10 hover:text-white hover:border-white/20 transition-all backdrop-blur-sm"
-                                >
-                                    {cat.title.split(' & ')[0]}
-                                </Link>
-                            ))}
-                        </motion.div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Solution Sections Stack */}
-            <div className="divide-y divide-white/5">
-                {solutionCategories.map((solution, idx) => (
-                    <SolutionSection
-                        key={solution.id}
-                        {...solution}
-                    />
-                ))}
-            </div>
-
-            {/* Final Conversion Section */}
-            <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-zgreen-500/5 blur-[150px] rounded-full pointer-events-none" />
-                
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="bg-gradient-to-br from-zinc-900 to-black border border-white/10 rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden">
-                        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:40px_40px]" />
-                        
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="relative z-10 max-w-4xl mx-auto space-y-10"
-                        >
-                            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter leading-tight">
-                                Ready To Architect <br /> Your Next Advantage?
-                            </h2>
-                            <p className="text-xl text-gray-400 font-medium leading-relaxed">
-                                Join the global enterprises scaling with Zeplynk's engineering precision. Our consultants are ready to audit your current stack and design your growth roadmap.
-                            </p>
-                            
-                            <div className="flex flex-col sm:flex-row justify-center gap-6 pt-4">
-                                <Link href="/contact">
-                                    <Button size="lg" className="h-16 px-10 bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-2xl text-xl font-bold shadow-2xl shadow-zgreen-500/20 transition-all hover:scale-105 active:scale-95">
-                                        Book Strategy Call <ArrowRight className="ml-2 w-5 h-5" />
-                                    </Button>
-                                </Link>
-                                <Link href="/register">
-                                    <Button variant="outline" size="lg" className="h-16 px-10 border-white/20 bg-white/5 text-white hover:bg-white/10 rounded-2xl text-xl font-bold backdrop-blur-md transition-all">
-                                        Join Engineering Network
-                                    </Button>
-                                </Link>
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-        </main>
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(solutionsFaqSchema) }}
+            />
+            <SolutionsPageContent />
+        </>
     );
 }
