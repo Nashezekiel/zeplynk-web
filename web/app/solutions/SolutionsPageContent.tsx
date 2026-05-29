@@ -1,222 +1,213 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { 
-    Zap, Bot, Laptop, Cloud, Database, 
-    Shield, BarChart3, ArrowRight, Code2 
-} from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import Particles from "@/components/ui/Particles";
-import SolutionSection from "@/components/sections/solutions/SolutionSection";
+import { solutions } from "@/lib/solutions-data";
 
-const solutionCategories = [
-    {
-        id: "ai",
-        title: "AI & Intelligent Systems",
-        description: "Transform your business with cutting-edge artificial intelligence. From strategy to deployment, we build systems that learn, adapt, and scale your operations autonomously.",
-        icon: Bot,
-        image: "/images/solutions/ai.png",
-        accentColor: "text-purple-400",
-        bgColor: "bg-purple-500/10",
-        items: [
-            { name: "AI Strategy & Consulting", href: "/solutions#ai" },
-            { name: "Intelligent Automation", href: "/solutions#ai" },
-            { name: "Conversational AI", href: "/solutions#ai" },
-            { name: "Generative AI Solutions", href: "/solutions#ai" },
-            { name: "Computer Vision", href: "/solutions#ai" }
-        ]
-    },
-    {
-        id: "engineering",
-        title: "Digital Product Engineering",
-        description: "We engineer high-performance web and mobile platforms designed for global hyper-growth. Our products are secure, scalable, and built with modern architectural precision.",
-        icon: Laptop,
-        image: "/images/solutions/engineering.png",
-        accentColor: "text-blue-400",
-        bgColor: "bg-blue-500/10",
-        reversed: true,
-        items: [
-            { name: "Web Application Development", href: "/solutions#engineering" },
-            { name: "Mobile App Development", href: "/solutions#engineering" },
-            { name: "SaaS Product Development", href: "/solutions#engineering" },
-            { name: "API Development & Integration", href: "/solutions#engineering" },
-            { name: "UI/UX Engineering", href: "/solutions#engineering" }
-        ]
-    },
-    {
-        id: "cloud",
-        title: "Cloud & DevOps",
-        description: "Modernize your infrastructure with cloud-native solutions. We automate your delivery pipelines and manage complex cloud environments for maximum reliability.",
-        icon: Cloud,
-        image: "/images/solutions/cloud.png",
-        accentColor: "text-cyan-400",
-        bgColor: "bg-cyan-500/10",
-        items: [
-            { name: "Cloud Infrastructure", href: "/solutions#cloud" },
-            { name: "DevOps & CI/CD", href: "/solutions#cloud" },
-            { name: "Cloud Migration", href: "/solutions#cloud" },
-            { name: "Serverless Architecture", href: "/solutions#cloud" },
-            { name: "Monitoring & Observability", href: "/solutions#cloud" }
-        ]
-    },
-    {
-        id: "enterprise",
-        title: "Enterprise Systems",
-        description: "Streamline your core business processes with integrated enterprise solutions. We bridge the gap between legacy systems and modern workflow automation.",
-        icon: Database,
-        image: "/images/solutions/enterprise.png",
-        accentColor: "text-zgreen-400",
-        bgColor: "bg-zgreen-500/10",
-        reversed: true,
-        items: [
-            { name: "CRM & ERP Solutions", href: "/solutions#enterprise" },
-            { name: "Enterprise Integration", href: "/solutions#enterprise" },
-            { name: "Workflow Automation", href: "/solutions#enterprise" },
-            { name: "Data Warehousing", href: "/solutions#enterprise" }
-        ]
-    },
-    {
-        id: "security",
-        title: "Cybersecurity",
-        description: "Protect your digital assets with advanced security engineering. We provide proactive defense strategies and compliance governance to ensure complete business continuity.",
-        icon: Shield,
-        image: "/images/solutions/security.png",
-        accentColor: "text-red-400",
-        bgColor: "bg-red-500/10",
-        items: [
-            { name: "Application Security", href: "/solutions#security" },
-            { name: "Penetration Testing", href: "/solutions#security" },
-            { name: "Identity & Access Management", href: "/solutions#security" },
-            { name: "Compliance & Governance", href: "/solutions#security" }
-        ]
-    },
-    {
-        id: "data",
-        title: "Data & Analytics",
-        description: "Turn raw data into strategic intelligence. We build high-speed data pipelines and real-time dashboard systems that provide actionable business insights.",
-        icon: BarChart3,
-        image: "/images/solutions/data.png",
-        accentColor: "text-yellow-400",
-        bgColor: "bg-yellow-500/10",
-        reversed: true,
-        items: [
-            { name: "Business Intelligence", href: "/solutions#data" },
-            { name: "Real-Time Dashboards", href: "/solutions#data" },
-            { name: "Big Data Engineering", href: "/solutions#data" },
-            { name: "Customer Analytics", href: "/solutions#data" }
-        ]
-    }
-];
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.08 },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
+};
+
+// Map solution slugs to bento span sizes for visual variety
+const bentoSpans: Record<string, string> = {
+  ai: "md:col-span-2",
+  engineering: "md:col-span-1",
+  cloud: "md:col-span-1",
+  enterprise: "md:col-span-1",
+  security: "md:col-span-2",
+  data: "md:col-span-1",
+};
 
 export default function SolutionsPageContent() {
-    return (
-        <main className="bg-black text-white relative">
-            {/* Global Background Effects */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-                <div className="absolute inset-0">
-                    <Particles
-                        particleCount={100}
-                        particleSpread={15}
-                        speed={0.03}
-                        particleColors={["#ffffff"]}
-                        moveParticlesOnHover={false}
-                        alphaParticles={true}
-                    />
-                </div>
-            </div>
+  return (
+    <main className="min-h-screen bg-black text-white overflow-x-hidden">
+      {/* ── Subtle grid background ── */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 z-0"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
 
-            {/* Hero Section */}
-            <div className="relative min-h-screen pt-32 flex items-center justify-center px-4 sm:px-6 lg:px-8 border-b border-white/5">
-                <div className="max-w-7xl mx-auto relative z-10">
-                    <div className="text-center">
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="text-5xl md:text-8xl font-bold mb-8 tracking-tighter leading-[0.9]"
-                        >
-                            Engineering The <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-400 to-zinc-600">Enterprise Future.</span>
-                        </motion.h1>
-                        
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-medium mb-12"
-                        >
-                            From AI strategy to global cloud infrastructure, we build the high-performance digital systems that drive measurable business impact.
-                        </motion.p>
+      {/* ── Hero ── */}
+      <section className="relative z-10 pt-36 pb-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="space-y-6"
+        >
+          {/* eyebrow */}
+          <motion.div variants={cardVariants} className="flex items-center gap-3">
+            <div className="h-px w-8 bg-zgreen-500" />
+            <span className="text-zgreen-500 text-xs font-bold uppercase tracking-[0.25em]">
+              Our Solutions
+            </span>
+          </motion.div>
 
-                        {/* Quick Jump Sub-Nav */}
-                        <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            className="flex flex-wrap justify-center gap-3"
-                        >
-                            {solutionCategories.map((cat) => (
-                                <Link 
-                                    key={cat.id} 
-                                    href={`#${cat.id}`}
-                                    className="px-6 py-3 rounded-2xl bg-white/5 border border-white/5 text-sm font-bold text-gray-400 hover:bg-white/10 hover:text-white hover:border-white/20 transition-all backdrop-blur-sm"
-                                >
-                                    {cat.title.split(' & ')[0]}
-                                </Link>
-                            ))}
-                        </motion.div>
+          {/* headline */}
+          <motion.h1
+            variants={cardVariants}
+            className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.05] max-w-4xl"
+          >
+            The technology
+            <br />
+            <span className="text-zinc-500">that moves business.</span>
+          </motion.h1>
+
+          {/* sub */}
+          <motion.p
+            variants={cardVariants}
+            className="text-lg text-zinc-400 max-w-2xl leading-relaxed font-medium"
+          >
+            Six practice areas. One accountable partner. From AI systems and cloud
+            infrastructure to enterprise integration — we engineer outcomes, not just
+            deliverables.
+          </motion.p>
+
+          {/* stat row */}
+          <motion.div
+            variants={cardVariants}
+            className="flex flex-wrap gap-8 pt-4 border-t border-white/5"
+          >
+            {[
+              { value: "100+", label: "Projects delivered" },
+              { value: "40+", label: "AI systems deployed" },
+              { value: "99.9%", label: "Uptime SLA" },
+              { value: "5★", label: "Client satisfaction" },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <div className="text-2xl font-bold text-white">{stat.value}</div>
+                <div className="text-xs text-zinc-500 mt-0.5 font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ── Bento Grid ── */}
+      <section className="relative z-10 pb-32 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-3 gap-4"
+        >
+          {solutions.map((solution) => {
+            const Icon = solution.icon;
+            const span = bentoSpans[solution.slug] ?? "md:col-span-1";
+
+            return (
+              <motion.div key={solution.slug} variants={cardVariants} className={span}>
+                <Link
+                  href={`/solutions/${solution.slug}`}
+                  className="group relative flex flex-col h-full min-h-[280px] p-8 rounded-2xl bg-zinc-900/40 border border-white/8 hover:border-white/20 hover:bg-zinc-900/70 transition-all duration-500 overflow-hidden"
+                >
+                  {/* Accent glow */}
+                  <div
+                    className={`absolute -top-16 -right-16 w-48 h-48 ${solution.bgColor} rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-700`}
+                  />
+
+                  {/* Top row */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div
+                      className={`w-12 h-12 rounded-xl ${solution.bgColor} ${solution.borderColor} border flex items-center justify-center`}
+                    >
+                      <Icon className={`w-6 h-6 ${solution.accentColor}`} />
                     </div>
-                </div>
-            </div>
-
-            {/* Solution Sections Stack */}
-            <div className="divide-y divide-white/5">
-                {solutionCategories.map((solution) => (
-                    <SolutionSection
-                        key={solution.id}
-                        {...solution}
-                    />
-                ))}
-            </div>
-
-            {/* Final Conversion Section */}
-            <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-zgreen-500/5 blur-[150px] rounded-full pointer-events-none" />
-                
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="bg-gradient-to-br from-zinc-900 to-black border border-white/10 rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden">
-                        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:40px_40px]" />
-                        
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="relative z-10 max-w-4xl mx-auto space-y-10"
-                        >
-                            <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter leading-tight">
-                                Ready To Architect <br /> Your Next Advantage?
-                            </h2>
-                            <p className="text-xl text-gray-400 font-medium leading-relaxed">
-                                Join the global enterprises scaling with Zeplynk&apos;s engineering precision. Our consultants are ready to audit your current stack and design your growth roadmap.
-                            </p>
-                            
-                            <div className="flex flex-col sm:flex-row justify-center gap-6 pt-4">
-                                <Link href="/contact">
-                                    <Button size="lg" className="h-16 px-10 bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-2xl text-xl font-bold shadow-2xl shadow-zgreen-500/20 transition-all hover:scale-105 active:scale-95">
-                                        Book Strategy Call <ArrowRight className="ml-2 w-5 h-5" />
-                                    </Button>
-                                </Link>
-                                <Link href="/register">
-                                    <Button variant="outline" size="lg" className="h-16 px-10 border-white/20 bg-white/5 text-white hover:bg-white/10 rounded-2xl text-xl font-bold backdrop-blur-md transition-all">
-                                        Join Engineering Network
-                                    </Button>
-                                </Link>
-                            </div>
-                        </motion.div>
+                    <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:border-white/30 translate-x-2 group-hover:translate-x-0">
+                      <ArrowRight className="w-4 h-4 text-white" />
                     </div>
-                </div>
-            </section>
-        </main>
-    );
+                  </div>
+
+                  {/* Title + tagline */}
+                  <h2 className="text-xl font-bold text-white mb-2 tracking-tight">
+                    {solution.title}
+                  </h2>
+                  <p className="text-sm text-zinc-500 leading-relaxed mb-6 flex-1">
+                    {solution.tagline}
+                  </p>
+
+                  {/* Service pills */}
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {solution.items.slice(0, 3).map((item) => (
+                      <span
+                        key={item.name}
+                        className="text-[11px] font-semibold text-zinc-400 bg-white/5 border border-white/8 px-2.5 py-1 rounded-full"
+                      >
+                        {item.name}
+                      </span>
+                    ))}
+                    {solution.items.length > 3 && (
+                      <span className="text-[11px] font-semibold text-zinc-600 bg-white/5 border border-white/8 px-2.5 py-1 rounded-full">
+                        +{solution.items.length - 3} more
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Bottom explore label */}
+                  <div
+                    className={`mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-bold uppercase tracking-widest ${solution.accentColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                  >
+                    Explore {solution.title.split(" ")[0]}
+                    <ArrowRight className="w-3 h-3" />
+                  </div>
+                </Link>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </section>
+
+      {/* ── Bottom CTA ── */}
+      <section className="relative z-10 pb-32 px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-10 rounded-2xl border border-white/8 bg-zinc-900/30"
+        >
+          <div>
+            <h2 className="text-2xl font-bold text-white mb-2">
+              Not sure where to start?
+            </h2>
+            <p className="text-zinc-500 text-sm max-w-md leading-relaxed">
+              Book a free 30-minute strategy call. We&apos;ll audit your current
+              stack and tell you exactly where we can add the most value.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-bold rounded-xl hover:bg-zinc-100 transition-colors"
+            >
+              Book a Strategy Call <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/work"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white text-sm font-bold rounded-xl hover:bg-white/10 transition-colors"
+            >
+              View Our Work
+            </Link>
+          </div>
+        </motion.div>
+      </section>
+    </main>
+  );
 }
