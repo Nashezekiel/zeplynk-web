@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+
+# build outputs
+.next/
+out/
+build/
+dist/
+
+# local env
+.env
+.env.*
+
+# logs and reports
+*.log
+*_report.txt
+*_output.txt
+tsc_errors*.txt
+icon_check_results.txt
+
+# TypeScript
+*.tsbuildinfo
+
+# OS/editor
+.DS_Store
+Thumbs.db
