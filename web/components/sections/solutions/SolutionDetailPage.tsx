@@ -257,7 +257,7 @@ export default function SolutionDetailPage({ slug }: Props) {
       </section>
 
       {/* ═══════════════════════════════════════════
-          WHY ZEPLYNK — differentiators
+          Why Zeplynk — differentiators
       ═══════════════════════════════════════════ */}
       <section className="relative z-10 py-28 px-4 sm:px-6 lg:px-8 border-t border-white/5">
         <div className="max-w-6xl mx-auto">

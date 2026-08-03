@@ -1,9 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { Zap, Shield, Eye, Lock, MessageCircle, Mail } from "lucide-react";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Shield, Eye, Lock, MessageCircle, Mail } from "lucide-react";
 
 export default function Privacy() {
     return (
@@ -38,7 +35,7 @@ export default function Privacy() {
                                 Introduction
                             </h2>
                             <p className="text-white leading-relaxed font-medium">
-                                At ZEPLYNK, we are committed to protecting your privacy and ensuring the security of your personal information.
+                                At Zeplynk, we are committed to protecting your privacy and ensuring the security of your personal information.
                                 This Privacy Policy explains how we collect, use, and safeguard your data when you use our services,
                                 visit our website, or participate in our educational programs.
                             </p>
@@ -181,7 +178,7 @@ export default function Privacy() {
                                     Email Privacy Team
                                 </a>
                                 <a
-                                    href="https://wa.me/2348067263891?text=Hello%20ZEPLYNK!%20I%20have%20questions%20about%20your%20Privacy%20Policy."
+                                    href="https://wa.me/2348067263891?text=Hello%20Zeplynk!%20I%20have%20questions%20about%20your%20Privacy%20Policy."
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center border border-zgreen-500 text-zgreen-500 px-6 py-3 rounded-lg hover:bg-zgreen-500/10 transition-colors duration-200 font-medium"

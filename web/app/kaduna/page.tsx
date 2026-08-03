@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
     title: "Tech Solutions Company in Kaduna, Nigeria | Zeplynk",
     description:
-        "Zeplynk is Kaduna's leading tech solutions company. We build websites, web applications, and AI automation tools for businesses in Kaduna, Kaduna State, and northern Nigeria. Get a free consultation today.",
+        "Zeplynk: Kaduna's leading tech solutions company. We build websites, web applications & AI automation tools for businesses in Kaduna State and northern Nigeria.",
     keywords: [
         "tech solutions Kaduna",
         "web development Kaduna",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Tech Solutions Company in Kaduna, Nigeria | Zeplynk",
         description:
-            "Kaduna's leading tech solutions company — web development, AI automation, and developer training for businesses in Kaduna and northern Nigeria.",
+            "Zeplynk is Kaduna's leading tech solutions company — web development, AI automation, and developer training for businesses in Kaduna and northern Nigeria.",
         url: "https://zeplynk.com/kaduna",
     },
     twitter: {
@@ -70,12 +70,35 @@ const kadunaLocalBusinessSchema = {
     ],
 };
 
+const kadunaBreadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://zeplynk.com",
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: "Kaduna",
+            item: "https://zeplynk.com/kaduna",
+        },
+    ],
+};
+
 export default function KadunaPage() {
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(kadunaLocalBusinessSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(kadunaBreadcrumbSchema) }}
             />
             <main className="min-h-screen bg-black text-white">
                 {/* Hero */}

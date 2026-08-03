@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import {
-    Zap,
     CreditCard,
     User,
     Mail,
@@ -60,7 +59,7 @@ export default function Register() {
         e.preventDefault();
 
         // Create mailto link with form data
-        const subject = encodeURIComponent('ZEPLYNK Academy Registration');
+        const subject = encodeURIComponent('Zeplynk Academy Registration');
         const body = encodeURIComponent(`
 Registration Details:
 
@@ -87,7 +86,7 @@ Payment proof attached separately if provided.
                         </div>
                         <h2 className="text-2xl font-bold text-white mb-4">Registration Submitted!</h2>
                         <p className="text-gray-200 mb-8 leading-relaxed font-medium">
-                            Thank you for your interest in ZEPLYNK Tech Academy. We'll review your application and contact you soon.
+                            Thank you for your interest in Zeplynk Tech Academy. We'll review your application and contact you soon.
                         </p>
                         <Link href="/">
                             <Button className="w-full bg-zgreen-600 hover:bg-zgreen-500 text-white py-6 text-lg rounded-xl">
@@ -106,7 +105,7 @@ Payment proof attached separately if provided.
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="text-center mb-12">
                     <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                        Register for <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-600">ZEPLYNK Tech Academy</span>
+                        Register for <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-600">Zeplynk Tech Academy</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-medium">
                         Start your 3-month journey to becoming a skilled developer. Complete payment and fill out the form below.
@@ -352,7 +351,7 @@ Payment proof attached separately if provided.
                 <div className="relative">
                     {/* Main button */}
                     <a
-                        href="https://wa.me/2348067263891?text=Hello%20ZEPLYNK!%20I%20need%20help%20with%20registration."
+                        href="https://wa.me/2348067263891?text=Hello%20Zeplynk!%20I%20need%20help%20with%20registration."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="relative bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all duration-200 hover:scale-105 flex items-center justify-center"

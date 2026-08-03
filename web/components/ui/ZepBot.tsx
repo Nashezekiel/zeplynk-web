@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, X, Send, Bot, Sparkles, Brain, GraduationCap, Code2, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { MessageSquare, X, Send, Bot, Sparkles, Brain, GraduationCap } from 'lucide-react';
 
 interface Message {
     id: string;
@@ -13,11 +12,11 @@ interface Message {
 }
 
 const ZepKnowledge = {
-    introduction: "Hi! I'm ZepBot, your AI guide to ZEPLYNK. We specialize in Agentic AI, Digital Product Engineering, and Tech Education. How can I help you scale today?",
+    introduction: "Hi! I'm ZepBot, your AI guide to Zeplynk. We specialize in Agentic AI, Digital Product Engineering, and Tech Education. How can I help you scale today?",
     
     solutions: {
         ai: "Our AI & Intelligent Systems expertise covers AI Strategy, Workflow Automation, Conversational AI, and Computer Vision. We help businesses integrate 'Agentic' capabilities into their daily operations. Explore /solutions#ai for more.",
-        engineering: "ZEPLYNK engineers high-performance web/mobile platforms, SaaS products, and enterprise-grade systems. We focus on scalability and architectural precision. See our work at /solutions#engineering.",
+        engineering: "Zeplynk engineers high-performance web/mobile platforms, SaaS products, and enterprise-grade systems. We focus on scalability and architectural precision. See our work at /solutions#engineering.",
         cloud: "We offer Cloud infrastructure, DevOps (CI/CD), migration, and serverless architecture to ensure your business is built for global hyper-growth. Check /solutions#cloud.",
         enterprise: "Our Enterprise Systems integrate legacy processes with modern automation, including CRM and ERP solutions tailored for SMEs. Visit /solutions#enterprise.",
         security: "Cybersecurity is core to our engineering. We provide Penetration Testing, IAM, Application Security, and Compliance Governance. Secure your assets at /solutions#security.",
@@ -25,19 +24,19 @@ const ZepKnowledge = {
     },
     
     academy: {
-        mission: "ZEPLYNK Academy's mission is to train 1 million+ developers across Africa by 2030, bridging the talent gap in modern engineering and Agentic AI. Start your journey at /academy.",
+        mission: "Zeplynk Academy's mission is to train 1 million+ developers across Africa by 2030, bridging the talent gap in modern engineering and Agentic AI. Start your journey at /academy.",
         impact: "We have already trained over 2,000 students in Nigeria and our alumni contribute to leading global tech firms."
     },
 
     company: {
-        impact: "ZEPLYNK has helped launch over 50 startups, automated 100+ business processes, and has a community footprint across Nigeria's 36 states.",
+        impact: "Zeplynk has helped launch over 50 startups, automated 100+ business processes, and has a community footprint across Nigeria's 36 states.",
         values: "We are driven by Excellence, Innovation, Impact, and Accessibility. Every line of code is an investment in Africa's digital future.",
         contact: "You can book a strategy call or hire our engineering team directly at /contact. We're ready to help you scale.",
-        pricing: "ZEPLYNK solutions are custom-engineered for specific business needs. We use value-based pricing, which is why we recommend a strategy call to provide an accurate quote based on your scale and requirements. Visit /contact to book yours."
+        pricing: "Zeplynk solutions are custom-engineered for specific business needs. We use value-based pricing, which is why we recommend a strategy call to provide an accurate quote based on your scale and requirements. Visit /contact to book yours."
     },
 
     general: {
-        location: "ZEPLYNK is physically present across Nigeria, with a mission to bring tech excellence to every state.",
+        location: "Zeplynk is physically present across Nigeria, with a mission to bring tech excellence to every state.",
         hiring: "We are always looking for visionary engineers! Check our About page or reach out via /contact for career opportunities."
     }
 };
@@ -76,11 +75,10 @@ const getBotResponse = (input: string): string => {
 
     if (q.includes('hello') || q.includes('hi ') || q.includes('hey')) return "Hello! I'm ZepBot. I can tell you about our AI solutions, Web Engineering, Academy mission, or help you book a strategy call. What's on your mind?";
 
-    return "I'm not exactly sure about that, but I can assist with AI Solutions, Product Engineering, or details about the ZEPLYNK Academy. Would you like to see our Solutions catalog?";
+    return "I'm not exactly sure about that, but I can assist with AI Solutions, Product Engineering, or details about the Zeplynk Academy. Would you like to see our Solutions catalog?";
 };
 
 export default function ZepBot() {
-    const [mounted, setMounted] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
         { id: '1', text: ZepKnowledge.introduction, sender: 'bot', timestamp: new Date() }
@@ -88,10 +86,6 @@ export default function ZepBot() {
     const [inputValue, setInputValue] = useState('');
     const [isTyping, setIsTyping] = useState(false);
     const scrollRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
 
     useEffect(() => {
         if (scrollRef.current) {
@@ -120,7 +114,7 @@ export default function ZepBot() {
         { label: "AI Solutions", icon: Brain, action: () => handleSend("Tell me about your AI solutions") },
         { label: "Our Mission", icon: GraduationCap, action: () => handleSend("What is your 2030 mission?") },
         { label: "Success Stories", icon: Sparkles, action: () => handleSend("What impact have you made?") },
-        { label: "Start Project", icon: Send, action: () => handleSend("How can I hire ZEPLYNK?") }
+        { label: "Start Project", icon: Send, action: () => handleSend("How can I hire Zeplynk?") }
     ];
 
     return (
@@ -245,11 +239,9 @@ export default function ZepBot() {
                     <div className="relative">
                         <MessageSquare className="h-7 w-7 text-white group-hover:hidden" />
                         <Sparkles className="h-7 w-7 text-white hidden group-hover:block animate-pulse" />
-                        {mounted && (
-                            <div className="absolute -top-3 -right-3 h-5 w-5 bg-white text-zgreen-600 text-[10px] font-black rounded-full flex items-center justify-center border-2 border-zgreen-500 animate-bounce">
-                                1
-                            </div>
-                        )}
+                        <div className="absolute -top-3 -right-3 h-5 w-5 bg-white text-zgreen-600 text-[10px] font-black rounded-full flex items-center justify-center border-2 border-zgreen-500 animate-bounce">
+                            1
+                        </div>
                     </div>
                 )}
             </motion.button>

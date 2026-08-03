@@ -4,7 +4,7 @@ import ContactContent from "./ContactContent";
 export const metadata: Metadata = {
     title: "Contact Zeplynk — Tech Solutions in Kaduna & Jos Nigeria",
     description:
-        "Contact Zeplynk to start your web development or AI automation project in Nigeria. Book a free strategy call or enquire about our tech training programmes in Kaduna and Jos.",
+        "Contact Zeplynk to start your web development or AI automation project in Nigeria. Book a free strategy call or enquire about tech training in Kaduna and Jos.",
     keywords: [
         "contact Zeplynk",
         "hire web developer Kaduna",
@@ -34,6 +34,33 @@ export const metadata: Metadata = {
     },
 };
 
+const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://zeplynk.com",
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: "Contact",
+            item: "https://zeplynk.com/contact",
+        },
+    ],
+};
+
 export default function ContactPage() {
-    return <ContactContent />;
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+            <ContactContent />
+        </>
+    );
 }

@@ -1,8 +1,9 @@
+import type { Metadata } from "next";
 import { newsItems } from "@/constants/news";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Tag, Clock, Share2, ArrowRight } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Share2, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export async function generateStaticParams() {
@@ -11,8 +12,45 @@ export async function generateStaticParams() {
     }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-    const post = newsItems.find((item) => item.slug === params.slug);
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+    const { slug } = await params;
+    const post = newsItems.find((item) => item.slug === slug);
+    if (!post) return {};
+
+    const title = `${post.title} | Zeplynk`;
+    const description = `Zeplynk insights: ${post.excerpt}`;
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: `https://zeplynk.com/news/${slug}`,
+        },
+        openGraph: {
+            title,
+            description,
+            url: `https://zeplynk.com/news/${slug}`,
+            type: "article",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+        },
+    };
+}
+
+export default async function BlogPostPage({
+    params,
+}: {
+    params: Promise<{ slug: string }>;
+}) {
+    const { slug } = await params;
+    const post = newsItems.find((item) => item.slug === slug);
 
     if (!post) {
         notFound();
@@ -20,11 +58,72 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
     // Suggested posts (excluding current)
     const suggestedPosts = newsItems
-        .filter((item) => item.slug !== params.slug)
+        .filter((item) => item.slug !== slug)
         .slice(0, 2);
 
+    // Article Schema
+    const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: post.title,
+        description: post.excerpt,
+        image: post.image,
+        author: {
+            "@type": "Organization",
+            name: "Zeplynk",
+            url: "https://zeplynk.com",
+        },
+        publisher: {
+            "@type": "Organization",
+            name: "Zeplynk",
+            url: "https://zeplynk.com",
+            logo: "https://zeplynk.com/theLogo-removebg-preview.png",
+        },
+        datePublished: post.date,
+        dateModified: post.date,
+        mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": `https://zeplynk.com/news/${slug}`,
+        },
+    };
+
+    // Breadcrumb Schema
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://zeplynk.com",
+            },
+            {
+                "@type": "ListItem",
+                position: 2,
+                name: "News",
+                item: "https://zeplynk.com/news",
+            },
+            {
+                "@type": "ListItem",
+                position: 3,
+                name: post.title,
+                item: `https://zeplynk.com/news/${slug}`,
+            },
+        ],
+    };
+
     return (
-        <main className="min-h-screen bg-black text-white pt-32 pb-24">
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+            <main className="min-h-screen bg-black text-white pt-32 pb-24">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Back Link */}
                 <Link href="/news" className="inline-flex items-center gap-2 text-gray-400 hover:text-zgreen-500 transition-colors mb-12 group">
@@ -141,5 +240,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 </section>
             </div>
         </main>
+        </>
     );
 }

@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import animate from "tailwindcss-animate";
 
 export default {
     darkMode: ["class"],
@@ -65,7 +66,7 @@ export default {
                     border: "hsl(var(--sidebar-border))",
                     ring: "hsl(var(--sidebar-ring))",
                 },
-                // ZEPLYNK Brand Colors
+                // Zeplynk Brand Colors
                 zgreen: {
                     50: "#f0fdf4",
                     100: "#dcfce7",
@@ -150,5 +151,5 @@ export default {
             },
         },
     },
-    plugins: [require("tailwindcss-animate")],
+    plugins: [animate],
 } satisfies Config;

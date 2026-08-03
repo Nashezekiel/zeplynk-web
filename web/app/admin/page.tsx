@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import {
     LayoutDashboard,
     FileText,
@@ -11,7 +10,6 @@ import {
     Code,
     Copy,
     Check,
-    Trash2,
     Save,
     ArrowLeft,
     Type,
@@ -73,18 +71,11 @@ export default function AdminDashboard() {
     const [view, setView] = useState<"edit" | "preview" | "json">("edit");
     const [copied, setCopied] = useState(false);
 
-    // Auto-generate slug from title
-    useEffect(() => {
-        if (view === "edit" && activeTab === "news") {
-            const generatedSlug = newsDraft.title
-                .toLowerCase()
-                .replace(/[^a-z0-9]+/g, '-')
-                .replace(/(^-|-$)+/g, '');
-            if (generatedSlug !== newsDraft.slug) {
-                setNewsDraft(prev => ({ ...prev, slug: generatedSlug }));
-            }
-        }
-    }, [newsDraft.title, activeTab, view]);
+    const createSlug = (value: string) =>
+        value
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)+/g, '');
 
     const handleCopyJson = () => {
         const data = activeTab === "news" ? newsDraft : testimonialDraft;
@@ -176,7 +167,10 @@ export default function AdminDashboard() {
                                             <input
                                                 type="text"
                                                 value={newsDraft.title}
-                                                onChange={(e) => setNewsDraft({ ...newsDraft, title: e.target.value })}
+                                                onChange={(e) => {
+                                                    const title = e.target.value;
+                                                    setNewsDraft({ ...newsDraft, title, slug: createSlug(title) });
+                                                }}
                                                 placeholder="Enter high-impact title..."
                                                 className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 focus:border-zgreen-500/50 outline-none transition-all placeholder:text-gray-700"
                                             />
@@ -336,7 +330,7 @@ export default function AdminDashboard() {
                                             value={testimonialDraft.content}
                                             onChange={(e) => setTestimonialDraft({ ...testimonialDraft, content: e.target.value })}
                                             rows={4}
-                                            placeholder="ZEPLYNK delivered exceptional results..."
+                                            placeholder="Zeplynk delivered exceptional results..."
                                             className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 focus:border-zgreen-500/50 outline-none transition-all resize-none"
                                         />
                                     </div>

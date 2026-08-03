@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, UseInViewOptions } from "framer-motion";
+import { motion, useInView, type UseInViewOptions } from "framer-motion";
 import { useRef } from "react";
 
 interface ScrollRevealProps {
@@ -22,12 +22,12 @@ export default function ScrollReveal({
     delay = 0,
     duration = 0.5,
     yOffset = 50,
-    staggerChildren = 0,
     animation = "fade-up",
     threshold = 0.2
 }: ScrollRevealProps) {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: `0px 0px -${threshold * 100}px 0px` as any });
+    const margin = `0px 0px -${threshold * 100}px 0px` as UseInViewOptions["margin"];
+    const isInView = useInView(ref, { once: true, margin });
 
     const getVariants = () => {
         switch (animation) {

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Building2, CheckCircle, ArrowRight } from "lucide-react";
+import { Building2, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const workshops = [

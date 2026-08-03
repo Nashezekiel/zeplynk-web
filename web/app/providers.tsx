@@ -7,6 +7,10 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { useState } from "react";
 
 import { LazyMotion, domMax } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const ZepBot = dynamic(() => import("@/components/ui/ZepBot"), { ssr: false });
+const PerformanceMonitor = dynamic(() => import("@/components/ui/PerformanceMonitor").then(mod => mod.PerformanceMonitor), { ssr: false });
 
 export function Providers({ children }: { children: React.ReactNode }) {
     const [queryClient] = useState(() => new QueryClient());
@@ -18,6 +22,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
                     {children}
                     <Toaster />
                     <Sonner />
+                    <ZepBot />
+                    <PerformanceMonitor />
                 </TooltipProvider>
             </LazyMotion>
         </QueryClientProvider>

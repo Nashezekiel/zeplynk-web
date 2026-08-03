@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Zap } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 
 // Dynamic Imports

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Phone, Mail, Twitter, Linkedin, Instagram, ArrowRight, Sparkles } from "lucide-react";
+import { Phone, Mail, Twitter, Linkedin, Instagram, Sparkles } from "lucide-react";
 
 export default function HeaderBar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -35,8 +35,17 @@ export default function HeaderBar() {
 
             <div className="max-w-7xl mx-auto w-full px-6 sm:px-8 lg:px-10 flex items-center justify-between gap-6 relative z-10">
 
-                {/* Left — Contact Info */}
+                {/* Left — Brand + Contact Info */}
                 <div className="flex items-center gap-4 lg:gap-6 flex-shrink-0">
+                    <Link
+                        href="/"
+                        className="hidden sm:flex items-center text-white font-bold text-xs md:text-[13px] tracking-wide hover:text-white/90 transition-colors flex-shrink-0"
+                        aria-label="Zeplynk home"
+                    >
+                        Zeplynk
+                    </Link>
+
+                    <div className="hidden sm:block w-px h-4 bg-white/20 flex-shrink-0" />
                     <a
                         href="tel:+2348067263891"
                         className="flex items-center gap-1.5 md:gap-2.5 text-white/75 hover:text-white transition-all duration-200 text-xs md:text-[13px] font-semibold tracking-wide group"

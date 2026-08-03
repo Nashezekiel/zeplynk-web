@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!solution) return {};
 
   const title = `${solution.title} Services Nigeria | Zeplynk`;
-  const description = `${solution.description.slice(0, 155)}...`;
+  const description = `Zeplynk ${solution.title.toLowerCase()} services in Nigeria. ${solution.description.slice(0, 130)}...`;
 
   return {
     title,

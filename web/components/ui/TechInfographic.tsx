@@ -1,17 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 export default function TechInfographic() {
-    const [isMounted, setIsMounted] = useState(false);
-
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
-
-    if (!isMounted) return null;
-
     // Data nodes for the animation
     const nodes = [
         { x: "20%", y: "30%", size: 40, delay: 0 },

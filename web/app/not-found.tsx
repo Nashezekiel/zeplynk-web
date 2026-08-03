@@ -1,8 +1,17 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
-import { Zap, Home, Search, MessageCircle } from "lucide-react";
+import { Home, Search, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+export const metadata: Metadata = {
+    title: "Page Not Found | Zeplynk",
+    description:
+        "The page you're looking for could not be found on Zeplynk. Return to our homepage or explore Zeplynk Academy, solutions, and contact pages.",
+    robots: {
+        index: false,
+        follow: true,
+    },
+};
 
 export default function NotFound() {
     return (
@@ -52,7 +61,7 @@ export default function NotFound() {
                         <h3 className="font-semibold text-white mb-3">Popular Pages</h3>
                         <div className="space-y-2 text-sm">
                             <Link href="/academy" className="block text-gray-400 hover:text-zgreen-500 transition-colors duration-200">
-                                → ZEPLYNK Tech Academy
+                                → Zeplynk Tech Academy
                             </Link>
                             <Link href="/solutions" className="block text-gray-400 hover:text-zgreen-500 transition-colors duration-200">
                                 → Web Development Services
@@ -71,7 +80,7 @@ export default function NotFound() {
                             Still can't find what you're looking for?
                         </p>
                         <a
-                            href="https://wa.me/2348067263891?text=Hello%20ZEPLYNK!%20I%20couldn't%20find%20the%20page%20I%20was%20looking%20for."
+                            href="https://wa.me/2348067263891?text=Hello%20Zeplynk!%20I%20couldn't%20find%20the%20page%20I%20was%20looking%20for."
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center text-zgreen-500 hover:text-zgreen-400 transition-colors duration-200 font-medium"

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 interface LogoLoopProps {
     logos: {
@@ -23,14 +23,7 @@ export default function LogoLoop({
     pauseOnHover = true,
     iconSize = "text-5xl",
 }: LogoLoopProps) {
-    const [width, setWidth] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (containerRef.current) {
-            setWidth(containerRef.current.scrollWidth / 2);
-        }
-    }, [logos]);
 
     const xTranslation = direction === "left" ? ["0%", "-50%"] : ["-50%", "0%"];
 
@@ -51,10 +44,7 @@ export default function LogoLoop({
                     ease: "linear",
                     repeat: Infinity,
                 }}
-                style={{
-                    // @ts-ignore
-                    "--play-state": pauseOnHover ? "paused" : "running"
-                }}
+                style={{ "--play-state": pauseOnHover ? "paused" : "running" } as React.CSSProperties}
             >
                 {/* Render logos twice to create seamless loop */}
                 {[...logos, ...logos].map((logo, index) => (

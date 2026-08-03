@@ -31,7 +31,7 @@ const solutions = [
     },
     {
         icon: GraduationCap,
-        title: "ZEPLYNK Tech Academy",
+        title: "Zeplynk Tech Academy",
         desc: "Developing Africa's next generation of engineers through industry-focused software training.",
         line: "Building the future workforce.",
         color: "text-yellow-500",

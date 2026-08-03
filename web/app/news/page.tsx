@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Tag, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, Calendar, Tag } from "lucide-react";
 import { newsItems } from "@/constants/news";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import Testimonials from "@/components/sections/Testimonials";
@@ -28,7 +28,7 @@ export default function NewsListingPage() {
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">THE LAB.</span>
                         </h1>
                         <p className="text-gray-400 text-xl font-medium leading-relaxed">
-                            Deep-dives into scalable engineering, AI automation, and the future of digital infrastructure.
+                            Deep-dives into scalable engineering, AI automation, and the future of digital infrastructure — from the Zeplynk team in Kaduna, Nigeria.
                         </p>
                     </div>
                 </header>

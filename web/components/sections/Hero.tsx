@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code2, Globe, Layers, Server, Terminal, Cpu, Database, Cloud } from "lucide-react";
+import { Code2, Globe, Layers, Server, Terminal, Cpu, Database, Cloud } from "lucide-react";
 import LogoLoop from "@/components/ui/LogoLoop";
-import Particles from "@/components/ui/Particles";
 import TechInfographic from "@/components/ui/TechInfographic";
+import dynamic from "next/dynamic";
+
+const Particles = dynamic(() => import("@/components/ui/Particles"), { ssr: false });
 
 const heroLogos = [
     { node: <Code2 />, title: "React", href: "https://react.dev", color: "text-blue-400" },
@@ -56,7 +58,9 @@ export default function Hero() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}
                         >
-                            Engineering Infrastructure<br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">
+                                Zeplynk
+                            </span>: Engineering Infrastructure<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">
                                 For Global Scale.
                             </span>
@@ -69,7 +73,7 @@ export default function Hero() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                            ZEPLYNK delivers high-performance web platforms and AI automation systems that eliminate inefficiencies and drive measurable business growth.
+                            Zeplynk delivers high-performance web platforms and AI automation systems that eliminate inefficiencies and drive measurable business growth.
                         </motion.p>
 
                         {/* CTAs */}

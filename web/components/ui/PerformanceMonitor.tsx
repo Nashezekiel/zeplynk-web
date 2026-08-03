@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 interface PerformanceMetrics {
   fcp: number; // First Contentful Paint
@@ -12,9 +12,22 @@ interface PerformanceMetrics {
   loadComplete: number;
 }
 
+interface FirstInputPerformanceEntry extends PerformanceEntry {
+  processingStart: number;
+}
+
+interface LayoutShiftPerformanceEntry extends PerformanceEntry {
+  value: number;
+}
+
 export function PerformanceMonitor() {
   const [metrics, setMetrics] = useState<PerformanceMetrics | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const metricsRef = useRef<PerformanceMetrics | null>(null);
+
+  useEffect(() => {
+    metricsRef.current = metrics;
+  }, [metrics]);
 
   useEffect(() => {
     // Only run in production and for performance monitoring
@@ -29,13 +42,14 @@ export function PerformanceMonitor() {
         }
         
         if (entry.entryType === 'first-input') {
-          const firstInput = entry as any;
+          const firstInput = entry as FirstInputPerformanceEntry;
           setMetrics(prev => prev ? { ...prev, fid: firstInput.processingStart - firstInput.startTime } : { fid: firstInput.processingStart - firstInput.startTime } as PerformanceMetrics);
         }
         
         if (entry.entryType === 'layout-shift') {
+          const layoutShift = entry as LayoutShiftPerformanceEntry;
           setMetrics(prev => {
-            const cls = prev ? prev.cls + (entry as any).value : (entry as any).value;
+            const cls = prev ? prev.cls + layoutShift.value : layoutShift.value;
             return { ...prev, cls } as PerformanceMetrics;
           });
         }
@@ -64,7 +78,8 @@ export function PerformanceMonitor() {
 
     // Core Web Vitals monitoring
     const reportWebVitals = async () => {
-      if (!metrics) return;
+      const currentMetrics = metricsRef.current;
+      if (!currentMetrics) return;
 
       // Send to analytics service
       try {
@@ -72,7 +87,7 @@ export function PerformanceMonitor() {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            ...metrics,
+            ...currentMetrics,
             url: window.location.href,
             userAgent: navigator.userAgent,
             timestamp: Date.now()

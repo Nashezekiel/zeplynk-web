@@ -1,5 +1,11 @@
 import type { NextConfig } from "next";
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
+import createBundleAnalyzer from "@next/bundle-analyzer";
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const projectRoot = dirname(fileURLToPath(import.meta.url));
+
+const withBundleAnalyzer = createBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 });
 
@@ -8,8 +14,10 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   
-  // Turbopack config (silences webpack warning)
-  turbopack: {},
+  // Keep Turbopack scoped to this Next app when parent folders contain lockfiles.
+  turbopack: {
+    root: projectRoot,
+  },
   
   // Image optimization
   images: {
@@ -96,4 +104,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-module.exports = withBundleAnalyzer(nextConfig);
+export default withBundleAnalyzer(nextConfig);

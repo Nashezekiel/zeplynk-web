@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageSquare, Mail, Phone, Clock } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 
 export default function ContactHero() {
     return (

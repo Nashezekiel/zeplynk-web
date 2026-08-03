@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Calendar, Tag } from "lucide-react";
@@ -17,7 +17,7 @@ export default function NewsSection() {
                         <div className="max-w-2xl">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zgreen-500/10 border border-zgreen-500/20 text-zgreen-400 text-xs font-bold mb-4 tracking-widest">
                                 <Tag className="h-3 w-3" />
-                                ZEPlynk INSIGHTS
+                                Zeplynk Insights
                             </div>
                             <h2 className="text-4xl md:text-6xl font-black text-white leading-none">
                                 LATEST FROM <br />

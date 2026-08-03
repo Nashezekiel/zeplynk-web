@@ -4,11 +4,8 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import {
     Code,
-    Globe,
     Server,
     Database,
-    CheckCircle,
-    Layers,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ServiceCards from "@/components/sections/ServiceCards";

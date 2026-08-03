@@ -197,7 +197,7 @@ export default function Orb({
 
   useEffect(() => {
     let renderer: Renderer;
-    let gl: any;
+    let gl: Renderer["gl"];
     let rafId: number;
     let isDisposed = false;
 
@@ -323,11 +323,11 @@ export default function Orb({
         if (container && gl && gl.canvas && container.contains(gl.canvas)) {
           container.removeChild(gl.canvas);
         }
-      } catch (e) {
+      } catch {
         // Silently catch if already removed or gl is missing
       }
     };
-  }, [hue, hoverIntensity, rotateOnHover, forceHoverState, backgroundColor]);
+  }, [hue, hoverIntensity, rotateOnHover, forceHoverState, backgroundColor, vert, frag]);
 
   return <div ref={ctnDom} className="orb-container" />;
 }

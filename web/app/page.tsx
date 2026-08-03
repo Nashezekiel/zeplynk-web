@@ -2,16 +2,18 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Tech Solutions & Web Development Company Nigeria | Zeplynk",
+  title: "Zeplynk - Tech Solutions & Web Development Company Nigeria",
   description:
-    "Zeplynk is Nigeria's #1 tech solutions company in Kaduna. We build web applications, deliver AI automation, and train developers through Zeplynk Academy. Serving businesses across Nigeria and Africa.",
+    "Zeplynk: Nigeria's #1 tech solutions company in Kaduna. Web engineering, AI automation, software development & Academy training across Nigeria and Africa.",
   keywords: [
+    "Zeplynk",
     "tech solutions Nigeria",
     "web development company Nigeria",
     "tech company Kaduna",
     "web development Kaduna",
     "AI automation Nigeria",
     "software development company Nigeria",
+    "Zeplynk Academy",
     "tech education Nigeria",
     "coding bootcamp Nigeria",
     "Next.js agency Nigeria",
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Tech Solutions & Web Development Company Nigeria | Zeplynk",
     description:
-      "Nigeria's premier tech solutions company in Kaduna — web engineering, AI automation & developer training.",
+      "Zeplynk is Nigeria's premier tech solutions company in Kaduna — web engineering, AI automation & developer training.",
     images: ["/opengraph-image.png"],
   },
 };

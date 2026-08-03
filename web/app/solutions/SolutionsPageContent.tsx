@@ -3,9 +3,23 @@
 import { motion, type Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { solutions } from "@/lib/solutions-data";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
+
+const serviceImages: Record<string, string> = {
+  "web-engineering": "/Service Images/web.jpeg",
+  "ai-automation": "/Service Images/AI.jpeg",
+  "mobile-apps": "/Service Images/andriod.png",
+  "backend-api": "/Service Images/Backend.jpeg",
+  "enterprise-digitization": "/Service Images/Digitalization.jpeg",
+  "cloud-devops": "/Service Images/DevOps.jpeg",
+  "ui-ux-design": "/Service Images/UI_UX.jpeg",
+  "data-bi": "/Service Images/Data Analytics.jpeg",
+  "cybersecurity": "/Service Images/Cyber Security1.jpeg",
+  "tech-education": "/Service Images/Education.jpeg",
+};
 
 const containerVariants: Variants = {
   hidden: {},
@@ -21,12 +35,16 @@ const cardVariants: Variants = {
 
 // Map solution slugs to bento span sizes for visual variety
 const bentoSpans: Record<string, string> = {
-  ai: "md:col-span-2",
-  engineering: "md:col-span-1",
-  cloud: "md:col-span-1",
-  enterprise: "md:col-span-1",
-  security: "md:col-span-2",
-  data: "md:col-span-1",
+  "web-engineering": "md:col-span-2",
+  "ai-automation": "md:col-span-1",
+  "mobile-apps": "md:col-span-1",
+  "backend-api": "md:col-span-1",
+  "enterprise-digitization": "md:col-span-1",
+  "cloud-devops": "md:col-span-2",
+  "ui-ux-design": "md:col-span-1",
+  "data-bi": "md:col-span-1",
+  "cybersecurity": "md:col-span-2",
+  "tech-education": "md:col-span-3",
 };
 
 export default function SolutionsPageContent() {
@@ -74,9 +92,8 @@ export default function SolutionsPageContent() {
             variants={cardVariants}
             className="text-lg text-zinc-400 max-w-2xl leading-relaxed font-medium"
           >
-            Six practice areas. One accountable partner. From AI systems and cloud
-            infrastructure to enterprise integration — we engineer outcomes, not just
-            deliverables.
+            Ten practice areas. One accountable partner. From custom web engineering and AI automation
+            to enterprise digitization and professional tech education we engineer outcomes, not just deliverables.
           </motion.p>
 
           {/* stat row */}
@@ -86,7 +103,7 @@ export default function SolutionsPageContent() {
           >
             {[
               { value: "100+", label: "Projects delivered" },
-              { value: "40+", label: "AI systems deployed" },
+              { value: "1000+", label: "Developers trained" },
               { value: "99.9%", label: "Uptime SLA" },
               { value: "5★", label: "Client satisfaction" },
             ].map((stat) => (
@@ -116,15 +133,30 @@ export default function SolutionsPageContent() {
               <motion.div key={solution.slug} variants={cardVariants} className={span}>
                 <Link
                   href={`/solutions/${solution.slug}`}
-                  className="group relative flex flex-col h-full min-h-[280px] p-8 rounded-2xl bg-zinc-900/40 border border-white/8 hover:border-white/20 hover:bg-zinc-900/70 transition-all duration-500 overflow-hidden"
+                  className="group relative flex flex-col h-full min-h-[280px] p-8 rounded-2xl bg-zinc-900/40 border border-white/8 hover:border-white/20 hover:bg-zinc-900/60 transition-all duration-500 overflow-hidden"
                 >
+                  {/* Background Service Image */}
+                  {serviceImages[solution.slug] && (
+                    <div className="absolute inset-0 z-0">
+                      <Image
+                        src={serviceImages[solution.slug]}
+                        alt={solution.title}
+                        fill
+                        className="object-cover opacity-25 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      {/* Gradient overlay - light on normal, dark on hover for text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/5 opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
+                    </div>
+                  )}
+
                   {/* Accent glow */}
                   <div
-                    className={`absolute -top-16 -right-16 w-48 h-48 ${solution.bgColor} rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-700`}
+                    className={`absolute -top-16 -right-16 w-48 h-48 ${solution.bgColor} rounded-full blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-700 z-0`}
                   />
 
                   {/* Top row */}
-                  <div className="flex items-start justify-between mb-6">
+                  <div className="flex items-start justify-between mb-6 relative z-10">
                     <div
                       className={`w-12 h-12 rounded-xl ${solution.bgColor} ${solution.borderColor} border flex items-center justify-center`}
                     >
@@ -136,25 +168,25 @@ export default function SolutionsPageContent() {
                   </div>
 
                   {/* Title + tagline */}
-                  <h2 className="text-xl font-bold text-white mb-2 tracking-tight">
+                  <h2 className="text-xl font-bold text-white mb-2 tracking-tight relative z-10">
                     {solution.title}
                   </h2>
-                  <p className="text-sm text-zinc-500 leading-relaxed mb-6 flex-1">
+                  <p className="text-sm text-zinc-300 leading-relaxed mb-6 flex-1 relative z-10">
                     {solution.tagline}
                   </p>
 
                   {/* Service pills */}
-                  <div className="flex flex-wrap gap-2 mt-auto">
+                  <div className="flex flex-wrap gap-2 mt-auto relative z-10">
                     {solution.items.slice(0, 3).map((item) => (
                       <span
                         key={item.name}
-                        className="text-[11px] font-semibold text-zinc-400 bg-white/5 border border-white/8 px-2.5 py-1 rounded-full"
+                        className="text-[11px] font-semibold text-zinc-300 bg-white/5 border border-white/8 px-2.5 py-1 rounded-full"
                       >
                         {item.name}
                       </span>
                     ))}
                     {solution.items.length > 3 && (
-                      <span className="text-[11px] font-semibold text-zinc-600 bg-white/5 border border-white/8 px-2.5 py-1 rounded-full">
+                      <span className="text-[11px] font-semibold text-zinc-400 bg-white/5 border border-white/8 px-2.5 py-1 rounded-full">
                         +{solution.items.length - 3} more
                       </span>
                     )}
@@ -162,7 +194,7 @@ export default function SolutionsPageContent() {
 
                   {/* Bottom explore label */}
                   <div
-                    className={`mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-bold uppercase tracking-widest ${solution.accentColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                    className={`mt-6 pt-4 border-t border-white/5 flex items-center gap-2 text-xs font-bold uppercase tracking-widest ${solution.accentColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300 relative z-10`}
                   >
                     Explore {solution.title.split(" ")[0]}
                     <ArrowRight className="w-3 h-3" />

@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import ServicesContent from "./ServicesContent";
 
 export const metadata: Metadata = {
-    title: "Complete Tech Services Nigeria | Web Development & AI Solutions | Zeplynk",
+    title: "Tech Services Nigeria | Zeplynk Web Development & AI Solutions",
     description:
-        "Comprehensive tech services in Nigeria: custom web development, AI automation, system architecture, and digital transformation. Expert solutions for businesses across Africa.",
+        "Zeplynk tech services in Nigeria: web development, AI automation, system architecture & digital transformation. Expert partner for custom software across Africa.",
     keywords: [
-        "tech services Nigeria",
-        "web development services Nigeria",
-        "AI consulting Africa",
-        "custom software development Nigeria",
-        "tech consulting Nigeria",
         "Zeplynk services",
+        "tech services Nigeria",
+        "Zeplynk web development",
+        "AI consulting Africa",
+        "Zeplynk custom software",
+        "tech consulting Nigeria",
         "digital transformation services Africa",
         "system architecture Nigeria",
         "mobile app development Nigeria",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Complete Tech Services Nigeria | Web Development & AI Solutions | Zeplynk",
         description:
-            "Comprehensive tech services in Nigeria: custom web development, AI automation, system architecture, and digital transformation for businesses across Africa.",
+            "Zeplynk tech services in Nigeria: custom web development, AI automation, system architecture, and digital transformation for businesses across Africa.",
         url: "https://zeplynk.com/services",
         images: [
             {
@@ -43,11 +43,38 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Complete Tech Services Nigeria | Zeplynk",
         description:
-            "Web development, AI automation, system architecture & tech consulting for businesses across Nigeria and Africa.",
+            "Zeplynk web development, AI automation, system architecture & tech consulting for businesses across Nigeria and Africa.",
         images: ["/opengraph-image.png"],
     },
 };
 
+const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://zeplynk.com",
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: "https://zeplynk.com/services",
+        },
+    ],
+};
+
 export default function ServicesPage() {
-    return <ServicesContent />;
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+            <ServicesContent />
+        </>
+    );
 }

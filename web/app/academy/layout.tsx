@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Zeplynk Academy | Tech Courses & Corporate Training",
-    description: "Launch your tech career with our comprehensive courses or upskill your team with corporate training workshops.",
+    description:
+        "Zeplynk Academy offers coding bootcamps, corporate training, and tech courses in Kaduna, Nigeria. Launch your tech career or upskill your team with Zeplynk.",
 };
 
 export default function AcademyLayout({

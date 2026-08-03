@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     Zap, Menu, X, ChevronDown, Search,
-    Laptop, BarChart3,
-    Bot, MessageSquare, Mail,
-    Users, Briefcase, ShoppingBag, GraduationCap, Building2,
-    ArrowRight, Layers, Cpu, Cloud, Database, Shield, Globe
+    BarChart3, Bot, MessageSquare, Mail,
+    Users, GraduationCap, Building2,
+    ArrowRight, Layers, Cloud, Shield,
+    Code, Smartphone, Server, Palette
 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -24,7 +24,6 @@ export default function Navbar() {
         setActiveMobileSection(activeMobileSection === section ? null : section);
     };
     const pathname = usePathname();
-    const router = useRouter();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -38,66 +37,113 @@ export default function Navbar() {
     const navData = {
         solutions: [
             {
-                id: "ai",
-                title: "AI & Intelligent Systems",
+                id: "web-engineering",
+                title: "Web Engineering",
+                icon: Code,
                 items: [
-                    { name: "AI Strategy & Consulting", href: "/solutions#ai" },
-                    { name: "Intelligent Automation", href: "/solutions#ai" },
-                    { name: "Conversational AI", href: "/solutions#ai" },
-                    { name: "Generative AI Solutions", href: "/solutions#ai" },
-                    { name: "Computer Vision", href: "/solutions#ai" }
+                    { name: "Custom Web Applications", href: "/solutions/web-engineering" },
+                    { name: "SaaS Platforms", href: "/solutions/web-engineering" },
+                    { name: "E-commerce Engines", href: "/solutions/web-engineering" },
+                    { name: "Corporate Websites", href: "/solutions/web-engineering" }
                 ]
             },
             {
-                id: "engineering",
-                title: "Digital Product Engineering",
+                id: "ai-automation",
+                title: "AI & Automation",
+                icon: Bot,
                 items: [
-                    { name: "Web Application Development", href: "/solutions#engineering" },
-                    { name: "Mobile App Development", href: "/solutions#engineering" },
-                    { name: "SaaS Product Development", href: "/solutions#engineering" },
-                    { name: "API Development & Integration", href: "/solutions#engineering" },
-                    { name: "UI/UX Engineering", href: "/solutions#engineering" }
+                    { name: "AI Strategy & Consulting", href: "/solutions/ai-automation" },
+                    { name: "Intelligent Automation", href: "/solutions/ai-automation" },
+                    { name: "Conversational AI", href: "/solutions/ai-automation" },
+                    { name: "Generative AI Solutions", href: "/solutions/ai-automation" }
                 ]
             },
             {
-                id: "cloud",
+                id: "mobile-apps",
+                title: "Mobile App Development",
+                icon: Smartphone,
+                items: [
+                    { name: "iOS Native App Dev", href: "/solutions/mobile-apps" },
+                    { name: "Android Native App Dev", href: "/solutions/mobile-apps" },
+                    { name: "Cross-Platform Dev", href: "/solutions/mobile-apps" },
+                    { name: "Offline-First Sync", href: "/solutions/mobile-apps" }
+                ]
+            },
+            {
+                id: "backend-api",
+                title: "Backend & API Development",
+                icon: Server,
+                items: [
+                    { name: "Custom API Development", href: "/solutions/backend-api" },
+                    { name: "Database Schema Design", href: "/solutions/backend-api" },
+                    { name: "Payment & Auth Integrations", href: "/solutions/backend-api" },
+                    { name: "Microservices Architecture", href: "/solutions/backend-api" }
+                ]
+            },
+            {
+                id: "enterprise-digitization",
+                title: "Enterprise Digitization",
+                icon: Building2,
+                items: [
+                    { name: "ERP & CRM Customization", href: "/solutions/enterprise-digitization" },
+                    { name: "Custom Business Portals", href: "/solutions/enterprise-digitization" },
+                    { name: "Legacy Modernization", href: "/solutions/enterprise-digitization" },
+                    { name: "Process Digitization", href: "/solutions/enterprise-digitization" }
+                ]
+            },
+            {
+                id: "cloud-devops",
                 title: "Cloud & DevOps",
+                icon: Cloud,
                 items: [
-                    { name: "Cloud Infrastructure", href: "/solutions#cloud" },
-                    { name: "DevOps & CI/CD", href: "/solutions#cloud" },
-                    { name: "Cloud Migration", href: "/solutions#cloud" },
-                    { name: "Serverless Architecture", href: "/solutions#cloud" },
-                    { name: "Monitoring & Observability", href: "/solutions#cloud" }
+                    { name: "AWS & GCP Hosting Setup", href: "/solutions/cloud-devops" },
+                    { name: "CI/CD Pipeline Automation", href: "/solutions/cloud-devops" },
+                    { name: "Infrastructure as Code", href: "/solutions/cloud-devops" },
+                    { name: "Cloud Cost Optimization", href: "/solutions/cloud-devops" }
                 ]
             },
             {
-                id: "enterprise",
-                title: "Enterprise Systems",
+                id: "ui-ux-design",
+                title: "UI/UX & Product Design",
+                icon: Palette,
                 items: [
-                    { name: "CRM & ERP Solutions", href: "/solutions#enterprise" },
-                    { name: "Enterprise Integration", href: "/solutions#enterprise" },
-                    { name: "Workflow Automation", href: "/solutions#enterprise" },
-                    { name: "Data Warehousing", href: "/solutions#enterprise" }
+                    { name: "User Research & Audits", href: "/solutions/ui-ux-design" },
+                    { name: "Wireframing & Prototyping", href: "/solutions/ui-ux-design" },
+                    { name: "Brand Visual Guidelines", href: "/solutions/ui-ux-design" },
+                    { name: "Design System Libraries", href: "/solutions/ui-ux-design" }
                 ]
             },
             {
-                id: "security",
-                title: "Cybersecurity",
+                id: "data-bi",
+                title: "Data & Business Intelligence",
+                icon: BarChart3,
                 items: [
-                    { name: "Application Security", href: "/solutions#security" },
-                    { name: "Penetration Testing", href: "/solutions#security" },
-                    { name: "Identity & Access Management", href: "/solutions#security" },
-                    { name: "Compliance & Governance", href: "/solutions#security" }
+                    { name: "BI Dashboard Analytics", href: "/solutions/data-bi" },
+                    { name: "Data Warehousing Setup", href: "/solutions/data-bi" },
+                    { name: "ETL Data Pipeline Automation", href: "/solutions/data-bi" },
+                    { name: "Predictive Analytics", href: "/solutions/data-bi" }
                 ]
             },
             {
-                id: "data",
-                title: "Data & Analytics",
+                id: "cybersecurity",
+                title: "Cybersecurity & Compliance",
+                icon: Shield,
                 items: [
-                    { name: "Business Intelligence", href: "/solutions#data" },
-                    { name: "Real-Time Dashboards", href: "/solutions#data" },
-                    { name: "Big Data Engineering", href: "/solutions#data" },
-                    { name: "Customer Analytics", href: "/solutions#data" }
+                    { name: "Penetration Testing Audits", href: "/solutions/cybersecurity" },
+                    { name: "App Security Audits", href: "/solutions/cybersecurity" },
+                    { name: "Zero-Trust IAM Systems", href: "/solutions/cybersecurity" },
+                    { name: "NDPR Compliance Setup", href: "/solutions/cybersecurity" }
+                ]
+            },
+            {
+                id: "tech-education",
+                title: "Tech Education (Academy)",
+                icon: GraduationCap,
+                items: [
+                    { name: "Coding Bootcamps", href: "/solutions/tech-education" },
+                    { name: "AI & ML Certification", href: "/solutions/tech-education" },
+                    { name: "Corporate Upskilling Sprints", href: "/solutions/tech-education" },
+                    { name: "Tech Mentorship Programs", href: "/solutions/tech-education" }
                 ]
             }
         ],
@@ -144,14 +190,14 @@ export default function Navbar() {
                             <div className="relative w-10 h-10 md:w-12 md:h-12 mr-2 group-hover:scale-110 transition-transform duration-300">
                                 <Image
                                     src="/theLogo-removebg-preview.png"
-                                    alt="ZEPLYNK Logo"
+                                    alt="Zeplynk Logo"
                                     fill
                                     className="object-contain"
                                     priority
                                 />
                             </div>
                             <span className="text-2xl font-bold text-white tracking-tight">
-                                ZEPLYNK
+                                Zeplynk
                             </span>
                         </Link>
 
@@ -211,68 +257,50 @@ export default function Navbar() {
                                         className="fixed top-20 left-0 w-full h-[70vh] bg-black/95 backdrop-blur-3xl border-b border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.9)] pointer-events-auto overflow-hidden"
                                     >
                                         <div className="max-w-7xl mx-auto h-full px-8 py-12 flex flex-col">
-                                            
+
                                             {/* SOLUTIONS MEGA CONTENT */}
                                             {activeDropdown === 'solutions' && (
-                                                <div className="flex-grow flex flex-col justify-center">
-                                                    <div className="grid grid-cols-4 gap-x-8 gap-y-12">
-                                                        {navData.solutions.map((cat, idx) => (
-                                                            <div key={idx} className="group/cat">
-                                                                <div className="flex items-center gap-2 mb-6 border-b border-white/10 pb-2">
-                                                                    <div className="text-zgreen-500 group-hover/cat:scale-110 transition-transform">
-                                                                        {cat.title.toLowerCase().includes('ai') && <Bot className="h-4 w-4" />}
-                                                                        {cat.title.toLowerCase().includes('engineering') && <Cpu className="h-4 w-4" />}
-                                                                        {cat.title.toLowerCase().includes('cloud') && <Cloud className="h-4 w-4" />}
-                                                                        {cat.title.toLowerCase().includes('enterprise') && <Building2 className="h-4 w-4" />}
-                                                                        {cat.title.toLowerCase().includes('security') && <Shield className="h-4 w-4" />}
-                                                                        {cat.title.toLowerCase().includes('data') && <Database className="h-4 w-4" />}
-                                                                    </div>
-                                                                    <h4 className="text-[11px] font-black text-white uppercase tracking-[0.2em]">{cat.title}</h4>
-                                                                </div>
-                                                                <div className="grid grid-cols-1 gap-3">
-                                                                    {cat.items.slice(0, 4).map((item) => (
-                                                                        <Link 
-                                                                            key={item.name} 
-                                                                            href={item.href}
-                                                                            onClick={() => setActiveDropdown(null)}
-                                                                            className="text-[14px] font-medium text-gray-400 hover:text-white transition-colors flex items-center gap-2 group/item"
-                                                                        >
-                                                                            <span className="w-1 h-1 rounded-full bg-zgreen-500 opacity-0 group-hover/item:opacity-100 transition-opacity" />
-                                                                            {item.name}
-                                                                        </Link>
-                                                                    ))}
-                                                                </div>
+                                                <div className="flex-grow flex items-center gap-16">
+
+                                                    {/* Left: gradient hero card — same style as Academy */}
+                                                    <div className="w-1/3">
+                                                        <div className="p-10 bg-gradient-to-br from-zgreen-600 to-emerald-900 rounded-[2.5rem] relative overflow-hidden group">
+                                                            <div className="relative z-10">
+                                                                <Zap className="h-12 w-12 text-white mb-6" />
+                                                                <h4 className="text-2xl font-bold text-white mb-4 leading-tight">
+                                                                    Engineering <br /> Excellence. <br /> Delivered.
+                                                                </h4>
+                                                                <p className="text-white/70 text-sm mb-8 leading-relaxed">
+                                                                    10 practice areas. One accountable partner. From AI to cloud — we engineer outcomes.
+                                                                </p>
+                                                                <Link href="/solutions" onClick={() => setActiveDropdown(null)}>
+                                                                    <Button className="bg-white text-black hover:bg-zinc-200 rounded-xl px-6 h-12 font-bold">
+                                                                        View All Services
+                                                                    </Button>
+                                                                </Link>
                                                             </div>
-                                                        ))}
-                                                        
-                                                        <div className="p-6 bg-zgreen-500/5 rounded-2xl border border-zgreen-500/10 hover:bg-zgreen-500/10 transition-all group/feat flex flex-col justify-between">
-                                                            <div>
-                                                                <div className="text-zgreen-500 mb-4 opacity-50 group-hover/feat:opacity-100 transition-opacity">
-                                                                    <BarChart3 className="h-6 w-6" />
-                                                                </div>
-                                                                <h5 className="text-sm font-bold text-white mb-2">ROI Analytics</h5>
-                                                                <p className="text-[11px] text-gray-500">Measure technical performance and business impact.</p>
+                                                            {/* Decorative bg icon */}
+                                                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                                                <Layers className="h-40 w-40" />
                                                             </div>
-                                                            <Link href="/solutions" onClick={() => setActiveDropdown(null)} className="text-[10px] font-black uppercase text-zgreen-500 flex items-center gap-2">
-                                                                View Case Studies <ArrowRight className="h-3 w-3" />
-                                                            </Link>
                                                         </div>
                                                     </div>
-                                                    <div className="mt-10 p-5 bg-zinc-900/50 border border-white/5 rounded-2xl flex items-center justify-between">
-                                                        <div className="flex items-center gap-4">
-                                                            <div className="w-12 h-12 rounded-xl bg-zgreen-500/10 flex items-center justify-center text-zgreen-500">
-                                                                <Zap className="h-6 w-6" />
-                                                            </div>
-                                                            <div>
-                                                                <h5 className="text-base font-bold text-white leading-none mb-1">Architecture That Scales</h5>
-                                                                <p className="text-xs text-gray-500 font-medium tracking-tight">Enterprise-grade digital systems engineered for global performance.</p>
-                                                            </div>
-                                                        </div>
-                                                        <Link href="/solutions" onClick={() => setActiveDropdown(null)}>
-                                                            <Button size="sm" className="h-10 px-6 bg-white text-black hover:bg-zgreen-500 hover:text-white rounded-xl font-black uppercase text-[10px] tracking-widest transition-all">
-                                                                Full Catalog <ArrowRight className="ml-2 h-3 w-3" />
-                                                            </Button>
-                                                        </Link>
+
+                                                    {/* Right: 2-col grid — same style as Academy */}
+                                                    <div className="w-2/3 grid grid-cols-2 gap-x-12 gap-y-6">
+                                                        {navData.solutions.map((cat) => (
+                                                            <Link
+                                                                key={cat.id}
+                                                                href={`/solutions/${cat.id}`}
+                                                                onClick={() => setActiveDropdown(null)}
+                                                                className="flex items-center gap-4 group/course px-4 py-2.5 rounded-2xl hover:bg-white/5 transition-all"
+                                                            >
+                                                                <div className="w-2 h-2 rounded-full bg-zgreen-500 group-hover:scale-150 transition-transform" />
+                                                                <span className="text-lg font-bold text-gray-400 group-hover:text-white transition-colors">
+                                                                    {cat.title}
+                                                                </span>
+                                                            </Link>
+                                                        ))}
                                                     </div>
                                                 </div>
                                             )}
@@ -307,7 +335,7 @@ export default function Navbar() {
                                                             <div className="relative z-10">
                                                                 <GraduationCap className="h-12 w-12 text-white mb-6" />
                                                                 <h4 className="text-2xl font-bold text-white mb-4 leading-tight">Master The <br /> Future Of Code</h4>
-                                                                <p className="text-white/70 text-sm mb-8 leading-relaxed">Join 1,000+ developers training with ZEPLYNK experts in modern engineering.</p>
+                                                                <p className="text-white/70 text-sm mb-8 leading-relaxed">Join 1,000+ developers training with Zeplynk experts in modern engineering.</p>
                                                                 <Link href="/academy" onClick={() => setActiveDropdown(null)}>
                                                                     <Button className="bg-white text-black hover:bg-zinc-200 rounded-xl px-6 h-12 font-bold">Start Learning</Button>
                                                                 </Link>
@@ -498,10 +526,10 @@ export default function Navbar() {
                                                 {navData.solutions.map((cat) => (
                                                     <Link
                                                         key={cat.title}
-                                                        href={`/solutions#${cat.id}`}
+                                                        href={`/solutions/${cat.id}`}
                                                         className="bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 rounded-xl p-3 flex items-center justify-between group/cat"
                                                         onClick={() => setMobileMenuOpen(false)}
-                                                    >
+                                                     >
                                                         <span className="text-[13px] font-black text-gray-400 uppercase tracking-widest group-hover/cat:text-zgreen-500 transition-colors">{cat.title}</span>
                                                         <ArrowRight className="h-3 w-3 text-zgreen-500 opacity-0 group-hover/cat:opacity-100 transition-all transform -translate-x-2 group-hover:translate-x-0" />
                                                     </Link>

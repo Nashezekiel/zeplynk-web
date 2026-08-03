@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Industries We Serve — Fintech, Healthcare, Education | Zeplynk",
         description:
-            "Industry-specific tech solutions for Nigerian businesses — recruitment, startups, e-commerce, education, and SMEs. Custom software from Kaduna.",
+            "Zeplynk builds industry-specific tech solutions for Nigerian businesses — recruitment, startups, e-commerce, education, and SMEs. Custom software from Kaduna.",
         url: "https://zeplynk.com/industries",
     },
     twitter: {
         card: "summary_large_image",
         title: "Industries We Serve — Fintech, Healthcare, Education | Zeplynk",
         description:
-            "Custom software solutions for Nigerian industries — startups, e-commerce, fintech, education & SMEs.",
+            "Zeplynk delivers custom software for Nigerian industries — startups, e-commerce, fintech, education & SMEs.",
     },
 };
 

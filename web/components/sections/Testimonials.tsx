@@ -9,7 +9,7 @@ const testimonials = [
     {
         name: "Sarah Chen",
         role: "CTO at Nexus AI",
-        content: "ZEPLYNK transformed our legacy architecture into a high-performance, AI-driven engine. Their deep expertise in scalable systems is unmatched in the industry.",
+        content: "Zeplynk transformed our legacy architecture into a high-performance, AI-driven engine. Their deep expertise in scalable systems is unmatched in the industry.",
         image: "https://i.pravatar.cc/150?u=sarah"
     },
     {
@@ -26,9 +26,46 @@ const testimonials = [
     }
 ];
 
+const aggregateRatingSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Zeplynk Tech Solutions",
+    image: "https://zeplynk.com/theLogo-removebg-preview.png",
+    description: "Premier tech solutions and education company in Nigeria. Web development, AI automation, software engineering, and developer training.",
+    brand: {
+        "@type": "Brand",
+        name: "Zeplynk",
+    },
+    aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "5.0",
+        reviewCount: testimonials.length.toString(),
+        bestRating: "5",
+        worstRating: "1",
+    },
+    review: testimonials.map((testimonial) => ({
+        "@type": "Review",
+        reviewRating: {
+            "@type": "Rating",
+            ratingValue: "5",
+            bestRating: "5",
+        },
+        author: {
+            "@type": "Person",
+            name: testimonial.name,
+        },
+        reviewBody: testimonial.content,
+    })),
+};
+
 export default function Testimonials() {
     return (
-        <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black relative overflow-hidden">
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateRatingSchema) }}
+            />
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black relative overflow-hidden">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-zgreen-500/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto relative z-10">
@@ -82,5 +119,6 @@ export default function Testimonials() {
                 </div>
             </div>
         </section>
+        </>
     );
 }

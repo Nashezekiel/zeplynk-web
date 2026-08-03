@@ -6,7 +6,7 @@ const events = [
     {
         year: "2021",
         title: "The Genesis",
-        desc: "ZEPLYNK was founded with a mission to bridge the digital divide in Africa.",
+        desc: "Zeplynk was founded with a mission to bridge the digital divide in Africa.",
         side: "left"
     },
     {

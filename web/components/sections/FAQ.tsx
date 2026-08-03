@@ -27,13 +27,31 @@ const faqs = [
     }
 ];
 
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+        },
+    })),
+};
+
 export default function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section className="py-32 px-4 sm:px-6 lg:px-8 bg-black relative">
-            {/* Ambient Background */}
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-zgreen-900/5 rounded-full blur-[120px] pointer-events-none" />
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
+            <section className="py-32 px-4 sm:px-6 lg:px-8 bg-black relative">
+                {/* Ambient Background */}
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-zgreen-900/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-3xl mx-auto relative z-10">
                 <div className="text-center mb-16">
@@ -86,5 +104,6 @@ export default function FAQ() {
                 </div>
             </div>
         </section>
+        </>
     );
 }

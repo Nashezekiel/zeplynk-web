@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Globe, Target } from "lucide-react";
+import { Zap } from "lucide-react";
 
 export default function AboutHero() {
     return (

@@ -4,9 +4,9 @@ import { ArrowUpRight, Globe, Satellite, BrainCircuit, ArrowRight } from "lucide
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-    title: "Our Work — Client Projects",
+    title: "Zeplynk Client Projects — Portfolio & Case Studies",
     description:
-        "Explore Zeplynk's portfolio of client projects — from satellite internet platforms to enterprise AI systems. Real engineering for real businesses.",
+        "Explore Zeplynk's portfolio of client projects — from satellite internet platforms to enterprise AI systems. Real engineering for real businesses by Zeplynk in Nigeria.",
     keywords: [
         "Zeplynk portfolio",
         "web development projects Nigeria",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Our Work — Zeplynk Client Projects",
         description:
-            "Real platforms built for real businesses. From Starlink installation services to enterprise AI intelligence systems.",
+            "Zeplynk client projects — real platforms built for real businesses. From Starlink installation services to enterprise AI intelligence systems.",
         url: "https://zeplynk.com/work",
         images: [
             {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Our Work — Zeplynk Client Projects",
         description:
-            "Real platforms built for real businesses — from satellite internet to enterprise AI.",
+            "Zeplynk client projects — real platforms built for real businesses, from satellite internet to enterprise AI.",
         images: ["/opengraph-image.png"],
     },
 };

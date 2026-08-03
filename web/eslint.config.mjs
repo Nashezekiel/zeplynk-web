@@ -11,8 +11,20 @@ const eslintConfig = defineConfig([
     ".next/**",
     "out/**",
     "build/**",
+    "dist/**",
+    "node_modules/**",
     "next-env.d.ts",
+    "*.log",
+    "*_report.log",
+    "*_output.log",
+    "analyze-bundle.js",
+    "tailwind.config.js",
   ]),
+  {
+    rules: {
+      "react/no-unescaped-entities": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;

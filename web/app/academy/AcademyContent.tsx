@@ -4,17 +4,11 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import {
-    ArrowRight,
     Zap,
-    CheckCircle,
     Award,
     Users,
-    Clock,
-    BookOpen,
     Briefcase,
-    Building2,
-    GraduationCap,
-    Star
+    GraduationCap
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";

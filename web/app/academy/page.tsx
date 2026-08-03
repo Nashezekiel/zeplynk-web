@@ -4,7 +4,7 @@ import AcademyContent from "./AcademyContent";
 export const metadata: Metadata = {
     title: "Tech Education & Coding Bootcamp in Nigeria | Zeplynk Academy",
     description:
-        "Join Zeplynk Academy in Kaduna, Nigeria — Nigeria's leading coding bootcamp. Learn web development, backend engineering, and AI from industry professionals. Enrol today and become a job-ready developer.",
+        "Zeplynk Academy in Kaduna, Nigeria: leading coding bootcamp. Learn web development, backend engineering & AI from industry professionals. Become job-ready.",
     keywords: [
         "coding bootcamp Nigeria",
         "tech training Kaduna",
@@ -130,9 +130,32 @@ const academySchema = [
     },
 ];
 
+const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://zeplynk.com",
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: "Academy",
+            item: "https://zeplynk.com/academy",
+        },
+    ],
+};
+
 export default function AcademyPage() {
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
             {academySchema.map((schema, i) => (
                 <script
                     key={i}

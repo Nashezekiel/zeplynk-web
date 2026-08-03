@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Zap } from "lucide-react";
+import { CheckCircle, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Orb = dynamic(() => import("@/components/ui/Orb"), {

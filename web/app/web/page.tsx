@@ -3,7 +3,7 @@ import WebContent from "./WebContent";
 
 export const metadata: Metadata = {
     title: "Web Engineering Services Nigeria | Custom Web Development | Zeplynk",
-    description: "Expert web engineering services in Nigeria. Build scalable, high-performance web applications with Next.js, React, and modern technologies. Custom solutions for businesses across Africa.",
+    description: "Zeplynk provides expert web engineering services in Nigeria. Build scalable, high-performance web applications with Next.js, React, and modern technologies. Custom solutions for businesses across Africa.",
     keywords: [
         "web engineering Nigeria",
         "custom web development Nigeria",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: "Web Engineering Services Nigeria | Custom Web Development | Zeplynk",
-        description: "Expert web engineering services in Nigeria. Build scalable, high-performance web applications with Next.js, React, and modern technologies.",
+        description: "Zeplynk web engineering in Nigeria — scalable, high-performance web applications with Next.js, React, and modern technologies.",
         url: "https://zeplynk.com/web",
         images: [
             {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     twitter: {
         card: "summary_large_image",
         title: "Web Engineering Services Nigeria | Zeplynk",
-        description: "Expert web development services in Nigeria. Build scalable, high-performance web applications with modern technologies.",
+        description: "Zeplynk web development in Nigeria — scalable, high-performance web applications built with modern technologies.",
         images: ["/opengraph-image.png"],
     },
 };

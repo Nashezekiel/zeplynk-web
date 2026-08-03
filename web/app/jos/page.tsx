@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
     title: "Web Development & Tech Training in Jos, Plateau State | Zeplynk",
     description:
-        "Zeplynk delivers web development, software engineering, AI automation, and tech training to businesses in Jos, Plateau State, Nigeria. Get a free project consultation today.",
+        "Zeplynk delivers web development, software engineering, AI automation & tech training to businesses in Jos, Plateau State, Nigeria. Get a free consultation.",
     keywords: [
         "web development Jos Nigeria",
         "tech solutions Jos Plateau State",
@@ -55,12 +55,35 @@ const josLocalBusinessSchema = {
     ],
 };
 
+const josBreadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://zeplynk.com",
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: "Jos",
+            item: "https://zeplynk.com/jos",
+        },
+    ],
+};
+
 export default function JosPage() {
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(josLocalBusinessSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(josBreadcrumbSchema) }}
             />
             <main className="min-h-screen bg-black text-white">
                 {/* Hero */}

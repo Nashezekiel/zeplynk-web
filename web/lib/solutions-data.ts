@@ -1,4 +1,16 @@
-import { Bot, Laptop, Cloud, Database, Shield, BarChart3, LucideIcon } from "lucide-react";
+import {
+  Bot,
+  Cloud,
+  Shield,
+  BarChart3,
+  Code,
+  Smartphone,
+  Server,
+  Building2,
+  Palette,
+  GraduationCap,
+  LucideIcon,
+} from "lucide-react";
 
 export interface SolutionItem {
   name: string;
@@ -46,11 +58,102 @@ export interface Solution {
 
 export const solutions: Solution[] = [
   {
-    slug: "ai",
-    title: "AI & Intelligent Systems",
-    tagline: "Build systems that think, learn, and scale.",
+    slug: "web-engineering",
+    title: "Web Engineering",
+    tagline: "High-performance web apps built for conversion and scale.",
     description:
-      "We design and deploy production-grade AI systems that transform how businesses operate. From conversational agents and intelligent automation to generative AI integrations — we handle strategy, architecture, and delivery end-to-end.",
+      "We build fast, secure, and search-optimized web applications designed for conversion and global scale. Leveraging modern frameworks, we ensure your web presence is a major business asset.",
+    icon: Code,
+    accentColor: "text-zgreen-400",
+    bgColor: "bg-zgreen-500/10",
+    borderColor: "border-zgreen-500/20",
+    gradientFrom: "from-zgreen-500/20",
+    stats: [
+      { value: "100+", label: "Projects Delivered" },
+      { value: "<1.5s", label: "Avg. Page Load Time" },
+      { value: "99.9%", label: "Availability SLA" },
+      { value: "5★", label: "Client Satisfaction" },
+    ],
+    items: [
+      {
+        name: "Custom Web Applications",
+        description: "Tailored to your business logic, workflow, and user needs.",
+      },
+      {
+        name: "SaaS Platforms",
+        description: "Subscription-ready systems with robust multi-tenant architecture.",
+      },
+      {
+        name: "E-commerce Engines",
+        description: "Fast checkout flows, payment integrations, and inventory synchronization.",
+      },
+      {
+        name: "Corporate Websites",
+        description: "Search-optimized, modern, and high-converting brand experiences.",
+      },
+      {
+        name: "CMS Integration",
+        description: "Flexible, headless, or traditional content management systems.",
+      },
+    ],
+    process: [
+      {
+        step: 1,
+        title: "Discovery & Scoping",
+        description: "We align on requirements, user personas, architecture, and project timeline.",
+      },
+      {
+        step: 2,
+        title: "UX/UI Prototyping",
+        description: "Figma-based high-fidelity design iterations to finalize visual layout.",
+      },
+      {
+        step: 3,
+        title: "Agile Development",
+        description: "Weekly milestone sprints with continuous staging access.",
+      },
+      {
+        step: 4,
+        title: "Launch & Optimisation",
+        description: "Production deployment, speed tuning, SEO checks, and codebase handover.",
+      },
+    ],
+    differentiators: [
+      {
+        title: "Performance-First Architecture",
+        description: "SSR (Server-Side Rendering) and edge caching implemented as standard.",
+      },
+      {
+        title: "Clean, Maintainable Codebases",
+        description: "Type-safe code structure that your in-house team can easily inherit.",
+      },
+      {
+        title: "Seamless Payments Hub",
+        description: "Pre-integrated checkout experiences for African and global payment gates.",
+      },
+    ],
+    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Strapi"],
+    faqs: [
+      {
+        question: "How long does it take to build a custom website?",
+        answer: "A corporate website takes 2–4 weeks. A custom web app or SaaS MVP typically takes 6–12 weeks.",
+      },
+      {
+        question: "Will the website be mobile-friendly and optimized for Google?",
+        answer: "Yes, 100%. All our sites are fully responsive and designed to score 90+ on Google PageSpeed Insights.",
+      },
+      {
+        question: "Do we own the source code?",
+        answer: "Absolutely. Upon final project sign-off, full source code ownership and intellectual property are transferred to you.",
+      },
+    ],
+  },
+  {
+    slug: "ai-automation",
+    title: "AI & Automation",
+    tagline: "Intelligent systems that automate workflows and drive growth.",
+    description:
+      "We design and deploy production-grade AI systems, autonomous agents, and workflow automations that eliminate repetitive tasks and scale business operations.",
     icon: Bot,
     accentColor: "text-purple-400",
     bgColor: "bg-purple-500/10",
@@ -58,717 +161,773 @@ export const solutions: Solution[] = [
     gradientFrom: "from-purple-500/20",
     stats: [
       { value: "40+", label: "AI Systems Deployed" },
-      { value: "10x", label: "Avg. Process Speed Gain" },
+      { value: "10x", label: "Process Speed Gain" },
       { value: "98%", label: "Uptime SLA" },
       { value: "24/7", label: "Model Monitoring" },
     ],
     items: [
       {
         name: "AI Strategy & Consulting",
-        description:
-          "We audit your current stack, identify automation opportunities, and build a phased AI adoption roadmap tailored to your business goals and budget.",
+        description: "We audit your stack to build an AI adoption roadmap with clear ROI.",
       },
       {
-        name: "Intelligent Automation",
-        description:
-          "Replace repetitive workflows with intelligent pipelines — document processing, data extraction, approval flows, and multi-step agent orchestration.",
+        name: "Intelligent Agents",
+        description: "Autonomous workflows executing complex cognitive tasks.",
       },
       {
-        name: "Conversational AI",
-        description:
-          "Production-grade chatbots and voice assistants built on GPT-4, Claude, and Gemini — integrated with your CRM, helpdesk, and backend systems.",
+        name: "WhatsApp & Web Chatbots",
+        description: "24/7 intelligent customer engagement integrated with your database.",
+      },
+      {
+        name: "Workflow Automation",
+        description: "Connecting CRMs, APIs, and administrative pipelines without code friction.",
       },
       {
         name: "Generative AI Solutions",
-        description:
-          "Custom LLM fine-tuning, RAG systems, AI content pipelines, and image/video generation tools built for your specific domain and data.",
-      },
-      {
-        name: "Computer Vision",
-        description:
-          "Object detection, facial recognition, quality inspection, and real-time video analytics for industrial, retail, and security use cases.",
+        description: "Custom LLM integrations, fine-tuning, and private RAG systems.",
       },
     ],
     process: [
       {
         step: 1,
         title: "Discovery & Audit",
-        description:
-          "We analyse your existing processes, data quality, and infrastructure to map where AI can generate the highest ROI.",
+        description: "We study your processes and data quality to identify automation options.",
       },
       {
         step: 2,
-        title: "Solution Architecture",
-        description:
-          "Our AI architects design the system — model selection, data pipelines, integration points, and scalability plan.",
+        title: "System Architecture",
+        description: "Selecting model parameters, backend schemas, and integration structures.",
       },
       {
         step: 3,
-        title: "Build & Fine-Tune",
-        description:
-          "We develop, train, and validate models on your data, iterating with continuous feedback loops until precision targets are met.",
+        title: "Build & Training",
+        description: "Engineering custom pipelines and validating accuracy with test datasets.",
       },
       {
         step: 4,
-        title: "Deploy & Monitor",
-        description:
-          "We ship to production, set up observability dashboards, and provide ongoing model maintenance and retraining schedules.",
+        title: "Deploy & Observability",
+        description: "Deploying API agents and creating dashboard logs for real-time monitoring.",
       },
     ],
     differentiators: [
       {
         title: "Africa-First Context",
-        description:
-          "We train and fine-tune models that understand Nigerian markets, languages, and business processes — not just generic Western datasets.",
+        description: "LLM tuning optimized for regional vocabulary, currencies, and context.",
       },
       {
-        title: "Full-Stack AI Ownership",
-        description:
-          "From data engineering to model inference and frontend integration — we own the entire stack so you have one accountable partner.",
+        title: "Full-Stack Ownership",
+        description: "We design the backend pipelines and custom frontends under one roof.",
       },
       {
-        title: "Production-Grade, Not Demos",
-        description:
-          "We build AI systems that handle real traffic, edge cases, and business-critical workflows — not just impressive proof-of-concepts.",
+        title: "Production-Ready Build",
+        description: "No fragile demos. We deliver stable AI that handles real traffic and edge cases.",
       },
     ],
-    techStack: [
-      "OpenAI GPT-4",
-      "Anthropic Claude",
-      "Google Gemini",
-      "LangChain",
-      "LlamaIndex",
-      "Python",
-      "FastAPI",
-      "Pinecone",
-      "PostgreSQL",
-      "Redis",
-    ],
+    techStack: ["OpenAI", "Anthropic Claude", "LangChain", "LlamaIndex", "Python", "Pinecone"],
     faqs: [
       {
-        question: "How long does it take to build an AI chatbot?",
-        answer:
-          "A basic AI chatbot integrated with your website or CRM typically takes 2–4 weeks. A more complex multi-agent system with custom fine-tuning can take 6–12 weeks depending on data availability.",
+        question: "Is our business data safe when using your AI systems?",
+        answer: "Yes. We configure private endpoints and secure VPC layers so your proprietary data is never used to train public models.",
       },
       {
-        question: "Do you work with our existing data?",
-        answer:
-          "Yes. We can build RAG (Retrieval-Augmented Generation) systems that connect your AI to your existing documents, databases, and knowledge bases securely.",
-      },
-      {
-        question: "Is our data safe when using AI?",
-        answer:
-          "We implement strict data governance policies. We use private deployments where needed, and never share your data with third-party model providers without explicit consent.",
-      },
-      {
-        question: "What industries do you build AI for?",
-        answer:
-          "We've built AI systems for fintech, healthcare, education, logistics, e-commerce, and government — across Nigeria, Africa, and globally.",
-      },
-      {
-        question: "Do you provide ongoing AI maintenance?",
-        answer:
-          "Yes. All our AI deployments come with monitoring dashboards, drift detection alerts, and optional SLA-backed maintenance plans.",
+        question: "Can we integrate AI with our existing CRM?",
+        answer: "Yes, we integrate intelligent triggers and analytics directly into HubSpot, Salesforce, or custom databases.",
       },
     ],
   },
   {
-    slug: "engineering",
-    title: "Digital Product Engineering",
-    tagline: "High-performance products built for global scale.",
+    slug: "mobile-apps",
+    title: "Mobile App Development",
+    tagline: "Native iOS & Android apps designed for Africa and the world.",
     description:
-      "We engineer web and mobile platforms with architectural precision, designed to handle hypergrowth. From SaaS products to enterprise portals — we build fast, secure, and maintainable software that becomes a competitive advantage.",
-    icon: Laptop,
+      "We develop reliable mobile apps optimized for low-bandwidth and offline environments. With native performance and localized UX, we build apps users love.",
+    icon: Smartphone,
     accentColor: "text-blue-400",
     bgColor: "bg-blue-500/10",
     borderColor: "border-blue-500/20",
     gradientFrom: "from-blue-500/20",
     stats: [
-      { value: "100+", label: "Products Launched" },
-      { value: "<1.5s", label: "Avg. Page Load Time" },
-      { value: "99.9%", label: "Availability SLA" },
-      { value: "5★", label: "Client Satisfaction" },
+      { value: "30+", label: "Apps Launched" },
+      { value: "50%", label: "Bandwidth Savings" },
+      { value: "4.8★", label: "App Store Rating" },
+      { value: "<2s", label: "Push Latency" },
     ],
     items: [
       {
-        name: "Web Application Development",
-        description:
-          "Full-stack web apps built with Next.js, React, and TypeScript — optimised for performance, SEO, and accessibility from day one.",
+        name: "iOS Native App Development",
+        description: "Premium native apps leveraging Swift and SwiftUI.",
       },
       {
-        name: "Mobile App Development",
-        description:
-          "Cross-platform iOS and Android apps using React Native — with native performance, offline support, and seamless backend integration.",
+        name: "Android Native App Development",
+        description: "High-performance applications built on Kotlin and Jetpack Compose.",
       },
       {
-        name: "SaaS Product Development",
-        description:
-          "End-to-end SaaS engineering: multi-tenant architecture, billing integration, user management, and scalable API design.",
+        name: "Cross-Platform Development",
+        description: "React Native and Flutter systems with unified codebase.",
       },
       {
-        name: "API Development & Integration",
-        description:
-          "RESTful and GraphQL API design, third-party integrations (payment gateways, ERPs, CRMs), and microservices architecture.",
+        name: "Offline-First Sync",
+        description: "Robust local databases that automatically sync when connectivity returns.",
       },
       {
-        name: "UI/UX Engineering",
-        description:
-          "Pixel-perfect implementation of design systems, accessibility-first components, and motion-rich interfaces that delight users.",
+        name: "Mobile Gateway Integrations",
+        description: "Integrating USSD engines, mobile money APIs, and card checkout.",
       },
     ],
     process: [
       {
         step: 1,
-        title: "Discovery & Scoping",
-        description:
-          "We map your product vision, define user flows, and create a technical specification document and delivery timeline.",
+        title: "UX Research",
+        description: "Mapping user journey constraints and network environment expectations.",
       },
       {
         step: 2,
-        title: "Design & Architecture",
-        description:
-          "UI/UX design in Figma, system architecture planning, database schema design, and tech stack finalisation.",
+        title: "UI Design & Flow",
+        description: "Designing layout mockups to guarantee easy navigation.",
       },
       {
         step: 3,
-        title: "Agile Development",
-        description:
-          "Iterative sprints with weekly demos, continuous integration, and early access staging environments for your team.",
+        title: "Coding & Testing",
+        description: "Deploying code updates via TestFlight and Google Play Console beta.",
       },
       {
         step: 4,
-        title: "Launch & Handover",
-        description:
-          "Production deployment, performance auditing, documentation, team training, and ongoing support packages.",
+        title: "Store Submission",
+        description: "Guiding the project through full App Store approval and launch.",
       },
     ],
     differentiators: [
       {
-        title: "Performance-First Architecture",
-        description:
-          "We build with Core Web Vitals, server-side rendering, and edge caching baked in — not as an afterthought.",
+        title: "Optimized for Low-Bandwidth",
+        description: "Asset compression and smart caching that saves user data usage.",
       },
       {
-        title: "Code You Can Own",
-        description:
-          "Full source code ownership, clear documentation, and clean codebases that your in-house team can maintain and extend.",
+        title: "Native Performance Feel",
+        description: "Butter-smooth animations and responsive touch gestures as standard.",
       },
       {
-        title: "Nigerian Market Expertise",
-        description:
-          "We understand local payment systems (Paystack, Flutterwave), connectivity constraints, and Nigerian user behaviour.",
+        title: "Mobile Money Friendly",
+        description: "Pre-configured interfaces for MTN MoMo, Orange Money, and local cards.",
       },
     ],
-    techStack: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "React Native",
-      "Node.js",
-      "PostgreSQL",
-      "Prisma",
-      "Tailwind CSS",
-      "Vercel",
-      "Supabase",
-    ],
+    techStack: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "SQLite"],
     faqs: [
       {
-        question: "How much does a web application cost in Nigeria?",
-        answer:
-          "A basic business web app starts from ₦500,000. A full SaaS product with authentication, billing, and admin panels typically ranges from ₦1.5M–₦5M depending on complexity.",
+        question: "Should we build a native or cross-platform app?",
+        answer: "We recommend cross-platform (React Native/Flutter) for most startups to save costs, and native for heavy graphics or system integrations.",
       },
       {
-        question: "How long does it take to build a product?",
-        answer:
-          "A simple web application takes 4–6 weeks. A full SaaS product typically takes 8–16 weeks. We provide a fixed timeline in our proposal after the discovery call.",
-      },
-      {
-        question: "Do you build mobile apps?",
-        answer:
-          "Yes. We build cross-platform iOS and Android apps using React Native, ensuring a single codebase that performs natively on both platforms.",
-      },
-      {
-        question: "Can you work with our existing codebase?",
-        answer:
-          "Yes. We conduct a code audit first, then work within your existing architecture or recommend a phased migration strategy if needed.",
-      },
-      {
-        question: "Do you provide post-launch support?",
-        answer:
-          "Yes. We offer retainer-based maintenance packages covering bug fixes, feature additions, security patches, and performance monitoring.",
+        question: "Do you handle app store updates and maintenance?",
+        answer: "Yes, we offer monthly retainers to handle OS upgrades, patches, and feature updates.",
       },
     ],
   },
   {
-    slug: "cloud",
-    title: "Cloud & DevOps",
-    tagline: "Reliable infrastructure that scales without limits.",
+    slug: "backend-api",
+    title: "Backend & API Development",
+    tagline: "Robust engines powering your digital products.",
     description:
-      "We modernise your infrastructure with cloud-native architectures and automate your delivery pipelines. From cloud migration to full DevOps transformation — we eliminate deployment friction and maximise system reliability.",
-    icon: Cloud,
-    accentColor: "text-cyan-400",
-    bgColor: "bg-cyan-500/10",
-    borderColor: "border-cyan-500/20",
-    gradientFrom: "from-cyan-500/20",
+      "We build secure, scalable backend architectures and API interfaces that form the resilient foundation of web and mobile software.",
+    icon: Server,
+    accentColor: "text-orange-400",
+    bgColor: "bg-orange-500/10",
+    borderColor: "border-orange-500/20",
+    gradientFrom: "from-orange-500/20",
     stats: [
-      { value: "60%", label: "Avg. Infrastructure Cost Reduction" },
-      { value: "10x", label: "Deployment Frequency Improvement" },
+      { value: "10M+", label: "Daily API Requests" },
+      { value: "<100ms", label: "Response Latency" },
+      { value: "99.99%", label: "Availability SLA" },
+      { value: "Terabytes", label: "Data Scaled" },
+    ],
+    items: [
+      {
+        name: "Custom API Development",
+        description: "RESTful, gRPC, and GraphQL server endpoints with clean docs.",
+      },
+      {
+        name: "Database Schema Design",
+        description: "High-throughput SQL and NoSQL layouts tuned for speed.",
+      },
+      {
+        name: "Payment & Auth Integrations",
+        description: "Secure gateway connections (Paystack, Flutterwave) and OAuth/SSO systems.",
+      },
+      {
+        name: "Microservices Architecture",
+        description: "Decoupling server blocks for independent scale and failover protection.",
+      },
+      {
+        name: "Server-Side Performance Tuning",
+        description: "Deploying Redis cache matrices and database query optimizations.",
+      },
+    ],
+    process: [
+      {
+        step: 1,
+        title: "API Design & Spec",
+        description: "Defining endpoints and request/response payloads in OpenAPI/Swagger.",
+      },
+      {
+        step: 2,
+        title: "Database Modeling",
+        description: "Constructing table relations, normalization steps, and indexing.",
+      },
+      {
+        step: 3,
+        title: "Core Logic Sprints",
+        description: "Writing secure, test-covered logic code with middleware rules.",
+      },
+      {
+        step: 4,
+        title: "Stress Testing",
+        description: "Running k6 and load scripts to benchmark latency bottlenecks.",
+      },
+    ],
+    differentiators: [
+      {
+        title: "Zero-Downtime Database Migration",
+        description: "Safe database restructuring schemas that don't block user access.",
+      },
+      {
+        title: "Strict Security Baselines",
+        description: "SQL injection guards, rate limiting, and server hardening on every deploy.",
+      },
+      {
+        title: "Automated Documentation",
+        description: "Interactively testable API references that speed up client-side coding.",
+      },
+    ],
+    techStack: ["Node.js", "FastAPI", "Express", "PostgreSQL", "MongoDB", "Redis", "GraphQL"],
+    faqs: [
+      {
+        question: "Can you help migrate our legacy backend databases?",
+        answer: "Yes. We perform secure ETL operations to clean and port legacy structures to modern cloud databases.",
+      },
+      {
+        question: "Do you support GraphQL or REST?",
+        answer: "We build both. We choose REST for standard simplicity and GraphQL for client-heavy query flexibility.",
+      },
+    ],
+  },
+  {
+    slug: "enterprise-digitization",
+    title: "Enterprise Digitization",
+    tagline: "Modernize legacy operations and automate workflows.",
+    description:
+      "We digitize internal operations, build custom management portals (ERP/CRM), and modernize aging software to help enterprises work faster and cut costs.",
+    icon: Building2,
+    accentColor: "text-amber-400",
+    bgColor: "bg-amber-500/10",
+    borderColor: "border-amber-500/20",
+    gradientFrom: "from-amber-500/20",
+    stats: [
+      { value: "70%", label: "Manual Process Reduction" },
+      { value: "3x", label: "Faster Reporting Cycles" },
+      { value: "100%", label: "Data Integration" },
+      { value: "40+", label: "SME/Corp Clients" },
+    ],
+    items: [
+      {
+        name: "ERP & CRM Customization",
+        description: "Tailored setup of Odoo, Salesforce, and HubSpot.",
+      },
+      {
+        name: "Custom Business Portals",
+        description: "Secure dashboards for HR, admin, procurement, and staff actions.",
+      },
+      {
+        name: "Legacy Stack Modernization",
+        description: "Upgrading aging business software to secure, cloud-hosted web apps.",
+      },
+      {
+        name: "Process Digitization",
+        description: "Replacing spreadsheet and paper chains with automated pipelines.",
+      },
+      {
+        name: "BI Reporting Portals",
+        description: "Consolidating business metrics into real-time KPI layouts.",
+      },
+    ],
+    process: [
+      {
+        step: 1,
+        title: "Workflow Auditing",
+        description: "We map out existing departmental actions to isolate process lags.",
+      },
+      {
+        step: 2,
+        title: "Solution Blueprinting",
+        description: "Deciding which components to customize or build from scratch.",
+      },
+      {
+        step: 3,
+        title: "Integration Sprints",
+        description: "Hooking up active systems and deploying secure portal staging.",
+      },
+      {
+        step: 4,
+        title: "Go-Live & Hypercare",
+        description: "Production launch combined with intensive employee training support.",
+      },
+    ],
+    differentiators: [
+      {
+        title: "Compliance Ready",
+        description: "Integrated NDPR compliance rules and security audit logging.",
+      },
+      {
+        title: "Tailored Adaptability",
+        description: "We match the software to your workflow, avoiding workflow disruptions.",
+      },
+      {
+        title: "Change Management Support",
+        description: "Hands-on team training guides to ensure active dashboard adoption.",
+      },
+    ],
+    techStack: ["Odoo", "HubSpot", "Salesforce", "n8n", "PostgreSQL", "Power BI"],
+    faqs: [
+      {
+        question: "How long does a CRM or ERP implementation take?",
+        answer: "A standard CRM customisation takes 4–6 weeks. A multi-module ERP rollout takes 8–16 weeks.",
+      },
+      {
+        question: "Can Odoo handle local tax rules?",
+        answer: "Yes, we pre-configure Odoo for Nigerian VAT, WHT, and FIRS compliance standards.",
+      },
+    ],
+  },
+  {
+    slug: "cloud-devops",
+    title: "Cloud & DevOps",
+    tagline: "Reliable cloud infrastructure that auto-scales seamlessly.",
+    description:
+      "We set up secure cloud hosting, automate deployment pipelines (CI/CD), and manage infrastructure as code to guarantee maximum speed and uptime.",
+    icon: Cloud,
+    accentColor: "text-sky-400",
+    bgColor: "bg-sky-500/10",
+    borderColor: "border-sky-500/20",
+    gradientFrom: "from-sky-500/20",
+    stats: [
+      { value: "60%", label: "Avg. Infra Cost Saved" },
+      { value: "10x", label: "Deploy Frequency Gain" },
       { value: "99.99%", label: "Uptime Achieved" },
       { value: "<5min", label: "Mean Recovery Time" },
     ],
     items: [
       {
-        name: "Cloud Infrastructure",
-        description:
-          "Design and provision of AWS, GCP, and Azure environments — VPCs, load balancers, auto-scaling groups, and managed databases.",
+        name: "Cloud Hosting & Migration",
+        description: "Secure migration of workloads to AWS, GCP, and Azure.",
       },
       {
-        name: "DevOps & CI/CD",
-        description:
-          "Automated build, test, and deployment pipelines using GitHub Actions, Jenkins, or CircleCI. Zero-downtime deployments as standard.",
+        name: "CI/CD Pipeline Setup",
+        description: "Automated code integration, testing, and deployment scripts.",
       },
       {
-        name: "Cloud Migration",
-        description:
-          "Lift-and-shift, re-platform, or full cloud-native refactoring of legacy on-premise systems with minimal downtime and risk.",
+        name: "Infrastructure as Code (IaC)",
+        description: "Defining network environments in clean, repeatable Terraform templates.",
       },
       {
-        name: "Serverless Architecture",
-        description:
-          "Event-driven, serverless systems using AWS Lambda, Vercel Edge Functions, or Cloudflare Workers — pay only for what you use.",
+        name: "System Monitoring",
+        description: "Setting up metrics and log aggregation dashboards.",
       },
       {
-        name: "Monitoring & Observability",
-        description:
-          "Full-stack observability with Datadog, Grafana, or Prometheus — custom dashboards, alerting rules, and incident response runbooks.",
+        name: "Cloud Cost Optimization",
+        description: "Eliminating idle cloud resources to drop monthly server bills.",
       },
     ],
     process: [
       {
         step: 1,
-        title: "Infrastructure Audit",
-        description:
-          "We assess your current setup, identify bottlenecks, security gaps, and cost inefficiencies, and produce a detailed remediation report.",
+        title: "Infra Audit",
+        description: "We assess resource loads and security parameters to catch waste.",
       },
       {
         step: 2,
         title: "Architecture Design",
-        description:
-          "We design your target cloud architecture with IaC (Terraform/Pulumi), environment strategy, and disaster recovery planning.",
+        description: "Drafting scalable VPC layouts, security groups, and recovery systems.",
       },
       {
         step: 3,
-        title: "Migration & Automation",
-        description:
-          "Phased migration with parallel environments, automated CI/CD pipeline setup, and infrastructure-as-code implementation.",
+        title: "Codification & Sprints",
+        description: "Writing Terraform templates and deploying live integration hooks.",
       },
       {
         step: 4,
-        title: "Handover & Optimise",
-        description:
-          "Team training, runbook documentation, cost optimisation review, and ongoing managed services if required.",
+        title: "Migration & Sync",
+        description: "Safely switching traffic flow to the modern cloud environment.",
       },
     ],
     differentiators: [
       {
-        title: "IaC-First Approach",
-        description:
-          "All infrastructure is codified in Terraform or Pulumi — version-controlled, reproducible, and auditable by your team at any time.",
+        title: "IaC-First Deployment",
+        description: "Unerring replication of testing, staging, and production environments.",
       },
       {
-        title: "Security Built In",
-        description:
-          "We implement least-privilege IAM, secrets management, network segmentation, and compliance controls from the first sprint.",
+        title: "Zero-Trust VPC Setup",
+        description: "Least-privilege firewall configurations and encrypted storage arrays.",
       },
       {
-        title: "Cost Transparency",
-        description:
-          "We set up cost monitoring and budget alerts so you always know what you're spending and where — no cloud bill surprises.",
+        title: "Bill Control Framework",
+        description: "Budget alert monitors that prevent cost spikes from runaway server usage.",
       },
     ],
-    techStack: [
-      "AWS",
-      "Google Cloud",
-      "Azure",
-      "Terraform",
-      "Docker",
-      "Kubernetes",
-      "GitHub Actions",
-      "Grafana",
-      "Datadog",
-      "Cloudflare",
-    ],
+    techStack: ["AWS", "Google Cloud", "Terraform", "Docker", "Kubernetes", "GitHub Actions"],
     faqs: [
       {
-        question: "How much can cloud migration save our business?",
-        answer:
-          "Most clients see 30–60% infrastructure cost reductions after migration, through right-sizing, reserved instances, and eliminating on-premise hardware overhead.",
+        question: "Which cloud provider should we use?",
+        answer: "We recommend AWS for deep ecosystem features, and Vercel/Supabase for fast startup phases.",
       },
       {
-        question: "Do you support AWS, GCP, and Azure?",
-        answer:
-          "Yes. We are multi-cloud practitioners. We recommend the best cloud provider based on your workload, budget, and existing tooling — or design multi-cloud strategies when needed.",
-      },
-      {
-        question: "What is IaC and why does it matter?",
-        answer:
-          "Infrastructure as Code (IaC) means your servers, networks, and services are defined in code files (Terraform/Pulumi) — making your infra reproducible, version-controlled, and disaster-recoverable.",
-      },
-      {
-        question: "Can you help us achieve ISO 27001 or SOC 2 compliance?",
-        answer:
-          "Yes. We implement the technical controls required for ISO 27001, SOC 2, and NDPR compliance as part of our cloud engineering engagements.",
+        question: "What is Infrastructure as Code (IaC)?",
+        answer: "IaC codifies networks in text files, making backup environments immediately restorable.",
       },
     ],
   },
   {
-    slug: "enterprise",
-    title: "Enterprise Systems",
-    tagline: "Integrate, automate, and scale your core operations.",
+    slug: "ui-ux-design",
+    title: "UI/UX & Product Design",
+    tagline: "Beautiful interfaces backed by seamless user experiences.",
     description:
-      "We bridge the gap between legacy systems and modern business workflows. From CRM and ERP implementation to full enterprise integration — we unify your data, automate your processes, and give every team a single source of truth.",
-    icon: Database,
-    accentColor: "text-zgreen-400",
-    bgColor: "bg-zgreen-500/10",
-    borderColor: "border-zgreen-500/20",
-    gradientFrom: "from-zgreen-500/20",
+      "We conduct user research, construct Figma interactive prototypes, and design scalable component systems to make software visually stunning and easy to use.",
+    icon: Palette,
+    accentColor: "text-pink-400",
+    bgColor: "bg-pink-500/10",
+    borderColor: "border-pink-500/20",
+    gradientFrom: "from-pink-500/20",
     stats: [
-      { value: "70%", label: "Manual Task Reduction" },
-      { value: "3x", label: "Faster Reporting Cycles" },
-      { value: "100%", label: "Data Integration Rate" },
-      { value: "30+", label: "Enterprise Clients" },
+      { value: "500+", label: "Figma Screens Designed" },
+      { value: "+30%", label: "User Retention Gain" },
+      { value: "2.5x", label: "Conversion Ratio Boost" },
+      { value: "100+", label: "User Usability Tests" },
     ],
     items: [
       {
-        name: "CRM & ERP Solutions",
-        description:
-          "Implementation and customisation of Salesforce, HubSpot, SAP, and Odoo — configured for your specific team structures and sales processes.",
+        name: "User Research & Audits",
+        description: "Interviews, field tests, and dashboard heat-map analytics reviews.",
       },
       {
-        name: "Enterprise Integration",
-        description:
-          "Connecting disparate systems (ERP, CRM, HRMS, accounting) via APIs, webhooks, and middleware — creating a unified operational backbone.",
+        name: "Wireframing & Prototyping",
+        description: "High-fidelity, clickable visual paths in Figma for design review.",
       },
       {
-        name: "Workflow Automation",
-        description:
-          "Automated approval chains, document generation, notification systems, and cross-departmental data flows using n8n, Zapier, or custom engines.",
+        name: "Brand System Design",
+        description: "Logos, type selections, color theory, and asset guideline libraries.",
       },
       {
-        name: "Data Warehousing",
-        description:
-          "Centralised data repositories with ETL pipelines from all your operational systems into a single analytics-ready warehouse.",
+        name: "Scalable Design Systems",
+        description: "UI components built to streamline dev coding handovers.",
+      },
+      {
+        name: "Interactive Animations",
+        description: "Micro-interactions that guide users and create polished app flows.",
       },
     ],
     process: [
       {
         step: 1,
-        title: "Business Process Mapping",
-        description:
-          "We document your current workflows, pain points, and data flows to design the optimal enterprise architecture.",
+        title: "User Empathy & Audit",
+        description: "Studying target audience goals and mapping navigation bottlenecks.",
       },
       {
         step: 2,
-        title: "System Selection & Design",
-        description:
-          "We recommend and configure the right CRM/ERP platform, design integration schemas, and plan data migration.",
+        title: "Wireframe Mapping",
+        description: "Drafting skeleton layouts to establish page hierarchy.",
       },
       {
         step: 3,
-        title: "Implementation & Integration",
-        description:
-          "Phased rollout with parallel system operation, staff training, and real-time integration testing across all connected systems.",
+        title: "Visual Design Layout",
+        description: "Applying colors, assets, and branding rules to high-fidelity layouts.",
       },
       {
         step: 4,
-        title: "Go-Live & Optimise",
-        description:
-          "Production cutover, hypercare support period, performance tuning, and ongoing system administration.",
+        title: "Dev Team Handoff",
+        description: "Packaging Figma variables and design specs for developers.",
       },
     ],
     differentiators: [
       {
-        title: "End-to-End Ownership",
-        description:
-          "We handle everything from vendor selection and licensing to implementation, training, and post-go-live support.",
+        title: "Figma-First Workflow",
+        description: "Interactive mocks that let you experience the product before coding.",
       },
       {
-        title: "Custom, Not Cookie-Cutter",
-        description:
-          "We configure enterprise systems to match your exact business logic — not the other way around.",
+        title: "Africa-Centric UX Design",
+        description: "Layouts designed with local contexts, literacy rates, and bandwidth in mind.",
       },
       {
-        title: "Nigerian Compliance Ready",
-        description:
-          "All implementations include NDPR data governance controls and localised reporting for Nigerian tax and regulatory requirements.",
+        title: "Engineering-Ready Export",
+        description: "We align colors and layouts with standard component frameworks.",
       },
     ],
-    techStack: [
-      "Salesforce",
-      "HubSpot",
-      "SAP",
-      "Odoo",
-      "n8n",
-      "Zapier",
-      "PostgreSQL",
-      "dbt",
-      "Apache Kafka",
-      "REST APIs",
-    ],
+    techStack: ["Figma", "Adobe Creative Suite", "Storybook", "Framer"],
     faqs: [
       {
-        question: "How long does a CRM implementation take?",
-        answer:
-          "A standard CRM setup (HubSpot or Salesforce) typically takes 4–8 weeks. Complex ERP implementations with custom modules and data migration can take 3–6 months.",
+        question: "How long does the UI/UX design phase take?",
+        answer: "A standard web/mobile prototype takes 3–6 weeks depending on page count.",
       },
       {
-        question: "Can you migrate our data from a legacy system?",
-        answer:
-          "Yes. We perform secure data extraction, cleansing, transformation, and migration with full audit trails and rollback capability.",
-      },
-      {
-        question: "Do you support Odoo for Nigerian businesses?",
-        answer:
-          "Yes. We are Odoo implementation partners with experience configuring the platform for Nigerian accounting standards, payroll, and FIRS compliance.",
-      },
-      {
-        question: "How do you handle change management?",
-        answer:
-          "We include structured user training, documentation, and a hypercare support period in all enterprise rollouts to maximise adoption.",
+        question: "Do you test designs with real users?",
+        answer: "Yes, we run usability tests with real users to validate layout choices.",
       },
     ],
   },
   {
-    slug: "security",
-    title: "Cybersecurity",
-    tagline: "Protect your business before threats become breaches.",
+    slug: "data-bi",
+    title: "Data & Business Intelligence",
+    tagline: "Turn raw metrics into your ultimate competitive edge.",
     description:
-      "We provide proactive, layered cybersecurity engineering for businesses that cannot afford a breach. From penetration testing and application security to identity management and compliance governance — we secure your entire attack surface.",
+      "We build automated data warehouses, ETL pipelines, and real-time dashboards to give your business leadership the accurate facts needed to execute strategies.",
+    icon: BarChart3,
+    accentColor: "text-teal-400",
+    bgColor: "bg-teal-500/10",
+    borderColor: "border-teal-500/20",
+    gradientFrom: "from-teal-500/20",
+    stats: [
+      { value: "5x", label: "Faster Report Delivery" },
+      { value: "100%", label: "Data Source Sync" },
+      { value: "Real-Time", label: "Dashboard Refresh" },
+      { value: "Terabytes", label: "Data Scaled" },
+    ],
+    items: [
+      {
+        name: "BI Dashboard Development",
+        description: "Custom real-time analytical dashboards in Power BI and Metabase.",
+      },
+      {
+        name: "Data Warehousing Setup",
+        description: "Consolidating databases into Snowflake, BigQuery, or Redshift.",
+      },
+      {
+        name: "ETL Data Pipelines",
+        description: "Automating data transfer from CRMs, Ads, and internal tables.",
+      },
+      {
+        name: "Predictive Analytics",
+        description: "Deploying machine learning models to track churn and sales projections.",
+      },
+      {
+        name: "Customer Cohort Analytics",
+        description: "Visualizing user retention loops and lifetime value patterns.",
+      },
+    ],
+    process: [
+      {
+        step: 1,
+        title: "Metrics Discovery",
+        description: "Identifying key business parameters and active data sources.",
+      },
+      {
+        step: 2,
+        title: "Warehouse Architecture",
+        description: "Creating ingestion rules and mapping schemas in the data lake.",
+      },
+      {
+        step: 3,
+        title: "ETL Engine Setup",
+        description: "Configuring pipeline sync systems and transforming data via dbt.",
+      },
+      {
+        step: 4,
+        title: "Data Visualisation",
+        description: "Building reporting layouts and training teams on self-serve query tools.",
+      },
+    ],
+    differentiators: [
+      {
+        title: "Business KPI Focus First",
+        description: "We focus on key metrics that matter, avoiding noisy analytics dashboards.",
+      },
+      {
+        title: "Self-Serve Training",
+        description: "We teach your marketing/finance staff how to query dashboards without dev aid.",
+      },
+      {
+        title: "Data Integrity Scrubber",
+        description: "Automated alert monitors that verify data accuracy and pipeline sync.",
+      },
+    ],
+    techStack: ["Metabase", "Power BI", "Snowflake", "dbt", "Fivetran", "Airbyte"],
+    faqs: [
+      {
+        question: "Do we need a data warehouse?",
+        answer: "If you have more than 3 data sources (e.g. Ads, Stripe, Database) and need cross-system metrics, yes.",
+      },
+      {
+        question: "Can you pull data from payment gateways?",
+        answer: "Yes, we sync data from Paystack, Flutterwave, Stripe, and global gateways.",
+      },
+    ],
+  },
+  {
+    slug: "cybersecurity",
+    title: "Cybersecurity & Compliance",
+    tagline: "Layered digital security to defend your business.",
+    description:
+      "We conduct penetration testing, build secure backend configurations, audit codebases, and implement controls required for NDPR, ISO 27001, and SOC 2.",
     icon: Shield,
     accentColor: "text-red-400",
     bgColor: "bg-red-500/10",
     borderColor: "border-red-500/20",
     gradientFrom: "from-red-500/20",
     stats: [
-      { value: "Zero", label: "Client Breaches Post-Engagement" },
-      { value: "200+", label: "Vulnerabilities Remediated" },
-      { value: "48hr", label: "Incident Response SLA" },
-      { value: "100%", label: "Compliance Audit Pass Rate" },
+      { value: "Zero", label: "Client Breaches Post-Audit" },
+      { value: "200+", label: "Security Vulnerabilities Patched" },
+      { value: "<24hr", label: "SLA Response Window" },
+      { value: "100%", label: "Audit Pass Rate" },
     ],
     items: [
       {
-        name: "Application Security",
-        description:
-          "Secure code reviews, SAST/DAST scanning, dependency auditing, and security architecture design for web and mobile applications.",
-      },
-      {
         name: "Penetration Testing",
-        description:
-          "Ethical hacking engagements simulating real-world attackers — web app pentests, network pentests, and social engineering assessments.",
+        description: "Ethical hacking sprints to identify and exploit vulnerabilities.",
       },
       {
-        name: "Identity & Access Management",
-        description:
-          "Zero-trust IAM design, SSO implementation, multi-factor authentication rollout, and privileged access management.",
+        name: "App Security Audits",
+        description: "Secure code analysis, package checks, and vulnerability scanning.",
       },
       {
-        name: "Compliance & Governance",
-        description:
-          "NDPR, ISO 27001, SOC 2, and PCI-DSS compliance gap analysis, remediation roadmaps, and audit preparation support.",
+        name: "Identity & IAM Setup",
+        description: "Configuring SSO, MFA, and Zero-Trust access hierarchies.",
+      },
+      {
+        name: "Compliance Preparation",
+        description: "Drafting policies and technical settings for ISO 27001, SOC 2, and NDPR.",
+      },
+      {
+        name: "Incident Response Playbooks",
+        description: "Establishing emergency recovery and data breach containment guides.",
       },
     ],
     process: [
       {
         step: 1,
-        title: "Security Assessment",
-        description:
-          "We map your attack surface, review your security posture, and identify vulnerabilities across people, processes, and technology.",
+        title: "Attack Path Mapping",
+        description: "We scan public network assets to establish threat exposure zones.",
       },
       {
         step: 2,
-        title: "Threat Modelling",
-        description:
-          "We model realistic threat scenarios for your industry and build a prioritised remediation backlog.",
+        title: "Threat Modeling",
+        description: "Simulating attacks on databases, servers, and APIs.",
       },
       {
         step: 3,
-        title: "Hardening & Controls",
-        description:
-          "Implementation of technical controls: firewalls, WAF, encryption, secrets management, and endpoint protection.",
+        title: "Hardening & Patching",
+        description: "Setting up firewalls, patching packages, and deploying secrets vaults.",
       },
       {
         step: 4,
-        title: "Monitor & Respond",
-        description:
-          "24/7 SIEM monitoring, automated alerting, incident response playbooks, and quarterly security reviews.",
+        title: "SIEM & Logs Monitoring",
+        description: "Deploying automated intrusion detection and alert monitors.",
       },
     ],
     differentiators: [
       {
-        title: "Proactive, Not Reactive",
-        description:
-          "We find your vulnerabilities before attackers do — with continuous scanning and quarterly red team exercises.",
+        title: "CVSS Compliant Analysis",
+        description: "Clear vulnerability reporting categorizing severity for business prioritization.",
       },
       {
-        title: "Compliance-Linked Engineering",
-        description:
-          "Every security control we implement maps directly to a compliance framework requirement — giving you dual value.",
+        title: "NITDA/NDPR Ready",
+        description: "We align security controls with NITDA's regulatory requirements.",
       },
       {
-        title: "Clear, Actionable Reports",
-        description:
-          "Our pentest reports are written for both technical teams and C-suite — with CVSS scores, business impact ratings, and step-by-step fixes.",
+        title: "Defensive Coding Alignment",
+        description: "We don't just report issues; we pair with your dev team to fix them.",
       },
     ],
-    techStack: [
-      "Burp Suite",
-      "OWASP ZAP",
-      "Nmap",
-      "Metasploit",
-      "Wazuh",
-      "Snyk",
-      "HashiCorp Vault",
-      "AWS Security Hub",
-      "Okta",
-      "CrowdStrike",
-    ],
+    techStack: ["Burp Suite", "OWASP ZAP", "Wazuh", "Okta", "HashiCorp Vault", "AWS Security Hub"],
     faqs: [
       {
-        question: "How often should we do a penetration test?",
-        answer:
-          "At minimum annually, and after any major infrastructure change or product launch. High-risk industries (fintech, healthcare) should conduct pentests every 6 months.",
+        question: "What's the difference between a scan and a pentest?",
+        answer: "A scan is automated; a pentest involves skilled human attackers actively exploiting security gaps.",
       },
       {
-        question: "What is the difference between a pentest and a vulnerability scan?",
-        answer:
-          "A vulnerability scan is automated and lists potential weaknesses. A penetration test involves skilled humans actively exploiting those weaknesses to demonstrate real-world impact and attack chains.",
-      },
-      {
-        question: "Do you help with NDPR compliance in Nigeria?",
-        answer:
-          "Yes. We conduct NDPR gap assessments, implement required technical and organisational measures, and prepare the Data Protection Audit documentation required by NITDA.",
-      },
-      {
-        question: "Can you help us respond to an active security incident?",
-        answer:
-          "Yes. We offer emergency incident response retainers. Contact us immediately at hello@zeplynk.com for active breach situations.",
+        question: "Can you help us with NDPR audits?",
+        answer: "Yes. We deploy compliance audit logs and compile files for your NITDA audit submission.",
       },
     ],
   },
   {
-    slug: "data",
-    title: "Data & Analytics",
-    tagline: "Turn raw data into your sharpest competitive edge.",
+    slug: "tech-education",
+    title: "Tech Education (Academy)",
+    tagline: "Building Africa's next generation of elite engineers.",
     description:
-      "We build high-speed data pipelines, centralised warehouses, and real-time dashboards that surface the insights your business needs to make decisions with confidence. From raw data chaos to a unified analytics platform — we own the full journey.",
-    icon: BarChart3,
-    accentColor: "text-amber-400",
-    bgColor: "bg-amber-500/10",
-    borderColor: "border-amber-500/20",
-    gradientFrom: "from-amber-500/20",
+      "We provide hands-on coding bootcamps, practical AI training, and custom corporate upskilling programs to bridge the developer talent gap.",
+    icon: GraduationCap,
+    accentColor: "text-cyan-400",
+    bgColor: "bg-cyan-500/10",
+    borderColor: "border-cyan-500/20",
+    gradientFrom: "from-cyan-500/20",
     stats: [
-      { value: "5x", label: "Faster Reporting Speed" },
-      { value: "100%", label: "Data Source Unification" },
-      { value: "Real-Time", label: "Dashboard Refresh Rate" },
-      { value: "TB+", label: "Data Processed Monthly" },
+      { value: "1000+", label: "Developers Trained" },
+      { value: "15+", label: "Bootcamps Run" },
+      { value: "85%", label: "Placement Rate" },
+      { value: "4.9★", label: "Student Rating" },
     ],
     items: [
       {
-        name: "Business Intelligence",
-        description:
-          "Custom BI dashboards in Metabase, Power BI, or Looker — connecting every data source into one executive-ready reporting layer.",
+        name: "Coding Bootcamps",
+        description: "Full-stack web (React, Next.js) and mobile engineering programs.",
       },
       {
-        name: "Real-Time Dashboards",
-        description:
-          "Streaming analytics dashboards with sub-second refresh rates for operations, sales, and customer success teams.",
+        name: "AI & ML Certifications",
+        description: "Hands-on Python code scripting, prompt optimization, and AI agent building.",
       },
       {
-        name: "Big Data Engineering",
-        description:
-          "Scalable data pipelines handling millions of events daily using Apache Kafka, Spark, and dbt — on cloud or on-premise.",
+        name: "Corporate Developer Upskilling",
+        description: "Custom technical training sprints built for team needs.",
       },
       {
-        name: "Customer Analytics",
-        description:
-          "Cohort analysis, churn prediction, LTV modelling, and behavioural segmentation to drive retention and revenue growth.",
+        name: "Tech Curriculum Design",
+        description: "Helping institutions design structured code learning frameworks.",
+      },
+      {
+        name: "Structured Mentorship",
+        description: "Daily review sessions with senior developer mentors.",
       },
     ],
     process: [
       {
         step: 1,
-        title: "Data Discovery",
-        description:
-          "We map all your data sources, assess data quality, and identify the key metrics that matter most to your business.",
+        title: "Needs Assessment",
+        description: "Establishing existing coding levels and hiring target expectations.",
       },
       {
         step: 2,
-        title: "Pipeline Architecture",
-        description:
-          "We design ELT pipelines, schema modelling in the warehouse, and a data governance framework.",
+        title: "Syllabus Customization",
+        description: "Tuning course curriculum to match active tech stack constraints.",
       },
       {
         step: 3,
-        title: "Build & Integrate",
-        description:
-          "We build and test all pipelines, connect data sources, and implement transformation layers with dbt.",
+        title: "Practical Labs",
+        description: "Project-based learning focusing on building real applications.",
       },
       {
         step: 4,
-        title: "Visualise & Train",
-        description:
-          "Dashboard delivery, metric definition documentation, and team training on self-serve analytics.",
+        title: "Handoff & Placement",
+        description: "Assisting students with resume reviews and matching with hiring partners.",
       },
     ],
     differentiators: [
       {
-        title: "Metrics That Matter",
-        description:
-          "We work with your leadership to define the right KPIs first — not just build pretty charts that nobody uses.",
+        title: "Project-First Approach",
+        description: "No boring lectures. Students build production-grade web apps from week one.",
       },
       {
-        title: "Self-Serve Analytics",
-        description:
-          "We build platforms your team can actually use independently — with training and documentation included.",
+        title: "Local Mentor Network",
+        description: "Interactive help from local engineering leads who know the market.",
       },
       {
-        title: "Data Quality Obsession",
-        description:
-          "We implement automated data quality checks, freshness monitoring, and lineage tracking so you always trust your numbers.",
+        title: "Hiring Partners Core",
+        description: "Post-course placement services connecting graduates with businesses.",
       },
     ],
-    techStack: [
-      "BigQuery",
-      "Snowflake",
-      "dbt",
-      "Apache Kafka",
-      "Apache Spark",
-      "Metabase",
-      "Power BI",
-      "Looker",
-      "Fivetran",
-      "Airbyte",
-    ],
+    techStack: ["HTML/CSS", "JavaScript", "TypeScript", "Next.js", "Node.js", "Python", "Git"],
     faqs: [
       {
-        question: "What is a data warehouse and do we need one?",
-        answer:
-          "A data warehouse centralises data from all your apps (CRM, ERP, website, ads) into one place optimised for analysis. If you have more than 3 data sources and need cross-system reporting, you likely need one.",
+        question: "How long are the coding bootcamp courses?",
+        answer: "Full-time web bootcamps are 3 months. Backend and AI programs run for 4–6 months.",
       },
       {
-        question: "How long does it take to build a BI dashboard?",
-        answer:
-          "A basic dashboard connected to 2–3 data sources typically takes 2–3 weeks. A full analytics platform with a data warehouse and multiple dashboards takes 6–10 weeks.",
-      },
-      {
-        question: "Can you connect to our existing tools (Salesforce, Shopify, etc.)?",
-        answer:
-          "Yes. We use Fivetran, Airbyte, or custom connectors to pull data from 200+ sources including Salesforce, HubSpot, Shopify, Paystack, and more.",
-      },
-      {
-        question: "Is our data secure in the warehouse?",
-        answer:
-          "All data warehouses we deploy include role-based access control, encryption at rest and in transit, and audit logging of all data access.",
+        question: "Do I need prior coding experience?",
+        answer: "No. Our beginner tracks start from the basics and require no prior coding skills.",
       },
     ],
   },

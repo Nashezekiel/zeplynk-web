@@ -4,20 +4,22 @@ import SolutionsPageContent from "./SolutionsPageContent";
 export const metadata: Metadata = {
     title: "Software Development & AI Automation Services Nigeria | Zeplynk",
     description:
-        "Zeplynk delivers world-class software development, AI automation, cloud infrastructure, and cybersecurity services to businesses in Nigeria and Africa. Based in Kaduna — serving clients nationwide.",
+        "Zeplynk delivers world-class software development, AI automation, cloud infrastructure, and cybersecurity services to businesses in Nigeria and Africa. Zeplynk is based in Kaduna, serving clients nationwide.",
     keywords: [
+        "Zeplynk software development",
         "software development Nigeria",
+        "Zeplynk AI automation",
         "AI automation Nigeria",
         "web development company Nigeria",
         "cloud infrastructure Nigeria",
         "cybersecurity Nigeria",
-        "Next.js development Nigeria",
+        "Zeplynk Next.js development",
         "SaaS development Nigeria",
         "API development Nigeria",
         "software company Kaduna",
         "enterprise software Nigeria",
         "AI chatbot Nigeria",
-        "tech solutions Nigeria",
+        "Zeplynk tech solutions",
     ],
     alternates: {
         canonical: "https://zeplynk.com/solutions",
@@ -25,7 +27,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Software Development & AI Automation Services Nigeria | Zeplynk",
         description:
-            "World-class software development, AI automation, cloud infrastructure, and cybersecurity services for Nigerian businesses. Based in Kaduna.",
+            "Zeplynk delivers world-class software development, AI automation, cloud infrastructure, and cybersecurity services for Nigerian businesses from Kaduna.",
         url: "https://zeplynk.com/solutions",
     },
     twitter: {

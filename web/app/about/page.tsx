@@ -4,7 +4,7 @@ import AboutContent from "./AboutContent";
 export const metadata: Metadata = {
     title: "About Zeplynk — Tech Company Founded in Kaduna, Nigeria",
     description:
-        "Learn about Zeplynk — a tech solutions and education company founded in Kaduna, Nigeria by Nash Ezekiel Pam. On a mission to build world-class software and train the next generation of Nigerian developers.",
+        "About Zeplynk: Tech solutions & education company founded in Kaduna, Nigeria by Nash Ezekiel Pam. Building world-class software & training Nigerian developers.",
     keywords: [
         "about Zeplynk",
         "tech company Kaduna Nigeria",
@@ -30,10 +30,37 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "About Zeplynk — Tech Company Founded in Kaduna, Nigeria",
         description:
-            "Tech solutions and education company founded in Kaduna, Nigeria. Building software and training developers across Nigeria.",
+            "Zeplynk is a tech solutions and education company founded in Kaduna, Nigeria. Building software and training developers across Nigeria.",
     },
 };
 
+const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://zeplynk.com",
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: "About",
+            item: "https://zeplynk.com/about",
+        },
+    ],
+};
+
 export default function AboutPage() {
-    return <AboutContent />;
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+            <AboutContent />
+        </>
+    );
 }

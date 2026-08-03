@@ -5,8 +5,7 @@ import { Providers } from "./providers";
 import Navbar from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import HeaderBar from "@/components/layout/HeaderBar";
-import ZepBot from "@/components/ui/ZepBot";
-import { PerformanceMonitor } from "@/components/ui/PerformanceMonitor";
+
 
 const plusJakartaSans = Plus_Jakarta_Sans({ 
   subsets: ["latin"],
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
     default: "Tech Solutions & Web Development Company Nigeria | Zeplynk",
   },
   description:
-    "Zeplynk is Nigeria's premier tech solutions and education company based in Kaduna. We deliver web engineering, AI automation, software development, and tech training across Nigeria and Africa.",
+    "Zeplynk: Nigeria's premier tech solutions company in Kaduna. Web engineering, AI automation, software development & tech training across Nigeria and Africa.",
   keywords: [
     "tech solutions Nigeria",
     "tech education Nigeria",
@@ -49,6 +48,10 @@ export const metadata: Metadata = {
   publisher: "Zeplynk",
   alternates: {
     canonical: BASE_URL,
+    languages: {
+      'en': BASE_URL,
+      'en-NG': BASE_URL,
+    },
   },
   robots: {
     index: true,
@@ -111,6 +114,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Zeplynk",
+    alternateName: ["Zeplynk Tech", "Zeplynk Academy"],
     url: BASE_URL,
     logo: `${BASE_URL}/theLogo-removebg-preview.png`,
     description:
@@ -292,7 +296,38 @@ export default function RootLayout({
     },
   };
 
-  const allSchemas = [organizationJsonLd, localBusinessJsonLd, webpageJsonLd, serviceJsonLd, educationalOrganizationJsonLd];
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Zeplynk",
+    alternateName: "Zeplynk Tech",
+    url: BASE_URL,
+    description:
+      "Zeplynk is Nigeria's premier tech solutions and education company — web engineering, AI automation, and developer training from Kaduna.",
+    publisher: {
+      "@type": "Organization",
+      name: "Zeplynk",
+      url: BASE_URL,
+      logo: `${BASE_URL}/theLogo-removebg-preview.png`,
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${BASE_URL}/insights?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  const allSchemas = [
+    websiteJsonLd,
+    organizationJsonLd,
+    localBusinessJsonLd,
+    webpageJsonLd,
+    serviceJsonLd,
+    educationalOrganizationJsonLd,
+  ];
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -311,8 +346,6 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
-          <ZepBot />
-          <PerformanceMonitor />
         </Providers>
       </body>
     </html>

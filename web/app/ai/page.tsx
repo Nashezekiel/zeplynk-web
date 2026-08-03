@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "AI Services & Automation Nigeria | Machine Learning Solutions | Zeplynk",
     description:
-        "Leading AI automation services in Nigeria. Custom machine learning, chatbot development, LLM integration, and workflow automation solutions for businesses across Africa.",
+        "Zeplynk delivers leading AI automation services in Nigeria. Custom machine learning, chatbot development, LLM integration, and workflow automation for businesses across Africa.",
     keywords: [
         "AI automation Nigeria",
         "artificial intelligence Africa",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "AI Services & Automation Nigeria | Machine Learning Solutions | Zeplynk",
         description:
-            "Leading AI automation services in Nigeria. Custom machine learning, chatbot development, LLM integration, and workflow automation solutions for businesses across Africa.",
+            "Zeplynk delivers leading AI automation services in Nigeria. Custom machine learning, chatbot development, LLM integration, and workflow automation for businesses across Africa.",
         url: "https://zeplynk.com/ai",
         images: [
             {
@@ -44,23 +44,17 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "AI Services & Automation Nigeria | Zeplynk",
         description:
-            "Leading AI automation services in Nigeria. Machine learning, chatbots, LLM integration & workflow automation for African businesses.",
+            "Zeplynk AI automation in Nigeria — machine learning, chatbots, LLM integration & workflow automation for African businesses.",
         images: ["/opengraph-image.png"],
     },
 };
 
 import Link from "next/link";
 import {
-    ArrowRight,
     Bot,
     Laptop,
     MessageSquare,
-    BarChart3,
-    CheckCircle,
-    Cpu,
-    Zap,
-    Shield,
-    Network
+    BarChart3
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ServiceCards from "@/components/sections/ServiceCards";

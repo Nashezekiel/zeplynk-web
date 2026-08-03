@@ -12,16 +12,15 @@ export function Footer() {
                             <div className="relative w-14 h-14 group-hover:scale-110 transition-transform duration-300">
                                 <Image
                                     src="/theLogo-removebg-preview.png"
-                                    alt="ZEPLYNK Logo"
+                                    alt="Zeplynk Logo"
                                     fill
                                     className="object-contain"
                                 />
                             </div>
-                            <span className="text-2xl font-bold text-white tracking-tight">ZEPLYNK</span>
+                            <span className="text-2xl font-bold text-white tracking-tight">Zeplynk</span>
                         </Link>
                         <p className="text-gray-400 max-w-sm leading-relaxed mb-8">
-                            Engineering intelligent digital systems for modern businesses.
-                            We design, build, and automate scalable web platforms and AI solutions.
+                            Zeplynk is Nigeria's premier tech solutions and education company. We engineer intelligent digital systems, build scalable web platforms, and automate operations with AI. Zeplynk Academy trains the next generation of developers.
                         </p>
                         <div className="flex gap-4">
                             {[
@@ -79,7 +78,7 @@ export function Footer() {
                 </div>
 
                 <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-                    <p>&copy; {new Date().getFullYear()} ZEPLYNK. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Zeplynk. All rights reserved.</p>
                     <div className="flex gap-6">
                         <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
                     </div>
@@ -88,7 +87,7 @@ export function Footer() {
 
             {/* WhatsApp Floating Button */}
             <a
-                href="https://wa.me/2348067263891?text=Hello%20ZEPLYNK!"
+                href="https://wa.me/2348067263891?text=Hello%20Zeplynk!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fixed bottom-6 right-6 z-50 bg-zgreen-600 hover:bg-zgreen-500 text-white p-4 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"

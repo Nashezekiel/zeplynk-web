@@ -23,6 +23,11 @@ export const metadata: Metadata = {
             "Press resources for Zeplynk — Nigeria's premier tech solutions and education company based in Kaduna.",
         url: "https://zeplynk.com/press",
     },
+    twitter: {
+        card: "summary",
+        title: "Press & Media | Zeplynk",
+        description: "Zeplynk press kit — company facts, logo downloads, and media enquiries.",
+    },
 };
 
 const pressSchema = {

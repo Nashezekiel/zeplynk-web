@@ -1,4 +1,4 @@
-import { ArrowRight, TrendingUp, Clock, CheckCircle } from "lucide-react";
+import { TrendingUp, Clock } from "lucide-react";
 
 export default function CaseStudyBlock() {
     return (
