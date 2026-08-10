@@ -6,9 +6,9 @@ import Link from "next/link";
 import { ArrowUpRight, Calendar, Tag } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
-import { newsItems } from "@/constants/news";
+import type { NewsItem } from "@/constants/news";
 
-export default function NewsSection() {
+export default function NewsSection({ items: newsItems }: { items: NewsItem[] }) {
     return (
         <section className="py-24 px-4 sm:px-6 lg:px-8 bg-black relative">
             <div className="max-w-7xl mx-auto uppercase">
@@ -43,6 +43,7 @@ export default function NewsSection() {
                                             src={item.image}
                                             alt={item.title}
                                             fill
+                                            sizes="(max-width: 640px) 300px, (max-width: 1024px) 50vw, 33vw"
                                             className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-60" />

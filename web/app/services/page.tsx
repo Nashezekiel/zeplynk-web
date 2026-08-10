@@ -30,21 +30,12 @@ export const metadata: Metadata = {
         description:
             "Zeplynk tech services in Nigeria: custom web development, AI automation, system architecture, and digital transformation for businesses across Africa.",
         url: "https://zeplynk.com/services",
-        images: [
-            {
-                url: "/opengraph-image.png",
-                width: 1200,
-                height: 630,
-                alt: "Zeplynk Tech Services",
-            },
-        ],
     },
     twitter: {
         card: "summary_large_image",
         title: "Complete Tech Services Nigeria | Zeplynk",
         description:
             "Zeplynk web development, AI automation, system architecture & tech consulting for businesses across Nigeria and Africa.",
-        images: ["/opengraph-image.png"],
     },
 };
 

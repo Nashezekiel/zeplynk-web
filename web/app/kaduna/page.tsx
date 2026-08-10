@@ -27,12 +27,14 @@ export const metadata: Metadata = {
         description:
             "Zeplynk is Kaduna's leading tech solutions company — web development, AI automation, and developer training for businesses in Kaduna and northern Nigeria.",
         url: "https://zeplynk.com/kaduna",
+        images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
         card: "summary_large_image",
         title: "Tech Solutions Company in Kaduna, Nigeria | Zeplynk",
         description:
             "Web development, AI automation & tech training in Kaduna, Nigeria — Zeplynk.",
+        images: ["/opengraph-image"],
     },
 };
 
@@ -65,8 +67,9 @@ const kadunaLocalBusinessSchema = {
         },
     ],
     sameAs: [
-        "https://www.linkedin.com/company/zeplynk",
-        "https://twitter.com/zeplynk",
+        "https://www.linkedin.com/company/zeplynk/",
+        "https://www.instagram.com/zeplynk/",
+        "https://www.facebook.com/share/1JghGYmUWr/",
     ],
 };
 

@@ -23,21 +23,12 @@ export const metadata: Metadata = {
         description:
             "Zeplynk client projects — real platforms built for real businesses. From Starlink installation services to enterprise AI intelligence systems.",
         url: "https://zeplynk.com/work",
-        images: [
-            {
-                url: "/opengraph-image.png",
-                width: 1200,
-                height: 630,
-                alt: "Zeplynk Client Work",
-            },
-        ],
     },
     twitter: {
         card: "summary_large_image",
         title: "Our Work — Zeplynk Client Projects",
         description:
             "Zeplynk client projects — real platforms built for real businesses, from satellite internet to enterprise AI.",
-        images: ["/opengraph-image.png"],
     },
 };
 

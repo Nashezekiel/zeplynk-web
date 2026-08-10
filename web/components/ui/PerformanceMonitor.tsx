@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 interface PerformanceMetrics {
   fcp: number; // First Contentful Paint
@@ -23,11 +23,6 @@ interface LayoutShiftPerformanceEntry extends PerformanceEntry {
 export function PerformanceMonitor() {
   const [metrics, setMetrics] = useState<PerformanceMetrics | null>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const metricsRef = useRef<PerformanceMetrics | null>(null);
-
-  useEffect(() => {
-    metricsRef.current = metrics;
-  }, [metrics]);
 
   useEffect(() => {
     // Only run in production and for performance monitoring
@@ -75,33 +70,6 @@ export function PerformanceMonitor() {
     };
 
     window.addEventListener('load', measurePageLoad);
-
-    // Core Web Vitals monitoring
-    const reportWebVitals = async () => {
-      const currentMetrics = metricsRef.current;
-      if (!currentMetrics) return;
-
-      // Send to analytics service
-      try {
-        await fetch('/api/analytics/vitals', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            ...currentMetrics,
-            url: window.location.href,
-            userAgent: navigator.userAgent,
-            timestamp: Date.now()
-          })
-        });
-      } catch (error) {
-        console.warn('Failed to report performance metrics:', error);
-      }
-    };
-
-    // Report metrics after page load
-    window.addEventListener('load', () => {
-      setTimeout(reportWebVitals, 1000);
-    });
 
     return () => {
       observer.disconnect();

@@ -11,7 +11,6 @@ import {
     Upload,
     CheckCircle,
     AlertCircle,
-    MessageCircle,
     Copy,
     Check
 } from "lucide-react";
@@ -343,33 +342,6 @@ Payment proof attached separately if provided.
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            {/* Sticky CTA */}
-            <div className="fixed bottom-4 right-4 z-50 group">
-                <div className="relative">
-                    {/* Main button */}
-                    <a
-                        href="https://wa.me/2348067263891?text=Hello%20Zeplynk!%20I%20need%20help%20with%20registration."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="relative bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all duration-200 hover:scale-105 flex items-center justify-center"
-                        title="Get registration help"
-                    >
-                        <MessageCircle className="h-5 w-5" />
-
-                        {/* Tooltip */}
-                        <div className="absolute bottom-full right-0 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                            <div className="bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap">
-                                Get help
-                                <div className="absolute top-full right-2 border-l-2 border-r-2 border-t-2 border-l-transparent border-r-transparent border-t-black"></div>
-                            </div>
-                        </div>
-                    </a>
-
-                    {/* Online indicator */}
-                    <div className="absolute -top-0.5 -right-0.5 bg-green-400 border border-white rounded-full w-3 h-3"></div>
                 </div>
             </div>
         </div>

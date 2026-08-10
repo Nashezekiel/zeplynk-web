@@ -11,71 +11,104 @@ interface Message {
     timestamp: Date;
 }
 
+const CONTACT_PHONE = "0806 726 3891";
+const CONTACT_EMAIL = "zeplynk001@gmail.com";
+const CONTACT_LINE = `You can reach the team directly on ${CONTACT_PHONE} or ${CONTACT_EMAIL} and we'll pick it up from there.`;
+
 const ZepKnowledge = {
     introduction: "Hi! I'm ZepBot, your AI guide to Zeplynk. We specialize in Agentic AI, Digital Product Engineering, and Tech Education. How can I help you scale today?",
-    
+
     solutions: {
-        ai: "Our AI & Intelligent Systems expertise covers AI Strategy, Workflow Automation, Conversational AI, and Computer Vision. We help businesses integrate 'Agentic' capabilities into their daily operations. Explore /solutions#ai for more.",
-        engineering: "Zeplynk engineers high-performance web/mobile platforms, SaaS products, and enterprise-grade systems. We focus on scalability and architectural precision. See our work at /solutions#engineering.",
-        cloud: "We offer Cloud infrastructure, DevOps (CI/CD), migration, and serverless architecture to ensure your business is built for global hyper-growth. Check /solutions#cloud.",
-        enterprise: "Our Enterprise Systems integrate legacy processes with modern automation, including CRM and ERP solutions tailored for SMEs. Visit /solutions#enterprise.",
-        security: "Cybersecurity is core to our engineering. We provide Penetration Testing, IAM, Application Security, and Compliance Governance. Secure your assets at /solutions#security.",
-        data: "Our Data & Analytics team builds high-speed data pipelines, real-time dashboards, and BI systems to turn raw data into strategic intelligence. Visit /solutions#data."
+        ai: "Our AI & Intelligent Systems expertise covers AI Strategy, Workflow Automation, Conversational AI, and Computer Vision. We help businesses integrate 'Agentic' capabilities into their daily operations. Explore /solutions/ai-automation for more.",
+        engineering: "Zeplynk engineers high-performance web/mobile platforms, SaaS products, and enterprise-grade systems. We focus on scalability and architectural precision. See /solutions/web-engineering.",
+        mobile: "We build native and cross-platform mobile apps with React Native and Flutter, from MVP to app-store launch. Check /solutions/mobile-apps.",
+        backend: "Our backend & API team builds secure, scalable services and integrations — REST, GraphQL, databases, and third-party integrations. Visit /solutions/backend-api.",
+        cloud: "We offer Cloud infrastructure, DevOps (CI/CD), migration, and serverless architecture to ensure your business is built for global hyper-growth. Check /solutions/cloud-devops.",
+        enterprise: "Our Enterprise Systems integrate legacy processes with modern automation, including CRM and ERP solutions tailored for SMEs. Visit /solutions/enterprise-digitization.",
+        design: "Our UI/UX & Product Design team handles research, prototyping in Figma, and interface design that converts. Visit /solutions/ui-ux-design.",
+        security: "Cybersecurity is core to our engineering. We provide Penetration Testing, IAM, Application Security, and Compliance Governance. Secure your assets at /solutions/cybersecurity.",
+        data: "Our Data & Analytics team builds high-speed data pipelines, real-time dashboards, and BI systems to turn raw data into strategic intelligence. Visit /solutions/data-bi."
     },
-    
+
     academy: {
         mission: "Zeplynk Academy's mission is to train 1 million+ developers across Africa by 2030, bridging the talent gap in modern engineering and Agentic AI. Start your journey at /academy.",
-        impact: "We have already trained over 2,000 students in Nigeria and our alumni contribute to leading global tech firms."
+        impact: "We have already trained over 2,000 students in Nigeria and our alumni contribute to leading global tech firms.",
+        courses: "Academy tracks include Frontend, Backend & Full Stack Engineering, Mobile App Dev, Data Analytics & Data Science, AI Engineering, Cloud Computing, DevOps, Cybersecurity, UI/UX Design, and Product Management. Browse the full catalog at /academy.",
+        corporate: "We also run Corporate Training for teams — custom upskilling programs in software engineering, AI, and cloud for your workforce. See /academy#corporate or reach out via /contact."
     },
 
     company: {
+        about: "Zeplynk is a Nigerian tech solutions and education company founded in 2024 and based in Kaduna, building web engineering, AI automation, and software products while running Zeplynk Academy to train developers across Africa. More at /about.",
+        founder: "Zeplynk was founded by Nash Ezekiel Pam, who serves as Founder & CEO.",
         impact: "Zeplynk has helped launch over 50 startups, automated 100+ business processes, and has a community footprint across Nigeria's 36 states.",
         values: "We are driven by Excellence, Innovation, Impact, and Accessibility. Every line of code is an investment in Africa's digital future.",
-        contact: "You can book a strategy call or hire our engineering team directly at /contact. We're ready to help you scale.",
+        industries: "We work across Recruitment & HR, Startups & SaaS, E-commerce, Education, and SMEs & Corporate businesses. See /industries for details.",
+        work: "You can see real client work and case studies on our Portfolio page at /work.",
+        insights: "We publish engineering and AI deep-dives on our blog — check out /insights for the latest posts.",
+        reviews: "You can read (or leave) client feedback on our Reviews page at /reviews.",
+        contact: `You can book a strategy call or hire our engineering team directly at /contact, or reach us on ${CONTACT_PHONE} / ${CONTACT_EMAIL}. We're ready to help you scale.`,
         pricing: "Zeplynk solutions are custom-engineered for specific business needs. We use value-based pricing, which is why we recommend a strategy call to provide an accurate quote based on your scale and requirements. Visit /contact to book yours."
     },
 
     general: {
-        location: "Zeplynk is physically present across Nigeria, with a mission to bring tech excellence to every state.",
+        location: "Zeplynk is headquartered in Kaduna, Nigeria, with a presence across Jos, Abuja, and Lagos — and a mission to bring tech excellence to every state.",
         hiring: "We are always looking for visionary engineers! Check our About page or reach out via /contact for career opportunities."
     }
 };
 
-const getBotResponse = (input: string): string => {
-    const q = input.toLowerCase();
-    
+type Rule = { keywords: string[]; response: string };
+
+const rules: Rule[] = [
     // High-priority pricing/cost match
-    if (q.includes('cost') || q.includes('price') || q.includes('quote') || q.includes('budget') || q.includes('billing') || q.includes('payment') || q.includes('amount')) {
-        return ZepKnowledge.company.pricing;
-    }
+    { keywords: ['cost', 'price', 'pricing', 'quote', 'budget', 'billing', 'payment', 'amount', 'expensive', 'cheap'], response: ZepKnowledge.company.pricing },
 
-    // Complex match for AI/Solutions
-    if (q.includes('ai') || q.includes('automation') || q.includes('intelligent') || q.includes('bot')) return ZepKnowledge.solutions.ai;
-    if (q.includes('web') || q.includes('engineering') || q.includes('app') || q.includes('saas')) return ZepKnowledge.solutions.engineering;
-    if (q.includes('cloud') || q.includes('devops') || q.includes('infra')) return ZepKnowledge.solutions.cloud;
-    if (q.includes('enterprise') || q.includes('erp') || q.includes('crm') || q.includes('business')) return ZepKnowledge.solutions.enterprise;
-    if (q.includes('security') || q.includes('cyber') || q.includes('pentest') || q.includes('protect')) return ZepKnowledge.solutions.security;
-    if (q.includes('data') || q.includes('analytics') || q.includes('bi') || q.includes('insight')) return ZepKnowledge.solutions.data;
-    
-    // Mission & Academy
-    if (q.includes('academy') || q.includes('course') || q.includes('study') || q.includes('learn') || q.includes('student')) {
-        return `${ZepKnowledge.academy.mission} ${ZepKnowledge.academy.impact}`;
-    }
-    if (q.includes('mission') || q.includes('future') || q.includes('goal')) return ZepKnowledge.academy.mission;
-    
-    // Impact & Results
-    if (q.includes('impact') || q.includes('startup') || q.includes('success') || q.includes('track record')) {
-        return `${ZepKnowledge.company.impact} We've helped launch 50+ startups and automated over 100 business processes.`;
-    }
-    
+    // Solutions
+    { keywords: ['ai ', ' ai', 'artificial intelligence', 'automation', 'intelligent', 'chatbot', 'agentic', 'llm'], response: ZepKnowledge.solutions.ai },
+    { keywords: ['mobile', 'ios', 'android', 'flutter', 'react native'], response: ZepKnowledge.solutions.mobile },
+    { keywords: ['backend', 'api', 'server side', 'integration'], response: ZepKnowledge.solutions.backend },
+    { keywords: ['cloud', 'devops', 'infra', 'aws', 'azure', 'kubernetes', 'docker', 'deployment'], response: ZepKnowledge.solutions.cloud },
+    { keywords: ['enterprise', 'erp', 'crm', 'digitization', 'legacy'], response: ZepKnowledge.solutions.enterprise },
+    { keywords: ['design', 'ui', 'ux', 'figma', 'prototype', 'branding'], response: ZepKnowledge.solutions.design },
+    { keywords: ['security', 'cyber', 'pentest', 'protect', 'compliance', 'hacking'], response: ZepKnowledge.solutions.security },
+    { keywords: ['data', 'analytics', ' bi ', 'dashboard', 'business intelligence'], response: ZepKnowledge.solutions.data },
+    { keywords: ['web', 'engineering', 'app', 'saas', 'website', 'platform', 'software'], response: ZepKnowledge.solutions.engineering },
+
+    // Academy
+    { keywords: ['corporate training', 'upskill', 'team training', 'workforce'], response: ZepKnowledge.academy.corporate },
+    { keywords: ['course', 'curriculum', 'syllabus', 'track', 'program', 'programme', 'bootcamp'], response: ZepKnowledge.academy.courses },
+    { keywords: ['academy', 'study', 'learn', 'student', 'enrol', 'enroll', 'register', 'training'], response: `${ZepKnowledge.academy.mission} ${ZepKnowledge.academy.impact}` },
+    { keywords: ['mission', 'vision', '2030', 'goal'], response: ZepKnowledge.academy.mission },
+
+    // Company
+    { keywords: ['founder', 'ceo', 'nash', 'who runs', 'who owns'], response: ZepKnowledge.company.founder },
+    { keywords: ['about zeplynk', 'who is zeplynk', 'what is zeplynk', 'what do you do', 'company', 'history', 'founded', 'when were you'], response: ZepKnowledge.company.about },
+    { keywords: ['industr', 'sector', 'niche', 'who do you work with', 'clients'], response: ZepKnowledge.company.industries },
+    { keywords: ['portfolio', 'case stud', 'previous work', 'projects you', 'examples'], response: ZepKnowledge.company.work },
+    { keywords: ['blog', 'insight', 'article', 'news'], response: ZepKnowledge.company.insights },
+    { keywords: ['review', 'testimonial', 'feedback', 'rating'], response: ZepKnowledge.company.reviews },
+    { keywords: ['impact', 'startup', 'success', 'track record', 'results'], response: `${ZepKnowledge.company.impact} We've helped launch 50+ startups and automated over 100 business processes.` },
+    { keywords: ['value', 'culture', 'why zeplynk', 'why choose'], response: ZepKnowledge.company.values },
+
     // Contact & Location
-    if (q.includes('contact') || q.includes('hire') || q.includes('call') || q.includes('booking') || q.includes('meet')) return ZepKnowledge.company.contact;
-    if (q.includes('location') || q.includes('where') || q.includes('nigeria') || q.includes('office')) return ZepKnowledge.general.location;
-    if (q.includes('job') || q.includes('hir') || q.includes('career') || q.includes('join')) return ZepKnowledge.general.hiring;
+    { keywords: ['contact', 'hire', 'call', 'booking', 'meet', 'talk to', 'speak to', 'get in touch', 'reach you', 'reach out'], response: ZepKnowledge.company.contact },
+    { keywords: ['location', 'where', 'nigeria', 'office', 'address', 'kaduna', 'jos', 'abuja', 'lagos'], response: ZepKnowledge.general.location },
+    { keywords: ['job', 'hiring', 'career', 'join zeplynk', 'vacanc', 'employ'], response: ZepKnowledge.general.hiring },
 
-    if (q.includes('hello') || q.includes('hi ') || q.includes('hey')) return "Hello! I'm ZepBot. I can tell you about our AI solutions, Web Engineering, Academy mission, or help you book a strategy call. What's on your mind?";
+    // Small talk
+    { keywords: ['hello', 'hi ', 'hey', 'good morning', 'good afternoon', 'good evening'], response: "Hello! I'm ZepBot. I can tell you about our AI solutions, Web Engineering, Academy programs, or help you book a strategy call. What's on your mind?" },
+    { keywords: ['thank', 'thanks', 'appreciate'], response: `You're welcome! If anything else comes up, ${CONTACT_LINE}` },
+];
 
-    return "I'm not exactly sure about that, but I can assist with AI Solutions, Product Engineering, or details about the Zeplynk Academy. Would you like to see our Solutions catalog?";
+const getBotResponse = (input: string): string => {
+    const q = ` ${input.toLowerCase()} `;
+
+    for (const rule of rules) {
+        if (rule.keywords.some((keyword) => q.includes(keyword))) {
+            return rule.response;
+        }
+    }
+
+    return `I don't have a solid answer for that one yet, but I don't want to leave you stuck — ${CONTACT_LINE} In the meantime, I can also tell you about our AI Solutions, Web Engineering, or the Zeplynk Academy.`;
 };
 
 export default function ZepBot() {
@@ -118,14 +151,14 @@ export default function ZepBot() {
     ];
 
     return (
-        <div className="fixed bottom-28 right-6 z-[100] font-friendly">
+        <div className="fixed bottom-[5.5rem] right-6 z-[100] font-friendly">
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
                         initial={{ opacity: 0, y: 20, scale: 0.9, transformOrigin: 'bottom right' }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.9 }}
-                        className="mb-4 w-[90vw] sm:w-[400px] h-[420px] bg-zinc-950/80 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col"
+                        className="mb-4 w-[90vw] sm:w-[400px] h-[min(420px,calc(100dvh-13rem))] bg-zinc-950/80 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col"
                     >
                         {/* Header */}
                         <div className="p-6 bg-zgreen-500/10 border-b border-white/5 flex items-center justify-between">

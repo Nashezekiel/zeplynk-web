@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import { motion } from "framer-motion";
-import { Code, Bot, Laptop, GraduationCap, ArrowUpRight, ChevronLeft, ChevronRight, Server } from "lucide-react";
+import { Code, Bot, Laptop, GraduationCap, ArrowUpRight, Server } from "lucide-react";
 import NextImage from "next/image";
 
 import Link from "next/link";
@@ -51,21 +50,9 @@ const solutions = [
 ];
 
 export default function SolutionsSlider() {
-    const containerRef = useRef<HTMLDivElement>(null);
-
-    const scroll = (direction: 'left' | 'right') => {
-        if (containerRef.current) {
-            const scrollAmount = 350;
-            containerRef.current.scrollBy({
-                left: direction === 'left' ? -scrollAmount : scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-    };
-
     return (
-        <section suppressHydrationWarning className="pb-24 bg-black overflow-hidden relative group/section">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <section className="pb-24 bg-black relative">
+            <div className="max-w-[92rem] mx-auto px-4 sm:px-6 lg:px-8 mb-10">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
                         <h2 className="text-3xl sm:text-5xl font-bold text-white mb-4">
@@ -86,43 +73,18 @@ export default function SolutionsSlider() {
                 </div>
             </div>
 
-            {/* Slider Container Wrapper */}
-            <div className="relative w-full">
-
-                {/* Left Arrow - Positioned Absolute Left */}
-                <button
-                    onClick={() => scroll('left')}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white hover:bg-zgreen-500 hover:border-zgreen-500 transition-all duration-300 shadow-lg hidden md:flex"
-                    aria-label="Scroll left"
-                >
-                    <ChevronLeft className="h-6 w-6" />
-                </button>
-
-                {/* Right Arrow - Positioned Absolute Right */}
-                <button
-                    onClick={() => scroll('right')}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white hover:bg-zgreen-500 hover:border-zgreen-500 transition-all duration-300 shadow-lg hidden md:flex"
-                    aria-label="Scroll right"
-                >
-                    <ChevronRight className="h-6 w-6" />
-                </button>
-
-                {/* Scrollable Area */}
-                <div
-                    ref={containerRef}
-                    className="flex overflow-x-auto gap-6 px-4 sm:px-6 lg:px-8 pb-8 snap-x snap-proximity scrollbar-hide no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-                >
+            <div className="max-w-[92rem] mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
                     {solutions.map((item, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="flex-none w-[300px] md:w-[350px] snap-center"
+                            transition={{ delay: index * 0.08 }}
                         >
                             <Link href={item.href}>
-                                <div className="h-[450px] flex flex-col rounded-3xl bg-zinc-900/60 border border-white/20 hover:border-zgreen-500/50 transition-all duration-500 group relative overflow-hidden backdrop-blur-md cursor-pointer shadow-xl">
+                                <div className="h-[260px] sm:h-[320px] lg:h-[380px] flex flex-col rounded-2xl bg-zinc-900/60 border border-white/20 hover:border-zgreen-500/50 transition-all duration-500 group relative overflow-hidden backdrop-blur-md cursor-pointer shadow-xl">
 
                                     {/* Image Background */}
                                     <div className="absolute inset-0">
@@ -130,33 +92,30 @@ export default function SolutionsSlider() {
                                             src={item.image}
                                             alt={item.title}
                                             fill
-                                            sizes="(max-width: 768px) 300px, 350px"
+                                            sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 20vw"
                                             className="object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
                                     </div>
 
-                                    <div className="relative z-10 p-8 h-full flex flex-col justify-end">
-                                        <div className={`w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-6 border border-white/10 ${item.color}`}>
-                                            <item.icon className="h-6 w-6" />
+                                    <div className="relative z-10 p-5 sm:p-6 h-full flex flex-col justify-end">
+                                        <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-4 border border-white/10 ${item.color}`}>
+                                            <item.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                                         </div>
 
-                                        <h3 className="text-2xl font-bold text-white mb-3 text-shadow">{item.title}</h3>
-                                        <p className="text-gray-300 mb-6 leading-relaxed text-sm font-medium">
+                                        <h3 className="text-base sm:text-xl font-bold text-white mb-2 leading-tight text-shadow">{item.title}</h3>
+                                        <p className="hidden sm:block text-gray-300 mb-4 leading-relaxed text-sm font-medium line-clamp-2">
                                             {item.desc}
                                         </p>
 
-                                        <div className="flex items-center text-sm font-bold text-zgreen-500">
-                                            Read More <ArrowUpRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                                        <div className="flex items-center text-xs sm:text-sm font-bold text-zgreen-500">
+                                            Read More <ArrowUpRight className="ml-1.5 h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                                         </div>
                                     </div>
                                 </div>
                             </Link>
                         </motion.div>
                     ))}
-
-                    {/* Spacer for right padding */}
-                    <div className="w-4 sm:w-6 lg:w-8 flex-none" />
                 </div>
             </div>
         </section>

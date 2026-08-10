@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle, Zap } from "lucide-react";
+import { ArrowRight, CheckCircle, Compass, Sparkles, Target } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Dynamic Imports
@@ -34,19 +34,35 @@ export default function AboutContent() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-zgreen-500/5 rounded-full blur-[120px] pointer-events-none" />
 
                 <div className="max-w-7xl mx-auto relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                    >
+                        <div className="inline-flex items-center px-4 py-2 rounded-full bg-zgreen-500/10 border border-zgreen-500/20 mb-6 backdrop-blur-sm">
+                            <Sparkles className="h-4 w-4 text-zgreen-400 mr-2" />
+                            <span className="text-sm font-bold text-white tracking-wide uppercase">Our Purpose</span>
+                        </div>
+                        <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">Mission &amp; Vision</h2>
+                        <p className="text-gray-300 max-w-2xl mx-auto text-lg font-medium">
+                            What drives us today, and where we're headed next.
+                        </p>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         {/* Mission */}
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="bg-black/50 border border-white/10 rounded-[2.5rem] p-10 hover:border-zgreen-500/30 transition-all duration-500 group"
+                            className="bg-black/50 border border-white/10 rounded-[2rem] p-10 hover:border-zgreen-500/30 transition-all duration-500 group"
                         >
                             <div className="bg-zgreen-500/10 rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                                <Zap className="h-8 w-8 text-zgreen-500" />
+                                <Target className="h-8 w-8 text-zgreen-500" />
                             </div>
-                            <h2 className="text-3xl font-bold text-white mb-6">Our Mission</h2>
+                            <h3 className="text-2xl font-bold text-white mb-6">Our Mission</h3>
                             <p className="text-gray-200 leading-relaxed mb-8 text-lg font-medium">
                                 To democratize access to technology education and services across Africa,
                                 creating pathways for digital transformation in underserved communities while
@@ -59,7 +75,7 @@ export default function AboutContent() {
                                     "Empowering local communities"
                                 ].map((item) => (
                                     <li key={item} className="flex items-center text-white font-bold">
-                                        <CheckCircle className="h-5 w-5 text-zgreen-500 mr-4" />
+                                        <CheckCircle className="h-5 w-5 text-zgreen-500 mr-4 flex-shrink-0" />
                                         <span>{item}</span>
                                     </li>
                                 ))}
@@ -72,12 +88,12 @@ export default function AboutContent() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="bg-zinc-900/50 border border-white/10 rounded-[2.5rem] p-10 hover:border-blue-500/30 transition-all duration-500 group"
+                            className="bg-zinc-900/50 border border-white/10 rounded-[2rem] p-10 hover:border-cyan-500/30 transition-all duration-500 group"
                         >
-                            <div className="bg-blue-500/10 rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                                <Zap className="h-8 w-8 text-blue-500" />
+                            <div className="bg-cyan-500/10 rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                                <Compass className="h-8 w-8 text-cyan-400" />
                             </div>
-                            <h2 className="text-3xl font-bold text-white mb-6">Our Vision</h2>
+                            <h3 className="text-2xl font-bold text-white mb-6">Our Vision</h3>
                             <p className="text-gray-200 leading-relaxed mb-8 text-lg font-medium">
                                 To be Africa's leading catalyst for technological innovation and education,
                                 creating a generation of skilled developers and innovators who will shape
@@ -90,7 +106,7 @@ export default function AboutContent() {
                                     "Leading African tech education platform"
                                 ].map((item) => (
                                     <li key={item} className="flex items-center text-white font-bold">
-                                        <CheckCircle className="h-5 w-5 text-blue-500 mr-4" />
+                                        <CheckCircle className="h-5 w-5 text-cyan-400 mr-4 flex-shrink-0" />
                                         <span>{item}</span>
                                     </li>
                                 ))}
@@ -118,6 +134,10 @@ export default function AboutContent() {
 
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
                             <div>
+                                <div className="inline-flex items-center px-4 py-2 rounded-full bg-zgreen-500/10 border border-zgreen-500/20 mb-6 backdrop-blur-sm">
+                                    <Sparkles className="h-4 w-4 text-zgreen-400 mr-2" />
+                                    <span className="text-sm font-bold text-white tracking-wide uppercase">Our Impact</span>
+                                </div>
                                 <h2 className="text-4xl sm:text-6xl font-bold text-white mb-8 leading-tight">
                                     Impact <br /> That Matters.
                                 </h2>
@@ -126,7 +146,7 @@ export default function AboutContent() {
                                     and trained more than 2,000 students in Nigeria. Our alumni work at leading
                                     tech firms and contribute to open-source projects worldwide.
                                 </p>
-                                <Link href="/contact" className="inline-flex items-center text-zgreen-400 font-bold hover:text-zgreen-300 transition-colors group/link">
+                                <Link href="/work" className="inline-flex items-center text-zgreen-400 font-bold hover:text-zgreen-300 transition-colors group/link">
                                     Read our success stories <ArrowRight className="ml-2 h-5 w-5 group-hover/link:translate-x-1 transition-transform" />
                                 </Link>
                             </div>
@@ -135,9 +155,9 @@ export default function AboutContent() {
                                     { label: "Startups Launched", value: "50+" },
                                     { label: "Students Trained", value: "2,000+" },
                                     { label: "Automation Solutions", value: "100+" },
-                                    { label: "Community Impact", value: "Nigeria Wide" },
+                                    { label: "States Reached", value: "36" },
                                 ].map((stat, i) => (
-                                    <div key={i} className="bg-black/40 border border-white/10 p-6 rounded-2xl backdrop-blur-sm">
+                                    <div key={i} className="bg-black/40 border border-white/10 p-6 rounded-2xl backdrop-blur-sm hover:border-zgreen-500/30 transition-colors">
                                         <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
                                         <div className="text-sm text-gray-400 uppercase tracking-widest font-bold">{stat.label}</div>
                                     </div>
@@ -159,6 +179,10 @@ export default function AboutContent() {
                         transition={{ duration: 0.5 }}
                         className="bg-zinc-900/40 backdrop-blur-xl border border-white/10 rounded-[3rem] p-12 md:p-20"
                     >
+                        <div className="inline-flex items-center px-4 py-2 rounded-full bg-zgreen-500/10 border border-zgreen-500/20 mb-8 backdrop-blur-sm">
+                            <Sparkles className="h-4 w-4 text-zgreen-400 mr-2" />
+                            <span className="text-sm font-bold text-white tracking-wide uppercase">Get Started</span>
+                        </div>
                         <h2 className="text-4xl sm:text-6xl font-bold text-white mb-8 leading-tight">
                             Join the movement.
                         </h2>

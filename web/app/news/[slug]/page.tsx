@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
-import { newsItems } from "@/constants/news";
+import { getAllNews, getNewsBySlug } from "@/lib/news-store";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, Share2, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
+export const revalidate = 60;
+
 export async function generateStaticParams() {
-    return newsItems.map((item) => ({
+    const items = await getAllNews();
+    return items.map((item) => ({
         slug: item.slug,
     }));
 }
@@ -18,7 +21,7 @@ export async function generateMetadata({
     params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
     const { slug } = await params;
-    const post = newsItems.find((item) => item.slug === slug);
+    const post = await getNewsBySlug(slug);
     if (!post) return {};
 
     const title = `${post.title} | Zeplynk`;
@@ -35,11 +38,13 @@ export async function generateMetadata({
             description,
             url: `https://zeplynk.com/news/${slug}`,
             type: "article",
+            images: [{ url: post.image, width: 800, height: 600, alt: post.title }],
         },
         twitter: {
             card: "summary_large_image",
             title,
             description,
+            images: [post.image],
         },
     };
 }
@@ -50,14 +55,15 @@ export default async function BlogPostPage({
     params: Promise<{ slug: string }>;
 }) {
     const { slug } = await params;
-    const post = newsItems.find((item) => item.slug === slug);
+    const post = await getNewsBySlug(slug);
 
     if (!post) {
         notFound();
     }
 
     // Suggested posts (excluding current)
-    const suggestedPosts = newsItems
+    const allItems = await getAllNews();
+    const suggestedPosts = allItems
         .filter((item) => item.slug !== slug)
         .slice(0, 2);
 
@@ -158,6 +164,7 @@ export default async function BlogPostPage({
                             src={post.image}
                             alt={post.title}
                             fill
+                            sizes="(max-width: 896px) 100vw, 896px"
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -224,6 +231,7 @@ export default async function BlogPostPage({
                                         src={item.image}
                                         alt={item.title}
                                         fill
+                                        sizes="(max-width: 768px) 100vw, 448px"
                                         className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                                     />
                                 </div>

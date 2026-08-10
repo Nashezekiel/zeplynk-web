@@ -1,7 +1,16 @@
 import { MetadataRoute } from "next";
+import { getAllNews } from "@/lib/news-store";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = "https://zeplynk.com";
+    const newsItems = await getAllNews();
+
+    const newsRoutes: MetadataRoute.Sitemap = newsItems.map((item) => ({
+        url: `${baseUrl}/news/${item.slug}`,
+        lastModified: new Date(item.date),
+        changeFrequency: "monthly",
+        priority: 0.6,
+    }));
 
     return [
         {
@@ -143,6 +152,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.8,
         },
         {
+            url: `${baseUrl}/reviews`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.6,
+        },
+        {
             url: `${baseUrl}/privacy`,
             lastModified: new Date(),
             changeFrequency: "yearly",
@@ -161,6 +176,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "monthly",
             priority: 0.8,
         },
+        {
+            url: `${baseUrl}/abuja`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/lagos`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
         // Press page — helps AI/LLM entity recognition
         {
             url: `${baseUrl}/press`,
@@ -168,5 +195,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "monthly",
             priority: 0.6,
         },
+        ...newsRoutes,
     ];
 }

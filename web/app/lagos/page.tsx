@@ -25,12 +25,14 @@ export const metadata: Metadata = {
         description:
             "Zeplynk brings world-class web development, AI automation, and developer training to Lagos, Nigeria. Serving businesses across Nigeria.",
         url: "https://zeplynk.com/lagos",
+        images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
         card: "summary_large_image",
         title: "Web Development & Tech Training in Lagos, Nigeria | Zeplynk",
         description:
             "Web development, AI automation & tech training in Lagos, Nigeria — Zeplynk.",
+        images: ["/opengraph-image"],
     },
 };
 
@@ -50,8 +52,9 @@ const lagosLocalBusinessSchema = {
     },
     areaServed: ["Lagos", "Lagos State", "Nigeria"],
     sameAs: [
-        "https://www.linkedin.com/company/zeplynk",
-        "https://twitter.com/zeplynk",
+        "https://www.linkedin.com/company/zeplynk/",
+        "https://www.instagram.com/zeplynk/",
+        "https://www.facebook.com/share/1JghGYmUWr/",
     ],
 };
 

@@ -72,21 +72,12 @@ export const metadata: Metadata = {
     title: "Zeplynk — Web Engineering, AI Automation & Tech Academy",
     description:
       "Zeplynk provides comprehensive tech solutions and premier tech education. We deliver world-class web engineering and AI automation to transform businesses and careers.",
-    images: [
-      {
-        url: "/opengraph-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Zeplynk — Link to Greatness in Tech",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Zeplynk — Web Engineering, AI Automation & Tech Academy",
     description:
       "World-class web engineering, AI automation & tech education across Nigeria and Africa.",
-    images: ["/opengraph-image.png"],
     creator: "@zeplynk",
   },
   icons: {
@@ -119,7 +110,7 @@ export default function RootLayout({
     logo: `${BASE_URL}/theLogo-removebg-preview.png`,
     description:
       "Zeplynk is a Nigerian tech solutions and education company based in Kaduna. It provides web development, AI automation, and software services, and operates Zeplynk Academy — a developer training program for Nigerian professionals.",
-    foundingDate: "2023",
+    foundingDate: "2024",
     founder: {
       "@type": "Person",
       name: "Nash Ezekiel Pam",
@@ -136,10 +127,9 @@ export default function RootLayout({
       },
     ],
     sameAs: [
-      "https://www.linkedin.com/company/zeplynk",
-      "https://twitter.com/zeplynk",
-      "https://www.instagram.com/zeplynk",
-      "https://github.com/zeplynk",
+      "https://www.linkedin.com/company/zeplynk/",
+      "https://www.instagram.com/zeplynk/",
+      "https://www.facebook.com/share/1JghGYmUWr/",
     ],
     address: {
       "@type": "PostalAddress",
@@ -182,9 +172,9 @@ export default function RootLayout({
     priceRange: "₦₦",
     areaServed: ["Kaduna", "Jos", "Abuja", "Lagos", "Nigeria", "Africa"],
     sameAs: [
-      "https://www.linkedin.com/company/zeplynk",
-      "https://twitter.com/zeplynk",
-      "https://www.instagram.com/zeplynk",
+      "https://www.linkedin.com/company/zeplynk/",
+      "https://www.instagram.com/zeplynk/",
+      "https://www.facebook.com/share/1JghGYmUWr/",
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",

@@ -99,10 +99,11 @@ export default function SolutionSection({
                             
                             <div className="h-full w-full relative">
                                 {image ? (
-                                    <Image 
-                                        src={image} 
-                                        alt={title} 
-                                        fill 
+                                    <Image
+                                        src={image}
+                                        alt={title}
+                                        fill
+                                        sizes="(max-width: 768px) 90vw, 500px"
                                         className="object-cover opacity-80 group-hover/section:scale-110 transition-transform duration-[2000ms] ease-out"
                                     />
                                 ) : (

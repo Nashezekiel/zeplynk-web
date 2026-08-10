@@ -26,20 +26,11 @@ export const metadata: Metadata = {
         title: "Web Engineering Services Nigeria | Custom Web Development | Zeplynk",
         description: "Zeplynk web engineering in Nigeria — scalable, high-performance web applications with Next.js, React, and modern technologies.",
         url: "https://zeplynk.com/web",
-        images: [
-            {
-                url: "/opengraph-image.png",
-                width: 1200,
-                height: 630,
-                alt: "Zeplynk Web Engineering Services",
-            },
-        ],
     },
     twitter: {
         card: "summary_large_image",
         title: "Web Engineering Services Nigeria | Zeplynk",
         description: "Zeplynk web development in Nigeria — scalable, high-performance web applications built with modern technologies.",
-        images: ["/opengraph-image.png"],
     },
 };
 

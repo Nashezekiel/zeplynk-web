@@ -29,27 +29,20 @@ export const metadata: Metadata = {
     description:
       "Nigeria's premier tech solutions and education company in Kaduna. Web engineering, AI automation, and developer training across Nigeria and Africa.",
     url: "https://zeplynk.com",
-    images: [
-      {
-        url: "/opengraph-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Zeplynk — Tech Solutions & Web Development Nigeria",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Tech Solutions & Web Development Company Nigeria | Zeplynk",
     description:
       "Zeplynk is Nigeria's premier tech solutions company in Kaduna — web engineering, AI automation & developer training.",
-    images: ["/opengraph-image.png"],
   },
 };
 
 import Link from "next/link";
+import { Sparkles, ArrowRight, Bot, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { getAllNews } from "@/lib/news-store";
 
 import dynamic from "next/dynamic";
 
@@ -137,7 +130,9 @@ const NewsSection = dynamic(() => import("@/components/sections/NewsSection"), {
   ),
 });
 
-export default function Home() {
+export default async function Home() {
+  const newsItems = await getAllNews();
+
   return (
     <main className="min-h-screen bg-black text-white selection:bg-zgreen-500/30 selection:text-zgreen-200 overflow-x-hidden font-friendly">
 
@@ -164,7 +159,7 @@ export default function Home() {
       </Suspense>
 
       <Suspense fallback={<div className="h-96 bg-zinc-950 animate-pulse" />}>
-        <NewsSection />
+        <NewsSection items={newsItems} />
       </Suspense>
 
       <Suspense fallback={<div className="h-96 bg-zinc-950 animate-pulse" />}>
@@ -204,24 +199,44 @@ export default function Home() {
       </Suspense>
 
       {/* Strategic CTA */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-zinc-900 border-t border-white/5 text-center">
+      <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-zinc-900 border-t border-white/5 text-center overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-zgreen-500/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-emerald-900/20 rounded-full blur-[120px] pointer-events-none" />
+
         <ScrollReveal>
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl sm:text-6xl font-bold text-white mb-8 tracking-tight">
+          <div className="max-w-4xl mx-auto relative z-10">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zgreen-500/10 border border-zgreen-500/20 text-zgreen-400 text-xs font-bold uppercase tracking-widest mb-8">
+              <Sparkles className="h-3.5 w-3.5" />
+              Let&apos;s Build Something Great
+            </div>
+
+            <h2 className="text-4xl sm:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
               Ready to Transform <br />
-              <span className="text-zgreen-500">Your Digital Infrastructure?</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">Your Digital Infrastructure?</span>
             </h2>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+
+            <p className="text-gray-400 text-lg font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
+              Whether it&apos;s a strategy call with our engineers or a quick chat with our AI consultant, we&apos;re ready to help you scale.
+            </p>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
               <Link href="/contact">
-                <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full h-16 px-10 text-xl font-bold w-full sm:w-auto">
+                <Button size="lg" className="group bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-full h-16 px-10 text-lg sm:text-xl font-bold w-full sm:w-auto shadow-[0_10px_40px_-10px_rgba(34,197,94,0.5)] transition-all hover:scale-[1.02] active:scale-95">
                   Schedule a Strategy Call
+                  <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10 rounded-full h-16 px-10 text-xl font-bold w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 hover:border-white/40 rounded-full h-16 px-10 text-lg sm:text-xl font-bold w-full sm:w-auto backdrop-blur-sm transition-all">
+                  <Bot className="h-5 w-5 mr-2" />
                   Talk to an AI Consultant
                 </Button>
               </Link>
+            </div>
+
+            <div className="flex items-center justify-center gap-2 text-sm text-gray-500 font-medium">
+              <CheckCircle2 className="h-4 w-4 text-zgreen-500" />
+              Trusted by 50+ startups and businesses across Nigeria
             </div>
           </div>
         </ScrollReveal>

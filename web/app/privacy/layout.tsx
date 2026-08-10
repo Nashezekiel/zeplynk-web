@@ -12,11 +12,13 @@ export const metadata: Metadata = {
         description:
             "How Zeplynk protects your personal information and data security. Read our privacy policy.",
         url: "https://zeplynk.com/privacy",
+        images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
         card: "summary",
         title: "Privacy Policy | Zeplynk",
         description: "Zeplynk privacy policy — your data security and privacy rights.",
+        images: ["/opengraph-image"],
     },
 };
 

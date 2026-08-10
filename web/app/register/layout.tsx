@@ -18,11 +18,13 @@ export const metadata: Metadata = {
         description:
             "Enrol in Zeplynk Academy — web development, backend engineering, and AI courses in Kaduna, Nigeria.",
         url: "https://zeplynk.com/register",
+        images: [{ url: "/academy/opengraph-image", width: 1200, height: 630, alt: "Zeplynk Academy — Launch Your Tech Career" }],
     },
     twitter: {
-        card: "summary",
+        card: "summary_large_image",
         title: "Register for Zeplynk Academy",
         description: "Start your tech journey with Zeplynk Academy in Kaduna, Nigeria.",
+        images: ["/academy/opengraph-image"],
     },
 };
 

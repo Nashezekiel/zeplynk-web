@@ -25,12 +25,14 @@ export const metadata: Metadata = {
         description:
             "Zeplynk builds industry-specific tech solutions for Nigerian businesses — recruitment, startups, e-commerce, education, and SMEs. Custom software from Kaduna.",
         url: "https://zeplynk.com/industries",
+        images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
         card: "summary_large_image",
         title: "Industries We Serve — Fintech, Healthcare, Education | Zeplynk",
         description:
             "Zeplynk delivers custom software for Nigerian industries — startups, e-commerce, fintech, education & SMEs.",
+        images: ["/opengraph-image"],
     },
 };
 

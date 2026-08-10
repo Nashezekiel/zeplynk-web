@@ -25,12 +25,14 @@ export const metadata: Metadata = {
         description:
             "Start your web development or AI project in Nigeria. Book a free strategy call with Zeplynk — based in Kaduna, serving all of Nigeria.",
         url: "https://zeplynk.com/contact",
+        images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
         card: "summary_large_image",
         title: "Contact Zeplynk — Tech Solutions in Kaduna & Jos Nigeria",
         description:
             "Start a web or AI project, book a strategy call, or enquire about tech training with Zeplynk in Kaduna, Nigeria.",
+        images: ["/opengraph-image"],
     },
 };
 

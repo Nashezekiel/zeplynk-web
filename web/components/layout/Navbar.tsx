@@ -9,16 +9,18 @@ import {
     BarChart3, Bot, MessageSquare, Mail,
     Users, GraduationCap, Building2,
     ArrowRight, Layers, Cloud, Shield,
-    Code, Smartphone, Server, Palette
+    Code, Smartphone, Server, Palette, Star
 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import SiteSearch from "@/components/layout/SiteSearch";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [activeMobileSection, setActiveMobileSection] = useState<string | null>(null);
+    const [searchOpen, setSearchOpen] = useState(false);
 
     const toggleMobileSection = (section: string) => {
         setActiveMobileSection(activeMobileSection === section ? null : section);
@@ -186,12 +188,24 @@ export default function Navbar() {
                     <div className="flex justify-between items-center h-16 md:h-20">
 
                         {/* Logo */}
-                        <Link href="/" className="flex items-center group relative z-50">
+                        <Link
+                            href="/"
+                            onClick={(e) => {
+                                if (pathname === "/") {
+                                    e.preventDefault();
+                                    setMobileMenuOpen(false);
+                                    setActiveDropdown(null);
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                }
+                            }}
+                            className="flex items-center group relative z-50"
+                        >
                             <div className="relative w-10 h-10 md:w-12 md:h-12 mr-2 group-hover:scale-110 transition-transform duration-300">
                                 <Image
                                     src="/theLogo-removebg-preview.png"
                                     alt="Zeplynk Logo"
                                     fill
+                                    sizes="48px"
                                     className="object-contain"
                                     priority
                                 />
@@ -233,12 +247,20 @@ export default function Navbar() {
                                 </div>
                             ))}
 
-                            <Link 
-                                href="/insights" 
+                            <Link
+                                href="/insights"
                                 onClick={() => setActiveDropdown(null)}
                                 className="text-[15px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors"
                             >
                                 Insights
+                            </Link>
+
+                            <Link
+                                href="/reviews"
+                                onClick={() => setActiveDropdown(null)}
+                                className="text-[15px] font-black uppercase tracking-widest text-gray-400 hover:text-white transition-colors"
+                            >
+                                Reviews
                             </Link>
                         </div>
 
@@ -254,7 +276,7 @@ export default function Navbar() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -20 }}
                                         transition={{ duration: 0.3, ease: "easeOut" }}
-                                        className="fixed top-20 left-0 w-full h-[70vh] bg-black/95 backdrop-blur-3xl border-b border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.9)] pointer-events-auto overflow-hidden"
+                                        className="fixed top-20 left-0 w-full h-[70vh] bg-black border-b border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.9)] pointer-events-auto overflow-hidden"
                                     >
                                         <div className="max-w-7xl mx-auto h-full px-8 py-12 flex flex-col">
 
@@ -287,15 +309,15 @@ export default function Navbar() {
                                                     </div>
 
                                                     {/* Right: 2-col grid — same style as Academy */}
-                                                    <div className="w-2/3 grid grid-cols-2 gap-x-12 gap-y-6">
+                                                    <div className="w-2/3 grid grid-cols-2 gap-x-6 gap-y-1">
                                                         {navData.solutions.map((cat) => (
                                                             <Link
                                                                 key={cat.id}
                                                                 href={`/solutions/${cat.id}`}
                                                                 onClick={() => setActiveDropdown(null)}
-                                                                className="flex items-center gap-4 group/course px-4 py-2.5 rounded-2xl hover:bg-white/5 transition-all"
+                                                                className="flex items-center gap-3 group/course px-3 py-2 rounded-xl hover:bg-white/5 transition-all"
                                                             >
-                                                                <div className="w-2 h-2 rounded-full bg-zgreen-500 group-hover:scale-150 transition-transform" />
+                                                                <div className="w-2 h-2 rounded-full bg-zgreen-500 group-hover:scale-150 transition-transform flex-shrink-0" />
                                                                 <span className="text-lg font-bold text-gray-400 group-hover:text-white transition-colors">
                                                                     {cat.title}
                                                                 </span>
@@ -307,22 +329,45 @@ export default function Navbar() {
 
                                             {/* INDUSTRIES MEGA CONTENT */}
                                             {activeDropdown === 'industries' && (
-                                                <div className="flex-grow flex flex-col justify-center">
-                                                    <div className="grid grid-cols-4 gap-8">
+                                                <div className="flex-grow flex items-center gap-16">
+                                                    {/* Left: gradient hero card — same style as Solutions/Academy */}
+                                                    <div className="w-1/3">
+                                                        <div className="p-10 bg-gradient-to-br from-zgreen-600 to-emerald-900 rounded-[2.5rem] relative overflow-hidden group">
+                                                            <div className="relative z-10">
+                                                                <Building2 className="h-12 w-12 text-white mb-6" />
+                                                                <h4 className="text-2xl font-bold text-white mb-4 leading-tight">
+                                                                    Solutions For <br /> Every Sector.
+                                                                </h4>
+                                                                <p className="text-white/70 text-sm mb-8 leading-relaxed">
+                                                                    Powering 12+ sectors with bespoke engineering intelligence.
+                                                                </p>
+                                                                <Link href="/industries" onClick={() => setActiveDropdown(null)}>
+                                                                    <Button className="bg-white text-black hover:bg-zinc-200 rounded-xl px-6 h-12 font-bold">
+                                                                        Explore Industries
+                                                                    </Button>
+                                                                </Link>
+                                                            </div>
+                                                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                                                <BarChart3 className="h-40 w-40" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Right: 2-col grid — same style as Solutions/Academy */}
+                                                    <div className="w-2/3 grid grid-cols-2 gap-x-12 gap-y-2">
                                                         {navData.industries.map((industry) => (
-                                                            <Link 
-                                                                key={industry.name} 
+                                                            <Link
+                                                                key={industry.name}
                                                                 href={industry.href}
                                                                 onClick={() => setActiveDropdown(null)}
-                                                                className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-zgreen-500/30 hover:bg-white/10 transition-all group/ind"
+                                                                className="flex items-center gap-4 group/ind px-4 py-2.5 rounded-2xl hover:bg-white/5 transition-all"
                                                             >
-                                                                <h4 className="text-sm font-bold text-gray-300 group-hover/ind:text-white mb-2">{industry.name}</h4>
-                                                                <p className="text-[11px] text-gray-500 group-hover/ind:text-zgreen-400 uppercase tracking-tighter font-black">Strategic Solutions</p>
+                                                                <div className="w-2 h-2 rounded-full bg-zgreen-500 group-hover/ind:scale-150 transition-transform flex-shrink-0" />
+                                                                <span className="text-lg font-bold text-gray-400 group-hover/ind:text-white transition-colors">
+                                                                    {industry.name}
+                                                                </span>
                                                             </Link>
                                                         ))}
-                                                    </div>
-                                                    <div className="mt-12 text-center">
-                                                        <p className="text-gray-500 text-sm italic font-medium">Powering 12+ sectors with bespoke engineering intelligence.</p>
                                                     </div>
                                                 </div>
                                             )}
@@ -345,15 +390,15 @@ export default function Navbar() {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className="w-2/3 grid grid-cols-2 gap-x-12 gap-y-8">
+                                                    <div className="w-2/3 grid grid-cols-2 gap-x-6 gap-y-1">
                                                         {navData.academy.map((course) => (
-                                                            <Link 
-                                                                key={course.name} 
+                                                            <Link
+                                                                key={course.name}
                                                                 href={course.href}
                                                                 onClick={() => setActiveDropdown(null)}
-                                                                className="flex items-center gap-4 group/course px-4 py-3 rounded-2xl hover:bg-white/5 transition-all"
+                                                                className="flex items-center gap-3 group/course px-3 py-2 rounded-xl hover:bg-white/5 transition-all"
                                                             >
-                                                                <div className="w-2 h-2 rounded-full bg-zgreen-500 group-hover:scale-150 transition-transform" />
+                                                                <div className="w-2 h-2 rounded-full bg-zgreen-500 group-hover:scale-150 transition-transform flex-shrink-0" />
                                                                 <span className="text-lg font-bold text-gray-400 group-hover:text-white transition-colors">{course.name}</span>
                                                             </Link>
                                                         ))}
@@ -385,48 +430,32 @@ export default function Navbar() {
                                                     </div>
                                                     
                                                     <div className="w-2/3 grid grid-cols-2 gap-8 h-full">
-                                                        <div className="space-y-8">
-                                                            <div>
-                                                                <h5 className="text-[9px] font-black text-zgreen-500 uppercase tracking-[0.4em] mb-4">Our DNA</h5>
-                                                                <div className="space-y-6">
-                                                                    <Link href="/about#story" onClick={() => setActiveDropdown(null)} className="group/item block pb-3 border-b border-white/5">
-                                                                        <div className="flex items-center gap-2 mb-1">
-                                                                            <h6 className="text-xl font-bold text-gray-300 group-hover/item:text-white transition-colors">Our Story</h6>
-                                                                            <ArrowRight className="h-4 w-4 text-zgreen-500 opacity-0 group-hover/item:opacity-100 transition-all" />
-                                                                        </div>
-                                                                        <p className="text-gray-500 text-xs font-medium leading-relaxed">How we built Zeplynk to solve modern engineering complexity.</p>
-                                                                    </Link>
-                                                                    <Link href="/about#team" onClick={() => setActiveDropdown(null)} className="group/item block pb-3 border-b border-white/5">
-                                                                        <div className="flex items-center gap-2 mb-1">
-                                                                            <h6 className="text-xl font-bold text-gray-300 group-hover/item:text-white transition-colors">The Team</h6>
-                                                                            <ArrowRight className="h-4 w-4 text-zgreen-500 opacity-0 group-hover/item:opacity-100 transition-all" />
-                                                                        </div>
-                                                                        <p className="text-gray-500 text-xs font-medium leading-relaxed">Meet the world-class engineers behind our elite technology systems.</p>
-                                                                    </Link>
-                                                                </div>
+                                                        <div>
+                                                            <h5 className="text-[9px] font-black text-zgreen-500 uppercase tracking-[0.4em] mb-4 ml-4">Our DNA</h5>
+                                                            <div className="space-y-2">
+                                                                <Link href="/about#story" onClick={() => setActiveDropdown(null)} className="flex items-center gap-4 group/item px-4 py-2.5 rounded-2xl hover:bg-white/5 transition-all">
+                                                                    <div className="w-2 h-2 rounded-full bg-zgreen-500 group-hover/item:scale-150 transition-transform flex-shrink-0" />
+                                                                    <span className="text-lg font-bold text-gray-400 group-hover/item:text-white transition-colors">Our Story</span>
+                                                                </Link>
+                                                                <Link href="/about#team" onClick={() => setActiveDropdown(null)} className="flex items-center gap-4 group/item px-4 py-2.5 rounded-2xl hover:bg-white/5 transition-all">
+                                                                    <div className="w-2 h-2 rounded-full bg-zgreen-500 group-hover/item:scale-150 transition-transform flex-shrink-0" />
+                                                                    <span className="text-lg font-bold text-gray-400 group-hover/item:text-white transition-colors">The Team</span>
+                                                                </Link>
                                                             </div>
                                                         </div>
 
-                                                        <div className="space-y-8">
-                                                            <div>
-                                                                <h5 className="text-[9px] font-black text-gray-500 uppercase tracking-[0.4em] mb-4">Growth & Insights</h5>
-                                                                <div className="space-y-6">
-                                                                    <Link href="/about#careers" onClick={() => setActiveDropdown(null)} className="group/item block pb-3 border-b border-white/5">
-                                                                        <div className="flex items-center gap-2 mb-1">
-                                                                            <h6 className="text-xl font-bold text-gray-300 group-hover/item:text-white transition-colors">Careers</h6>
-                                                                            <div className="px-1.5 py-0.5 rounded-md bg-zgreen-500/10 border border-zgreen-500/30 text-[8px] font-black text-zgreen-500 uppercase tracking-tighter">Hiring</div>
-                                                                            <ArrowRight className="h-4 w-4 text-zgreen-500 opacity-0 group-hover/item:opacity-100 transition-all" />
-                                                                        </div>
-                                                                        <p className="text-gray-500 text-xs font-medium leading-relaxed">Join us in our mission to train 1M+ developers across Africa.</p>
-                                                                    </Link>
-                                                                    <Link href="/insights" onClick={() => setActiveDropdown(null)} className="group/item block pb-3 border-b border-white/5">
-                                                                        <div className="flex items-center gap-2 mb-1">
-                                                                            <h6 className="text-xl font-bold text-gray-300 group-hover/item:text-white transition-colors">Blog / Insights</h6>
-                                                                            <ArrowRight className="h-4 w-4 text-zgreen-500 opacity-0 group-hover/item:opacity-100 transition-all" />
-                                                                        </div>
-                                                                        <p className="text-gray-500 text-xs font-medium leading-relaxed">Deep tech dives, case studies, and engineering best practices.</p>
-                                                                    </Link>
-                                                                </div>
+                                                        <div>
+                                                            <h5 className="text-[9px] font-black text-gray-500 uppercase tracking-[0.4em] mb-4 ml-4">Growth & Insights</h5>
+                                                            <div className="space-y-2">
+                                                                <Link href="/about#careers" onClick={() => setActiveDropdown(null)} className="flex items-center gap-4 group/item px-4 py-2.5 rounded-2xl hover:bg-white/5 transition-all">
+                                                                    <div className="w-2 h-2 rounded-full bg-zgreen-500 group-hover/item:scale-150 transition-transform flex-shrink-0" />
+                                                                    <span className="text-lg font-bold text-gray-400 group-hover/item:text-white transition-colors">Careers</span>
+                                                                    <div className="px-1.5 py-0.5 rounded-md bg-zgreen-500/10 border border-zgreen-500/30 text-[8px] font-black text-zgreen-500 uppercase tracking-tighter">Hiring</div>
+                                                                </Link>
+                                                                <Link href="/insights" onClick={() => setActiveDropdown(null)} className="flex items-center gap-4 group/item px-4 py-2.5 rounded-2xl hover:bg-white/5 transition-all">
+                                                                    <div className="w-2 h-2 rounded-full bg-zgreen-500 group-hover/item:scale-150 transition-transform flex-shrink-0" />
+                                                                    <span className="text-lg font-bold text-gray-400 group-hover/item:text-white transition-colors">Blog / Insights</span>
+                                                                </Link>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -434,24 +463,43 @@ export default function Navbar() {
                                             )}
 
                                             {activeDropdown === 'contact-nav' && (
-                                                <div className="flex-grow flex items-center justify-center">
-                                                    <div className="max-w-4xl w-full grid grid-cols-2 gap-12">
+                                                <div className="flex-grow flex items-center gap-16">
+                                                    {/* Left: gradient hero card — same style as Solutions/Academy/Industries */}
+                                                    <div className="w-1/3">
+                                                        <div className="p-10 bg-gradient-to-br from-zgreen-600 to-emerald-900 rounded-[2.5rem] relative overflow-hidden group">
+                                                            <div className="relative z-10">
+                                                                <Mail className="h-12 w-12 text-white mb-6" />
+                                                                <h4 className="text-2xl font-bold text-white mb-4 leading-tight">
+                                                                    Let's Start The <br /> Conversation.
+                                                                </h4>
+                                                                <p className="text-white/70 text-sm mb-8 leading-relaxed">
+                                                                    Whichever way you reach out, we typically reply within 24 hours.
+                                                                </p>
+                                                                <Link href="/contact" onClick={() => setActiveDropdown(null)}>
+                                                                    <Button className="bg-white text-black hover:bg-zinc-200 rounded-xl px-6 h-12 font-bold">
+                                                                        Get In Touch
+                                                                    </Button>
+                                                                </Link>
+                                                            </div>
+                                                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                                                <MessageSquare className="h-40 w-40" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Right: list — same style as Solutions/Academy/Industries */}
+                                                    <div className="w-2/3 space-y-2">
                                                         {navData.contact.map((item) => (
-                                                            <Link 
-                                                                key={item.name} 
+                                                            <Link
+                                                                key={item.name}
                                                                 href={item.href}
                                                                 onClick={() => setActiveDropdown(null)}
-                                                                className="relative p-10 rounded-[2.5rem] bg-zinc-900 border border-white/5 hover:border-zgreen-500/50 hover:bg-zinc-800 transition-all group overflow-hidden"
+                                                                className="flex items-center gap-4 group/item px-4 py-2.5 rounded-2xl hover:bg-white/5 transition-all"
                                                             >
-                                                                <div className="relative z-10">
-                                                                    <h4 className="text-2xl font-black text-white mb-3 transition-transform group-hover:-translate-y-1">{item.name}</h4>
-                                                                    <div className="flex items-center gap-2 text-zgreen-500 font-bold uppercase text-[10px] tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
-                                                                        Get Started <ArrowRight className="h-3 w-3" />
-                                                                    </div>
-                                                                </div>
-                                                                <div className="absolute bottom-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity translate-x-4 translate-y-4">
-                                                                    <Mail className="h-16 w-16" />
-                                                                </div>
+                                                                <div className="w-2 h-2 rounded-full bg-zgreen-500 group-hover/item:scale-150 transition-transform flex-shrink-0" />
+                                                                <span className="text-lg font-bold text-gray-400 group-hover/item:text-white transition-colors">
+                                                                    {item.name}
+                                                                </span>
                                                             </Link>
                                                         ))}
                                                     </div>
@@ -467,7 +515,11 @@ export default function Navbar() {
                         {/* Right Area - Search & Mobile Toggle */}
                         <div className="flex items-center gap-2 relative z-50">
                             {/* Search Button */}
-                            <button className="hidden lg:flex p-2.5 text-gray-400 hover:text-white hover:bg-white/5 rounded-full transition-all group">
+                            <button
+                                onClick={() => setSearchOpen(true)}
+                                aria-label="Search"
+                                className="hidden lg:flex p-2.5 text-gray-400 hover:text-white hover:bg-white/5 rounded-full transition-all group"
+                            >
                                 <Search className="h-5 w-5 group-hover:scale-110 transition-transform" />
                             </button>
 
@@ -683,6 +735,20 @@ export default function Navbar() {
                                         </div>
                                         <ArrowRight className="h-3 w-3 text-zgreen-500 group-hover:translate-x-1 transition-transform" />
                                     </Link>
+
+                                    <Link
+                                        href="/reviews"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="flex items-center justify-between p-2.5 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 transition-all group"
+                                    >
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-6 h-6 rounded-md bg-zyellow-500/20 flex items-center justify-center text-zyellow-500">
+                                                <Star className="h-3 w-3" />
+                                            </div>
+                                            <span className="text-sm font-bold text-white">Reviews</span>
+                                        </div>
+                                        <ArrowRight className="h-3 w-3 text-gray-500 group-hover:text-white transition-all transform group-hover:translate-x-1" />
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -704,6 +770,8 @@ export default function Navbar() {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            <SiteSearch open={searchOpen} onOpenChange={setSearchOpen} />
         </>
     );
 }

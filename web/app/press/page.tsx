@@ -22,11 +22,13 @@ export const metadata: Metadata = {
         description:
             "Press resources for Zeplynk — Nigeria's premier tech solutions and education company based in Kaduna.",
         url: "https://zeplynk.com/press",
+        images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
-        card: "summary",
+        card: "summary_large_image",
         title: "Press & Media | Zeplynk",
         description: "Zeplynk press kit — company facts, logo downloads, and media enquiries.",
+        images: ["/opengraph-image"],
     },
 };
 
@@ -36,8 +38,8 @@ const pressSchema = {
     name: "Zeplynk",
     url: "https://zeplynk.com",
     logo: "https://zeplynk.com/theLogo-removebg-preview.png",
-    description: "Zeplynk is a Nigerian tech solutions and education company founded in Kaduna in 2023 by Nash Ezekiel Pam. It provides web development, AI automation, and software services, and operates Zeplynk Academy — a developer training program for Nigerian professionals.",
-    foundingDate: "2023",
+    description: "Zeplynk is a Nigerian tech solutions and education company founded in Kaduna in 2024 by Nash Ezekiel Pam. It provides web development, AI automation, and software services, and operates Zeplynk Academy — a developer training program for Nigerian professionals.",
+    foundingDate: "2024",
     founder: {
         "@type": "Person",
         name: "Nash Ezekiel Pam",
@@ -53,16 +55,15 @@ const pressSchema = {
     email: "hello@zeplynk.com",
     numberOfEmployees: { "@type": "QuantitativeValue", minValue: 5, maxValue: 50 },
     sameAs: [
-        "https://www.linkedin.com/company/zeplynk",
-        "https://twitter.com/zeplynk",
-        "https://www.instagram.com/zeplynk",
-        "https://github.com/zeplynk",
+        "https://www.linkedin.com/company/zeplynk/",
+        "https://www.instagram.com/zeplynk/",
+        "https://www.facebook.com/share/1JghGYmUWr/",
     ],
 };
 
 const facts = [
     { label: "Company Name", value: "Zeplynk" },
-    { label: "Founded", value: "2023" },
+    { label: "Founded", value: "2024" },
     { label: "Headquarters", value: "Kaduna, Kaduna State, Nigeria" },
     { label: "Founder & CEO", value: "Nash Ezekiel Pam" },
     { label: "Services", value: "Web Development, AI Automation, Software Engineering, Tech Education" },
@@ -107,7 +108,7 @@ export default function PressPage() {
                         <h2 className="text-2xl font-bold text-white mb-6">About Zeplynk</h2>
                         <p className="text-gray-300 leading-relaxed text-lg mb-4">
                             <strong className="text-white">Zeplynk</strong> is a Nigerian tech solutions and education company
-                            founded in Kaduna, Nigeria in 2023 by Nash Ezekiel Pam. The company provides
+                            founded in Kaduna, Nigeria in 2024 by Nash Ezekiel Pam. The company provides
                             web development, AI automation, software engineering, and cybersecurity services
                             to businesses across Nigeria and Africa.
                         </p>

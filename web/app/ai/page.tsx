@@ -31,21 +31,12 @@ export const metadata: Metadata = {
         description:
             "Zeplynk delivers leading AI automation services in Nigeria. Custom machine learning, chatbot development, LLM integration, and workflow automation for businesses across Africa.",
         url: "https://zeplynk.com/ai",
-        images: [
-            {
-                url: "/opengraph-image.png",
-                width: 1200,
-                height: 630,
-                alt: "Zeplynk AI Services & Automation",
-            },
-        ],
     },
     twitter: {
         card: "summary_large_image",
         title: "AI Services & Automation Nigeria | Zeplynk",
         description:
             "Zeplynk AI automation in Nigeria — machine learning, chatbots, LLM integration & workflow automation for African businesses.",
-        images: ["/opengraph-image.png"],
     },
 };
 

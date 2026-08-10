@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Phone, Mail, Twitter, Linkedin, Instagram, Sparkles } from "lucide-react";
+import { Phone, Mail, Linkedin, Instagram, Facebook, Sparkles } from "lucide-react";
 
 export default function HeaderBar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -86,9 +86,9 @@ export default function HeaderBar() {
                 {/* Right — Socials */}
                 <div className="flex items-center gap-3 flex-shrink-0">
                     {[
-                        { icon: Twitter, href: "https://twitter.com/zeplynk", label: "Twitter" },
-                        { icon: Linkedin, href: "https://www.linkedin.com/company/zeplynk", label: "LinkedIn" },
-                        { icon: Instagram, href: "https://www.instagram.com/zeplynk", label: "Instagram" },
+                        { icon: Linkedin, href: "https://www.linkedin.com/company/zeplynk/", label: "LinkedIn" },
+                        { icon: Instagram, href: "https://www.instagram.com/zeplynk/", label: "Instagram" },
+                        { icon: Facebook, href: "https://www.facebook.com/share/1JghGYmUWr/", label: "Facebook" },
                     ].map((s) => (
                         <a
                             key={s.label}

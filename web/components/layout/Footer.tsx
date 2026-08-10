@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MessageCircle, Linkedin, Twitter, Instagram, Github } from "lucide-react";
+import { MessageCircle, Linkedin, Instagram, Facebook } from "lucide-react";
 
 export function Footer() {
     return (
@@ -14,6 +14,7 @@ export function Footer() {
                                     src="/theLogo-removebg-preview.png"
                                     alt="Zeplynk Logo"
                                     fill
+                                    sizes="56px"
                                     className="object-contain"
                                 />
                             </div>
@@ -24,10 +25,9 @@ export function Footer() {
                         </p>
                         <div className="flex gap-4">
                             {[
-                                { icon: Linkedin, href: "https://www.linkedin.com/company/zeplynk", label: "LinkedIn" },
-                                { icon: Twitter, href: "https://twitter.com/zeplynk", label: "Twitter" },
-                                { icon: Instagram, href: "https://www.instagram.com/zeplynk", label: "Instagram" },
-                                { icon: Github, href: "https://github.com/zeplynk", label: "GitHub" }
+                                { icon: Linkedin, href: "https://www.linkedin.com/company/zeplynk/", label: "LinkedIn" },
+                                { icon: Instagram, href: "https://www.instagram.com/zeplynk/", label: "Instagram" },
+                                { icon: Facebook, href: "https://www.facebook.com/share/1JghGYmUWr/", label: "Facebook" }
                             ].map((social) => (
                                 <a
                                     key={social.label}
@@ -52,6 +52,7 @@ export function Footer() {
                                 { label: "Our Work", href: "/work" },
                                 { label: "About", href: "/about" },
                                 { label: "Contact", href: "/contact" },
+                                { label: "Reviews", href: "/reviews" },
                             ].map((item) => (
                                 <li key={item.label}>
                                     <Link href={item.href} className="text-gray-400 hover:text-white transition-colors">

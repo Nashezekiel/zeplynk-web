@@ -204,7 +204,6 @@ export default function Orb({
     const container = ctnDom.current;
     if (!container) return;
 
-    console.log("[Orb] Initializing renderer...");
     try {
       renderer = new Renderer({ alpha: true, premultipliedAlpha: false });
       gl = renderer.gl;
@@ -212,7 +211,6 @@ export default function Orb({
 
       gl.clearColor(0, 0, 0, 0);
       container.appendChild(gl.canvas);
-      console.log("[Orb] Initialized successfully.");
     } catch (e) {
       console.error("[Orb] Failed to initialize:", e);
       return;
@@ -316,8 +314,6 @@ export default function Orb({
       cancelAnimationFrame(rafId);
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('mouseleave', handleMouseLeave);
-
-      console.log("[Orb] Cleaning up renderer...");
 
       try {
         if (container && gl && gl.canvas && container.contains(gl.canvas)) {

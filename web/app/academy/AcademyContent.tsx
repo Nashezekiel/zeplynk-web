@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 // Dynamic Sections
-const AcademyStats = dynamic(() => import("@/components/sections/academy/AcademyStats"), {
+const AcademySkills = dynamic(() => import("@/components/sections/academy/AcademySkills"), {
     loading: () => <div className="h-32 bg-zinc-900 animate-pulse w-full border-y border-white/5" />
 });
 
@@ -50,7 +50,7 @@ export default function AcademyContent() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-4xl sm:text-6xl md:text-8xl font-bold text-white mb-8 tracking-tight leading-tight"
+                        className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight"
                     >
                         Master the Future of <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 via-emerald-500 to-cyan-500">Technology</span>
@@ -60,7 +60,7 @@ export default function AcademyContent() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-medium"
+                        className="text-base sm:text-lg text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
                     >
                         Whether you're starting your career or upskilling your workforce, Zeplynk Academy provides
                         world-class training in software engineering, data, AI, and design.
@@ -73,12 +73,12 @@ export default function AcademyContent() {
                         className="flex flex-col sm:flex-row justify-center gap-4"
                     >
                         <Link href="#programs">
-                            <Button className="h-16 px-10 bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-2xl text-lg font-bold w-full sm:w-auto shadow-[0_10px_40px_-10px_rgba(34,197,94,0.5)] transition-all hover:scale-[1.02] active:scale-95">
+                            <Button className="h-14 px-8 bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-2xl text-base font-bold w-full sm:w-auto shadow-[0_10px_40px_-10px_rgba(34,197,94,0.5)] transition-all hover:scale-[1.02] active:scale-95">
                                 View Course Catalog
                             </Button>
                         </Link>
                         <Link href="#corporate">
-                            <Button variant="outline" className="h-16 px-10 border-white/20 text-white hover:bg-white/10 rounded-2xl text-lg font-bold w-full sm:w-auto backdrop-blur-sm transition-all hover:border-white/40">
+                            <Button variant="outline" className="h-14 px-8 border-white/20 text-white hover:bg-white/10 rounded-2xl text-base font-bold w-full sm:w-auto backdrop-blur-sm transition-all hover:border-white/40">
                                 Corporate Training
                             </Button>
                         </Link>
@@ -86,9 +86,9 @@ export default function AcademyContent() {
                 </div>
             </section>
 
-            {/* Stats Section */}
+            {/* Skills Logo Loop */}
             <Suspense fallback={<div className="h-32 bg-zinc-900 animate-pulse w-full border-y border-white/5" />}>
-                <AcademyStats />
+                <AcademySkills />
             </Suspense>
 
             {/* Course Catalog */}

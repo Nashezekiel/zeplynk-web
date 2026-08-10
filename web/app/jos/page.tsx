@@ -25,12 +25,14 @@ export const metadata: Metadata = {
         description:
             "Zeplynk brings world-class web development, AI automation, and developer training to Jos, Plateau State. Serving businesses across northern Nigeria.",
         url: "https://zeplynk.com/jos",
+        images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
         card: "summary_large_image",
         title: "Web Development & Tech Training in Jos, Plateau State | Zeplynk",
         description:
             "Web development, AI automation & tech training in Jos, Plateau State — Zeplynk.",
+        images: ["/opengraph-image"],
     },
 };
 
@@ -50,8 +52,9 @@ const josLocalBusinessSchema = {
     },
     areaServed: ["Jos", "Plateau State", "Northern Nigeria", "Nigeria"],
     sameAs: [
-        "https://www.linkedin.com/company/zeplynk",
-        "https://twitter.com/zeplynk",
+        "https://www.linkedin.com/company/zeplynk/",
+        "https://www.instagram.com/zeplynk/",
+        "https://www.facebook.com/share/1JghGYmUWr/",
     ],
 };
 

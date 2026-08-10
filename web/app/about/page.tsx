@@ -25,12 +25,14 @@ export const metadata: Metadata = {
         description:
             "Zeplynk is a tech solutions and education company founded in Kaduna, Nigeria. Building world-class software and training Nigerian developers.",
         url: "https://zeplynk.com/about",
+        images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
         card: "summary_large_image",
         title: "About Zeplynk — Tech Company Founded in Kaduna, Nigeria",
         description:
             "Zeplynk is a tech solutions and education company founded in Kaduna, Nigeria. Building software and training developers across Nigeria.",
+        images: ["/opengraph-image"],
     },
 };
 

@@ -4,25 +4,25 @@ import { motion } from "framer-motion";
 
 const events = [
     {
-        year: "2021",
+        year: "2024",
         title: "The Genesis",
         desc: "Zeplynk was founded with a mission to bridge the digital divide in Africa.",
         side: "left"
     },
     {
-        year: "2022",
+        year: "2024",
         title: "Academy Launch",
         desc: "Successfully launched our first cohort of tech training, empowering 500+ students.",
         side: "right"
     },
     {
-        year: "2023",
+        year: "2025",
         title: "Service Expansion",
         desc: "Started offering dedicated AI and high-end software engineering services globally.",
         side: "left"
     },
     {
-        year: "2024",
+        year: "2025",
         title: "Strategic Partnerships",
         desc: "Partnered with leading tech firms and NGOs to scale our community impact.",
         side: "right"

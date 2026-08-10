@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import InsightsPageContent from "./InsightsPageContent";
+import { getAllNews } from "@/lib/news-store";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
     title: "Tech Blog — Web Dev & AI Insights for Nigerian Businesses | Zeplynk",
@@ -25,15 +28,18 @@ export const metadata: Metadata = {
         description:
             "Practical web development and AI insights for Nigerian businesses from the Zeplynk engineering team in Kaduna.",
         url: "https://zeplynk.com/insights",
+        images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
         card: "summary_large_image",
         title: "Tech Blog — Web Dev & AI Insights for Nigerian Businesses | Zeplynk",
         description:
             "Web dev, AI automation & software engineering insights for Nigerian businesses — from Zeplynk, Kaduna.",
+        images: ["/opengraph-image"],
     },
 };
 
-export default function InsightsPage() {
-    return <InsightsPageContent />;
+export default async function InsightsPage() {
+    const items = await getAllNews();
+    return <InsightsPageContent items={items} />;
 }
