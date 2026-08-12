@@ -96,7 +96,7 @@ export default function JosPage() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold mb-8 tracking-widest uppercase">
                             📍 Jos, Plateau State, Nigeria
                         </div>
-                        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black mb-8 tracking-tight leading-tight">
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 tracking-tight leading-tight">
                             Web Development &amp;{" "}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">
                                 Tech Solutions
@@ -128,7 +128,7 @@ export default function JosPage() {
                 {/* Services in Jos */}
                 <section className="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5">
                     <div className="max-w-6xl mx-auto">
-                        <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                             Tech Services for Jos Businesses
                         </h2>
                         <p className="text-gray-400 text-lg mb-16 max-w-2xl leading-relaxed">
@@ -163,7 +163,7 @@ export default function JosPage() {
                     <div className="max-w-6xl mx-auto">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div>
-                                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                                     Serving Clients in Jos &amp; Plateau State
                                 </h2>
                                 <p className="text-gray-400 leading-relaxed mb-6">
@@ -217,7 +217,7 @@ export default function JosPage() {
                 {/* CTA + Internal links */}
                 <section className="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-gradient-to-b from-black to-zinc-900">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                             Let&apos;s Build Something Great in Jos
                         </h2>
                         <p className="text-gray-400 text-lg mb-10 leading-relaxed">

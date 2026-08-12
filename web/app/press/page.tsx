@@ -88,7 +88,7 @@ export default function PressPage() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zgreen-500/10 border border-zgreen-500/20 text-zgreen-400 text-xs font-bold mb-8 tracking-widest uppercase">
                             📰 Press &amp; Media
                         </div>
-                        <h1 className="text-4xl sm:text-6xl font-black mb-6 tracking-tight leading-tight">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight leading-tight">
                             Zeplynk{" "}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">
                                 Press Room

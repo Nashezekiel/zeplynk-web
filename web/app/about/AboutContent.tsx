@@ -44,7 +44,7 @@ export default function AboutContent() {
                             <Sparkles className="h-4 w-4 text-zgreen-400 mr-2" />
                             <span className="text-sm font-bold text-white tracking-wide uppercase">Our Purpose</span>
                         </div>
-                        <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">Mission &amp; Vision</h2>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">Mission &amp; Vision</h2>
                         <p className="text-gray-300 max-w-2xl mx-auto text-lg font-medium">
                             What drives us today, and where we're headed next.
                         </p>
@@ -138,7 +138,7 @@ export default function AboutContent() {
                                     <Sparkles className="h-4 w-4 text-zgreen-400 mr-2" />
                                     <span className="text-sm font-bold text-white tracking-wide uppercase">Our Impact</span>
                                 </div>
-                                <h2 className="text-4xl sm:text-6xl font-bold text-white mb-8 leading-tight">
+                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
                                     Impact <br /> That Matters.
                                 </h2>
                                 <p className="text-xl text-gray-300 leading-relaxed mb-8 font-medium">
@@ -157,10 +157,26 @@ export default function AboutContent() {
                                     { label: "Automation Solutions", value: "100+" },
                                     { label: "States Reached", value: "36" },
                                 ].map((stat, i) => (
-                                    <div key={i} className="bg-black/40 border border-white/10 p-6 rounded-2xl backdrop-blur-sm hover:border-zgreen-500/30 transition-colors">
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.5, delay: i * 0.08 }}
+                                        className="bg-black/40 border border-white/10 p-6 rounded-2xl backdrop-blur-sm hover:border-zgreen-500/30 transition-colors"
+                                    >
                                         <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-                                        <div className="text-sm text-gray-400 uppercase tracking-widest font-bold">{stat.label}</div>
-                                    </div>
+                                        <div className="text-sm text-gray-400 uppercase tracking-widest font-bold mb-4">{stat.label}</div>
+                                        <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                                            <motion.div
+                                                initial={{ width: 0 }}
+                                                whileInView={{ width: "100%" }}
+                                                viewport={{ once: true }}
+                                                transition={{ duration: 1, delay: 0.2 + i * 0.08, ease: "easeOut" }}
+                                                className="h-full bg-gradient-to-r from-zgreen-500 to-emerald-400 rounded-full"
+                                            />
+                                        </div>
+                                    </motion.div>
                                 ))}
                             </div>
                         </div>
@@ -183,7 +199,7 @@ export default function AboutContent() {
                             <Sparkles className="h-4 w-4 text-zgreen-400 mr-2" />
                             <span className="text-sm font-bold text-white tracking-wide uppercase">Get Started</span>
                         </div>
-                        <h2 className="text-4xl sm:text-6xl font-bold text-white mb-8 leading-tight">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
                             Join the movement.
                         </h2>
                         <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
@@ -192,12 +208,12 @@ export default function AboutContent() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/academy">
-                                <Button className="h-16 px-10 bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-2xl text-lg font-bold w-full sm:w-auto shadow-[0_10px_40px_-10px_rgba(34,197,94,0.5)] transition-all hover:scale-[1.02] active:scale-95">
+                                <Button className="h-16 px-10 bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-full text-lg font-bold w-full sm:w-auto shadow-[0_10px_40px_-10px_rgba(34,197,94,0.5)] transition-all hover:scale-[1.02] active:scale-95">
                                     Start Learning
                                 </Button>
                             </Link>
                             <Link href="/solutions">
-                                <Button variant="outline" className="h-16 px-10 border-white/20 text-white hover:bg-white/10 rounded-2xl text-lg font-bold w-full sm:w-auto transition-all hover:border-white/40">
+                                <Button variant="outline" className="h-16 px-10 border-white/20 text-white hover:bg-white/10 rounded-full text-lg font-bold w-full sm:w-auto transition-all hover:border-white/40">
                                     Our Services
                                 </Button>
                             </Link>

@@ -67,7 +67,7 @@ export default function ServiceHub() {
                                         </div>
                                     </div>
 
-                                    <h3 className="text-3xl font-bold text-white mb-6 group-hover:text-white transition-colors">{hub.title}</h3>
+                                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 group-hover:text-white transition-colors">{hub.title}</h3>
                                     <p className="text-gray-400 text-lg leading-relaxed mb-8 group-hover:text-gray-300 transition-colors">
                                         {hub.desc}
                                     </p>

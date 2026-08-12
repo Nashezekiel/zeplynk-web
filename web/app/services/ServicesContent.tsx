@@ -53,7 +53,7 @@ export default function ServicesContent() {
                     >
                         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-zgreen-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-                        <h2 className="text-4xl sm:text-7xl font-bold text-white mb-10 leading-tight">
+                        <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-10 leading-tight">
                             Build your tech <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">legacy with us.</span>
                         </h2>

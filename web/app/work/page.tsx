@@ -111,7 +111,7 @@ export default function WorkPage() {
                         </span>
                     </div>
 
-                    <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold text-white mb-8 tracking-tight leading-[0.9]">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 tracking-tight leading-[0.9]">
                         Work We're{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 via-emerald-400 to-cyan-500">
                             Proud Of
@@ -251,7 +251,7 @@ export default function WorkPage() {
                     <div className="bg-zinc-900/40 border border-white/10 rounded-3xl p-10 backdrop-blur-md relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-zgreen-500/5 rounded-full blur-[80px] pointer-events-none" />
                         <p className="text-gray-500 text-sm font-bold uppercase tracking-widest mb-3">More Work</p>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
                             More projects on the way
                         </h2>
                         <p className="text-gray-400 mb-8 max-w-xl mx-auto">

@@ -19,7 +19,7 @@ export default function NewsSection({ items: newsItems }: { items: NewsItem[] })
                                 <Tag className="h-3 w-3" />
                                 Zeplynk Insights
                             </div>
-                            <h2 className="text-4xl md:text-6xl font-black text-white leading-none">
+                            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-none">
                                 LATEST FROM <br />
                                 <span className="text-zgreen-500">OUR WORLD.</span>
                             </h2>

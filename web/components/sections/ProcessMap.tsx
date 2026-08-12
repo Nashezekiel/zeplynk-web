@@ -69,7 +69,7 @@ export default function ProcessMap() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl sm:text-6xl font-bold text-white mb-4 tracking-tight"
+                        className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight"
                     >
                         Our Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">Framework</span>
                     </motion.h2>

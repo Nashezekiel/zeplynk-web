@@ -17,7 +17,7 @@ export default function AiSolutions() {
                         <Sparkles className="h-4 w-4 mr-2" />
                         Artificial Intelligence
                     </div>
-                    <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                         AI Systems Designed for <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                             Business Impact

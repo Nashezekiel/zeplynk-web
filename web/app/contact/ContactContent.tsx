@@ -2,10 +2,10 @@
 
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { CheckCircle, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CALENDLY_URL } from "@/lib/constants";
 
 const Orb = dynamic(() => import("@/components/ui/Orb"), {
     ssr: false,
@@ -57,7 +57,7 @@ export default function ContactContent() {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.6 }}
                                 >
-                                    <h2 className="text-4xl sm:text-6xl font-bold text-white mb-8 leading-tight">
+                                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
                                         Have a project <br />
                                         <span className="text-zgreen-500">in mind?</span>
                                     </h2>
@@ -112,7 +112,7 @@ export default function ContactContent() {
 
                             <Zap className="h-12 w-12 text-zgreen-500 mx-auto mb-8 animate-pulse" />
 
-                            <h2 className="text-4xl sm:text-6xl font-bold text-white mb-8 leading-tight">
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
                                 Ready for the next <br /> level of growth?
                             </h2>
                             <p className="text-xl text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed">
@@ -120,11 +120,11 @@ export default function ContactContent() {
                                 just high-value consulting to help you identify your next move.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-                                <Link href="https://wa.me/2348067263891" target="_blank">
+                                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
                                     <Button className="h-16 px-12 bg-white text-black hover:bg-gray-200 rounded-2xl text-xl font-bold w-full sm:w-auto shadow-2xl transition-all hover:scale-105 active:scale-95">
                                         Book Strategy Call
                                     </Button>
-                                </Link>
+                                </a>
                             </div>
                         </motion.div>
                     </div>

@@ -43,6 +43,7 @@ import { Sparkles, ArrowRight, Bot, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { getAllNews } from "@/lib/news-store";
+import { CALENDLY_URL } from "@/lib/constants";
 
 import dynamic from "next/dynamic";
 
@@ -210,7 +211,7 @@ export default async function Home() {
               Let&apos;s Build Something Great
             </div>
 
-            <h2 className="text-4xl sm:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
               Ready to Transform <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">Your Digital Infrastructure?</span>
             </h2>
@@ -220,12 +221,12 @@ export default async function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
-              <Link href="/contact">
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="group bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-full h-16 px-10 text-lg sm:text-xl font-bold w-full sm:w-auto shadow-[0_10px_40px_-10px_rgba(34,197,94,0.5)] transition-all hover:scale-[1.02] active:scale-95">
                   Schedule a Strategy Call
                   <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </Link>
+              </a>
               <Link href="/contact">
                 <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 hover:border-white/40 rounded-full h-16 px-10 text-lg sm:text-xl font-bold w-full sm:w-auto backdrop-blur-sm transition-all">
                   <Bot className="h-5 w-5 mr-2" />

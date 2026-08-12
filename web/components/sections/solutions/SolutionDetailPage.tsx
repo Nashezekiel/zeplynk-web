@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 import { getSolutionBySlug } from "@/lib/solutions-data";
+import { CALENDLY_URL } from "@/lib/constants";
 
 interface Props {
   slug: string;
@@ -93,7 +94,7 @@ export default function SolutionDetailPage({ slug }: Props) {
           {/* Headline */}
           <motion.h1
             variants={childFade}
-            className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.05] max-w-4xl"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] max-w-4xl"
           >
             {solution.title}
           </motion.h1>
@@ -428,12 +429,14 @@ export default function SolutionDetailPage({ slug }: Props) {
                 we&apos;ll map out exactly what&apos;s possible.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-3 pt-2">
-                <Link
-                  href="/contact"
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black text-sm font-bold rounded-xl hover:bg-zinc-100 transition-colors"
                 >
                   Book a Strategy Call <ArrowRight className="w-4 h-4" />
-                </Link>
+                </a>
                 <Link
                   href="/solutions"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 border border-white/10 text-white text-sm font-bold rounded-xl hover:bg-white/10 transition-colors"

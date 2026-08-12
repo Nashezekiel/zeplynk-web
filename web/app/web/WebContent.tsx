@@ -41,7 +41,7 @@ export default function WebContent() {
                             <span className="text-sm font-bold text-white tracking-wide uppercase">Digital Engineering</span>
                         </div>
 
-                        <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 tracking-tight">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
                             High-Performance <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-600">Web & Mobile Applications</span>
                         </h1>
@@ -122,7 +122,7 @@ export default function WebContent() {
                 <section id="product" className="py-20 px-4 sm:px-6 lg:px-8">
                     <div className="max-w-7xl mx-auto text-center mb-16">
                         <span className="text-zgreen-500 font-bold tracking-wider uppercase text-sm">From Idea to Scale</span>
-                        <h2 className="text-3xl sm:text-5xl font-bold text-white mt-2 mb-4">Product Development</h2>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 mb-4">Product Development</h2>
                         <p className="text-gray-300 max-w-2xl mx-auto">Guidance through every stage of the product lifecycle.</p>
                     </div>
 
@@ -144,7 +144,7 @@ export default function WebContent() {
                 <section id="systems" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5 relative">
                     <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
                         <div>
-                            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Backend & Cloud Systems</h2>
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">Backend & Cloud Systems</h2>
                             <p className="text-gray-300 mb-6 text-lg">
                                 The backbone of any successful digital product. We engineer resilient backends
                                 capable of handling millions of requests.
@@ -187,7 +187,7 @@ export default function WebContent() {
                 <section className="py-24 px-4 text-center">
                     <div className="max-w-4xl mx-auto bg-zgreen-900/10 border border-zgreen-500/20 rounded-3xl p-12 backdrop-blur-sm relative overflow-hidden group">
                         <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-zgreen-500/5 rounded-full blur-[80px] group-hover:bg-zgreen-500/10 transition-all duration-500" />
-                        <h2 className="text-3xl text-white font-bold mb-6">Let's Build Something Great</h2>
+                        <h2 className="text-3xl md:text-4xl text-white font-bold mb-6">Let's Build Something Great</h2>
                         <Link href="/contact">
                             <Button className="bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-full h-12 px-8">Talk to an Engineer</Button>
                         </Link>

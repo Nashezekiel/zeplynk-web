@@ -63,7 +63,7 @@ export default function PortfolioProjects() {
                             Client Work
                         </span>
                     </div>
-                    <h2 className="text-4xl sm:text-6xl font-bold text-white mb-6 tracking-tight">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
                         Projects We've{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">
                             Shipped

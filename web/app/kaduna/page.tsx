@@ -111,7 +111,7 @@ export default function KadunaPage() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zgreen-500/10 border border-zgreen-500/20 text-zgreen-400 text-xs font-bold mb-8 tracking-widest uppercase">
                             📍 Kaduna, Nigeria
                         </div>
-                        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black mb-8 tracking-tight leading-tight">
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 tracking-tight leading-tight">
                             Kaduna&apos;s Premier{" "}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">
                                 Tech Solutions
@@ -144,7 +144,7 @@ export default function KadunaPage() {
                 {/* Services in Kaduna */}
                 <section className="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5">
                     <div className="max-w-6xl mx-auto">
-                        <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                             What We Do in Kaduna
                         </h2>
                         <p className="text-gray-400 text-lg mb-16 max-w-2xl leading-relaxed">
@@ -209,7 +209,7 @@ export default function KadunaPage() {
                 {/* Why Choose Zeplynk in Kaduna */}
                 <section className="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-zinc-950/40">
                     <div className="max-w-6xl mx-auto">
-                        <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                             Why Kaduna Businesses Choose Zeplynk
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
@@ -233,7 +233,7 @@ export default function KadunaPage() {
                     <div className="max-w-6xl mx-auto">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div>
-                                <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                                     How to Find Us in Kaduna
                                 </h2>
                                 <p className="text-gray-400 leading-relaxed mb-6">
@@ -297,7 +297,7 @@ export default function KadunaPage() {
                 {/* Internal links + CTA */}
                 <section className="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-gradient-to-b from-black to-zinc-900">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                             Ready to Work With Kaduna&apos;s Best Tech Team?
                         </h2>
                         <p className="text-gray-400 text-lg mb-10 leading-relaxed">

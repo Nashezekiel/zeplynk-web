@@ -32,7 +32,7 @@ export default function CorporateTraining() {
                             <Building2 className="h-4 w-4 mr-2" />
                             For Organizations
                         </div>
-                        <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6 leading-tight">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
                             Corporate Training & <br />
                             <span className="text-blue-500">Workforce Upskilling</span>
                         </h2>

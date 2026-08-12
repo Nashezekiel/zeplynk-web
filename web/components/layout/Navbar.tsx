@@ -14,6 +14,7 @@ import {
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import SiteSearch from "@/components/layout/SiteSearch";
+import { CALENDLY_URL } from "@/lib/constants";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -27,6 +28,12 @@ export default function Navbar() {
     };
     const pathname = usePathname();
 
+    const isSectionActive = (href: string) => {
+        const base = href.split("#")[0];
+        if (base === "/") return pathname === "/";
+        return pathname === base || pathname.startsWith(base + "/");
+    };
+
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
@@ -34,6 +41,29 @@ export default function Navbar() {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // Lock background scroll while the mobile menu is open so touch-scroll
+    // gestures go to the menu's own list instead of the page behind it.
+    useEffect(() => {
+        if (!mobileMenuOpen) return;
+
+        const scrollY = window.scrollY;
+        const { body } = document;
+        body.style.position = "fixed";
+        body.style.top = `-${scrollY}px`;
+        body.style.left = "0";
+        body.style.right = "0";
+        body.style.width = "100%";
+
+        return () => {
+            body.style.position = "";
+            body.style.top = "";
+            body.style.left = "";
+            body.style.right = "";
+            body.style.width = "";
+            window.scrollTo(0, scrollY);
+        };
+    }, [mobileMenuOpen]);
 
     // Comprehensive Navigation Data
     const navData = {
@@ -176,7 +206,7 @@ export default function Navbar() {
         ],
         contact: [
             { name: "Get a Quote", href: "/contact#quote" },
-            { name: "Book a Call", href: "/contact#call" },
+            { name: "Book a Call", href: CALENDLY_URL, external: true },
             { name: "Partner With Us", href: "/contact#partner" }
         ]
     };
@@ -184,8 +214,8 @@ export default function Navbar() {
         <>
             <nav className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'top-0 bg-black/90 backdrop-blur-xl border-b border-white/10' : 'top-10 md:top-14 bg-transparent'
                 } ${mobileMenuOpen || activeDropdown ? 'bg-black/90 backdrop-blur-xl border-b border-white/10' : ''}`}>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-16 md:h-20">
+                <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+                    <div className="flex justify-between items-center h-[4.5rem] md:h-20">
 
                         {/* Logo */}
                         <Link
@@ -200,7 +230,7 @@ export default function Navbar() {
                             }}
                             className="flex items-center group relative z-50"
                         >
-                            <div className="relative w-10 h-10 md:w-12 md:h-12 mr-2 group-hover:scale-110 transition-transform duration-300">
+                            <div className="relative w-11 h-11 md:w-12 md:h-12 mr-3 group-hover:scale-110 transition-transform duration-300">
                                 <Image
                                     src="/theLogo-removebg-preview.png"
                                     alt="Zeplynk Logo"
@@ -210,7 +240,7 @@ export default function Navbar() {
                                     priority
                                 />
                             </div>
-                            <span className="text-2xl font-bold text-white tracking-tight">
+                            <span className="text-2xl md:text-2xl font-bold text-white tracking-tight">
                                 Zeplynk
                             </span>
                         </Link>
@@ -489,19 +519,37 @@ export default function Navbar() {
 
                                                     {/* Right: list — same style as Solutions/Academy/Industries */}
                                                     <div className="w-2/3 space-y-2">
-                                                        {navData.contact.map((item) => (
-                                                            <Link
-                                                                key={item.name}
-                                                                href={item.href}
-                                                                onClick={() => setActiveDropdown(null)}
-                                                                className="flex items-center gap-4 group/item px-4 py-2.5 rounded-2xl hover:bg-white/5 transition-all"
-                                                            >
-                                                                <div className="w-2 h-2 rounded-full bg-zgreen-500 group-hover/item:scale-150 transition-transform flex-shrink-0" />
-                                                                <span className="text-lg font-bold text-gray-400 group-hover/item:text-white transition-colors">
-                                                                    {item.name}
-                                                                </span>
-                                                            </Link>
-                                                        ))}
+                                                        {navData.contact.map((item) => {
+                                                            const content = (
+                                                                <>
+                                                                    <div className="w-2 h-2 rounded-full bg-zgreen-500 group-hover/item:scale-150 transition-transform flex-shrink-0" />
+                                                                    <span className="text-lg font-bold text-gray-400 group-hover/item:text-white transition-colors">
+                                                                        {item.name}
+                                                                    </span>
+                                                                </>
+                                                            );
+                                                            return item.external ? (
+                                                                <a
+                                                                    key={item.name}
+                                                                    href={item.href}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                    onClick={() => setActiveDropdown(null)}
+                                                                    className="flex items-center gap-4 group/item px-4 py-2.5 rounded-2xl hover:bg-white/5 transition-all"
+                                                                >
+                                                                    {content}
+                                                                </a>
+                                                            ) : (
+                                                                <Link
+                                                                    key={item.name}
+                                                                    href={item.href}
+                                                                    onClick={() => setActiveDropdown(null)}
+                                                                    className="flex items-center gap-4 group/item px-4 py-2.5 rounded-2xl hover:bg-white/5 transition-all"
+                                                                >
+                                                                    {content}
+                                                                </Link>
+                                                            );
+                                                        })}
                                                     </div>
                                                 </div>
                                             )}
@@ -513,7 +561,7 @@ export default function Navbar() {
                         </div>
 
                         {/* Right Area - Search & Mobile Toggle */}
-                        <div className="flex items-center gap-2 relative z-50">
+                        <div className="flex items-center gap-3 relative z-50">
                             {/* Search Button */}
                             <button
                                 onClick={() => setSearchOpen(true)}
@@ -526,9 +574,10 @@ export default function Navbar() {
                             <div className="lg:hidden">
                                 <button
                                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                                    className="text-white p-1.5 hover:bg-white/10 rounded-full transition-colors"
+                                    aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                                    className="text-white p-2.5 bg-white/5 border border-white/10 hover:bg-white/10 rounded-full transition-colors"
                                 >
-                                    {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                                    {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                                 </button>
                             </div>
                         </div>
@@ -549,20 +598,21 @@ export default function Navbar() {
                         <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-zgreen-900/10 rounded-full blur-[100px] pointer-events-none" />
                         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-blue-900/10 rounded-full blur-[100px] pointer-events-none" />
 
-                        <div className="flex flex-col h-full pt-[calc(2.5rem+4rem)] px-6 space-y-3 overflow-y-auto relative z-10">
+                        <div className="flex flex-col h-full pt-[calc(2.5rem+4.5rem)] px-6 space-y-3 overflow-y-auto overscroll-contain relative z-10">
                             <div className="space-y-4 pt-4 pb-32">
 
                                 {/* Solutions Accordion */}
                                 <div className="space-y-2">
                                     <button
                                         onClick={() => toggleMobileSection('solutions-mob')}
-                                        className={`w-full flex items-center justify-between p-2.5 rounded-lg transition-all border ${activeMobileSection === 'solutions-mob' ? 'bg-zgreen-500/10 border-zgreen-500/30' : 'bg-white/5 border-white/5'}`}
+                                        className={`w-full flex items-center justify-between p-2.5 rounded-lg transition-all border ${activeMobileSection === 'solutions-mob' || isSectionActive('/solutions') ? 'bg-zgreen-500/10 border-zgreen-500/30' : 'bg-white/5 border-white/5'}`}
                                     >
                                         <div className="flex items-center gap-3">
                                             <div className="w-6 h-6 rounded-md bg-zgreen-500/20 flex items-center justify-center text-zgreen-500">
                                                 <Bot className="h-3 w-3" />
                                             </div>
-                                            <span className="text-sm font-bold text-white">Solutions</span>
+                                            <span className={`text-sm font-bold ${isSectionActive('/solutions') ? 'text-zgreen-500' : 'text-white'}`}>Solutions</span>
+                                            {isSectionActive('/solutions') && <span className="w-1.5 h-1.5 rounded-full bg-zgreen-500" />}
                                         </div>
                                         <ChevronDown className={`h-3 w-3 text-gray-500 transition-transform duration-300 ${activeMobileSection === 'solutions-mob' ? 'rotate-180 text-zgreen-500' : ''}`} />
                                     </button>
@@ -575,17 +625,20 @@ export default function Navbar() {
                                                 exit={{ height: 0, opacity: 0 }}
                                                 className="overflow-hidden pl-2 pr-1 space-y-2 pb-4 pt-2"
                                             >
-                                                {navData.solutions.map((cat) => (
-                                                    <Link
-                                                        key={cat.title}
-                                                        href={`/solutions/${cat.id}`}
-                                                        className="bg-white/[0.03] hover:bg-white/[0.08] border border-white/5 rounded-xl p-3 flex items-center justify-between group/cat"
-                                                        onClick={() => setMobileMenuOpen(false)}
-                                                     >
-                                                        <span className="text-[13px] font-black text-gray-400 uppercase tracking-widest group-hover/cat:text-zgreen-500 transition-colors">{cat.title}</span>
-                                                        <ArrowRight className="h-3 w-3 text-zgreen-500 opacity-0 group-hover/cat:opacity-100 transition-all transform -translate-x-2 group-hover:translate-x-0" />
-                                                    </Link>
-                                                ))}
+                                                {navData.solutions.map((cat) => {
+                                                    const catActive = isSectionActive(`/solutions/${cat.id}`);
+                                                    return (
+                                                        <Link
+                                                            key={cat.title}
+                                                            href={`/solutions/${cat.id}`}
+                                                            className={`border rounded-xl p-3 flex items-center justify-between group/cat transition-all ${catActive ? 'bg-zgreen-500/10 border-zgreen-500/30' : 'bg-white/[0.03] hover:bg-white/[0.08] border-white/5'}`}
+                                                            onClick={() => setMobileMenuOpen(false)}
+                                                         >
+                                                            <span className={`text-[13px] font-black uppercase tracking-widest transition-colors ${catActive ? 'text-zgreen-500' : 'text-gray-400 group-hover/cat:text-zgreen-500'}`}>{cat.title}</span>
+                                                            <ArrowRight className={`h-3 w-3 text-zgreen-500 transition-all transform ${catActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2 group-hover:translate-x-0 group-hover/cat:opacity-100'}`} />
+                                                        </Link>
+                                                    );
+                                                })}
                                             </motion.div>
                                         )}
                                     </AnimatePresence>
@@ -595,13 +648,14 @@ export default function Navbar() {
                                 <div className="space-y-2">
                                     <button
                                         onClick={() => toggleMobileSection('industries-mob')}
-                                        className={`w-full flex items-center justify-between p-2.5 rounded-lg transition-all border ${activeMobileSection === 'industries-mob' ? 'bg-blue-500/10 border-blue-500/30' : 'bg-white/5 border-white/5'}`}
+                                        className={`w-full flex items-center justify-between p-2.5 rounded-lg transition-all border ${activeMobileSection === 'industries-mob' || isSectionActive('/industries') ? 'bg-blue-500/10 border-blue-500/30' : 'bg-white/5 border-white/5'}`}
                                     >
                                         <div className="flex items-center gap-3">
                                             <div className="w-6 h-6 rounded-md bg-blue-500/20 flex items-center justify-center text-blue-500">
                                                 <Building2 className="h-3 w-3" />
                                             </div>
-                                            <span className="text-sm font-bold text-white">Industries</span>
+                                            <span className={`text-sm font-bold ${isSectionActive('/industries') ? 'text-blue-400' : 'text-white'}`}>Industries</span>
+                                            {isSectionActive('/industries') && <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />}
                                         </div>
                                         <ChevronDown className={`h-3 w-3 text-gray-500 transition-transform duration-300 ${activeMobileSection === 'industries-mob' ? 'rotate-180 text-blue-500' : ''}`} />
                                     </button>
@@ -634,13 +688,14 @@ export default function Navbar() {
                                 <div className="space-y-2">
                                     <button
                                         onClick={() => toggleMobileSection('academy-mob')}
-                                        className={`w-full flex items-center justify-between p-2.5 rounded-lg transition-all border ${activeMobileSection === 'academy-mob' ? 'bg-purple-500/10 border-purple-500/30' : 'bg-white/5 border-white/5'}`}
+                                        className={`w-full flex items-center justify-between p-2.5 rounded-lg transition-all border ${activeMobileSection === 'academy-mob' || isSectionActive('/academy') ? 'bg-purple-500/10 border-purple-500/30' : 'bg-white/5 border-white/5'}`}
                                     >
                                         <div className="flex items-center gap-3">
                                             <div className="w-6 h-6 rounded-md bg-purple-500/20 flex items-center justify-center text-purple-500">
                                                 <GraduationCap className="h-3 w-3" />
                                             </div>
-                                            <span className="text-sm font-bold text-white">Academy</span>
+                                            <span className={`text-sm font-bold ${isSectionActive('/academy') ? 'text-purple-400' : 'text-white'}`}>Academy</span>
+                                            {isSectionActive('/academy') && <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />}
                                         </div>
                                         <ChevronDown className={`h-3 w-3 text-gray-500 transition-transform duration-300 ${activeMobileSection === 'academy-mob' ? 'rotate-180 text-purple-500' : ''}`} />
                                     </button>
@@ -672,13 +727,14 @@ export default function Navbar() {
                                 <div className="space-y-2">
                                     <button
                                         onClick={() => toggleMobileSection('about-mob')}
-                                        className={`w-full flex items-center justify-between p-2.5 rounded-lg transition-all border ${activeMobileSection === 'about-mob' ? 'bg-orange-500/10 border-orange-500/30' : 'bg-white/5 border-white/5'}`}
+                                        className={`w-full flex items-center justify-between p-2.5 rounded-lg transition-all border ${activeMobileSection === 'about-mob' || isSectionActive('/about') ? 'bg-orange-500/10 border-orange-500/30' : 'bg-white/5 border-white/5'}`}
                                     >
                                         <div className="flex items-center gap-3">
                                             <div className="w-6 h-6 rounded-md bg-orange-500/20 flex items-center justify-center text-orange-500">
                                                 <Users className="h-3 w-3" />
                                             </div>
-                                            <span className="text-sm font-bold text-white">About Us</span>
+                                            <span className={`text-sm font-bold ${isSectionActive('/about') ? 'text-orange-400' : 'text-white'}`}>About Us</span>
+                                            {isSectionActive('/about') && <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />}
                                         </div>
                                         <ChevronDown className={`h-3 w-3 text-gray-500 transition-transform duration-300 ${activeMobileSection === 'about-mob' ? 'rotate-180 text-orange-500' : ''}`} />
                                     </button>
@@ -711,13 +767,14 @@ export default function Navbar() {
                                     <Link
                                         href="/insights"
                                         onClick={() => setMobileMenuOpen(false)}
-                                        className="flex items-center justify-between p-2.5 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 transition-all group"
+                                        className={`flex items-center justify-between p-2.5 rounded-lg border transition-all group ${isSectionActive('/insights') ? 'bg-purple-500/10 border-purple-500/30' : 'bg-white/5 border-white/5 hover:bg-white/10'}`}
                                     >
                                         <div className="flex items-center gap-3">
                                             <div className="w-6 h-6 rounded-md bg-purple-500/20 flex items-center justify-center text-purple-500">
                                                 <MessageSquare className="h-3 w-3" />
                                             </div>
-                                            <span className="text-sm font-bold text-white">Insights</span>
+                                            <span className={`text-sm font-bold ${isSectionActive('/insights') ? 'text-purple-400' : 'text-white'}`}>Insights</span>
+                                            {isSectionActive('/insights') && <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />}
                                         </div>
                                         <ArrowRight className="h-3 w-3 text-gray-500 group-hover:text-white transition-all transform group-hover:translate-x-1" />
                                     </Link>
@@ -725,13 +782,14 @@ export default function Navbar() {
                                     <Link
                                         href="/contact"
                                         onClick={() => setMobileMenuOpen(false)}
-                                        className="flex items-center justify-between p-2.5 rounded-lg bg-zgreen-500/10 border border-zgreen-500/20 hover:bg-zgreen-500/20 transition-all group"
+                                        className={`flex items-center justify-between p-2.5 rounded-lg border transition-all group ${isSectionActive('/contact') ? 'bg-zgreen-500/20 border-zgreen-500/40' : 'bg-zgreen-500/10 border-zgreen-500/20 hover:bg-zgreen-500/20'}`}
                                     >
                                         <div className="flex items-center gap-3">
                                             <div className="w-6 h-6 rounded-md bg-zgreen-500/20 flex items-center justify-center text-zgreen-500">
                                                 <Mail className="h-3 w-3" />
                                             </div>
                                             <span className="text-sm font-bold text-white">Contact</span>
+                                            {isSectionActive('/contact') && <span className="w-1.5 h-1.5 rounded-full bg-zgreen-500" />}
                                         </div>
                                         <ArrowRight className="h-3 w-3 text-zgreen-500 group-hover:translate-x-1 transition-transform" />
                                     </Link>
@@ -739,13 +797,14 @@ export default function Navbar() {
                                     <Link
                                         href="/reviews"
                                         onClick={() => setMobileMenuOpen(false)}
-                                        className="flex items-center justify-between p-2.5 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 transition-all group"
+                                        className={`flex items-center justify-between p-2.5 rounded-lg border transition-all group ${isSectionActive('/reviews') ? 'bg-zyellow-500/10 border-zyellow-500/30' : 'bg-white/5 border-white/5 hover:bg-white/10'}`}
                                     >
                                         <div className="flex items-center gap-3">
                                             <div className="w-6 h-6 rounded-md bg-zyellow-500/20 flex items-center justify-center text-zyellow-500">
                                                 <Star className="h-3 w-3" />
                                             </div>
-                                            <span className="text-sm font-bold text-white">Reviews</span>
+                                            <span className={`text-sm font-bold ${isSectionActive('/reviews') ? 'text-zyellow-400' : 'text-white'}`}>Reviews</span>
+                                            {isSectionActive('/reviews') && <span className="w-1.5 h-1.5 rounded-full bg-zyellow-500" />}
                                         </div>
                                         <ArrowRight className="h-3 w-3 text-gray-500 group-hover:text-white transition-all transform group-hover:translate-x-1" />
                                     </Link>
@@ -760,11 +819,11 @@ export default function Navbar() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.6 }}
                             >
-                                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
                                     <Button className="w-full h-12 bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-2xl text-base font-bold shadow-[0_10px_30px_-10px_rgba(34,197,94,0.5)] transition-all">
                                         Book a Strategy Call <ArrowRight className="ml-2 h-4 w-4" />
                                     </Button>
-                                </Link>
+                                </a>
                             </motion.div>
                         </div>
                     </motion.div>

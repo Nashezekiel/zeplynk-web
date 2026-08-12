@@ -187,7 +187,7 @@ export default function CourseCatalog() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-3xl sm:text-5xl font-bold text-white mb-6"
+                        className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
                     >
                         Comprehensive Tech Programs
                     </motion.h2>

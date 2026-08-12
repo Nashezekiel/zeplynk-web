@@ -175,7 +175,7 @@ export default function AdminDashboard() {
                             <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
                             Back to Site
                         </Link>
-                        <h1 className="text-4xl font-black uppercase tracking-tight flex items-center gap-3 font-mono">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight flex items-center gap-3 font-mono">
                             <LayoutDashboard className="h-8 w-8 text-zgreen-500" />
                             Insights <span className="text-zgreen-500">Dashboard</span>
                         </h1>

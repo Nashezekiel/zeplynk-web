@@ -27,7 +27,7 @@ export default function CaseStudyBlock() {
                         <Sparkles className="h-4 w-4 text-zgreen-400" />
                         <span className="text-sm font-bold text-white tracking-wide uppercase">Case Study</span>
                     </div>
-                    <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">Real Business Impact</h2>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">Real Business Impact</h2>
                     <p className="text-gray-400 text-lg">See how we engineer growth for our partners.</p>
                 </motion.div>
 
@@ -80,7 +80,7 @@ export default function CaseStudyBlock() {
                                         <div className={`w-10 h-10 rounded-xl ${stat.bg} flex items-center justify-center mb-4`}>
                                             <stat.icon className={`h-5 w-5 ${stat.color}`} />
                                         </div>
-                                        <div className="text-2xl sm:text-3xl font-bold text-white mb-1">{stat.value}</div>
+                                        <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1">{stat.value}</div>
                                         <div className="text-xs sm:text-sm text-gray-400 font-bold">{stat.label}</div>
                                     </div>
                                 ))}

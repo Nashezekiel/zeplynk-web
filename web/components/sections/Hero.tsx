@@ -7,6 +7,7 @@ import { Code2, Globe, Layers, Server, Terminal, Cpu, Database, Cloud } from "lu
 import LogoLoop from "@/components/ui/LogoLoop";
 import TechInfographic from "@/components/ui/TechInfographic";
 import dynamic from "next/dynamic";
+import { CALENDLY_URL } from "@/lib/constants";
 
 const Particles = dynamic(() => import("@/components/ui/Particles"), { ssr: false });
 
@@ -53,7 +54,7 @@ export default function Hero() {
                     <div className="text-left">
                         {/* Headline */}
                         <motion.h1
-                            className="text-3xl sm:text-5xl font-bold text-white mb-6 tracking-tight leading-tight"
+                            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight"
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}
@@ -83,11 +84,11 @@ export default function Hero() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.3 }}
                         >
-                            <Link href="/contact">
+                            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
                                 <Button size="lg" className="bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-2xl h-12 px-7 text-base font-bold shadow-[0_10px_30px_-10px_rgba(34,197,94,0.5)] transition-all">
                                     Book Strategy Call
                                 </Button>
-                            </Link>
+                            </a>
                             <Link href="#solutions">
                                 <Button variant="outline" size="lg" className="border-white/20 bg-white/5 text-white hover:bg-white/10 rounded-2xl h-12 px-7 text-base font-bold backdrop-blur-sm">
                                     Our Solutions
@@ -116,7 +117,7 @@ export default function Hero() {
                 >
                     <LogoLoop
                         logos={heroLogos}
-                        speed={60}
+                        speed={28}
                         direction="left"
                         iconSize="text-4xl"
                     />

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, Share2, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { CALENDLY_URL } from "@/lib/constants";
 
 export const revalidate = 60;
 
@@ -152,7 +153,7 @@ export default async function BlogPostPage({
                             6 min read
                         </div>
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tight uppercase">
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight tracking-tight uppercase">
                         {post.title}
                     </h1>
                 </header>
@@ -207,9 +208,9 @@ export default async function BlogPostPage({
                             <div className="p-6 rounded-3xl bg-zgreen-600/10 border border-zgreen-500/20">
                                 <h4 className="text-sm font-bold text-zgreen-500 mb-2">Need a Custom Solution?</h4>
                                 <p className="text-xs text-gray-400 mb-4 font-medium">Talk to our lead engineers about your project.</p>
-                                <Link href="/contact" className="inline-flex items-center gap-2 text-xs font-bold text-white hover:text-zgreen-400 transition-colors">
+                                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-bold text-white hover:text-zgreen-400 transition-colors">
                                     Schedule a Call <ArrowRight className="h-3 w-3" />
-                                </Link>
+                                </a>
                             </div>
                         </div>
                     </aside>

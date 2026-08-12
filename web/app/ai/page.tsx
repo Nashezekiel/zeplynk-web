@@ -64,7 +64,7 @@ export default function AiPage() {
                         <span className="text-sm font-bold text-white tracking-wide uppercase">AI & Automation Solutions</span>
                     </div>
 
-                    <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 tracking-tight">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
                         Intelligent Systems that <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-600">Think & Execute</span>
                     </h1>
@@ -144,7 +144,7 @@ export default function AiPage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-16 text-center">
                         <span className="text-purple-500 font-semibold tracking-wider uppercase text-sm">Operational Efficiency</span>
-                        <h2 className="text-3xl sm:text-5xl font-bold text-white mt-2 mb-4">Intelligent Automation</h2>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 mb-4">Intelligent Automation</h2>
                         <p className="text-gray-200 max-w-2xl mx-auto text-lg leading-relaxed font-medium">Replace repetitive manual tasks with self-learning agents that work 24/7.</p>
                     </div>
 
@@ -182,7 +182,7 @@ export default function AiPage() {
                         <div className="bg-purple-500/10 p-3 rounded-xl w-fit mb-6">
                             <BarChart3 className="h-8 w-8 text-purple-500" />
                         </div>
-                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Predictive Analytics</h2>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">Predictive Analytics</h2>
                         <p className="text-xl text-gray-200 mb-6 leading-relaxed font-medium">
                             Stop looking at the rearview mirror. Use historical data to forecast future trends,
                             customer behaviors, and market shifts with high accuracy.
@@ -210,7 +210,7 @@ export default function AiPage() {
             {/* CTA */}
             <section className="py-24 px-4 text-center">
                 <div className="max-w-4xl mx-auto bg-purple-900/10 border border-purple-500/20 rounded-3xl p-12 backdrop-blur-sm">
-                    <h2 className="text-3xl text-white font-bold mb-6">Ready to deployments AI?</h2>
+                    <h2 className="text-3xl md:text-4xl text-white font-bold mb-6">Ready to deployments AI?</h2>
                     <Link href="/contact">
                         <Button className="bg-purple-600 hover:bg-purple-500 text-white rounded-full h-12 px-8">Start Your AI Journey</Button>
                     </Link>

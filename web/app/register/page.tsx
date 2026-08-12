@@ -103,7 +103,7 @@ Payment proof attached separately if provided.
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="text-center mb-12">
-                    <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
                         Register for <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-600">Zeplynk Tech Academy</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-medium">

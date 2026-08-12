@@ -27,7 +27,7 @@ export default function TechStack() {
 
             <LogoLoop
                 logos={techLogos}
-                speed={40}
+                speed={18}
                 direction="left"
             />
         </section>

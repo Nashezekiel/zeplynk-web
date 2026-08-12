@@ -45,7 +45,7 @@ export default function CoreValues() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="text-3xl sm:text-5xl font-bold text-white mb-6"
+                        className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
                     >
                         Our Core Values
                     </motion.h2>

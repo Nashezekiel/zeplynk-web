@@ -50,7 +50,7 @@ export default function AcademyContent() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight"
+                        className="text-3xl md:text-4xl lg:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight"
                     >
                         Master the Future of <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 via-emerald-500 to-cyan-500">Technology</span>
@@ -107,7 +107,7 @@ export default function AcademyContent() {
 
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="text-center mb-20">
-                        <h2 className="text-4xl sm:text-6xl font-bold text-white mb-6">Why Zeplynk Academy?</h2>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Why Zeplynk Academy?</h2>
                         <p className="text-gray-200 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
                             Our pedagogy is built on real-world engineering experience and industry demand.
                         </p>
@@ -152,7 +152,7 @@ export default function AcademyContent() {
 
                         <Zap className="h-12 w-12 text-zgreen-500 mx-auto mb-8 animate-pulse" />
 
-                        <h2 className="text-4xl sm:text-6xl font-bold text-white mb-8 relative z-10 leading-tight">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 relative z-10 leading-tight">
                             Ready to Upgrade <br /> Your Career?
                         </h2>
                         <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto relative z-10 leading-relaxed">

@@ -115,7 +115,7 @@ export default function ReviewsPage() {
                         <Star className="h-4 w-4 text-zyellow-400 fill-zyellow-400" />
                         <span className="text-sm font-bold text-white tracking-wide uppercase">Reviews</span>
                     </div>
-                    <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
                         Loved Working <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-zyellow-300 via-amber-400 to-zgreen-400">
                             With Zeplynk?
@@ -146,7 +146,7 @@ export default function ReviewsPage() {
                                 <Star key={i} className="h-8 w-8 fill-zyellow-400 text-zyellow-400 drop-shadow-[0_0_12px_rgba(255,193,7,0.5)]" />
                             ))}
                         </div>
-                        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
                             Leave Us a Review on Google
                         </h2>
                         <p className="text-gray-300 max-w-xl leading-relaxed mb-8">

@@ -71,7 +71,7 @@ export default function Testimonials() {
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-16">
                     <ScrollReveal>
-                        <h2 className="text-3xl sm:text-5xl font-black text-white mb-6 uppercase tracking-tighter">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-6 uppercase tracking-tighter">
                             TRUSTED BY <span className="text-zgreen-500">INDUSTRY LEADERS</span>
                         </h2>
                         <p className="text-gray-400 text-lg font-medium max-w-2xl mx-auto">

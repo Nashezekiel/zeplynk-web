@@ -34,7 +34,7 @@ const skillLogos = [
 export default function AcademySkills() {
     return (
         <section className="pt-2 pb-8 border-y border-white/10 bg-zinc-900/60 backdrop-blur-md">
-            <LogoLoop logos={skillLogos} speed={35} direction="left" iconSize="text-4xl" />
+            <LogoLoop logos={skillLogos} speed={16} direction="left" iconSize="text-4xl" />
         </section>
     );
 }

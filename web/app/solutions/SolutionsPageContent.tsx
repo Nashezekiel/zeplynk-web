@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { solutions } from "@/lib/solutions-data";
+import { CALENDLY_URL } from "@/lib/constants";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -80,7 +81,7 @@ export default function SolutionsPageContent() {
           {/* headline */}
           <motion.h1
             variants={cardVariants}
-            className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.05] max-w-4xl"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] max-w-4xl"
           >
             The technology
             <br />
@@ -225,12 +226,14 @@ export default function SolutionsPageContent() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-            <Link
-              href="/contact"
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-bold rounded-xl hover:bg-zinc-100 transition-colors"
             >
               Book a Strategy Call <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
             <Link
               href="/work"
               className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white text-sm font-bold rounded-xl hover:bg-white/10 transition-colors"

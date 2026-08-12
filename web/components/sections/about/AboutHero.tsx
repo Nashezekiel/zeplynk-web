@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap } from "lucide-react";
+import { Zap, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 export default function AboutHero() {
     return (
@@ -25,7 +26,7 @@ export default function AboutHero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="text-4xl sm:text-6xl md:text-8xl font-bold text-white mb-8 tracking-tight leading-tight"
+                    className="text-4xl md:text-6xl lg:text-8xl font-bold text-white mb-8 tracking-tight leading-tight"
                 >
                     We Build, We Teach, <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 via-emerald-500 to-cyan-500">We Empower.</span>
@@ -40,6 +41,17 @@ export default function AboutHero() {
                     Zeplynk is a full-service technology powerhouse dedicated to digital transformation.
                     From high-end software engineering to world-class education, we are the bridge to greatness.
                 </motion.p>
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-gray-500"
+                >
+                    <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                    <ChevronRight className="h-3.5 w-3.5" />
+                    <span className="text-white font-semibold">About Us</span>
+                </motion.div>
             </div>
         </section>
     );

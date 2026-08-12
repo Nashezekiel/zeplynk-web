@@ -55,7 +55,7 @@ export default function FAQ() {
 
             <div className="max-w-3xl mx-auto relative z-10">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                         Frequently Asked Questions
                     </h2>
                     <p className="text-gray-200 text-lg font-medium">Everything you need to know about working with us.</p>
