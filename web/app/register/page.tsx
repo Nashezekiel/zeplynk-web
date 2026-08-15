@@ -15,6 +15,12 @@ import {
     Check
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+
+type RegisterErrors = Partial<Record<'name' | 'email' | 'phone' | 'courseInterest', string>>;
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_REGEX = /^[0-9+()\-\s]{7,}$/;
 
 export default function Register() {
     const [formData, setFormData] = useState({
@@ -26,6 +32,7 @@ export default function Register() {
         additionalNote: ''
     });
 
+    const [errors, setErrors] = useState<RegisterErrors>({});
     const [copied, setCopied] = useState({ diamond: false, opay: false });
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -36,6 +43,26 @@ export default function Register() {
             ...prev,
             [name]: value
         }));
+        if (errors[name as keyof RegisterErrors]) {
+            setErrors(prev => ({ ...prev, [name]: undefined }));
+        }
+    };
+
+    const validate = (): RegisterErrors => {
+        const next: RegisterErrors = {};
+        if (!formData.name.trim()) next.name = 'Please enter your full name.';
+        if (!formData.email.trim()) {
+            next.email = 'Please enter your email address.';
+        } else if (!EMAIL_REGEX.test(formData.email.trim())) {
+            next.email = 'Please enter a valid email address.';
+        }
+        if (!formData.phone.trim()) {
+            next.phone = 'Please enter your phone number.';
+        } else if (!PHONE_REGEX.test(formData.phone.trim())) {
+            next.phone = 'Please enter a valid phone number.';
+        }
+        if (!formData.courseInterest) next.courseInterest = 'Please select your primary interest.';
+        return next;
     };
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,6 +83,12 @@ export default function Register() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
+        const validationErrors = validate();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
 
         // Create mailto link with form data
         const subject = encodeURIComponent('Zeplynk Academy Registration');
@@ -139,12 +172,17 @@ Payment proof attached separately if provided.
                                         <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">Account Number</p>
                                         <p className="font-mono text-lg font-bold text-white tracking-widest">0097029187</p>
                                     </div>
-                                    <button
-                                        onClick={() => copyToClipboard('0097029187', 'diamond')}
-                                        className="flex items-center px-4 py-2 bg-zgreen-500/20 text-zgreen-400 rounded-lg hover:bg-zgreen-500 hover:text-white transition-all duration-200 font-bold"
-                                    >
-                                        {copied.diamond ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                                    </button>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <button
+                                                onClick={() => copyToClipboard('0097029187', 'diamond')}
+                                                className="flex items-center px-4 py-2 bg-zgreen-500/20 text-zgreen-400 rounded-lg hover:bg-zgreen-500 hover:text-white transition-all duration-200 font-bold"
+                                            >
+                                                {copied.diamond ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                                            </button>
+                                        </TooltipTrigger>
+                                        <TooltipContent>{copied.diamond ? "Copied!" : "Copy account number"}</TooltipContent>
+                                    </Tooltip>
                                 </div>
                                 <div className="p-4 bg-black/60 rounded-lg border border-white/10">
                                     <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">Account Name</p>
@@ -162,12 +200,17 @@ Payment proof attached separately if provided.
                                         <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">Account Number</p>
                                         <p className="font-mono text-lg font-bold text-white tracking-widest">8067263891</p>
                                     </div>
-                                    <button
-                                        onClick={() => copyToClipboard('8067263891', 'opay')}
-                                        className="flex items-center px-4 py-2 bg-zgreen-500/20 text-zgreen-400 rounded-lg hover:bg-zgreen-500 hover:text-white transition-all duration-200 font-bold"
-                                    >
-                                        {copied.opay ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                                    </button>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <button
+                                                onClick={() => copyToClipboard('8067263891', 'opay')}
+                                                className="flex items-center px-4 py-2 bg-zgreen-500/20 text-zgreen-400 rounded-lg hover:bg-zgreen-500 hover:text-white transition-all duration-200 font-bold"
+                                            >
+                                                {copied.opay ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                                            </button>
+                                        </TooltipTrigger>
+                                        <TooltipContent>{copied.opay ? "Copied!" : "Copy account number"}</TooltipContent>
+                                    </Tooltip>
                                 </div>
                                 <div className="p-4 bg-black/60 rounded-lg border border-white/10">
                                     <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">Account Name</p>
@@ -199,10 +242,17 @@ Payment proof attached separately if provided.
                                         required
                                         value={formData.name}
                                         onChange={handleInputChange}
-                                        className="w-full bg-zinc-900/60 pl-10 pr-4 py-3 border border-white/20 rounded-xl focus:border-zgreen-500 focus:ring-1 focus:ring-zgreen-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-500"
+                                        aria-invalid={!!errors.name}
+                                        aria-describedby={errors.name ? "reg-name-error" : undefined}
+                                        className={`w-full bg-zinc-900/60 pl-10 pr-4 py-3 border rounded-xl focus:ring-1 focus:outline-none transition-all duration-200 text-white placeholder-gray-500 ${errors.name ? "border-red-500/60 focus:border-red-500 focus:ring-red-500" : "border-white/20 focus:border-zgreen-500 focus:ring-zgreen-500"}`}
                                         placeholder="Enter your full name"
                                     />
                                 </div>
+                                {errors.name && (
+                                    <p id="reg-name-error" className="flex items-center gap-1.5 text-sm text-red-400 font-medium mt-2">
+                                        <AlertCircle className="h-4 w-4 shrink-0" /> {errors.name}
+                                    </p>
+                                )}
                             </div>
 
                             {/* Email */}
@@ -219,10 +269,17 @@ Payment proof attached separately if provided.
                                         required
                                         value={formData.email}
                                         onChange={handleInputChange}
-                                        className="w-full bg-zinc-900/60 pl-10 pr-4 py-3 border border-white/20 rounded-xl focus:border-zgreen-500 focus:ring-1 focus:ring-zgreen-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-500"
+                                        aria-invalid={!!errors.email}
+                                        aria-describedby={errors.email ? "reg-email-error" : undefined}
+                                        className={`w-full bg-zinc-900/60 pl-10 pr-4 py-3 border rounded-xl focus:ring-1 focus:outline-none transition-all duration-200 text-white placeholder-gray-500 ${errors.email ? "border-red-500/60 focus:border-red-500 focus:ring-red-500" : "border-white/20 focus:border-zgreen-500 focus:ring-zgreen-500"}`}
                                         placeholder="Enter your email address"
                                     />
                                 </div>
+                                {errors.email && (
+                                    <p id="reg-email-error" className="flex items-center gap-1.5 text-sm text-red-400 font-medium mt-2">
+                                        <AlertCircle className="h-4 w-4 shrink-0" /> {errors.email}
+                                    </p>
+                                )}
                             </div>
 
                             {/* Phone */}
@@ -239,10 +296,17 @@ Payment proof attached separately if provided.
                                         required
                                         value={formData.phone}
                                         onChange={handleInputChange}
-                                        className="w-full bg-zinc-900/60 pl-10 pr-4 py-3 border border-white/20 rounded-xl focus:border-zgreen-500 focus:ring-1 focus:ring-zgreen-500 focus:outline-none transition-all duration-200 text-white placeholder-gray-500"
+                                        aria-invalid={!!errors.phone}
+                                        aria-describedby={errors.phone ? "reg-phone-error" : undefined}
+                                        className={`w-full bg-zinc-900/60 pl-10 pr-4 py-3 border rounded-xl focus:ring-1 focus:outline-none transition-all duration-200 text-white placeholder-gray-500 ${errors.phone ? "border-red-500/60 focus:border-red-500 focus:ring-red-500" : "border-white/20 focus:border-zgreen-500 focus:ring-zgreen-500"}`}
                                         placeholder="Enter your phone number"
                                     />
                                 </div>
+                                {errors.phone && (
+                                    <p id="reg-phone-error" className="flex items-center gap-1.5 text-sm text-red-400 font-medium mt-2">
+                                        <AlertCircle className="h-4 w-4 shrink-0" /> {errors.phone}
+                                    </p>
+                                )}
                             </div>
 
                             {/* Course Interest */}
@@ -257,7 +321,9 @@ Payment proof attached separately if provided.
                                         required
                                         value={formData.courseInterest}
                                         onChange={handleInputChange}
-                                        className="w-full bg-zinc-900/60 px-4 py-3 border border-white/20 rounded-xl focus:border-zgreen-500 focus:ring-1 focus:ring-zgreen-500 focus:outline-none transition-all duration-200 text-white appearance-none cursor-pointer font-medium"
+                                        aria-invalid={!!errors.courseInterest}
+                                        aria-describedby={errors.courseInterest ? "reg-course-error" : undefined}
+                                        className={`w-full bg-zinc-900/60 px-4 py-3 border rounded-xl focus:ring-1 focus:outline-none transition-all duration-200 text-white appearance-none cursor-pointer font-medium ${errors.courseInterest ? "border-red-500/60 focus:border-red-500 focus:ring-red-500" : "border-white/20 focus:border-zgreen-500 focus:ring-zgreen-500"}`}
                                     >
                                         <option value="" className="bg-zinc-900 text-gray-500">Select your primary interest</option>
                                         <option value="Web Development" className="bg-zinc-900">Web Development (HTML, CSS, JS)</option>
@@ -272,6 +338,11 @@ Payment proof attached separately if provided.
                                         </svg>
                                     </div>
                                 </div>
+                                {errors.courseInterest && (
+                                    <p id="reg-course-error" className="flex items-center gap-1.5 text-sm text-red-400 font-medium mt-2">
+                                        <AlertCircle className="h-4 w-4 shrink-0" /> {errors.courseInterest}
+                                    </p>
+                                )}
                             </div>
 
                             {/* Payment Proof */}
