@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MessageCircle, Clock, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MessageCircle, Clock, Send, CheckCircle, Landmark, ShieldCheck } from "lucide-react";
 
 export default function ContactMethods() {
     return (
@@ -76,6 +76,42 @@ export default function ContactMethods() {
                                     Chat with Experts <MessageCircle className="ml-2 h-5 w-5" />
                                 </a>
                             </div>
+                        </motion.div>
+
+                        {/* Payment Methods */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className="bg-black/60 border border-white/20 rounded-[2rem] p-8 hover:border-zyellow-500/50 transition-all group backdrop-blur-md"
+                        >
+                            <div className="bg-zyellow-500/10 rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <Landmark className="h-8 w-8 text-zyellow-500" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-4">Payment Methods</h3>
+                            <p className="text-gray-200 text-sm font-medium">
+                                We accept direct bank transfer to a Nigerian bank account. Account details are shared
+                                on your invoice or, for Academy enrollment, on the registration page.
+                            </p>
+                        </motion.div>
+
+                        {/* Guarantee */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.4 }}
+                            className="bg-zinc-900/60 border border-white/20 rounded-[2rem] p-8 hover:border-zgreen-500/50 transition-all group backdrop-blur-md"
+                        >
+                            <div className="bg-zgreen-500/10 rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <ShieldCheck className="h-8 w-8 text-zgreen-500" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-4">Our Guarantee</h3>
+                            <p className="text-gray-200 text-sm font-medium">
+                                We work with you through revisions until the agreed deliverables meet the spec we
+                                signed off on together — your genuine satisfaction is the goal, not just a closed ticket.
+                            </p>
                         </motion.div>
                     </div>
 

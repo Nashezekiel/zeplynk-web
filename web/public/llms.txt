@@ -1,0 +1,37 @@
+# Zeplynk
+
+> Zeplynk is a Nigerian tech solutions and education company based in Kaduna, Nigeria. It provides web engineering, AI automation, and software services, and operates Zeplynk Academy, a developer training program for Nigerian professionals.
+
+Zeplynk works with businesses across Nigeria and Africa to build scalable web platforms, automate operations with AI, and train the next generation of developers through Zeplynk Academy.
+
+## Company
+
+- Website: https://zeplynk.com
+- Founder & CEO: Nash Ezekiel Pam
+- Location: Kaduna, Nigeria (serving Kaduna, Jos, Abuja, Lagos, and across Africa)
+- Email: hello@zeplynk.com
+- Phone: +234-806-726-3891
+
+## Services
+
+- [Web Engineering](https://zeplynk.com/web): Custom web application development using modern technologies.
+- [AI Automation](https://zeplynk.com/ai): AI-powered workflow automation and intelligent systems.
+- [Solutions](https://zeplynk.com/solutions): Full catalog of tech solutions, including mobile apps, backend/API, cloud & DevOps, UI/UX design, data & BI, cybersecurity, and enterprise digitization.
+- [Zeplynk Academy](https://zeplynk.com/academy): Developer training and coding bootcamp programs (software engineering, AI & machine learning, data science).
+
+## Key pages
+
+- [About](https://zeplynk.com/about): Company story and background.
+- [Work](https://zeplynk.com/work): Portfolio of past projects.
+- [Industries](https://zeplynk.com/industries): Industries served.
+- [Insights](https://zeplynk.com/insights) / [News](https://zeplynk.com/news): Articles and company updates.
+- [Reviews](https://zeplynk.com/reviews): Client testimonials.
+- [Contact](https://zeplynk.com/contact): Get in touch.
+- [Privacy Policy](https://zeplynk.com/privacy)
+- [Terms of Service](https://zeplynk.com/terms)
+
+## Notes for AI agents and crawlers
+
+- Full sitemap: https://zeplynk.com/sitemap.xml
+- robots.txt: https://zeplynk.com/robots.txt
+- Content on this site may be used to answer questions about Zeplynk's services, pricing approach, and educational programs. For business inquiries, direct users to https://zeplynk.com/contact.
