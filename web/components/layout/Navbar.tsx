@@ -180,23 +180,22 @@ export default function Navbar() {
             }
         ],
         industries: [
-            { name: "Financial Services & FinTech", href: "/industries#fintech" },
-            { name: "Healthcare & MedTech", href: "/industries#healthcare" },
-            { name: "Education & EdTech", href: "/industries#edtech" },
-            { name: "Retail & E-commerce", href: "/industries#retail" },
-            { name: "Government & Public Sector", href: "/industries#government" },
-            { name: "Logistics & Supply Chain", href: "/industries#logistics" },
-            { name: "Manufacturing", href: "/industries#manufacturing" },
-            { name: "Telecoms & Media", href: "/industries#telecoms" }
+            { name: "Recruitment & HR", href: "/industries/hr-recruitment" },
+            { name: "Startups & SaaS", href: "/industries/startups-saas" },
+            { name: "E-commerce", href: "/industries/ecommerce" },
+            { name: "Education & EdTech", href: "/industries/education" },
+            { name: "SMEs & Corporate", href: "/industries/sme-corporate" }
         ],
         academy: [
-            { name: "Front-End Development", href: "/academy#frontend" },
-            { name: "Back-End Development", href: "/academy#backend" },
-            { name: "UI/UX Design", href: "/academy#design" },
-            { name: "Cloud Fundamentals", href: "/academy#cloud" },
-            { name: "Corporate Training", href: "/academy#corporate" },
-            { name: "Internship Programme", href: "/academy#internships" },
-            { name: "Certifications", href: "/academy#certs" }
+            { name: "Frontend Engineering", href: "/academy/frontend-engineering" },
+            { name: "Backend Development", href: "/academy/backend-development" },
+            { name: "Full Stack Development", href: "/academy/full-stack-development" },
+            { name: "Mobile App Development", href: "/academy/mobile-app-development" },
+            { name: "AI Engineering", href: "/academy/ai-engineering" },
+            { name: "Data Analytics", href: "/academy/data-analytics" },
+            { name: "Cybersecurity", href: "/academy/cybersecurity" },
+            { name: "UI/UX Design", href: "/academy/ui-ux-design" },
+            { name: "Corporate Training", href: "/academy#corporate" }
         ],
         about: [
             { name: "Our Story", href: "/about#story" },

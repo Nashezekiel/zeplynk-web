@@ -105,7 +105,7 @@ export default function IndustriesPageContent() {
                                         </div>
                                     ))}
                                 </div>
-                                <Link href="/contact" className="inline-flex items-center gap-2 text-white font-bold group/link">
+                                <Link href={`/industries/${item.id}`} className="inline-flex items-center gap-2 text-white font-bold group/link">
                                     <span className="border-b-2 border-zgreen-500/50 group-hover/link:border-zgreen-500 transition-colors">Learn More</span>
                                     <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
                                 </Link>
