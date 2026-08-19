@@ -1,5 +1,7 @@
 import { MetadataRoute } from "next";
 import { getAllNews } from "@/lib/news-store";
+import { courses } from "@/lib/courses-data";
+import { aiPages } from "@/lib/ai-pages-data";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = "https://zeplynk.com";
@@ -10,6 +12,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: new Date(item.date),
         changeFrequency: "monthly",
         priority: 0.6,
+    }));
+
+    const courseRoutes: MetadataRoute.Sitemap = courses.map((course) => ({
+        url: `${baseUrl}/academy/${course.slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
+    }));
+
+    const aiRoutes: MetadataRoute.Sitemap = aiPages.map((page) => ({
+        url: `${baseUrl}/ai/${page.slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.85,
     }));
 
     return [
@@ -26,22 +42,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.8,
         },
         {
-            url: `${baseUrl}/web`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
             url: `${baseUrl}/academy`,
             lastModified: new Date(),
             changeFrequency: "weekly", // Academy might change more often
             priority: 1.0,
-        },
-        {
-            url: `${baseUrl}/services`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
         },
         {
             url: `${baseUrl}/about`,
@@ -72,6 +76,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             lastModified: new Date(),
             changeFrequency: "monthly",
             priority: 0.7,
+        },
+        {
+            url: `${baseUrl}/industries/hr-recruitment`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/industries/startups-saas`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/industries/ecommerce`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/industries/education`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/industries/sme-corporate`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.85,
         },
         {
             url: `${baseUrl}/news`,
@@ -202,5 +236,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.6,
         },
         ...newsRoutes,
+        ...courseRoutes,
+        ...aiRoutes,
     ];
 }

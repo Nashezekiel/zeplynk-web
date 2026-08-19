@@ -195,7 +195,7 @@ const Particles: React.FC<ParticlesProps> = ({
 
         const particles = new Mesh(gl, { mode: gl.POINTS, geometry, program });
 
-        let animationFrameId: number;
+        let animationFrameId: number | null = null;
         let lastTime = performance.now();
         let elapsed = 0;
 
@@ -224,14 +224,50 @@ const Particles: React.FC<ParticlesProps> = ({
             renderer.render({ scene: particles, camera });
         };
 
-        animationFrameId = requestAnimationFrame(update);
+        // Only run the render loop while the canvas is actually visible —
+        // avoids burning CPU/GPU/battery on an off-screen or backgrounded tab.
+        const startLoop = () => {
+            if (animationFrameId !== null) return;
+            lastTime = performance.now();
+            animationFrameId = requestAnimationFrame(update);
+        };
+        const stopLoop = () => {
+            if (animationFrameId === null) return;
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        };
+
+        const intersectionObserver = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting && !document.hidden) {
+                    startLoop();
+                } else {
+                    stopLoop();
+                }
+            },
+            { threshold: 0 }
+        );
+        intersectionObserver.observe(container);
+
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
+                stopLoop();
+            } else {
+                const rect = container.getBoundingClientRect();
+                const inView = rect.bottom > 0 && rect.top < window.innerHeight;
+                if (inView) startLoop();
+            }
+        };
+        document.addEventListener('visibilitychange', handleVisibilityChange);
 
         return () => {
             window.removeEventListener('resize', resize);
             if (moveParticlesOnHover) {
                 window.removeEventListener('mousemove', handleMouseMove);
             }
-            cancelAnimationFrame(animationFrameId);
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+            intersectionObserver.disconnect();
+            stopLoop();
             if (container.contains(gl.canvas)) {
                 container.removeChild(gl.canvas);
             }

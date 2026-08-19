@@ -45,10 +45,12 @@ import {
     Bot,
     Laptop,
     MessageSquare,
-    BarChart3
+    BarChart3,
+    ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ServiceCards from "@/components/sections/ServiceCards";
+import { aiPages } from "@/lib/ai-pages-data";
 
 export default function AiPage() {
     return (
@@ -162,6 +164,43 @@ export default function AiPage() {
                                 <p className="text-gray-200 leading-relaxed font-medium">{item.desc}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* AI Services Deep-Dive Links */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5">
+                <div className="max-w-7xl mx-auto">
+                    <div className="mb-16 text-center">
+                        <span className="text-purple-500 font-semibold tracking-wider uppercase text-sm">Explore Further</span>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 mb-4">AI Services in Detail</h2>
+                        <p className="text-gray-200 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
+                            Dedicated deep dives into each of our AI and automation offerings for Nigerian businesses.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {aiPages.map((page) => {
+                            const PageIcon = page.icon;
+                            return (
+                                <Link
+                                    key={page.slug}
+                                    href={`/ai/${page.slug}`}
+                                    className="group p-8 rounded-3xl bg-zinc-900/50 border border-white/10 hover:border-purple-500/40 transition-all duration-300"
+                                >
+                                    <div className={`w-12 h-12 rounded-xl ${page.bgColor} ${page.borderColor} border flex items-center justify-center mb-6`}>
+                                        <PageIcon className={`h-6 w-6 ${page.accentColor}`} />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
+                                        {page.title}
+                                    </h3>
+                                    <p className="text-gray-400 text-sm leading-relaxed mb-6">{page.tagline}</p>
+                                    <span className="inline-flex items-center gap-2 text-sm font-bold text-white">
+                                        Learn More <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                    </span>
+                                </Link>
+                            );
+                        })}
                     </div>
                 </div>
             </section>

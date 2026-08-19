@@ -27,33 +27,33 @@ const courses = [
     {
         category: "Software Development",
         items: [
-            { title: "Frontend Engineering", icon: Layout, desc: "React, Next.js, Tailwind CSS", duration: "12 Weeks", image: "/Service Images/web.jpeg" },
-            { title: "Backend Development", icon: Server, desc: "Node.js, Python, PostgreSQL", duration: "12 Weeks", image: "/Service Images/Backend.jpeg" },
-            { title: "Full Stack Development", icon: Globe, desc: "MERN Stack, Next.js", duration: "24 Weeks", image: "/Service Images/web.jpeg" },
-            { title: "Mobile App Dev", icon: Smartphone, desc: "React Native, Flutter", duration: "16 Weeks", image: "/Service Images/andriod.png" },
+            { slug: "frontend-engineering", title: "Frontend Engineering", icon: Layout, desc: "React, Next.js, Tailwind CSS", duration: "12 Weeks", image: "/Service Images/web.jpeg" },
+            { slug: "backend-development", title: "Backend Development", icon: Server, desc: "Node.js, Python, PostgreSQL", duration: "12 Weeks", image: "/Service Images/Backend.jpeg" },
+            { slug: "full-stack-development", title: "Full Stack Development", icon: Globe, desc: "MERN Stack, Next.js", duration: "24 Weeks", image: "/Service Images/web.jpeg" },
+            { slug: "mobile-app-development", title: "Mobile App Dev", icon: Smartphone, desc: "React Native, Flutter", duration: "16 Weeks", image: "/Service Images/andriod.png" },
         ]
     },
     {
         category: "Data & AI",
         items: [
-            { title: "Data Analytics", icon: BarChart3, desc: "Excel, SQL, PowerBI, Python", duration: "10 Weeks", image: "/Service Images/Data Analytics.jpeg" },
-            { title: "Data Science", icon: Database, desc: "Python, Pandas, ML Basics", duration: "16 Weeks", image: "/Service Images/Data Analytics.jpeg" },
-            { title: "AI Engineering", icon: Bot, desc: "LLMs, Prompt Engineering", duration: "12 Weeks", image: "/Service Images/AI.jpeg" },
+            { slug: "data-analytics", title: "Data Analytics", icon: BarChart3, desc: "Excel, SQL, PowerBI, Python", duration: "10 Weeks", image: "/Service Images/Data Analytics.jpeg" },
+            { slug: "data-science", title: "Data Science", icon: Database, desc: "Python, Pandas, ML Basics", duration: "16 Weeks", image: "/Service Images/Data Analytics.jpeg" },
+            { slug: "ai-engineering", title: "AI Engineering", icon: Bot, desc: "LLMs, Prompt Engineering", duration: "12 Weeks", image: "/Service Images/AI.jpeg" },
         ]
     },
     {
         category: "Cloud & DevOps",
         items: [
-            { title: "Cloud Computing", icon: Cloud, desc: "AWS, Azure Fundamentals", duration: "12 Weeks", image: "/Service Images/Digitalization.jpeg" },
-            { title: "DevOps Engineering", icon: Terminal, desc: "Docker, Kubernetes, CI/CD", duration: "16 Weeks", image: "/Service Images/DevOps.jpeg" },
-            { title: "Cybersecurity", icon: Shield, desc: "Network Security, Eth Hacking", duration: "16 Weeks", image: "/Service Images/Cyber Security1.jpeg" },
+            { slug: "cloud-computing", title: "Cloud Computing", icon: Cloud, desc: "AWS, Azure Fundamentals", duration: "12 Weeks", image: "/Service Images/Digitalization.jpeg" },
+            { slug: "devops-engineering", title: "DevOps Engineering", icon: Terminal, desc: "Docker, Kubernetes, CI/CD", duration: "16 Weeks", image: "/Service Images/DevOps.jpeg" },
+            { slug: "cybersecurity", title: "Cybersecurity", icon: Shield, desc: "Network Security, Eth Hacking", duration: "16 Weeks", image: "/Service Images/Cyber Security1.jpeg" },
         ]
     },
     {
         category: "Design & Product",
         items: [
-            { title: "UI/UX Design", icon: PenTool, desc: "Figma, Prototyping, Research", duration: "10 Weeks", image: "/Service Images/UI_UX.jpeg" },
-            { title: "Product Management", icon: Briefcase, desc: "Agile, Scrum, Strategy", duration: "8 Weeks", image: "/Service Images/Education.jpeg" },
+            { slug: "ui-ux-design", title: "UI/UX Design", icon: PenTool, desc: "Figma, Prototyping, Research", duration: "10 Weeks", image: "/Service Images/UI_UX.jpeg" },
+            { slug: "product-management", title: "Product Management", icon: Briefcase, desc: "Agile, Scrum, Strategy", duration: "8 Weeks", image: "/Service Images/Education.jpeg" },
         ]
     }
 ];
@@ -86,9 +86,9 @@ function CourseCard({ course, className = "" }: { course: Course; className?: st
                         <Clock className="h-3 w-3 mr-1" />
                         {course.duration}
                     </div>
-                    <Link href="/register">
+                    <Link href={`/academy/${course.slug}`}>
                         <span className="text-xs font-bold text-white hover:underline flex items-center group-hover:text-zgreen-400 transition-colors">
-                            Apply <ArrowRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
+                            Learn More <ArrowRight className="h-3 w-3 ml-1 group-hover:translate-x-1 transition-transform" />
                         </span>
                     </Link>
                 </div>

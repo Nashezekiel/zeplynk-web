@@ -42,6 +42,23 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['framer-motion', 'lucide-react', '@radix-ui/react-*'],
   },
 
+  // Redirects for removed pages — preserves link equity for any
+  // existing backlinks/bookmarks instead of 404ing.
+  async redirects() {
+    return [
+      {
+        source: '/web',
+        destination: '/solutions/web-engineering',
+        permanent: true,
+      },
+      {
+        source: '/services',
+        destination: '/solutions',
+        permanent: true,
+      },
+    ];
+  },
+
   // Headers for caching
   async headers() {
     return [
