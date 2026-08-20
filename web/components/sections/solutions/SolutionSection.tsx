@@ -50,11 +50,11 @@ export default function SolutionSection({
                             <span className={`text-xs font-black uppercase tracking-[0.2em] ${accentColor}`}>{title.split(' ')[0]} Expertise</span>
                         </div>
                         
-                        <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
+                        <h2 className="text-h2 font-bold text-white tracking-tight leading-tight">
                             {title}
                         </h2>
                         
-                        <p className="text-xl text-gray-400 leading-relaxed font-medium">
+                        <p className="text-body text-gray-400 leading-relaxed font-medium">
                             {description}
                         </p>
                     </div>

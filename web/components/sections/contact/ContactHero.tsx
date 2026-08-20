@@ -25,7 +25,7 @@ export default function ContactHero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="text-4xl md:text-6xl lg:text-8xl font-bold text-white mb-8 tracking-tight leading-tight"
+                    className="text-h1 font-bold text-white mb-8 tracking-tight leading-tight"
                 >
                     Talk to Nigeria's <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 via-emerald-500 to-cyan-500">web & AI engineers.</span>
@@ -35,7 +35,7 @@ export default function ContactHero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-medium"
+                    className="text-body text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-medium"
                 >
                     From Kaduna to every corner of Nigeria, Zeplynk partners with ambitious teams to build web
                     platforms, automate workflows with AI, and train the next generation of developers.

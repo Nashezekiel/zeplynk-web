@@ -27,8 +27,8 @@ export default function CaseStudyBlock() {
                         <Sparkles className="h-4 w-4 text-zgreen-400" />
                         <span className="text-sm font-bold text-white tracking-wide uppercase">Case Study</span>
                     </div>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">Real Business Impact</h2>
-                    <p className="text-gray-400 text-lg">See how we engineer growth for our partners.</p>
+                    <h2 className="text-h2 font-bold text-white mb-6">Real Business Impact</h2>
+                    <p className="text-gray-400 text-body">See how we engineer growth for our partners.</p>
                 </motion.div>
 
                 <motion.div
@@ -46,7 +46,7 @@ export default function CaseStudyBlock() {
                             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6">
                                 <span>E-commerce Automation</span>
                             </div>
-                            <h3 className="text-2xl font-bold text-white mb-6 leading-tight">
+                            <h3 className="text-h3 font-bold text-white mb-6 leading-tight">
                                 Scaling a Retail Startup to 10k+ Monthly Users
                             </h3>
 
@@ -55,14 +55,14 @@ export default function CaseStudyBlock() {
                                     <div className="w-1 rounded-full bg-red-500/40 flex-shrink-0" />
                                     <div>
                                         <h4 className="text-white font-bold mb-2">The Problem</h4>
-                                        <p className="text-sm text-gray-400">Manual inventory management and slow site performance were causing a 40% cart abandonment rate.</p>
+                                        <p className="text-caption text-gray-400">Manual inventory management and slow site performance were causing a 40% cart abandonment rate.</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
                                     <div className="w-1 rounded-full bg-zgreen-500/40 flex-shrink-0" />
                                     <div>
                                         <h4 className="text-white font-bold mb-2">The Solution</h4>
-                                        <p className="text-sm text-gray-400">We engineered a custom Next.js storefront with an automated inventory syncing bot and AI-powered product recommendations.</p>
+                                        <p className="text-caption text-gray-400">We engineered a custom Next.js storefront with an automated inventory syncing bot and AI-powered product recommendations.</p>
                                     </div>
                                 </div>
                             </div>

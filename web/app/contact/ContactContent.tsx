@@ -57,11 +57,11 @@ export default function ContactContent() {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.6 }}
                                 >
-                                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+                                    <h2 className="text-h2 font-bold text-white mb-8 leading-tight">
                                         Have a project <br />
                                         <span className="text-zgreen-500">in mind?</span>
                                     </h2>
-                                    <p className="text-xl text-gray-200 leading-relaxed mb-10 max-w-xl font-medium">
+                                    <p className="text-body text-gray-200 leading-relaxed mb-10 max-w-xl font-medium">
                                         Tell us about your goals, challenges, and vision. Our engineering
                                         experts will help you translate your ideas into high-impact digital realities.
                                     </p>
@@ -112,10 +112,10 @@ export default function ContactContent() {
 
                             <Zap className="h-12 w-12 text-zgreen-500 mx-auto mb-8 animate-pulse" />
 
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+                            <h2 className="text-h2 font-bold text-white mb-8 leading-tight">
                                 Ready for the next <br /> level of growth?
                             </h2>
-                            <p className="text-xl text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed">
+                            <p className="text-body text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed">
                                 Book a free 30-minute strategy call with our team. No strings attached,
                                 just high-value consulting to help you identify your next move.
                             </p>

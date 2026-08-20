@@ -55,7 +55,7 @@ export default function Newsletter() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.3 }}
-                                className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight"
+                                className="text-h2 font-bold text-white mb-6 tracking-tight leading-tight"
                             >
                                 Deciphering the <br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">Modern Stack.</span>
@@ -65,7 +65,7 @@ export default function Newsletter() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.4 }}
-                                className="text-gray-200 text-lg leading-relaxed font-medium"
+                                className="text-gray-200 text-body leading-relaxed font-medium"
                             >
                                 Get technical deep-dives on scalable systems and AI automation delivered to your inbox. No fluff, just the blueprint.
                             </motion.p>
@@ -84,8 +84,8 @@ export default function Newsletter() {
                                         <div className="w-16 h-16 bg-zgreen-500/20 rounded-full flex items-center justify-center mb-4">
                                             <CheckCircle className="h-8 w-8 text-zgreen-500" />
                                         </div>
-                                        <h3 className="text-xl font-bold text-white mb-2">You're on the list!</h3>
-                                        <p className="text-gray-300 text-sm font-medium">Check your inbox for the the first deep-dive.</p>
+                                        <h3 className="text-h3 font-bold text-white mb-2">You're on the list!</h3>
+                                        <p className="text-gray-300 text-caption font-medium">Check your inbox for the the first deep-dive.</p>
                                     </motion.div>
                                 ) : (
                                     <motion.form
@@ -121,7 +121,7 @@ export default function Newsletter() {
                                                 </Button>
                                             </div>
                                         </div>
-                                        <p className="mt-4 text-[10px] text-gray-400 uppercase tracking-widest text-center lg:text-left font-bold">
+                                        <p className="mt-4 text-caption text-gray-400 uppercase tracking-widest text-center lg:text-left font-bold">
                                             Join 2,500+ Engineers & Tech Leaders
                                         </p>
                                     </motion.form>

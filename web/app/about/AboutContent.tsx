@@ -44,8 +44,8 @@ export default function AboutContent() {
                             <Sparkles className="h-4 w-4 text-zgreen-400 mr-2" />
                             <span className="text-sm font-bold text-white tracking-wide uppercase">Our Purpose</span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">Mission &amp; Vision</h2>
-                        <p className="text-gray-300 max-w-2xl mx-auto text-lg font-medium">
+                        <h2 className="text-h2 font-bold text-white mb-6">Mission &amp; Vision</h2>
+                        <p className="text-gray-300 max-w-2xl mx-auto text-body font-medium">
                             What drives us today, and where we're headed next.
                         </p>
                     </motion.div>
@@ -62,8 +62,8 @@ export default function AboutContent() {
                             <div className="bg-zgreen-500/10 rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                                 <Target className="h-8 w-8 text-zgreen-500" />
                             </div>
-                            <h3 className="text-2xl font-bold text-white mb-6">Our Mission</h3>
-                            <p className="text-gray-200 leading-relaxed mb-8 text-lg font-medium">
+                            <h3 className="text-h3 font-bold text-white mb-6">Our Mission</h3>
+                            <p className="text-gray-200 leading-relaxed mb-8 text-body font-medium">
                                 To democratize access to technology education and services across Africa,
                                 creating pathways for digital transformation in underserved communities while
                                 delivering world-class solutions to businesses globally.
@@ -93,8 +93,8 @@ export default function AboutContent() {
                             <div className="bg-cyan-500/10 rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                                 <Compass className="h-8 w-8 text-cyan-400" />
                             </div>
-                            <h3 className="text-2xl font-bold text-white mb-6">Our Vision</h3>
-                            <p className="text-gray-200 leading-relaxed mb-8 text-lg font-medium">
+                            <h3 className="text-h3 font-bold text-white mb-6">Our Vision</h3>
+                            <p className="text-gray-200 leading-relaxed mb-8 text-body font-medium">
                                 To be Africa's leading catalyst for technological innovation and education,
                                 creating a generation of skilled developers and innovators who will shape
                                 the future of the digital economy.
@@ -138,10 +138,10 @@ export default function AboutContent() {
                                     <Sparkles className="h-4 w-4 text-zgreen-400 mr-2" />
                                     <span className="text-sm font-bold text-white tracking-wide uppercase">Our Impact</span>
                                 </div>
-                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+                                <h2 className="text-h2 font-bold text-white mb-8 leading-tight">
                                     Impact <br /> That Matters.
                                 </h2>
-                                <p className="text-xl text-gray-300 leading-relaxed mb-8 font-medium">
+                                <p className="text-body text-gray-300 leading-relaxed mb-8 font-medium">
                                     We've helped launch over 50 startups, automated business processes for SMEs,
                                     and trained more than 2,000 students in Nigeria. Our alumni work at leading
                                     tech firms and contribute to open-source projects worldwide.
@@ -199,10 +199,10 @@ export default function AboutContent() {
                             <Sparkles className="h-4 w-4 text-zgreen-400 mr-2" />
                             <span className="text-sm font-bold text-white tracking-wide uppercase">Get Started</span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+                        <h2 className="text-h2 font-bold text-white mb-8 leading-tight">
                             Join the movement.
                         </h2>
-                        <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
+                        <p className="text-body text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
                             Whether you're ready to start your tech journey, need development services,
                             or want to partner with us for social impact, we're here to help you succeed.
                         </p>

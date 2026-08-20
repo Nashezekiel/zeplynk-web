@@ -96,14 +96,14 @@ export default function AbujaPage() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold mb-8 tracking-widest uppercase">
                             📍 Abuja, Federal Capital Territory, Nigeria
                         </div>
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 tracking-tight leading-tight">
+                        <h1 className="text-h1 font-black mb-8 tracking-tight leading-tight">
                             Web Development &amp;{" "}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">
                                 Tech Solutions
                             </span>{" "}
                             in Abuja, Nigeria
                         </h1>
-                        <p className="text-xl text-gray-400 max-w-3xl mb-10 leading-relaxed">
+                        <p className="text-body text-gray-400 max-w-3xl mb-10 leading-relaxed">
                             Zeplynk brings world-class web engineering, AI automation, and developer
                             training to businesses in Abuja, Federal Capital Territory, and across Nigeria.
                             We serve Abuja clients both in-person and remotely from our Kaduna headquarters.
@@ -128,10 +128,10 @@ export default function AbujaPage() {
                 {/* Services in Abuja */}
                 <section className="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5">
                     <div className="max-w-6xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+                        <h2 className="text-h2 font-bold text-white mb-6">
                             Tech Services for Abuja Businesses
                         </h2>
-                        <p className="text-gray-400 text-lg mb-16 max-w-2xl leading-relaxed">
+                        <p className="text-gray-400 text-body mb-16 max-w-2xl leading-relaxed">
                             From a simple business website to a fully automated enterprise system —
                             Zeplynk delivers results for clients in Abuja and the Federal Capital Territory.
                         </p>
@@ -150,8 +150,8 @@ export default function AbujaPage() {
                                     className="group p-8 rounded-3xl bg-zinc-900/50 border border-white/10 hover:border-zgreen-500/40 transition-all duration-300"
                                 >
                                     <div className="text-4xl mb-4">{service.icon}</div>
-                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-zgreen-400 transition-colors">{service.title}</h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed">{service.desc}</p>
+                                    <h3 className="text-h3 font-bold text-white mb-3 group-hover:text-zgreen-400 transition-colors">{service.title}</h3>
+                                    <p className="text-gray-400 text-caption leading-relaxed">{service.desc}</p>
                                 </Link>
                             ))}
                         </div>
@@ -163,7 +163,7 @@ export default function AbujaPage() {
                     <div className="max-w-6xl mx-auto">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                             <div>
-                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+                                <h2 className="text-h2 font-bold text-white mb-6">
                                     Serving Clients in Abuja &amp; FCT
                                 </h2>
                                 <p className="text-gray-400 leading-relaxed mb-6">
@@ -217,10 +217,10 @@ export default function AbujaPage() {
                 {/* CTA + Internal links */}
                 <section className="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-gradient-to-b from-black to-zinc-900">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+                        <h2 className="text-h2 font-bold text-white mb-6">
                             Let&apos;s Build Something Great in Abuja
                         </h2>
-                        <p className="text-gray-400 text-lg mb-10 leading-relaxed">
+                        <p className="text-gray-400 text-body mb-10 leading-relaxed">
                             Ready to launch your digital project? Zeplynk is a WhatsApp message away.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">

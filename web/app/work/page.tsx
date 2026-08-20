@@ -111,14 +111,14 @@ export default function WorkPage() {
                         </span>
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 tracking-tight leading-[0.9]">
+                    <h1 className="text-h1 font-bold text-white mb-8 tracking-tight leading-[0.9]">
                         Work We're{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 via-emerald-400 to-cyan-500">
                             Proud Of
                         </span>
                     </h1>
 
-                    <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed mb-12">
+                    <p className="text-body text-gray-400 max-w-3xl mx-auto leading-relaxed mb-12">
                         Real platforms built for real businesses. From satellite internet services
                         across Nigeria to enterprise AI intelligence systems — here's a look at work
                         we've shipped for clients who trusted us with their digital presence.
@@ -167,12 +167,12 @@ export default function WorkPage() {
                                             <project.icon className={`h-6 w-6 ${project.accentColor}`} />
                                         </div>
                                         <div>
-                                            <h2 className="text-2xl font-bold text-white">{project.title}</h2>
-                                            <p className={`text-sm font-semibold ${project.accentColor}`}>{project.subtitle}</p>
+                                            <h2 className="text-h2 font-bold text-white">{project.title}</h2>
+                                            <p className={`text-caption font-semibold ${project.accentColor}`}>{project.subtitle}</p>
                                         </div>
                                     </div>
 
-                                    <p className="text-gray-400 leading-relaxed text-sm mb-6">
+                                    <p className="text-gray-400 leading-relaxed text-caption mb-6">
                                         {project.description}
                                     </p>
 
@@ -205,27 +205,27 @@ export default function WorkPage() {
 
                                         {/* Challenge */}
                                         <div>
-                                            <h3 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-3">
+                                            <h3 className="text-caption font-bold uppercase tracking-wider text-gray-500 mb-3">
                                                 The Challenge
                                             </h3>
-                                            <p className="text-gray-300 text-sm leading-relaxed">
+                                            <p className="text-gray-300 text-caption leading-relaxed">
                                                 {project.challenge}
                                             </p>
                                         </div>
 
                                         {/* Solution */}
                                         <div>
-                                            <h3 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-3">
+                                            <h3 className="text-caption font-bold uppercase tracking-wider text-gray-500 mb-3">
                                                 Our Solution
                                             </h3>
-                                            <p className="text-gray-300 text-sm leading-relaxed">
+                                            <p className="text-gray-300 text-caption leading-relaxed">
                                                 {project.solution}
                                             </p>
                                         </div>
 
                                         {/* Results */}
                                         <div className="sm:col-span-2">
-                                            <h3 className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-4">
+                                            <h3 className="text-caption font-bold uppercase tracking-wider text-gray-500 mb-4">
                                                 Key Outcomes
                                             </h3>
                                             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -250,8 +250,8 @@ export default function WorkPage() {
                 <div className="max-w-4xl mx-auto text-center">
                     <div className="bg-zinc-900/40 border border-white/10 rounded-3xl p-10 backdrop-blur-md relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-zgreen-500/5 rounded-full blur-[80px] pointer-events-none" />
-                        <p className="text-gray-500 text-sm font-bold uppercase tracking-widest mb-3">More Work</p>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                        <p className="text-gray-500 text-caption font-bold uppercase tracking-widest mb-3">More Work</p>
+                        <h2 className="text-h2 font-bold text-white mb-4">
                             More projects on the way
                         </h2>
                         <p className="text-gray-400 mb-8 max-w-xl mx-auto">

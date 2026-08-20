@@ -130,6 +130,73 @@
 
 }
 
+/*
+ * Responsive type scale.
+ * Breakpoints: mobile <=640px, tablet 641-1024px, desktop >=1025px.
+ * Sets font-size + line-height only — weight, tracking, case, and color
+ * stay on whatever utility classes are already applied alongside these.
+ * Utility classes (e.g. leading-none, uppercase) still win over these
+ * since @layer components is overridden by @layer utilities.
+ */
+@layer components {
+  .text-h1 {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+  .text-h2 {
+    font-size: 26px;
+    line-height: 1.15;
+  }
+  .text-h3 {
+    font-size: 21px;
+    line-height: 1.25;
+  }
+  .text-body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .text-caption {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  @media (min-width: 641px) {
+    .text-h1 {
+      font-size: 38px;
+    }
+    .text-h2 {
+      font-size: 32px;
+    }
+    .text-h3 {
+      font-size: 24px;
+    }
+    .text-body {
+      font-size: 16px;
+    }
+    .text-caption {
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .text-h1 {
+      font-size: 48px;
+    }
+    .text-h2 {
+      font-size: 36px;
+    }
+    .text-h3 {
+      font-size: 27px;
+    }
+    .text-body {
+      font-size: 18px;
+    }
+    .text-caption {
+      font-size: 14px;
+    }
+  }
+}
+
 /* Utilities for the new look */
 @layer utilities {
   .page-enter {

@@ -55,7 +55,7 @@ export default function SolutionsSlider() {
             <div className="max-w-[92rem] mx-auto px-4 sm:px-6 lg:px-8 mb-10">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                        <h2 className="text-h2 font-bold text-white mb-4">
                             Our Core <span className="text-gray-400">Solutions</span>
                         </h2>
                         <p className="text-gray-300 max-w-xl font-medium">
@@ -103,8 +103,8 @@ export default function SolutionsSlider() {
                                             <item.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                                         </div>
 
-                                        <h3 className="text-base sm:text-xl font-bold text-white mb-2 leading-tight text-shadow">{item.title}</h3>
-                                        <p className="hidden sm:block text-gray-300 mb-4 leading-relaxed text-sm font-medium line-clamp-2">
+                                        <h3 className="text-h3 font-bold text-white mb-2 leading-tight text-shadow">{item.title}</h3>
+                                        <p className="hidden sm:block text-gray-300 mb-4 leading-relaxed text-caption font-medium line-clamp-2">
                                             {item.desc}
                                         </p>
 

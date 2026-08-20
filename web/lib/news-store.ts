@@ -1,14 +1,35 @@
 import "server-only";
-import { Redis } from "@upstash/redis";
+import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
 import { newsItems as seedNewsItems, type NewsItem } from "@/constants/news";
 
-const STORE_KEY = "zeplynk:news:v1";
+const TABLE = "news_posts";
 
-function getRedis(): Redis | null {
-    const url = process.env.UPSTASH_REDIS_REST_URL;
-    const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-    if (!url || !token) return null;
-    return new Redis({ url, token });
+function fromRow(row: Record<string, unknown>): NewsItem {
+    return {
+        id: row.id as string,
+        slug: row.slug as string,
+        title: row.title as string,
+        excerpt: row.excerpt as string,
+        content: (row.content as string | null) ?? undefined,
+        image: row.image as string,
+        category: row.category as string,
+        date: row.date as string,
+        aspectRatio: row.aspect_ratio as NewsItem["aspectRatio"],
+    };
+}
+
+function toRow(item: NewsItem) {
+    return {
+        id: item.id,
+        slug: item.slug,
+        title: item.title,
+        excerpt: item.excerpt,
+        content: item.content ?? null,
+        image: item.image,
+        category: item.category,
+        date: item.date,
+        aspect_ratio: item.aspectRatio,
+    };
 }
 
 function createSlug(value: string) {
@@ -20,25 +41,21 @@ function createSlug(value: string) {
 }
 
 async function readAll(): Promise<NewsItem[]> {
-    const redis = getRedis();
-    if (!redis) return seedNewsItems;
+    const supabase = getSupabase();
+    if (!supabase) return seedNewsItems;
 
-    const stored = await redis.get<NewsItem[]>(STORE_KEY);
-    if (stored === null || stored === undefined) {
-        await redis.set(STORE_KEY, seedNewsItems);
+    const { data, error } = await supabase
+        .from(TABLE)
+        .select("*")
+        .order("created_at", { ascending: false });
+    if (error) throw new Error(`Failed to read news posts: ${error.message}`);
+
+    if (!data || data.length === 0) {
+        const { error: seedError } = await supabase.from(TABLE).insert(seedNewsItems.map(toRow));
+        if (seedError) throw new Error(`Failed to seed news posts: ${seedError.message}`);
         return seedNewsItems;
     }
-    return stored;
-}
-
-async function writeAll(items: NewsItem[]): Promise<void> {
-    const redis = getRedis();
-    if (!redis) {
-        throw new Error(
-            "News storage is not configured. Set UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN to enable creating, editing, or deleting posts."
-        );
-    }
-    await redis.set(STORE_KEY, items);
+    return data.map(fromRow);
 }
 
 export async function getAllNews(): Promise<NewsItem[]> {
@@ -76,7 +93,18 @@ function uniqueSlug(base: string, items: NewsItem[], ignoreId?: string) {
     return slug;
 }
 
+function requireSupabase() {
+    const supabase = getSupabase();
+    if (!supabase) {
+        throw new Error(
+            "News storage is not configured. Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY to enable creating, editing, or deleting posts."
+        );
+    }
+    return supabase;
+}
+
 export async function createNews(input: NewsInput): Promise<NewsItem> {
+    const supabase = requireSupabase();
     const items = await readAll();
     const slugBase = createSlug(input.slug || input.title);
     const item: NewsItem = {
@@ -90,19 +118,21 @@ export async function createNews(input: NewsInput): Promise<NewsItem> {
         date: input.date,
         aspectRatio: input.aspectRatio,
     };
-    await writeAll([item, ...items]);
+    const { error } = await supabase.from(TABLE).insert(toRow(item));
+    if (error) throw new Error(`Failed to create post: ${error.message}`);
     return item;
 }
 
 export async function updateNews(id: string, input: NewsInput): Promise<NewsItem> {
+    const supabase = requireSupabase();
     const items = await readAll();
-    const index = items.findIndex((item) => item.id === id);
-    if (index === -1) {
+    const existing = items.find((item) => item.id === id);
+    if (!existing) {
         throw new Error(`News post with id "${id}" was not found.`);
     }
     const slugBase = createSlug(input.slug || input.title);
     const updated: NewsItem = {
-        ...items[index],
+        ...existing,
         title: input.title,
         slug: uniqueSlug(slugBase, items, id),
         excerpt: input.excerpt,
@@ -112,21 +142,18 @@ export async function updateNews(id: string, input: NewsInput): Promise<NewsItem
         date: input.date,
         aspectRatio: input.aspectRatio,
     };
-    const next = [...items];
-    next[index] = updated;
-    await writeAll(next);
+    const { error } = await supabase.from(TABLE).update(toRow(updated)).eq("id", id);
+    if (error) throw new Error(`Failed to update post: ${error.message}`);
     return updated;
 }
 
 export async function deleteNews(id: string): Promise<void> {
-    const items = await readAll();
-    const next = items.filter((item) => item.id !== id);
-    if (next.length === items.length) {
-        throw new Error(`News post with id "${id}" was not found.`);
-    }
-    await writeAll(next);
+    const supabase = requireSupabase();
+    const { error, count } = await supabase.from(TABLE).delete({ count: "exact" }).eq("id", id);
+    if (error) throw new Error(`Failed to delete post: ${error.message}`);
+    if (!count) throw new Error(`News post with id "${id}" was not found.`);
 }
 
 export function isNewsStoreConfigured(): boolean {
-    return Boolean(process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN);
+    return isSupabaseConfigured();
 }

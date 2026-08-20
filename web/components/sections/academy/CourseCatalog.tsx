@@ -79,7 +79,7 @@ function CourseCard({ course, className = "" }: { course: Course; className?: st
 
             <div className="p-6">
                 <h4 className="text-lg font-bold text-white mb-2 group-hover:text-zgreen-400 transition-colors">{course.title}</h4>
-                <p className="text-sm text-gray-400 mb-4 h-10">{course.desc}</p>
+                <p className="text-caption text-gray-400 mb-4 h-10">{course.desc}</p>
 
                 <div className="flex items-center justify-between pt-4 border-t border-white/5">
                     <div className="flex items-center text-xs text-gray-500">
@@ -187,7 +187,7 @@ export default function CourseCatalog() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
+                        className="text-h2 font-bold text-white mb-6"
                     >
                         Comprehensive Tech Programs
                     </motion.h2>
@@ -196,7 +196,7 @@ export default function CourseCatalog() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-gray-300 max-w-2xl mx-auto text-lg font-medium"
+                        className="text-gray-300 max-w-2xl mx-auto text-body font-medium"
                     >
                         Curated paths designed to take you from beginner to job-ready professional.
                     </motion.p>
@@ -210,7 +210,7 @@ export default function CourseCatalog() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5 }}
-                                className="text-2xl font-bold text-white mb-8 border-l-4 border-zgreen-500 pl-4"
+                                className="text-h3 font-bold text-white mb-8 border-l-4 border-zgreen-500 pl-4"
                             >
                                 {category.category}
                             </motion.h3>

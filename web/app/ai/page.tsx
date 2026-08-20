@@ -66,11 +66,11 @@ export default function AiPage() {
                         <span className="text-sm font-bold text-white tracking-wide uppercase">AI & Automation Solutions</span>
                     </div>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+                    <h1 className="text-h1 font-bold text-white mb-6 tracking-tight">
                         Intelligent Systems that <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-600">Think & Execute</span>
                     </h1>
-                    <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-body text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
                         Harness the power of Artificial Intelligence to automate complex workflows,
                         predict market trends, and deliver personalized customer experiences at scale.
                     </p>
@@ -146,8 +146,8 @@ export default function AiPage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-16 text-center">
                         <span className="text-purple-500 font-semibold tracking-wider uppercase text-sm">Operational Efficiency</span>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 mb-4">Intelligent Automation</h2>
-                        <p className="text-gray-200 max-w-2xl mx-auto text-lg leading-relaxed font-medium">Replace repetitive manual tasks with self-learning agents that work 24/7.</p>
+                        <h2 className="text-h2 font-bold text-white mt-2 mb-4">Intelligent Automation</h2>
+                        <p className="text-gray-200 max-w-2xl mx-auto text-body leading-relaxed font-medium">Replace repetitive manual tasks with self-learning agents that work 24/7.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -160,7 +160,7 @@ export default function AiPage() {
                                 <div className="bg-purple-900/20 w-14 h-14 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                     <item.icon className="h-7 w-7 text-purple-400" />
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+                                <h3 className="text-h3 font-bold text-white mb-3">{item.title}</h3>
                                 <p className="text-gray-200 leading-relaxed font-medium">{item.desc}</p>
                             </div>
                         ))}
@@ -173,8 +173,8 @@ export default function AiPage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-16 text-center">
                         <span className="text-purple-500 font-semibold tracking-wider uppercase text-sm">Explore Further</span>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 mb-4">AI Services in Detail</h2>
-                        <p className="text-gray-200 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
+                        <h2 className="text-h2 font-bold text-white mt-2 mb-4">AI Services in Detail</h2>
+                        <p className="text-gray-200 max-w-2xl mx-auto text-body leading-relaxed font-medium">
                             Dedicated deep dives into each of our AI and automation offerings for Nigerian businesses.
                         </p>
                     </div>
@@ -191,10 +191,10 @@ export default function AiPage() {
                                     <div className={`w-12 h-12 rounded-xl ${page.bgColor} ${page.borderColor} border flex items-center justify-center mb-6`}>
                                         <PageIcon className={`h-6 w-6 ${page.accentColor}`} />
                                     </div>
-                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
+                                    <h3 className="text-h3 font-bold text-white mb-3 group-hover:text-purple-400 transition-colors">
                                         {page.title}
                                     </h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed mb-6">{page.tagline}</p>
+                                    <p className="text-gray-400 text-caption leading-relaxed mb-6">{page.tagline}</p>
                                     <span className="inline-flex items-center gap-2 text-sm font-bold text-white">
                                         Learn More <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                                     </span>
@@ -213,7 +213,7 @@ export default function AiPage() {
                             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-black to-black" />
                             <div className="text-center relative z-10">
                                 <BarChart3 className="h-20 w-20 text-gray-600 mx-auto mb-4" />
-                                <p className="text-gray-300 font-mono text-sm font-bold">Generating Predictive Insights...</p>
+                                <p className="text-gray-300 font-mono text-caption font-bold">Generating Predictive Insights...</p>
                             </div>
                         </div>
                     </div>
@@ -221,8 +221,8 @@ export default function AiPage() {
                         <div className="bg-purple-500/10 p-3 rounded-xl w-fit mb-6">
                             <BarChart3 className="h-8 w-8 text-purple-500" />
                         </div>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">Predictive Analytics</h2>
-                        <p className="text-xl text-gray-200 mb-6 leading-relaxed font-medium">
+                        <h2 className="text-h2 font-bold text-white mb-6">Predictive Analytics</h2>
+                        <p className="text-body text-gray-200 mb-6 leading-relaxed font-medium">
                             Stop looking at the rearview mirror. Use historical data to forecast future trends,
                             customer behaviors, and market shifts with high accuracy.
                         </p>
@@ -231,14 +231,14 @@ export default function AiPage() {
                                 <div className="h-10 w-1 bg-purple-500 rounded-full" />
                                 <div>
                                     <h4 className="font-bold text-white">Demand Forecasting</h4>
-                                    <p className="text-sm text-gray-300 font-medium">Optimize inventory and resource allocation.</p>
+                                    <p className="text-caption text-gray-300 font-medium">Optimize inventory and resource allocation.</p>
                                 </div>
                             </div>
                             <div className="flex gap-4">
                                 <div className="h-10 w-1 bg-purple-500 rounded-full" />
                                 <div>
                                     <h4 className="font-bold text-white">Churn Prediction</h4>
-                                    <p className="text-sm text-gray-300 font-medium">Identify at-risk customers before they leave.</p>
+                                    <p className="text-caption text-gray-300 font-medium">Identify at-risk customers before they leave.</p>
                                 </div>
                             </div>
                         </div>
@@ -249,7 +249,7 @@ export default function AiPage() {
             {/* CTA */}
             <section className="py-24 px-4 text-center">
                 <div className="max-w-4xl mx-auto bg-purple-900/10 border border-purple-500/20 rounded-3xl p-12 backdrop-blur-sm">
-                    <h2 className="text-3xl md:text-4xl text-white font-bold mb-6">Ready to deployments AI?</h2>
+                    <h2 className="text-h2 text-white font-bold mb-6">Ready to deployments AI?</h2>
                     <Link href="/contact">
                         <Button className="bg-purple-600 hover:bg-purple-500 text-white rounded-full h-12 px-8">Start Your AI Journey</Button>
                     </Link>

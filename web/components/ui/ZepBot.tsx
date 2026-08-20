@@ -168,7 +168,7 @@ export default function ZepBot() {
                                     <div className="absolute -top-1 -right-1 h-3 w-3 bg-zgreen-400 rounded-full border-2 border-zinc-950 animate-pulse" />
                                 </div>
                                 <div>
-                                    <h3 className="text-white font-bold leading-none">ZepBot</h3>
+                                    <h3 className="text-h3 text-white font-bold leading-none">ZepBot</h3>
                                     <span className="text-[10px] text-zgreen-400 uppercase tracking-widest font-black">AI Consultant</span>
                                 </div>
                             </div>
@@ -250,7 +250,7 @@ export default function ZepBot() {
                                     <Send className="h-4 w-4" />
                                 </button>
                             </form>
-                            <p className="text-[10px] text-center text-white/20 mt-3 font-medium uppercase tracking-[0.2em]">Powered by ZepBot v1.0</p>
+                            <p className="text-caption text-center text-white/20 mt-3 font-medium uppercase tracking-[0.2em]">Powered by ZepBot v1.0</p>
                         </div>
                     </motion.div>
                 )}

@@ -45,10 +45,10 @@ export default function CoreSolutions() {
         <section id="solutions" className="py-24 px-4 sm:px-6 lg:px-8 relative bg-black">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+                    <h2 className="text-h2 font-bold text-white mb-6">
                         Digital Solutions <span className="text-gray-500">Built for Scale</span>
                     </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                    <p className="text-gray-400 max-w-2xl mx-auto text-body">
                         Comprehensive engineering services designed to modernize your infrastructure and accelerate business outcomes.
                     </p>
                 </div>
@@ -74,7 +74,7 @@ export default function CoreSolutions() {
                                     <ArrowUpRight className="h-6 w-6 text-gray-600 group-hover:text-white transition-colors" />
                                 </div>
 
-                                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-white transition-colors">
+                                <h3 className="text-h3 font-bold text-white mb-4 group-hover:text-white transition-colors">
                                     {item.title}
                                 </h3>
 

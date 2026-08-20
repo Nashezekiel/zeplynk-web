@@ -211,12 +211,12 @@ export default async function Home() {
               Let&apos;s Build Something Great
             </div>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
+            <h2 className="text-h2 font-bold text-white mb-6 tracking-tight leading-tight">
               Ready to Transform <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">Your Digital Infrastructure?</span>
             </h2>
 
-            <p className="text-gray-400 text-lg font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-gray-400 text-body font-medium max-w-2xl mx-auto mb-10 leading-relaxed">
               Whether it&apos;s a strategy call with our engineers or a quick chat with our AI consultant, we&apos;re ready to help you scale.
             </p>
 

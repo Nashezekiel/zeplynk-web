@@ -6,9 +6,14 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, Tag, Mail, Send, Sparkles, CheckCircle } from "lucide-react";
 import type { NewsItem } from "@/constants/news";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import Testimonials from "@/components/sections/Testimonials";
 
-export default function NewsListingContent({ items: newsItems }: { items: NewsItem[] }) {
+export default function NewsListingContent({
+    items: newsItems,
+    testimonials,
+}: {
+    items: NewsItem[];
+    testimonials: React.ReactNode;
+}) {
     const [email, setEmail] = useState("");
     const [subscribed, setSubscribed] = useState(false);
 
@@ -35,18 +40,18 @@ export default function NewsListingContent({ items: newsItems }: { items: NewsIt
                             <Tag className="h-3 w-3" />
                             Insights & Architecture
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
+                        <h1 className="text-h1 font-black mb-8 leading-tight">
                             LATEST FROM <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">THE LAB.</span>
                         </h1>
-                        <p className="text-gray-400 text-xl font-medium leading-relaxed">
+                        <p className="text-gray-400 text-body font-medium leading-relaxed">
                             Deep-dives into scalable engineering, AI automation, and the future of digital infrastructure — from the Zeplynk team in Kaduna, Nigeria.
                         </p>
                     </div>
                 </header>
 
                 {/* Testimonials */}
-                <Testimonials />
+                {testimonials}
 
                 {/* Newsletter Teaser */}
                 <div className="relative overflow-hidden mb-20 p-6 sm:p-8 md:p-12 rounded-[2rem] bg-gradient-to-br from-zgreen-500/10 via-zinc-900/60 to-zinc-900/60 border border-zgreen-500/20 backdrop-blur-md">
@@ -57,14 +62,14 @@ export default function NewsListingContent({ items: newsItems }: { items: NewsIt
                                 <Sparkles className="h-3 w-3" />
                                 Engineering Weekly
                             </div>
-                            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight leading-tight">
+                            <h3 className="text-h3 font-bold text-white mb-3 tracking-tight leading-tight">
                                 Join 2,500+ leaders getting the{" "}
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">
                                     stack blueprint
                                 </span>{" "}
                                 every Tuesday.
                             </h3>
-                            <p className="text-gray-400 font-medium text-sm sm:text-base">No fluff — just the technical deep-dives, straight to your inbox.</p>
+                            <p className="text-gray-400 font-medium text-caption">No fluff — just the technical deep-dives, straight to your inbox.</p>
                         </div>
                         {subscribed ? (
                             <div className="flex items-center justify-center gap-2 text-zgreen-400 font-bold px-6 py-3 w-full lg:w-auto">
@@ -124,10 +129,10 @@ export default function NewsListingContent({ items: newsItems }: { items: NewsIt
                                         <Calendar className="h-3 w-3" />
                                         {item.date}
                                     </div>
-                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-zgreen-400 transition-colors line-clamp-2 leading-tight uppercase tracking-tight">
+                                    <h3 className="text-h3 font-bold text-white mb-3 group-hover:text-zgreen-400 transition-colors line-clamp-2 leading-tight uppercase tracking-tight">
                                         {item.title}
                                     </h3>
-                                    <p className="text-gray-200 text-sm line-clamp-3 leading-relaxed mb-6 font-bold">
+                                    <p className="text-gray-200 text-caption line-clamp-3 leading-relaxed mb-6 font-bold">
                                         {item.excerpt}
                                     </p>
 

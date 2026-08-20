@@ -19,10 +19,12 @@ import {
     LoaderCircle,
     LogOut,
     X,
+    Star,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import type { NewsItem } from "@/constants/news";
+import FeedbackPanel from "./FeedbackPanel";
 
 interface PostDraft {
     title: string;
@@ -65,6 +67,7 @@ function isPreviewableUrl(url: string) {
 
 export default function AdminDashboard() {
     const router = useRouter();
+    const [section, setSection] = useState<"insights" | "testimonials">("insights");
     const [posts, setPosts] = useState<NewsItem[]>([]);
     const [loadingPosts, setLoadingPosts] = useState(true);
     const [view, setView] = useState<"list" | "editor">("list");
@@ -175,28 +178,51 @@ export default function AdminDashboard() {
                             <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
                             Back to Site
                         </Link>
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight flex items-center gap-3 font-mono">
+                        <h1 className="text-h1 font-black uppercase tracking-tight flex items-center gap-3 font-mono">
                             <LayoutDashboard className="h-8 w-8 text-zgreen-500" />
-                            Insights <span className="text-zgreen-500">Dashboard</span>
+                            Admin <span className="text-zgreen-500">Dashboard</span>
                         </h1>
+                        <div className="flex items-center gap-2 mt-6">
+                            <button
+                                onClick={() => setSection("insights")}
+                                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest transition-all ${
+                                    section === "insights"
+                                        ? "bg-zgreen-600 text-white"
+                                        : "bg-white/5 hover:bg-white/10 border border-white/10 text-gray-400"
+                                }`}
+                            >
+                                <FileText className="h-3.5 w-3.5" /> Insights
+                            </button>
+                            <button
+                                onClick={() => setSection("testimonials")}
+                                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest transition-all ${
+                                    section === "testimonials"
+                                        ? "bg-zgreen-600 text-white"
+                                        : "bg-white/5 hover:bg-white/10 border border-white/10 text-gray-400"
+                                }`}
+                            >
+                                <Star className="h-3.5 w-3.5" /> Testimonials
+                            </button>
+                        </div>
                     </div>
 
                     <div className="flex items-center gap-3">
-                        {view === "list" ? (
-                            <button
-                                onClick={startCreate}
-                                className="flex items-center gap-2 bg-zgreen-600 hover:bg-zgreen-500 text-white font-bold px-6 py-3 rounded-xl transition-all"
-                            >
-                                <Plus className="h-4 w-4" /> New Post
-                            </button>
-                        ) : (
-                            <button
-                                onClick={cancelEdit}
-                                className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 font-bold px-6 py-3 rounded-xl transition-all"
-                            >
-                                <X className="h-4 w-4" /> Cancel
-                            </button>
-                        )}
+                        {section === "insights" &&
+                            (view === "list" ? (
+                                <button
+                                    onClick={startCreate}
+                                    className="flex items-center gap-2 bg-zgreen-600 hover:bg-zgreen-500 text-white font-bold px-6 py-3 rounded-xl transition-all"
+                                >
+                                    <Plus className="h-4 w-4" /> New Post
+                                </button>
+                            ) : (
+                                <button
+                                    onClick={cancelEdit}
+                                    className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-gray-300 font-bold px-6 py-3 rounded-xl transition-all"
+                                >
+                                    <X className="h-4 w-4" /> Cancel
+                                </button>
+                            ))}
                         <button
                             onClick={handleLogout}
                             className="flex items-center gap-2 bg-white/5 hover:bg-red-500/10 border border-white/10 hover:border-red-500/30 text-gray-400 hover:text-red-400 font-bold px-4 py-3 rounded-xl transition-all"
@@ -206,7 +232,9 @@ export default function AdminDashboard() {
                     </div>
                 </header>
 
-                {view === "list" ? (
+                {section === "testimonials" ? (
+                    <FeedbackPanel />
+                ) : view === "list" ? (
                     <div className="bg-zinc-900/30 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-md">
                         {loadingPosts ? (
                             <div className="flex items-center justify-center py-24 text-gray-500 gap-2">
@@ -237,8 +265,8 @@ export default function AdminDashboard() {
                                                 </span>
                                                 <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">{post.date}</span>
                                             </div>
-                                            <h3 className="font-bold text-white truncate">{post.title}</h3>
-                                            <p className="text-xs text-gray-500 truncate">/news/{post.slug}</p>
+                                            <h3 className="text-h3 font-bold text-white truncate">{post.title}</h3>
+                                            <p className="text-caption text-gray-500 truncate">/news/{post.slug}</p>
                                         </div>
                                         <div className="flex items-center gap-2 shrink-0">
                                             <a
@@ -369,7 +397,7 @@ export default function AdminDashboard() {
                                 </div>
 
                                 <div className="bg-zinc-900/10 border-t border-white/5 pt-6 mt-6">
-                                    <h3 className="text-sm font-bold uppercase tracking-widest mb-6 flex items-center gap-2">
+                                    <h3 className="text-caption font-bold uppercase tracking-widest mb-6 flex items-center gap-2">
                                         <ImageIcon className="h-4 w-4 text-zgreen-500" /> Header Image
                                     </h3>
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -399,7 +427,7 @@ export default function AdminDashboard() {
                                     </div>
                                 </div>
 
-                                {error && <p className="text-sm text-red-400">{error}</p>}
+                                {error && <p className="text-caption text-red-400">{error}</p>}
 
                                 <button
                                     onClick={handleSave}
@@ -439,8 +467,8 @@ export default function AdminDashboard() {
                                     <span className="inline-block px-2 py-0.5 rounded-full bg-zgreen-500/10 border border-zgreen-500/20 text-[10px] font-bold text-zgreen-500 uppercase mb-3">
                                         {draft.category}
                                     </span>
-                                    <h3 className="text-lg font-bold text-white mb-2 uppercase line-clamp-1">{draft.title || "Untitled Post"}</h3>
-                                    <p className="text-xs text-gray-400 line-clamp-2 italic">{draft.excerpt || "No excerpt provided yet..."}</p>
+                                    <h3 className="text-h3 font-bold text-white mb-2 uppercase line-clamp-1">{draft.title || "Untitled Post"}</h3>
+                                    <p className="text-caption text-gray-400 line-clamp-2 italic">{draft.excerpt || "No excerpt provided yet..."}</p>
                                 </div>
                             </div>
                         </div>

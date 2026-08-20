@@ -321,7 +321,7 @@ export default function Navbar() {
                                                                 <h4 className="text-2xl font-bold text-white mb-4 leading-tight">
                                                                     Engineering <br /> Excellence. <br /> Delivered.
                                                                 </h4>
-                                                                <p className="text-white/70 text-sm mb-8 leading-relaxed">
+                                                                <p className="text-white/70 text-caption mb-8 leading-relaxed">
                                                                     10 practice areas. One accountable partner. From AI to cloud — we engineer outcomes.
                                                                 </p>
                                                                 <Link href="/solutions" onClick={() => setActiveDropdown(null)}>
@@ -367,7 +367,7 @@ export default function Navbar() {
                                                                 <h4 className="text-2xl font-bold text-white mb-4 leading-tight">
                                                                     Solutions For <br /> Every Sector.
                                                                 </h4>
-                                                                <p className="text-white/70 text-sm mb-8 leading-relaxed">
+                                                                <p className="text-white/70 text-caption mb-8 leading-relaxed">
                                                                     Powering 12+ sectors with bespoke engineering intelligence.
                                                                 </p>
                                                                 <Link href="/industries" onClick={() => setActiveDropdown(null)}>
@@ -409,7 +409,7 @@ export default function Navbar() {
                                                             <div className="relative z-10">
                                                                 <GraduationCap className="h-12 w-12 text-white mb-6" />
                                                                 <h4 className="text-2xl font-bold text-white mb-4 leading-tight">Master The <br /> Future Of Code</h4>
-                                                                <p className="text-white/70 text-sm mb-8 leading-relaxed">Join 1,000+ developers training with Zeplynk experts in modern engineering.</p>
+                                                                <p className="text-white/70 text-caption mb-8 leading-relaxed">Join 1,000+ developers training with Zeplynk experts in modern engineering.</p>
                                                                 <Link href="/academy" onClick={() => setActiveDropdown(null)}>
                                                                     <Button className="bg-white text-black hover:bg-zinc-200 rounded-xl px-6 h-12 font-bold">Start Learning</Button>
                                                                 </Link>
@@ -446,7 +446,7 @@ export default function Navbar() {
                                                                         <Layers className="h-6 w-6" />
                                                                     </div>
                                                                     <h4 className="text-2xl font-black text-white mb-3 leading-tight tracking-tight">Designing The <br />Digital Future.</h4>
-                                                                    <p className="text-white/80 text-[13px] font-medium leading-relaxed max-w-[180px]">Our mission is to engineer high-performance infrastructure for global hyper-growth.</p>
+                                                                    <p className="text-white/80 text-caption font-medium leading-relaxed max-w-[180px]">Our mission is to engineer high-performance infrastructure for global hyper-growth.</p>
                                                                 </div>
                                                                 <Link href="/about" onClick={() => setActiveDropdown(null)}>
                                                                     <Button className="bg-white text-black hover:bg-zinc-200 rounded-xl px-6 h-11 text-[13px] font-black transition-all">Learn Our Story</Button>
@@ -501,7 +501,7 @@ export default function Navbar() {
                                                                 <h4 className="text-2xl font-bold text-white mb-4 leading-tight">
                                                                     Let's Start The <br /> Conversation.
                                                                 </h4>
-                                                                <p className="text-white/70 text-sm mb-8 leading-relaxed">
+                                                                <p className="text-white/70 text-caption mb-8 leading-relaxed">
                                                                     Whichever way you reach out, we typically reply within 24 hours.
                                                                 </p>
                                                                 <Link href="/contact" onClick={() => setActiveDropdown(null)}>

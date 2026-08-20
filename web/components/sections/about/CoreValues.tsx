@@ -45,11 +45,11 @@ export default function CoreValues() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
+                        className="text-h2 font-bold text-white mb-6"
                     >
                         Our Core Values
                     </motion.h2>
-                    <p className="text-gray-200 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
+                    <p className="text-gray-200 max-w-2xl mx-auto text-body leading-relaxed font-medium">
                         The bedrock of Zeplynk's culture and the driving force behind our mission.
                     </p>
                 </div>
@@ -75,8 +75,8 @@ export default function CoreValues() {
                                     <value.icon className={`h-10 w-10 ${value.color}`} />
                                 </div>
 
-                                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-white transition-colors">{value.title}</h3>
-                                <p className="text-gray-400 leading-relaxed text-sm flex-grow">
+                                <h3 className="text-h3 font-bold text-white mb-4 group-hover:text-white transition-colors">{value.title}</h3>
+                                <p className="text-gray-400 leading-relaxed text-caption flex-grow">
                                     {value.desc}
                                 </p>
                             </div>

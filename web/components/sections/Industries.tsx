@@ -16,7 +16,7 @@ export default function Industries() {
         <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-12">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+                    <h2 className="text-h2 font-bold text-white">
                         Solutions Across High-Growth Industries
                     </h2>
                 </div>

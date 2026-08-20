@@ -79,11 +79,11 @@ export default function CourseDetailPage({ slug }: Props) {
             </div>
           </motion.div>
 
-          <motion.h1 variants={childFade} className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] max-w-4xl">
+          <motion.h1 variants={childFade} className="text-h1 font-bold tracking-tight leading-[1.05] max-w-4xl">
             {course.title}
           </motion.h1>
 
-          <motion.p variants={childFade} className="text-xl text-zinc-400 max-w-2xl leading-relaxed font-medium">
+          <motion.p variants={childFade} className="text-body text-zinc-400 max-w-2xl leading-relaxed font-medium">
             {course.tagline}
           </motion.p>
 
@@ -157,18 +157,18 @@ export default function CourseDetailPage({ slug }: Props) {
               <div className="h-px w-8 bg-zgreen-500" />
               <span className="text-zgreen-500 text-xs font-bold uppercase tracking-[0.25em]">Overview</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
+            <h2 className="text-h2 font-bold text-white tracking-tight leading-tight">
               About this course
             </h2>
-            <p className="text-zinc-400 leading-relaxed text-lg">{course.description}</p>
+            <p className="text-zinc-400 leading-relaxed text-body">{course.description}</p>
             <div className="pt-4">
-              <p className="text-sm font-bold text-white mb-1">Tuition</p>
+              <p className="text-caption font-bold text-white mb-1">Tuition</p>
               <p className="text-zinc-400">{course.price}</p>
             </div>
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="space-y-3">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 mb-4">Who this course is for</p>
+            <p className="text-caption font-bold uppercase tracking-[0.2em] text-zinc-500 mb-4">Who this course is for</p>
             {course.whoFor.map((item) => (
               <motion.div
                 key={item}
@@ -177,7 +177,7 @@ export default function CourseDetailPage({ slug }: Props) {
               >
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className={`w-5 h-5 mt-0.5 shrink-0 ${course.accentColor}`} />
-                  <p className="text-sm text-zinc-300 leading-relaxed">{item}</p>
+                  <p className="text-caption text-zinc-300 leading-relaxed">{item}</p>
                 </div>
               </motion.div>
             ))}
@@ -201,7 +201,7 @@ export default function CourseDetailPage({ slug }: Props) {
               <div className="h-px w-8 bg-zgreen-500" />
               <span className="text-zgreen-500 text-xs font-bold uppercase tracking-[0.25em]">Curriculum</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">What you&apos;ll learn</h2>
+            <h2 className="text-h2 font-bold text-white tracking-tight">What you&apos;ll learn</h2>
           </motion.div>
 
           <motion.div
@@ -216,8 +216,8 @@ export default function CourseDetailPage({ slug }: Props) {
                 <div className={`w-10 h-10 rounded-full ${course.bgColor} ${course.borderColor} border flex items-center justify-center`}>
                   <span className={`text-sm font-black ${course.accentColor}`}>{String(i + 1).padStart(2, "0")}</span>
                 </div>
-                <h3 className="text-base font-bold text-white">{module.title}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed">{module.description}</p>
+                <h3 className="text-h3 font-bold text-white">{module.title}</h3>
+                <p className="text-caption text-zinc-500 leading-relaxed">{module.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -240,14 +240,14 @@ export default function CourseDetailPage({ slug }: Props) {
               <div className="h-px w-8 bg-zgreen-500" />
               <span className="text-zgreen-500 text-xs font-bold uppercase tracking-[0.25em]">Outcomes</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">What you&apos;ll walk away with</h2>
+            <h2 className="text-h2 font-bold text-white tracking-tight">What you&apos;ll walk away with</h2>
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid md:grid-cols-2 gap-4 max-w-4xl">
             {course.outcomes.map((outcome) => (
               <motion.div key={outcome} variants={childFade} className="flex items-start gap-3 p-5 rounded-xl bg-zinc-900/40 border border-white/8">
                 <CheckCircle2 className={`w-5 h-5 mt-0.5 shrink-0 ${course.accentColor}`} />
-                <p className="text-sm text-zinc-300 leading-relaxed">{outcome}</p>
+                <p className="text-caption text-zinc-300 leading-relaxed">{outcome}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -270,15 +270,15 @@ export default function CourseDetailPage({ slug }: Props) {
               <div className="h-px w-8 bg-zgreen-500" />
               <span className="text-zgreen-500 text-xs font-bold uppercase tracking-[0.25em]">Why Zeplynk Academy</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">What sets this course apart</h2>
+            <h2 className="text-h2 font-bold text-white tracking-tight">What sets this course apart</h2>
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid md:grid-cols-3 gap-6">
             {course.differentiators.map((diff, i) => (
               <motion.div key={diff.title} variants={childFade} className="p-8 rounded-2xl border border-white/8 bg-zinc-900/40 space-y-3">
                 <div className={`text-4xl font-black ${course.accentColor} opacity-30`}>{String(i + 1).padStart(2, "0")}</div>
-                <h3 className="text-base font-bold text-white">{diff.title}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed">{diff.description}</p>
+                <h3 className="text-h3 font-bold text-white">{diff.title}</h3>
+                <p className="text-caption text-zinc-500 leading-relaxed">{diff.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -331,7 +331,7 @@ export default function CourseDetailPage({ slug }: Props) {
               <div className="h-px w-8 bg-zgreen-500" />
               <span className="text-zgreen-500 text-xs font-bold uppercase tracking-[0.25em]">FAQs</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Common questions</h2>
+            <h2 className="text-h2 font-bold text-white tracking-tight">Common questions</h2>
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="space-y-3 max-w-3xl">
@@ -369,8 +369,8 @@ export default function CourseDetailPage({ slug }: Props) {
             <div className={`absolute inset-0 ${course.gradientFrom} bg-gradient-to-br to-transparent opacity-10 pointer-events-none`} />
 
             <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Ready to enroll?</h2>
-              <p className="text-zinc-400 text-lg leading-relaxed">
+              <h2 className="text-h2 font-bold text-white tracking-tight">Ready to enroll?</h2>
+              <p className="text-zinc-400 text-body leading-relaxed">
                 Applications for {course.title} are open now. Join the next cohort at Zeplynk Academy in Kaduna, or online from anywhere in Nigeria.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-3 pt-2">

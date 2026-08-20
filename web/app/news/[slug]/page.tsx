@@ -153,7 +153,7 @@ export default async function BlogPostPage({
                             6 min read
                         </div>
                     </div>
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight tracking-tight uppercase">
+                    <h1 className="text-h1 font-black mb-8 leading-tight tracking-tight uppercase">
                         {post.title}
                     </h1>
                 </header>
@@ -174,10 +174,11 @@ export default async function BlogPostPage({
 
                 {/* Article Content */}
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_200px] gap-12 mb-24">
-                    <article className="prose prose-invert prose-zinc max-w-none 
+                    <article className="prose prose-invert prose-zinc max-w-none
                         prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tighter
-                        prose-h2:text-3xl prose-h2:text-white prose-h2:mt-12 prose-h2:mb-6
-                        prose-p:text-gray-300 prose-p:text-lg prose-p:leading-relaxed prose-p:mb-8 prose-p:font-medium
+                        prose-h2:text-h2 prose-h2:text-white prose-h2:mt-12 prose-h2:mb-6
+                        prose-h3:text-h3 prose-h3:text-white prose-h3:mt-8 prose-h3:mb-4
+                        prose-p:text-gray-300 prose-p:text-body prose-p:leading-relaxed prose-p:mb-8 prose-p:font-medium
                         prose-strong:text-white prose-strong:font-bold
                         prose-blockquote:border-l-4 prose-blockquote:border-zgreen-500 prose-blockquote:bg-zgreen-500/5 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-2xl prose-blockquote:italic prose-blockquote:text-xl
                         prose-ul:list-disc prose-ul:pl-6 prose-li:text-gray-300 prose-li:mb-2 prose-li:font-medium
@@ -207,7 +208,7 @@ export default async function BlogPostPage({
 
                             <div className="p-6 rounded-3xl bg-zgreen-600/10 border border-zgreen-500/20">
                                 <h4 className="text-sm font-bold text-zgreen-500 mb-2">Need a Custom Solution?</h4>
-                                <p className="text-xs text-gray-400 mb-4 font-medium">Talk to our lead engineers about your project.</p>
+                                <p className="text-caption text-gray-400 mb-4 font-medium">Talk to our lead engineers about your project.</p>
                                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-bold text-white hover:text-zgreen-400 transition-colors">
                                     Schedule a Call <ArrowRight className="h-3 w-3" />
                                 </a>
@@ -219,7 +220,7 @@ export default async function BlogPostPage({
                 {/* Footer Section: Suggested Posts */}
                 <section className="pt-24 border-t border-white/10">
                     <div className="flex items-center justify-between mb-12">
-                        <h2 className="text-2xl font-black uppercase tracking-tight">More Insights</h2>
+                        <h2 className="text-h2 font-black uppercase tracking-tight">More Insights</h2>
                         <Link href="/news" className="text-zgreen-500 font-bold text-sm hover:underline">
                             View All Articles
                         </Link>
@@ -240,7 +241,7 @@ export default async function BlogPostPage({
                                     <span className="text-[10px] font-bold text-zgreen-500 uppercase tracking-widest">{item.category}</span>
                                     <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{item.date}</span>
                                 </div>
-                                <h3 className="text-xl font-bold text-white group-hover:text-zgreen-400 transition-colors uppercase tracking-tight line-clamp-2">
+                                <h3 className="text-h3 font-bold text-white group-hover:text-zgreen-400 transition-colors uppercase tracking-tight line-clamp-2">
                                     {item.title}
                                 </h3>
                             </Link>

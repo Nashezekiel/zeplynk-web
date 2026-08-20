@@ -26,7 +26,7 @@ export default function AboutHero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="text-4xl md:text-6xl lg:text-8xl font-bold text-white mb-8 tracking-tight leading-tight"
+                    className="text-h1 font-bold text-white mb-8 tracking-tight leading-tight"
                 >
                     We Build, We Teach, <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 via-emerald-500 to-cyan-500">We Empower.</span>
@@ -36,7 +36,7 @@ export default function AboutHero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-medium"
+                    className="text-body text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-medium"
                 >
                     Zeplynk is a full-service technology powerhouse dedicated to digital transformation.
                     From high-end software engineering to world-class education, we are the bridge to greatness.

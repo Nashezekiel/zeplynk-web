@@ -60,11 +60,11 @@ export default function IndustriesPageContent() {
                 <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
                 <div className="max-w-7xl mx-auto text-center relative z-10">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 tracking-tight leading-tight">
+                        <h1 className="text-h1 font-bold text-white mb-8 tracking-tight leading-tight">
                             Engineering Solutions for the<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 via-emerald-500 to-blue-600">Future of Every Sector.</span>
                         </h1>
-                        <p className="text-xl text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
+                        <p className="text-body text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
                             We don&apos;t just build software; we engineer industry-specific infrastructure that solves unique challenges and creates measurable competitive advantages.
                         </p>
                         <Link href="/contact">
@@ -95,7 +95,7 @@ export default function IndustriesPageContent() {
                                         Sector 0{index + 1}
                                     </div>
                                 </div>
-                                <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 group-hover:text-zgreen-400 transition-colors">{item.name}</h3>
+                                <h3 className="text-h3 font-bold text-white mb-4 group-hover:text-zgreen-400 transition-colors">{item.name}</h3>
                                 <p className="text-gray-400 mb-8 leading-relaxed max-w-lg">{item.description}</p>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                                     {item.features.map((feature) => (
@@ -116,7 +116,7 @@ export default function IndustriesPageContent() {
                             viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.5 }}
                             className="p-8 rounded-3xl bg-zgreen-600 flex flex-col justify-center items-center text-center"
                         >
-                            <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6">Have a unique industry challenge?</h3>
+                            <h3 className="text-h3 font-bold text-white mb-6">Have a unique industry challenge?</h3>
                             <p className="text-zgreen-100 mb-8 max-w-sm">We specialize in custom engineering for sectors that defy conventional categories.</p>
                             <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
                                 <Button className="bg-white text-black hover:bg-gray-100 rounded-xl px-8 py-6 font-bold">Book a Strategy Call</Button>
@@ -129,7 +129,7 @@ export default function IndustriesPageContent() {
             <section className="py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-zinc-950/50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">Built for Impact</h2>
+                        <h2 className="text-h2 font-bold text-white mb-6">Built for Impact</h2>
                         <p className="text-gray-400 max-w-2xl mx-auto leading-relaxed">Our cross-industry expertise allows us to bring innovations from one sector to solve problems in another.</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -141,7 +141,7 @@ export default function IndustriesPageContent() {
                             <div key={i} className="p-8 rounded-2xl bg-black border border-white/5 hover:border-zgreen-500/30 transition-all group">
                                 <item.icon className="h-10 w-10 text-zgreen-500 mb-6 group-hover:scale-110 transition-transform" />
                                 <h4 className="text-xl font-bold text-white mb-4">{item.title}</h4>
-                                <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                                <p className="text-gray-500 text-caption leading-relaxed">{item.desc}</p>
                             </div>
                         ))}
                     </div>

@@ -61,10 +61,10 @@ export default function ServiceCards({
                             {subtitle}
                         </span>
                     )}
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                    <h2 className="text-h2 font-bold text-white mb-6 leading-tight">
                         {title}
                     </h2>
-                    <p className="text-lg text-gray-300 leading-relaxed">
+                    <p className="text-body text-gray-300 leading-relaxed">
                         {description}
                     </p>
                 </div>
@@ -88,8 +88,8 @@ export default function ServiceCards({
                                 })()}
                             </div>
 
-                            <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
-                            <p className="text-sm font-bold text-white mb-6 italic border-b border-white/10 pb-4">
+                            <h3 className="text-h3 font-bold text-white mb-2">{service.title}</h3>
+                            <p className="text-caption font-bold text-white mb-6 italic border-b border-white/10 pb-4">
                                 {service.target}
                             </p>
 
@@ -109,7 +109,7 @@ export default function ServiceCards({
                             {/* Business Impact - Sticky Bottom */}
                             <div className="mt-auto pt-6 border-t border-white/10 bg-black/40 -mx-8 -mb-8 p-8 rounded-b-3xl">
                                 <h4 className="text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Business Impact</h4>
-                                <p className="text-sm text-gray-100 leading-relaxed font-medium">
+                                <p className="text-caption text-gray-100 leading-relaxed font-medium">
                                     {service.impact}
                                 </p>
                             </div>

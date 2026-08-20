@@ -95,14 +95,14 @@ export default function SolutionDetailPage({ slug }: Props) {
           {/* Headline */}
           <motion.h1
             variants={childFade}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] max-w-4xl"
+            className="text-h1 font-bold tracking-tight leading-[1.05] max-w-4xl"
           >
             {solution.title}
           </motion.h1>
 
           <motion.p
             variants={childFade}
-            className="text-xl text-zinc-400 max-w-2xl leading-relaxed font-medium"
+            className="text-body text-zinc-400 max-w-2xl leading-relaxed font-medium"
           >
             {solution.tagline}
           </motion.p>
@@ -170,10 +170,10 @@ export default function SolutionDetailPage({ slug }: Props) {
                 Overview
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
+            <h2 className="text-h2 font-bold text-white tracking-tight leading-tight">
               What we build for you
             </h2>
-            <p className="text-zinc-400 leading-relaxed text-lg">{solution.description}</p>
+            <p className="text-zinc-400 leading-relaxed text-body">{solution.description}</p>
           </motion.div>
 
           {/* Right: deliverables list */}
@@ -195,8 +195,8 @@ export default function SolutionDetailPage({ slug }: Props) {
                     className={`w-5 h-5 mt-0.5 shrink-0 ${solution.accentColor}`}
                   />
                   <div>
-                    <h3 className="text-sm font-bold text-white mb-1">{item.name}</h3>
-                    <p className="text-xs text-zinc-500 leading-relaxed">{item.description}</p>
+                    <h3 className="text-caption font-bold text-white mb-1">{item.name}</h3>
+                    <p className="text-caption text-zinc-500 leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -250,8 +250,8 @@ export default function SolutionDetailPage({ slug }: Props) {
                   <div className="hidden lg:block absolute top-11 left-[calc(100%+0.5px)] w-6 h-px bg-white/10" />
                 )}
 
-                <h3 className="text-base font-bold text-white">{step.title}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed">{step.description}</p>
+                <h3 className="text-h3 font-bold text-white">{step.title}</h3>
+                <p className="text-caption text-zinc-500 leading-relaxed">{step.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -276,7 +276,7 @@ export default function SolutionDetailPage({ slug }: Props) {
                 Why Zeplynk
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+            <h2 className="text-h2 font-bold text-white tracking-tight">
               What sets us apart
             </h2>
           </motion.div>
@@ -297,8 +297,8 @@ export default function SolutionDetailPage({ slug }: Props) {
                 <div className={`text-4xl font-black ${solution.accentColor} opacity-30`}>
                   {String(i + 1).padStart(2, "0")}
                 </div>
-                <h3 className="text-base font-bold text-white">{diff.title}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed">{diff.description}</p>
+                <h3 className="text-h3 font-bold text-white">{diff.title}</h3>
+                <p className="text-caption text-zinc-500 leading-relaxed">{diff.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -362,7 +362,7 @@ export default function SolutionDetailPage({ slug }: Props) {
                   Explore Further
                 </span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+              <h2 className="text-h2 font-bold text-white tracking-tight">
                 AI services in detail
               </h2>
             </motion.div>
@@ -385,10 +385,10 @@ export default function SolutionDetailPage({ slug }: Props) {
                       <div className={`w-10 h-10 rounded-xl ${page.bgColor} ${page.borderColor} border flex items-center justify-center mb-4`}>
                         <PageIcon className={`h-5 w-5 ${page.accentColor}`} />
                       </div>
-                      <h3 className="text-base font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
+                      <h3 className="text-h3 font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
                         {page.title}
                       </h3>
-                      <p className="text-sm text-zinc-500 leading-relaxed">{page.tagline}</p>
+                      <p className="text-caption text-zinc-500 leading-relaxed">{page.tagline}</p>
                     </Link>
                   </motion.div>
                 );
@@ -416,7 +416,7 @@ export default function SolutionDetailPage({ slug }: Props) {
                 FAQs
               </span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+            <h2 className="text-h2 font-bold text-white tracking-tight">
               Common questions
             </h2>
           </motion.div>
@@ -477,10 +477,10 @@ export default function SolutionDetailPage({ slug }: Props) {
             />
 
             <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+              <h2 className="text-h2 font-bold text-white tracking-tight">
                 Ready to get started?
               </h2>
-              <p className="text-zinc-400 text-lg leading-relaxed">
+              <p className="text-zinc-400 text-body leading-relaxed">
                 Let&apos;s talk about your project. Book a free strategy call and
                 we&apos;ll map out exactly what&apos;s possible.
               </p>

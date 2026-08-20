@@ -69,7 +69,7 @@ export default function ProcessMap() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight"
+                        className="text-h2 font-bold text-white mb-4 tracking-tight"
                     >
                         Our Engineering <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">Framework</span>
                     </motion.h2>
@@ -78,7 +78,7 @@ export default function ProcessMap() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-gray-200 text-lg sm:text-xl leading-relaxed font-medium"
+                        className="text-gray-200 text-body leading-relaxed font-medium"
                     >
                         We engineer high-performance digital systems built to scale with your ambition.
                     </motion.p>
@@ -110,8 +110,8 @@ export default function ProcessMap() {
 
                             {/* Content */}
                             <div className="text-center group-hover:translate-y-[-4px] transition-transform duration-500">
-                                <h3 className="text-lg font-bold text-white mb-2 tracking-wide">{step.title}</h3>
-                                <p className="text-sm text-gray-300 leading-relaxed max-w-[180px] group-hover:text-white transition-colors font-medium">
+                                <h3 className="text-h3 font-bold text-white mb-2 tracking-wide">{step.title}</h3>
+                                <p className="text-caption text-gray-300 leading-relaxed max-w-[180px] group-hover:text-white transition-colors font-medium">
                                     {step.desc}
                                 </p>
                             </div>

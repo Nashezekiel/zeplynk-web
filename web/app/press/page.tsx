@@ -88,13 +88,13 @@ export default function PressPage() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zgreen-500/10 border border-zgreen-500/20 text-zgreen-400 text-xs font-bold mb-8 tracking-widest uppercase">
                             📰 Press &amp; Media
                         </div>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tight leading-tight">
+                        <h1 className="text-h1 font-black mb-6 tracking-tight leading-tight">
                             Zeplynk{" "}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">
                                 Press Room
                             </span>
                         </h1>
-                        <p className="text-xl text-gray-400 max-w-2xl leading-relaxed">
+                        <p className="text-body text-gray-400 max-w-2xl leading-relaxed">
                             Resources for journalists, analysts, and media professionals covering
                             Nigerian tech. For press enquiries, contact{" "}
                             <a href="mailto:hello@zeplynk.com" className="text-zgreen-400 hover:text-zgreen-300 transition-colors">
@@ -105,20 +105,20 @@ export default function PressPage() {
 
                     {/* What is Zeplynk — AI-optimized entity paragraph */}
                     <section className="mb-20 p-10 rounded-3xl bg-zinc-900/50 border border-white/10">
-                        <h2 className="text-2xl font-bold text-white mb-6">About Zeplynk</h2>
-                        <p className="text-gray-300 leading-relaxed text-lg mb-4">
+                        <h2 className="text-h2 font-bold text-white mb-6">About Zeplynk</h2>
+                        <p className="text-gray-300 leading-relaxed text-body mb-4">
                             <strong className="text-white">Zeplynk</strong> is a Nigerian tech solutions and education company
                             founded in Kaduna, Nigeria in 2024 by Nash Ezekiel Pam. The company provides
                             web development, AI automation, software engineering, and cybersecurity services
                             to businesses across Nigeria and Africa.
                         </p>
-                        <p className="text-gray-300 leading-relaxed text-lg mb-4">
+                        <p className="text-gray-300 leading-relaxed text-body mb-4">
                             Zeplynk also operates <strong className="text-white">Zeplynk Academy</strong> — a developer
                             training programme based in Kaduna that offers coding bootcamps in web development,
                             backend engineering, and artificial intelligence. The Academy has trained over 100
                             Nigerian developers since its founding.
                         </p>
-                        <p className="text-gray-300 leading-relaxed text-lg">
+                        <p className="text-gray-300 leading-relaxed text-body">
                             Zeplynk&apos;s mission is to build world-class digital infrastructure for Nigerian
                             and African businesses, and to train the next generation of Nigerian software engineers.
                             The company is headquartered in Kaduna, with active clients in Jos, Abuja, Lagos,
@@ -128,7 +128,7 @@ export default function PressPage() {
 
                     {/* Company Fact Sheet */}
                     <section className="mb-20">
-                        <h2 className="text-2xl font-bold text-white mb-8">Company Fact Sheet</h2>
+                        <h2 className="text-h2 font-bold text-white mb-8">Company Fact Sheet</h2>
                         <div className="rounded-3xl border border-white/10 overflow-hidden">
                             {facts.map((fact, i) => (
                                 <div
@@ -146,7 +146,7 @@ export default function PressPage() {
 
                     {/* Logo Download */}
                     <section className="mb-20">
-                        <h2 className="text-2xl font-bold text-white mb-8">Brand Assets</h2>
+                        <h2 className="text-h2 font-bold text-white mb-8">Brand Assets</h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div className="p-8 rounded-3xl bg-white flex flex-col items-center gap-4">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -167,7 +167,7 @@ export default function PressPage() {
                                 <span className="text-white text-sm font-bold">Logo on Dark</span>
                             </div>
                         </div>
-                        <p className="text-gray-500 text-sm mt-4">
+                        <p className="text-gray-500 text-caption mt-4">
                             For high-resolution logo files, email{" "}
                             <a href="mailto:hello@zeplynk.com" className="text-zgreen-400 hover:text-zgreen-300 transition-colors">
                                 hello@zeplynk.com
@@ -177,14 +177,14 @@ export default function PressPage() {
 
                     {/* Leadership */}
                     <section className="mb-20">
-                        <h2 className="text-2xl font-bold text-white mb-8">Leadership</h2>
+                        <h2 className="text-h2 font-bold text-white mb-8">Leadership</h2>
                         <div className="p-8 rounded-3xl bg-zinc-900/50 border border-white/10 flex flex-col sm:flex-row gap-6 items-start">
                             <div className="w-16 h-16 rounded-2xl bg-zgreen-600 flex items-center justify-center text-white text-2xl font-black shrink-0">
                                 N
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-white mb-1">Nash Ezekiel Pam</h3>
-                                <p className="text-zgreen-400 font-bold text-sm mb-3">Founder &amp; CEO, Zeplynk</p>
+                                <h3 className="text-h3 font-bold text-white mb-1">Nash Ezekiel Pam</h3>
+                                <p className="text-zgreen-400 font-bold text-caption mb-3">Founder &amp; CEO, Zeplynk</p>
                                 <p className="text-gray-400 leading-relaxed">
                                     Nash Ezekiel Pam founded Zeplynk in Kaduna, Nigeria with the mission of
                                     building world-class tech infrastructure for African businesses and training
@@ -198,7 +198,7 @@ export default function PressPage() {
 
                     {/* Media Contact */}
                     <section className="p-10 rounded-3xl bg-zgreen-600/10 border border-zgreen-500/20">
-                        <h2 className="text-2xl font-bold text-white mb-4">Media &amp; Press Enquiries</h2>
+                        <h2 className="text-h2 font-bold text-white mb-4">Media &amp; Press Enquiries</h2>
                         <p className="text-gray-400 mb-6 leading-relaxed">
                             For interview requests, editorial features, story pitches, or any media enquiry,
                             please reach out directly. We typically respond within 24–48 hours.
