@@ -50,7 +50,7 @@ export default function AcademyContent() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-3xl md:text-4xl lg:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight"
+                        className="text-h1 font-bold text-white mb-6 tracking-tight leading-tight"
                     >
                         Master the Future of <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 via-emerald-500 to-cyan-500">Technology</span>
@@ -60,7 +60,7 @@ export default function AcademyContent() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-base sm:text-lg text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
+                        className="text-body text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
                     >
                         Whether you're starting your career or upskilling your workforce, Zeplynk Academy provides
                         world-class training in software engineering, data, AI, and design.
@@ -107,8 +107,8 @@ export default function AcademyContent() {
 
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="text-center mb-20">
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">Why Zeplynk Academy?</h2>
-                        <p className="text-gray-200 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
+                        <h2 className="text-h2 font-bold text-white mb-6">Why Zeplynk Academy?</h2>
+                        <p className="text-gray-200 max-w-2xl mx-auto text-body leading-relaxed font-medium">
                             Our pedagogy is built on real-world engineering experience and industry demand.
                         </p>
                     </div>
@@ -130,7 +130,7 @@ export default function AcademyContent() {
                                 <div className="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:bg-zgreen-500/10 transition-colors group-hover:rotate-6 duration-300">
                                     <item.icon className="h-10 w-10 text-white group-hover:text-zgreen-500 transition-colors" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-zgreen-400 transition-colors tracking-tight">{item.title}</h3>
+                                <h3 className="text-h3 font-bold text-white mb-4 group-hover:text-zgreen-400 transition-colors tracking-tight">{item.title}</h3>
                                 <p className="text-gray-200 leading-relaxed font-medium">{item.desc}</p>
                             </motion.div>
                         ))}
@@ -152,10 +152,10 @@ export default function AcademyContent() {
 
                         <Zap className="h-12 w-12 text-zgreen-500 mx-auto mb-8 animate-pulse" />
 
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 relative z-10 leading-tight">
+                        <h2 className="text-h2 font-bold text-white mb-8 relative z-10 leading-tight">
                             Ready to Upgrade <br /> Your Career?
                         </h2>
-                        <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto relative z-10 leading-relaxed">
+                        <p className="text-body text-gray-400 mb-12 max-w-2xl mx-auto relative z-10 leading-relaxed">
                             The tech industry is evolving fast. Join the next cohort of future leaders and master the skills that matter.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">

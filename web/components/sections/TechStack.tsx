@@ -21,7 +21,7 @@ export default function TechStack() {
     return (
         <section className="py-24 px-4 sm:px-6 lg:px-8 bg-zinc-950 border-t border-white/5 overflow-hidden">
             <div className="max-w-7xl mx-auto mb-16 text-center">
-                <h2 className="text-2xl font-bold text-white mb-2">Built With Modern Technology</h2>
+                <h2 className="text-h2 font-bold text-white mb-2">Built With Modern Technology</h2>
                 <p className="text-gray-500">Enterprise-grade infrastructure for every project.</p>
             </div>
 

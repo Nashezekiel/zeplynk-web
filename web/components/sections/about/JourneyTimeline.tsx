@@ -38,11 +38,11 @@ export default function JourneyTimeline() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6"
+                        className="text-h2 font-bold text-white mb-6"
                     >
                         Our Journey
                     </motion.h2>
-                    <p className="text-gray-300 max-w-2xl mx-auto text-lg font-medium">
+                    <p className="text-gray-300 max-w-2xl mx-auto text-body font-medium">
                         A retrospective look at how we've grown from an idea to a leading catalyst for tech innovation.
                     </p>
                 </div>
@@ -68,10 +68,10 @@ export default function JourneyTimeline() {
                                         <div className="absolute -top-4 -left-4 bg-zgreen-600/20 border border-zgreen-500/30 px-3 py-1 rounded-full text-zgreen-400 text-sm font-bold backdrop-blur-md">
                                             {event.year}
                                         </div>
-                                        <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-zgreen-400 transition-colors">
+                                        <h3 className="text-h3 font-bold text-white mb-4 group-hover:text-zgreen-400 transition-colors">
                                             {event.title}
                                         </h3>
-                                        <p className="text-gray-200 leading-relaxed text-sm font-medium">
+                                        <p className="text-gray-200 leading-relaxed text-caption font-medium">
                                             {event.desc}
                                         </p>
                                     </div>

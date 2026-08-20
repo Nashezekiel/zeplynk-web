@@ -76,7 +76,7 @@ export default function HeaderBar() {
                         className="flex items-center justify-center gap-3 px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 transition-all duration-200 group"
                     >
                         <Sparkles className="h-3.5 w-3.5 text-yellow-300 animate-pulse" />
-                        <p className="text-[13px] font-bold text-white tracking-wide leading-none text-center">
+                        <p className="text-caption font-bold text-white tracking-wide leading-none text-center">
                             <span className="opacity-80 font-bold">✨ We've shipped new client projects — </span>
                             <span className="text-yellow-200 group-hover:text-white transition-colors underline decoration-yellow-200/30 underline-offset-2">See our work</span>
                         </p>

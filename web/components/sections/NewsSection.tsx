@@ -19,7 +19,7 @@ export default function NewsSection({ items: newsItems }: { items: NewsItem[] })
                                 <Tag className="h-3 w-3" />
                                 Zeplynk Insights
                             </div>
-                            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-none">
+                            <h2 className="text-h2 font-black text-white leading-none">
                                 LATEST FROM <br />
                                 <span className="text-zgreen-500">OUR WORLD.</span>
                             </h2>
@@ -61,10 +61,10 @@ export default function NewsSection({ items: newsItems }: { items: NewsItem[] })
                                             <Calendar className="h-3 w-3" />
                                             {item.date}
                                         </div>
-                                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-zgreen-400 transition-colors line-clamp-2 leading-tight">
+                                        <h3 className="text-h3 font-bold text-white mb-3 group-hover:text-zgreen-400 transition-colors line-clamp-2 leading-tight">
                                             {item.title}
                                         </h3>
-                                        <p className="text-gray-200 text-sm line-clamp-3 leading-relaxed mb-6 font-bold flex-1">
+                                        <p className="text-gray-200 text-caption line-clamp-3 leading-relaxed mb-6 font-bold flex-1">
                                             {item.excerpt}
                                         </p>
 

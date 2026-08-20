@@ -13,11 +13,11 @@ export default function Privacy() {
                     <div className="bg-zgreen-500/10 rounded-full p-4 w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                         <Shield className="h-8 w-8 text-zgreen-500" />
                     </div>
-                    <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Privacy Policy</h1>
-                    <p className="text-lg text-gray-200 mb-4 font-medium">
+                    <h1 className="text-h1 font-bold text-white mb-4">Privacy Policy</h1>
+                    <p className="text-body text-gray-200 mb-4 font-medium">
                         Your privacy and data security are fundamental to our mission.
                     </p>
-                    <p className="text-sm text-gray-400 font-bold uppercase tracking-widest">
+                    <p className="text-caption text-gray-400 font-bold uppercase tracking-widest">
                         Last updated: December 2024
                     </p>
                 </div>
@@ -30,7 +30,7 @@ export default function Privacy() {
 
                         {/* Introduction */}
                         <div className="bg-zinc-900/60 border border-white/20 rounded-xl p-8 mb-8 backdrop-blur-md">
-                            <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
+                            <h2 className="text-h2 font-bold text-white mb-4 flex items-center">
                                 <Eye className="h-6 w-6 text-zgreen-500 mr-3" />
                                 Introduction
                             </h2>
@@ -43,11 +43,11 @@ export default function Privacy() {
 
                         {/* Information We Collect */}
                         <div className="mb-8">
-                            <h2 className="text-2xl font-bold text-white mb-6">Information We Collect</h2>
+                            <h2 className="text-h2 font-bold text-white mb-6">Information We Collect</h2>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="bg-black/60 border border-white/20 rounded-xl p-6 backdrop-blur-sm">
-                                    <h3 className="text-xl font-bold text-white mb-4">Personal Information</h3>
+                                    <h3 className="text-h3 font-bold text-white mb-4">Personal Information</h3>
                                     <ul className="space-y-2 text-gray-200 font-medium">
                                         <li>• Name and contact details</li>
                                         <li>• Email address and phone number</li>
@@ -58,7 +58,7 @@ export default function Privacy() {
                                 </div>
 
                                 <div className="bg-black/60 border border-white/20 rounded-xl p-6 backdrop-blur-sm">
-                                    <h3 className="text-xl font-bold text-white mb-4">Technical Information</h3>
+                                    <h3 className="text-h3 font-bold text-white mb-4">Technical Information</h3>
                                     <ul className="space-y-2 text-gray-200 font-medium">
                                         <li>• Website usage and analytics</li>
                                         <li>• Device and browser information</li>
@@ -72,7 +72,7 @@ export default function Privacy() {
 
                         {/* How We Use Information */}
                         <div className="mb-8">
-                            <h2 className="text-2xl font-bold text-white mb-6">How We Use Your Information</h2>
+                            <h2 className="text-h2 font-bold text-white mb-6">How We Use Your Information</h2>
                             <div className="bg-gradient-to-br from-zgreen-900/30 to-zyellow-900/30 border border-zgreen-500/50 rounded-xl p-8 backdrop-blur-sm">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
@@ -99,7 +99,7 @@ export default function Privacy() {
 
                         {/* Data Security */}
                         <div className="mb-8">
-                            <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
+                            <h2 className="text-h2 font-bold text-white mb-6 flex items-center">
                                 <Lock className="h-6 w-6 text-zgreen-500 mr-3" />
                                 Data Security & Protection
                             </h2>
@@ -132,29 +132,29 @@ export default function Privacy() {
 
                         {/* Your Rights */}
                         <div className="mb-8">
-                            <h2 className="text-2xl font-bold text-white mb-6">Your Rights & Choices</h2>
+                            <h2 className="text-h2 font-bold text-white mb-6">Your Rights & Choices</h2>
                             <div className="space-y-4">
                                 <div className="bg-black/60 border border-white/20 rounded-lg p-6">
                                     <h4 className="font-bold text-white mb-2">Access & Correction</h4>
-                                    <p className="text-gray-200 text-sm font-medium">
+                                    <p className="text-gray-200 text-caption font-medium">
                                         You have the right to access, update, or correct your personal information at any time.
                                     </p>
                                 </div>
                                 <div className="bg-black/60 border border-white/20 rounded-lg p-6">
                                     <h4 className="font-bold text-white mb-2">Data Portability</h4>
-                                    <p className="text-gray-200 text-sm font-medium">
+                                    <p className="text-gray-200 text-caption font-medium">
                                         You can request a copy of your data in a portable format for transfer to other services.
                                     </p>
                                 </div>
                                 <div className="bg-black/60 border border-white/20 rounded-lg p-6">
                                     <h4 className="font-bold text-white mb-2">Deletion Rights</h4>
-                                    <p className="text-gray-200 text-sm font-medium">
+                                    <p className="text-gray-200 text-caption font-medium">
                                         You may request deletion of your personal data, subject to legal and operational requirements.
                                     </p>
                                 </div>
                                 <div className="bg-black/60 border border-white/20 rounded-lg p-6">
                                     <h4 className="font-bold text-white mb-2">Marketing Preferences</h4>
-                                    <p className="text-gray-200 text-sm font-medium">
+                                    <p className="text-gray-200 text-caption font-medium">
                                         You can opt out of marketing communications while still receiving essential service updates.
                                     </p>
                                 </div>
@@ -163,7 +163,7 @@ export default function Privacy() {
 
                         {/* Contact for Privacy */}
                         <div className="bg-zinc-900/60 border border-zgreen-500/50 rounded-xl p-8 backdrop-blur-md">
-                            <h2 className="text-2xl font-bold text-white mb-4">Privacy Questions?</h2>
+                            <h2 className="text-h2 font-bold text-white mb-4">Privacy Questions?</h2>
                             <p className="text-gray-200 mb-6 leading-relaxed font-medium">
                                 If you have any questions about this Privacy Policy or how we handle your data,
                                 please don't hesitate to contact us. We're committed to transparency and addressing

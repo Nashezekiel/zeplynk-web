@@ -32,11 +32,11 @@ export default function CorporateTraining() {
                             <Building2 className="h-4 w-4 mr-2" />
                             For Organizations
                         </div>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                        <h2 className="text-h2 font-bold text-white mb-6 leading-tight">
                             Corporate Training & <br />
                             <span className="text-blue-500">Workforce Upskilling</span>
                         </h2>
-                        <p className="text-gray-200 text-lg mb-8 leading-relaxed font-medium">
+                        <p className="text-gray-200 text-body mb-8 leading-relaxed font-medium">
                             Empower your teams with the technical skills they need to stay competitive.
                             We offer tailored workshops and training programs delivered by industry experts.
                         </p>
@@ -98,7 +98,7 @@ export default function CorporateTraining() {
                                     </div>
 
                                     <h4 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">{workshop.title}</h4>
-                                    <p className="text-sm text-gray-400 font-medium leading-relaxed mb-5">{workshop.desc}</p>
+                                    <p className="text-caption text-gray-400 font-medium leading-relaxed mb-5">{workshop.desc}</p>
 
                                     <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-blue-300/80 bg-blue-500/10 rounded-full px-3 py-1">
                                         <Users className="h-3 w-3" />

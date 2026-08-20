@@ -52,8 +52,8 @@ function AdminLoginForm() {
                         <Lock className="h-5 w-5 text-zgreen-500" />
                     </div>
                     <div>
-                        <h1 className="text-lg font-black uppercase tracking-tight">Admin Access</h1>
-                        <p className="text-xs text-gray-500">Zeplynk CMS</p>
+                        <h1 className="text-h1 font-black uppercase tracking-tight">Admin Access</h1>
+                        <p className="text-caption text-gray-500">Zeplynk CMS</p>
                     </div>
                 </div>
 
@@ -72,7 +72,7 @@ function AdminLoginForm() {
                         />
                     </div>
 
-                    {error && <p className="text-sm text-red-400">{error}</p>}
+                    {error && <p className="text-caption text-red-400">{error}</p>}
 
                     <button
                         type="submit"

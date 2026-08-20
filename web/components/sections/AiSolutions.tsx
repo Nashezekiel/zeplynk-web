@@ -17,13 +17,13 @@ export default function AiSolutions() {
                         <Sparkles className="h-4 w-4 mr-2" />
                         Artificial Intelligence
                     </div>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+                    <h2 className="text-h2 font-bold text-white mb-6">
                         AI Systems Designed for <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
                             Business Impact
                         </span>
                     </h2>
-                    <p className="text-gray-300 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
+                    <p className="text-gray-300 max-w-2xl mx-auto text-body leading-relaxed font-medium">
                         We don’t just implement AI randomly. We align advanced machine learning and automation with measurable business outcomes.
                     </p>
                 </div>
@@ -37,7 +37,7 @@ export default function AiSolutions() {
                             <div className="h-12 w-12 rounded-xl bg-purple-900/20 flex items-center justify-center text-purple-400 mb-6">
                                 <Brain className="h-6 w-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-3">Strategy & Consultation</h3>
+                            <h3 className="text-h3 font-bold text-white mb-3">Strategy & Consultation</h3>
                             <ul className="space-y-2 mb-6">
                                 {['Process Audit', 'Automation Roadmap', 'ROI Mapping'].map(item => (
                                     <li key={item} className="flex items-center text-sm text-gray-200 font-medium">
@@ -61,7 +61,7 @@ export default function AiSolutions() {
                             <div className="h-12 w-12 rounded-xl bg-blue-900/20 flex items-center justify-center text-blue-400 mb-6">
                                 <Sparkles className="h-6 w-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-3">Intelligent Automation</h3>
+                            <h3 className="text-h3 font-bold text-white mb-3">Intelligent Automation</h3>
                             <ul className="space-y-2 mb-6">
                                 {['Workflow Bots', 'Lead Scoring', 'CRM Integration'].map(item => (
                                     <li key={item} className="flex items-center text-sm text-gray-200 font-medium">
@@ -85,7 +85,7 @@ export default function AiSolutions() {
                             <div className="h-12 w-12 rounded-xl bg-zgreen-900/20 flex items-center justify-center text-zgreen-400 mb-6">
                                 <MessageSquare className="h-6 w-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-3">Conversational AI</h3>
+                            <h3 className="text-h3 font-bold text-white mb-3">Conversational AI</h3>
                             <ul className="space-y-2 mb-6">
                                 {['Support Chatbots', 'HR Screening', 'WhatsApp Automation'].map(item => (
                                     <li key={item} className="flex items-center text-sm text-gray-200 font-medium">
@@ -109,7 +109,7 @@ export default function AiSolutions() {
                             <div className="h-12 w-12 rounded-xl bg-yellow-900/20 flex items-center justify-center text-yellow-400 mb-6">
                                 <BarChart3 className="h-6 w-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-3">Data & Insights</h3>
+                            <h3 className="text-h3 font-bold text-white mb-3">Data & Insights</h3>
                             <ul className="space-y-2 mb-6">
                                 {['Predictive Analytics', 'BI Dashboards', 'Trend Analysis'].map(item => (
                                     <li key={item} className="flex items-center text-sm text-gray-200 font-medium">

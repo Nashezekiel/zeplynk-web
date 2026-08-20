@@ -13,7 +13,8 @@ export function CookieConsent() {
     useEffect(() => {
         const consent = window.localStorage.getItem(CONSENT_KEY);
         if (!consent) {
-            setVisible(true);
+            const timer = window.setTimeout(() => setVisible(true), 0);
+            return () => window.clearTimeout(timer);
         }
     }, []);
 
@@ -35,7 +36,7 @@ export function CookieConsent() {
                 <div className="bg-zgreen-500/10 rounded-xl p-3 shrink-0">
                     <Cookie className="h-6 w-6 text-zgreen-500" />
                 </div>
-                <p className="text-sm text-gray-200 font-medium leading-relaxed flex-1">
+                <p className="text-caption text-gray-200 font-medium leading-relaxed flex-1">
                     We use cookies to improve your experience and understand how our site is used. By continuing, you
                     agree to our{" "}
                     <Link href="/privacy" className="text-zgreen-400 hover:text-zgreen-300 underline underline-offset-2">

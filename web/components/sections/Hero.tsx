@@ -54,7 +54,7 @@ export default function Hero() {
                     <div className="text-left">
                         {/* Headline */}
                         <motion.h1
-                            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight leading-tight"
+                            className="text-h1 font-bold text-white mb-6 tracking-tight leading-tight"
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}
@@ -69,7 +69,7 @@ export default function Hero() {
 
                         {/* Subheadline */}
                         <motion.p
-                            className="text-lg text-gray-200 mb-10 max-w-2xl leading-relaxed font-medium"
+                            className="text-body text-gray-200 mb-10 max-w-2xl leading-relaxed font-medium"
                             initial={{ opacity: 0, x: -30 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}

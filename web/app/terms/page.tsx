@@ -13,11 +13,11 @@ export default function Terms() {
                     <div className="bg-zgreen-500/10 rounded-full p-4 w-16 h-16 mx-auto mb-6 flex items-center justify-center">
                         <FileText className="h-8 w-8 text-zgreen-500" />
                     </div>
-                    <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Terms of Service</h1>
-                    <p className="text-lg text-gray-200 mb-4 font-medium">
+                    <h1 className="text-h1 font-bold text-white mb-4">Terms of Service</h1>
+                    <p className="text-body text-gray-200 mb-4 font-medium">
                         The terms and conditions that govern your use of Zeplynk's website, services, and Academy programs.
                     </p>
-                    <p className="text-sm text-gray-400 font-bold uppercase tracking-widest">
+                    <p className="text-caption text-gray-400 font-bold uppercase tracking-widest">
                         Last updated: August 2026
                     </p>
                 </div>
@@ -30,7 +30,7 @@ export default function Terms() {
 
                         {/* Acceptance */}
                         <div className="bg-zinc-900/60 border border-white/20 rounded-xl p-8 mb-8 backdrop-blur-md">
-                            <h2 className="text-2xl font-bold text-white mb-4">Acceptance of Terms</h2>
+                            <h2 className="text-h2 font-bold text-white mb-4">Acceptance of Terms</h2>
                             <p className="text-white leading-relaxed font-medium">
                                 By accessing this website or engaging Zeplynk for web engineering, AI automation, or
                                 Zeplynk Academy programs, you agree to be bound by these Terms of Service. If you do
@@ -40,7 +40,7 @@ export default function Terms() {
 
                         {/* Our Services */}
                         <div className="mb-8">
-                            <h2 className="text-2xl font-bold text-white mb-6">Our Services</h2>
+                            <h2 className="text-h2 font-bold text-white mb-6">Our Services</h2>
                             <div className="bg-black/60 border border-white/20 rounded-xl p-6 backdrop-blur-sm">
                                 <p className="text-gray-200 leading-relaxed font-medium mb-4">
                                     Zeplynk provides web engineering, AI automation, and software consulting services,
@@ -58,7 +58,7 @@ export default function Terms() {
 
                         {/* Payments */}
                         <div className="mb-8">
-                            <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
+                            <h2 className="text-h2 font-bold text-white mb-6 flex items-center">
                                 <CreditCard className="h-6 w-6 text-zgreen-500 mr-3" />
                                 Payments
                             </h2>
@@ -73,7 +73,7 @@ export default function Terms() {
 
                         {/* Satisfaction Guarantee */}
                         <div className="mb-8">
-                            <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
+                            <h2 className="text-h2 font-bold text-white mb-6 flex items-center">
                                 <ShieldCheck className="h-6 w-6 text-zgreen-500 mr-3" />
                                 Our Guarantee
                             </h2>
@@ -89,25 +89,25 @@ export default function Terms() {
 
                         {/* User Responsibilities */}
                         <div className="mb-8">
-                            <h2 className="text-2xl font-bold text-white mb-6">Client & User Responsibilities</h2>
+                            <h2 className="text-h2 font-bold text-white mb-6">Client & User Responsibilities</h2>
                             <div className="space-y-4">
                                 <div className="bg-black/60 border border-white/20 rounded-lg p-6">
                                     <h4 className="font-bold text-white mb-2">Accurate Information</h4>
-                                    <p className="text-gray-200 text-sm font-medium">
+                                    <p className="text-gray-200 text-caption font-medium">
                                         You agree to provide accurate, current information when contacting us, registering
                                         for the Academy, or engaging our services.
                                     </p>
                                 </div>
                                 <div className="bg-black/60 border border-white/20 rounded-lg p-6">
                                     <h4 className="font-bold text-white mb-2">Lawful Use</h4>
-                                    <p className="text-gray-200 text-sm font-medium">
+                                    <p className="text-gray-200 text-caption font-medium">
                                         You agree not to use our website or services for any unlawful purpose or in a
                                         way that infringes the rights of Zeplynk or any third party.
                                     </p>
                                 </div>
                                 <div className="bg-black/60 border border-white/20 rounded-lg p-6">
                                     <h4 className="font-bold text-white mb-2">Intellectual Property</h4>
-                                    <p className="text-gray-200 text-sm font-medium">
+                                    <p className="text-gray-200 text-caption font-medium">
                                         Unless otherwise agreed in writing, deliverables transfer to the client upon
                                         full payment. Zeplynk retains ownership of pre-existing tools, frameworks, and
                                         course materials.
@@ -118,7 +118,7 @@ export default function Terms() {
 
                         {/* Liability */}
                         <div className="mb-8">
-                            <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
+                            <h2 className="text-h2 font-bold text-white mb-6 flex items-center">
                                 <Scale className="h-6 w-6 text-zgreen-500 mr-3" />
                                 Limitation of Liability & Governing Law
                             </h2>
@@ -134,7 +134,7 @@ export default function Terms() {
 
                         {/* Contact */}
                         <div className="bg-zinc-900/60 border border-zgreen-500/50 rounded-xl p-8 backdrop-blur-md">
-                            <h2 className="text-2xl font-bold text-white mb-4">Questions About These Terms?</h2>
+                            <h2 className="text-h2 font-bold text-white mb-4">Questions About These Terms?</h2>
                             <p className="text-gray-200 mb-6 leading-relaxed font-medium">
                                 If you have questions about these Terms of Service, please reach out — we're happy to
                                 clarify anything before you engage our services.

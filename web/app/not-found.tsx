@@ -27,9 +27,9 @@ export default function NotFound() {
                             <Search className="h-16 w-16 text-zgreen-500" />
                         </div>
 
-                        <h1 className="text-8xl font-bold text-white mb-4 tracking-tighter">404</h1>
-                        <h2 className="text-2xl font-bold text-zgreen-500 mb-4">Page Not Found</h2>
-                        <p className="text-lg text-gray-400 mb-8 leading-relaxed">
+                        <h1 className="text-h1 font-bold text-white mb-4 tracking-tighter">404</h1>
+                        <h2 className="text-h2 font-bold text-zgreen-500 mb-4">Page Not Found</h2>
+                        <p className="text-body text-gray-400 mb-8 leading-relaxed">
                             Oops! The page you're looking for seems to have gone on a tech adventure.
                             Let's get you back on track to greatness.
                         </p>
@@ -58,7 +58,7 @@ export default function NotFound() {
                     </div>
 
                     <div className="bg-zinc-900/50 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
-                        <h3 className="font-semibold text-white mb-3">Popular Pages</h3>
+                        <h3 className="text-h3 font-semibold text-white mb-3">Popular Pages</h3>
                         <div className="space-y-2 text-sm">
                             <Link href="/academy" className="block text-gray-400 hover:text-zgreen-500 transition-colors duration-200">
                                 → Zeplynk Tech Academy
@@ -76,7 +76,7 @@ export default function NotFound() {
                     </div>
 
                     <div className="mt-8 text-center">
-                        <p className="text-sm text-gray-500 mb-4">
+                        <p className="text-caption text-gray-500 mb-4">
                             Still can't find what you're looking for?
                         </p>
                         <a

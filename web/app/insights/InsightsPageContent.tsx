@@ -48,11 +48,11 @@ export default function InsightsPageContent({ items: newsItems }: { items: NewsI
                             <Lightbulb className="h-3 w-3" />
                             Insights &amp; Knowledge
                         </div>
-                        <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
+                        <h1 className="text-h1 font-black mb-8 leading-tight">
                             ENGINEERING <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">INSIGHTS.</span>
                         </h1>
-                        <p className="text-gray-400 text-xl font-medium leading-relaxed">
+                        <p className="text-gray-400 text-body font-medium leading-relaxed">
                             Deep-dives into scalable engineering, AI automation, and the future of digital infrastructure — written by the Zeplynk team in Kaduna, Nigeria.
                         </p>
                     </div>
@@ -89,7 +89,7 @@ export default function InsightsPageContent({ items: newsItems }: { items: NewsI
                                     <Calendar className="h-3 w-3" />
                                     {featured.date}
                                 </div>
-                                <h2 className="text-2xl md:text-4xl font-black text-white mb-4 leading-tight group-hover:text-zgreen-400 transition-colors">
+                                <h2 className="text-h2 font-black text-white mb-4 leading-tight group-hover:text-zgreen-400 transition-colors">
                                     {featured.title}
                                 </h2>
                                 <p className="text-gray-400 leading-relaxed mb-8 line-clamp-3">
@@ -159,10 +159,10 @@ export default function InsightsPageContent({ items: newsItems }: { items: NewsI
                                         <Calendar className="h-3 w-3" />
                                         {item.date}
                                     </div>
-                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-zgreen-400 transition-colors line-clamp-2 leading-tight uppercase tracking-tight">
+                                    <h3 className="text-h3 font-bold text-white mb-3 group-hover:text-zgreen-400 transition-colors line-clamp-2 leading-tight uppercase tracking-tight">
                                         {item.title}
                                     </h3>
-                                    <p className="text-gray-200 text-sm line-clamp-3 leading-relaxed mb-6 font-bold">
+                                    <p className="text-gray-200 text-caption line-clamp-3 leading-relaxed mb-6 font-bold">
                                         {item.excerpt}
                                     </p>
                                     <span className="inline-flex items-center gap-2 text-white text-xs font-black uppercase tracking-widest group/btn">
@@ -176,7 +176,7 @@ export default function InsightsPageContent({ items: newsItems }: { items: NewsI
 
                     {visibleArticles.length === 0 && (
                         <div className="col-span-full text-center py-20">
-                            <p className="text-gray-500 text-lg">No articles in this category yet.</p>
+                            <p className="text-gray-500 text-body">No articles in this category yet.</p>
                         </div>
                     )}
                 </div>
@@ -190,14 +190,14 @@ export default function InsightsPageContent({ items: newsItems }: { items: NewsI
                                 <Sparkles className="h-3 w-3" />
                                 Engineering Weekly
                             </div>
-                            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight leading-tight">
+                            <h3 className="text-h3 font-bold text-white mb-3 tracking-tight leading-tight">
                                 Join 2,500+ leaders getting the{" "}
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">
                                     stack blueprint
                                 </span>{" "}
                                 every Tuesday.
                             </h3>
-                            <p className="text-gray-400 font-medium text-sm sm:text-base">No fluff — just the technical deep-dives, straight to your inbox.</p>
+                            <p className="text-gray-400 font-medium text-caption">No fluff — just the technical deep-dives, straight to your inbox.</p>
                         </div>
                         {subscribed ? (
                             <div className="flex items-center justify-center gap-2 text-zgreen-400 font-bold px-6 py-3 w-full lg:w-auto">

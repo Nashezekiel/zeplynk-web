@@ -137,10 +137,10 @@ export default function SolutionsCatalog() {
         <section className="py-24 bg-black relative overflow-hidden" id="service-catalog">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                    <h2 className="text-h2 font-bold text-white mb-6">
                         Enterprise <span className="text-zgreen-500">Service Catalog</span>
                     </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                    <p className="text-gray-400 max-w-2xl mx-auto text-body leading-relaxed">
                         Exhaustive IT and business solutions engineered for performance, security, and global impact.
                     </p>
                 </div>
@@ -167,8 +167,8 @@ export default function SolutionsCatalog() {
                                         <cat.icon className="w-7 h-7" />
                                     </div>
                                     <div>
-                                        <h3 className="text-2xl font-bold text-white mb-1 tracking-tight">{cat.category}</h3>
-                                        <p className="text-gray-500 text-sm font-medium">{cat.description}</p>
+                                        <h3 className="text-h3 font-bold text-white mb-1 tracking-tight">{cat.category}</h3>
+                                        <p className="text-gray-500 text-caption font-medium">{cat.description}</p>
                                     </div>
                                 </div>
                                 <div className={`p-3 rounded-full border border-white/10 transition-transform duration-500 ${openCategory === idx ? "rotate-180 bg-white/5 text-white" : "text-gray-500"}`}>
@@ -199,7 +199,7 @@ export default function SolutionsCatalog() {
                                                         </div>
                                                         <h4 className="font-bold text-lg text-white group-hover/item:text-zgreen-400 transition-colors uppercase tracking-wide text-sm">{item.title}</h4>
                                                     </div>
-                                                    <p className="text-gray-400 text-sm leading-relaxed mb-6 font-medium">
+                                                    <p className="text-gray-400 text-caption leading-relaxed mb-6 font-medium">
                                                         {item.desc}
                                                     </p>
                                                     <div className="mt-auto flex items-center text-xs font-bold text-gray-500 uppercase tracking-widest group-hover/item:text-white transition-colors">

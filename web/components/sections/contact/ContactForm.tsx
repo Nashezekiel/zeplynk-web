@@ -85,7 +85,7 @@ export default function ContactForm() {
                 <div className="bg-zgreen-500 rounded-full p-4 w-16 h-16 mx-auto mb-6 flex items-center justify-center shadow-lg shadow-zgreen-500/20">
                     <CheckCircle className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">Message ready to send!</h3>
+                <h3 className="text-h3 font-bold text-white mb-3">Message ready to send!</h3>
                 <p className="text-gray-200 font-medium">
                     Your email client should have opened with your message pre-filled. We'll get back to you within 24 hours.
                 </p>

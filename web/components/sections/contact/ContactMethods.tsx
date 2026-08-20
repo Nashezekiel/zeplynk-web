@@ -20,8 +20,8 @@ export default function ContactMethods() {
                             <div className="bg-zgreen-500/10 rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 <Mail className="h-8 w-8 text-zgreen-500" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">Email Us</h3>
-                            <p className="text-gray-200 mb-6 text-sm font-medium">
+                            <h3 className="text-h3 font-bold text-white mb-4">Email Us</h3>
+                            <p className="text-gray-200 mb-6 text-caption font-medium">
                                 Send us a detailed message and we'll get back to you within 24 hours.
                             </p>
                             <a href="mailto:zeplynk001@gmail.com" className="text-zgreen-500 font-bold hover:text-zgreen-400 text-lg">
@@ -40,8 +40,8 @@ export default function ContactMethods() {
                             <div className="bg-blue-500/10 rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 <Phone className="h-8 w-8 text-blue-500" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">Call Us</h3>
-                            <p className="text-gray-200 mb-6 text-sm font-medium">
+                            <h3 className="text-h3 font-bold text-white mb-4">Call Us</h3>
+                            <p className="text-gray-200 mb-6 text-caption font-medium">
                                 Speak directly with our team for immediate assistance and consultation.
                             </p>
                             <div className="space-y-2">
@@ -63,8 +63,8 @@ export default function ContactMethods() {
                                     <div className="bg-green-500/10 rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                         <MessageCircle className="h-8 w-8 text-green-500" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-white mb-4">WhatsApp Support</h3>
-                                    <p className="text-gray-200 text-sm max-w-md font-medium">
+                                    <h3 className="text-h3 font-bold text-white mb-4">WhatsApp Support</h3>
+                                    <p className="text-gray-200 text-caption max-w-md font-medium">
                                         Chat with us instantly for quick questions and real-time support. Available 24/7.
                                     </p>
                                 </div>
@@ -89,8 +89,8 @@ export default function ContactMethods() {
                             <div className="bg-zyellow-500/10 rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 <Landmark className="h-8 w-8 text-zyellow-500" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">Payment Methods</h3>
-                            <p className="text-gray-200 text-sm font-medium">
+                            <h3 className="text-h3 font-bold text-white mb-4">Payment Methods</h3>
+                            <p className="text-gray-200 text-caption font-medium">
                                 We accept direct bank transfer to a Nigerian bank account. Account details are shared
                                 on your invoice or, for Academy enrollment, on the registration page.
                             </p>
@@ -107,8 +107,8 @@ export default function ContactMethods() {
                             <div className="bg-zgreen-500/10 rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 <ShieldCheck className="h-8 w-8 text-zgreen-500" />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">Our Guarantee</h3>
-                            <p className="text-gray-200 text-sm font-medium">
+                            <h3 className="text-h3 font-bold text-white mb-4">Our Guarantee</h3>
+                            <p className="text-gray-200 text-caption font-medium">
                                 We work with you through revisions until the agreed deliverables meet the spec we
                                 signed off on together — your genuine satisfaction is the goal, not just a closed ticket.
                             </p>
@@ -124,7 +124,7 @@ export default function ContactMethods() {
                     >
                         <div className="flex items-center mb-8">
                             <Clock className="h-8 w-8 text-zgreen-500 mr-4" />
-                            <h3 className="text-2xl font-bold text-white">Business Hours</h3>
+                            <h3 className="text-h3 font-bold text-white">Business Hours</h3>
                         </div>
                         <div className="space-y-6">
                             {[

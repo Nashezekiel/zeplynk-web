@@ -78,11 +78,11 @@ export default function AiPageDetail({ slug }: Props) {
             </div>
           </motion.div>
 
-          <motion.h1 variants={childFade} className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] max-w-4xl">
+          <motion.h1 variants={childFade} className="text-h1 font-bold tracking-tight leading-[1.05] max-w-4xl">
             {page.title}
           </motion.h1>
 
-          <motion.p variants={childFade} className="text-xl text-zinc-400 max-w-2xl leading-relaxed font-medium">
+          <motion.p variants={childFade} className="text-body text-zinc-400 max-w-2xl leading-relaxed font-medium">
             {page.tagline}
           </motion.p>
 
@@ -143,12 +143,12 @@ export default function AiPageDetail({ slug }: Props) {
               <div className="h-px w-8 bg-zgreen-500" />
               <span className="text-zgreen-500 text-xs font-bold uppercase tracking-[0.25em]">Overview</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">What we build</h2>
-            <p className="text-zinc-400 leading-relaxed text-lg">{page.description}</p>
+            <h2 className="text-h2 font-bold text-white tracking-tight leading-tight">What we build</h2>
+            <p className="text-zinc-400 leading-relaxed text-body">{page.description}</p>
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="space-y-3">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 mb-4">Common use cases</p>
+            <p className="text-caption font-bold uppercase tracking-[0.2em] text-zinc-500 mb-4">Common use cases</p>
             {page.useCases.map((useCase) => (
               <motion.div
                 key={useCase.name}
@@ -158,8 +158,8 @@ export default function AiPageDetail({ slug }: Props) {
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className={`w-5 h-5 mt-0.5 shrink-0 ${page.accentColor}`} />
                   <div>
-                    <h3 className="text-sm font-bold text-white mb-1">{useCase.name}</h3>
-                    <p className="text-xs text-zinc-500 leading-relaxed">{useCase.description}</p>
+                    <h3 className="text-caption font-bold text-white mb-1">{useCase.name}</h3>
+                    <p className="text-caption text-zinc-500 leading-relaxed">{useCase.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -199,8 +199,8 @@ export default function AiPageDetail({ slug }: Props) {
                 {i < page.process.length - 1 && (
                   <div className="hidden lg:block absolute top-11 left-[calc(100%+0.5px)] w-6 h-px bg-white/10" />
                 )}
-                <h3 className="text-base font-bold text-white">{step.title}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed">{step.description}</p>
+                <h3 className="text-h3 font-bold text-white">{step.title}</h3>
+                <p className="text-caption text-zinc-500 leading-relaxed">{step.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -223,15 +223,15 @@ export default function AiPageDetail({ slug }: Props) {
               <div className="h-px w-8 bg-zgreen-500" />
               <span className="text-zgreen-500 text-xs font-bold uppercase tracking-[0.25em]">Why Zeplynk</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">What sets us apart</h2>
+            <h2 className="text-h2 font-bold text-white tracking-tight">What sets us apart</h2>
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid md:grid-cols-3 gap-6">
             {page.differentiators.map((diff, i) => (
               <motion.div key={diff.title} variants={childFade} className="p-8 rounded-2xl border border-white/8 bg-zinc-900/40 space-y-3">
                 <div className={`text-4xl font-black ${page.accentColor} opacity-30`}>{String(i + 1).padStart(2, "0")}</div>
-                <h3 className="text-base font-bold text-white">{diff.title}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed">{diff.description}</p>
+                <h3 className="text-h3 font-bold text-white">{diff.title}</h3>
+                <p className="text-caption text-zinc-500 leading-relaxed">{diff.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -284,7 +284,7 @@ export default function AiPageDetail({ slug }: Props) {
               <div className="h-px w-8 bg-zgreen-500" />
               <span className="text-zgreen-500 text-xs font-bold uppercase tracking-[0.25em]">FAQs</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Common questions</h2>
+            <h2 className="text-h2 font-bold text-white tracking-tight">Common questions</h2>
           </motion.div>
 
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="space-y-3 max-w-3xl">
@@ -322,8 +322,8 @@ export default function AiPageDetail({ slug }: Props) {
             <div className={`absolute inset-0 ${page.gradientFrom} bg-gradient-to-br to-transparent opacity-10 pointer-events-none`} />
 
             <div className="relative z-10 space-y-6 max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Ready to get started?</h2>
-              <p className="text-zinc-400 text-lg leading-relaxed">
+              <h2 className="text-h2 font-bold text-white tracking-tight">Ready to get started?</h2>
+              <p className="text-zinc-400 text-body leading-relaxed">
                 Let&apos;s talk about your project. Book a free strategy call and we&apos;ll map out exactly what&apos;s possible.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-3 pt-2">

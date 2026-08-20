@@ -63,13 +63,13 @@ export default function PortfolioProjects() {
                             Client Work
                         </span>
                     </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+                    <h2 className="text-h2 font-bold text-white mb-6 tracking-tight">
                         Projects We've{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">
                             Shipped
                         </span>
                     </h2>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-gray-400 text-body max-w-2xl mx-auto leading-relaxed">
                         Real platforms built for real businesses — from satellite internet services
                         to enterprise AI intelligence systems.
                     </p>
@@ -135,10 +135,10 @@ export default function PortfolioProjects() {
                                         {project.label}
                                     </div>
 
-                                    <h3 className="text-lg font-bold text-white mb-1.5 group-hover:text-zgreen-300 transition-colors duration-300">
+                                    <h3 className="text-h3 font-bold text-white mb-1.5 group-hover:text-zgreen-300 transition-colors duration-300">
                                         {project.title}
                                     </h3>
-                                    <p className="text-gray-400 leading-snug text-sm mb-4 flex-1">
+                                    <p className="text-gray-400 leading-snug text-caption mb-4 flex-1">
                                         {project.description}
                                     </p>
 

@@ -21,12 +21,12 @@ import {
     Clock,
     Eye,
     Briefcase,
+    LoaderCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const GOOGLE_REVIEW_URL = "https://share.google/ojE6M4gtZJQPpxkng";
-const REVIEW_EMAIL = "zeplynk001@gmail.com";
 
 const SERVICE_OPTIONS = [
     "Web Engineering",
@@ -39,6 +39,7 @@ const SERVICE_OPTIONS = [
     "Data & Business Intelligence",
     "Cybersecurity & Compliance",
     "Tech Education (Academy)",
+    "Consultation",
     "Other",
 ];
 
@@ -56,9 +57,13 @@ const whyItMatters = [
 
 export default function ReviewsPage() {
     const [formData, setFormData] = useState({ name: "", email: "", service: "", message: "" });
+    const [customService, setCustomService] = useState("");
     const [rating, setRating] = useState(5);
     const [hoverRating, setHoverRating] = useState(0);
     const [submitted, setSubmitted] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const [avatarFile, setAvatarFile] = useState<File | null>(null);
     const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
     const [avatarName, setAvatarName] = useState("");
     const fileInputRef = useRef<HTMLInputElement>(null);
@@ -71,6 +76,7 @@ export default function ReviewsPage() {
     const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
+        setAvatarFile(file);
         setAvatarName(file.name);
         const reader = new FileReader();
         reader.onload = () => setAvatarPreview(reader.result as string);
@@ -78,23 +84,58 @@ export default function ReviewsPage() {
     };
 
     const clearAvatar = () => {
+        setAvatarFile(null);
         setAvatarPreview(null);
         setAvatarName("");
         if (fileInputRef.current) fileInputRef.current.value = "";
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const subject = encodeURIComponent(`New ${rating}-Star Review from ${formData.name}`);
-        const body = encodeURIComponent(
-            `Name: ${formData.name}\nEmail: ${formData.email || "Not provided"}\nService: ${formData.service || "Not specified"}\nRating: ${rating} / 5\n${
-                avatarName ? `\nReminder: attach photo/logo file "${avatarName}" before sending.\n` : ""
-            }\nReview:\n${formData.message}`
-        );
+        const resolvedService =
+            formData.service === "Other" ? customService.trim() : formData.service;
 
-        window.location.href = `mailto:${REVIEW_EMAIL}?subject=${subject}&body=${body}`;
-        setSubmitted(true);
+        if (formData.service === "Other" && !resolvedService) {
+            setError("Please tell us what service we did for you.");
+            return;
+        }
+
+        setSubmitting(true);
+        setError(null);
+
+        try {
+            let avatarUrl: string | undefined;
+            if (avatarFile) {
+                const avatarForm = new FormData();
+                avatarForm.append("file", avatarFile);
+                const uploadRes = await fetch("/api/feedback/avatar", { method: "POST", body: avatarForm });
+                const uploadData = await uploadRes.json();
+                if (!uploadRes.ok) throw new Error(uploadData.error || "Failed to upload your photo.");
+                avatarUrl = uploadData.url;
+            }
+
+            const res = await fetch("/api/feedback", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email || undefined,
+                    service: resolvedService || undefined,
+                    rating,
+                    message: formData.message,
+                    avatarUrl,
+                }),
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || "Failed to submit your review.");
+
+            setSubmitted(true);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     return (
@@ -115,13 +156,13 @@ export default function ReviewsPage() {
                         <Star className="h-4 w-4 text-zyellow-400 fill-zyellow-400" />
                         <span className="text-sm font-bold text-white tracking-wide uppercase">Reviews</span>
                     </div>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
+                    <h1 className="text-h1 font-bold text-white mb-6 tracking-tight leading-tight">
                         Loved Working <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-zyellow-300 via-amber-400 to-zgreen-400">
                             With Zeplynk?
                         </span>
                     </h1>
-                    <p className="text-xl text-gray-300 leading-relaxed">
+                    <p className="text-body text-gray-300 leading-relaxed">
                         Your feedback helps other businesses find us and helps our team keep raising the bar.
                         Leave a public review, follow along on social, or send your thoughts directly.
                     </p>
@@ -146,7 +187,7 @@ export default function ReviewsPage() {
                                 <Star key={i} className="h-8 w-8 fill-zyellow-400 text-zyellow-400 drop-shadow-[0_0_12px_rgba(255,193,7,0.5)]" />
                             ))}
                         </div>
-                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
+                        <h2 className="text-h2 font-bold text-white mb-4">
                             Leave Us a Review on Google
                         </h2>
                         <p className="text-gray-300 max-w-xl leading-relaxed mb-8">
@@ -175,8 +216,8 @@ export default function ReviewsPage() {
                             className="relative overflow-hidden rounded-[2.5rem] border border-white/25 bg-zinc-900/50 p-8 backdrop-blur-md text-center"
                         >
                             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-pink-500 to-blue-600 opacity-70" />
-                            <h2 className="text-xl font-bold text-white mb-2">Follow Zeplynk</h2>
-                            <p className="text-gray-400 mb-8 text-sm">
+                            <h2 className="text-h2 font-bold text-white mb-2">Follow Zeplynk</h2>
+                            <p className="text-gray-400 mb-8 text-caption">
                                 Stay in the loop with our latest projects, academy updates, and engineering insights.
                             </p>
                             <div className="flex justify-center gap-4">
@@ -222,8 +263,8 @@ export default function ReviewsPage() {
                                         <item.icon className="h-5 w-5" style={{ color: `rgb(${item.rgb})` }} />
                                     </div>
                                     <div>
-                                        <h3 className="text-sm font-bold text-white mb-0.5">{item.title}</h3>
-                                        <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
+                                        <h3 className="text-caption font-bold text-white mb-0.5">{item.title}</h3>
+                                        <p className="text-gray-400 text-caption leading-relaxed">{item.desc}</p>
                                     </div>
                                 </div>
                             ))}
@@ -244,17 +285,12 @@ export default function ReviewsPage() {
                                 <div className="bg-zgreen-500 rounded-full p-4 w-16 h-16 mx-auto mb-6 flex items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.5)]">
                                     <CheckCircle className="h-8 w-8 text-white" />
                                 </div>
-                                <h2 className="text-2xl font-bold text-white mb-4">Thank You!</h2>
+                                <h2 className="text-h2 font-bold text-white mb-4">Thank You!</h2>
                                 <p className="text-gray-300 leading-relaxed mb-8 max-w-md mx-auto">
-                                    Your email client should now have your review ready to send. We read every
-                                    single one — thank you for taking the time.
+                                    We've received your review. Our team reads every single one — thank you for
+                                    taking the time.
                                 </p>
-                                {avatarName && (
-                                    <p className="text-zyellow-400 text-sm mb-6 max-w-md mx-auto">
-                                        Don't forget to attach <span className="font-bold">{avatarName}</span> to the email before hitting send.
-                                    </p>
-                                )}
-                                <p className="text-gray-500 text-sm mb-6">
+                                <p className="text-gray-500 text-caption mb-6">
                                     One more thing — a public review helps other businesses find us too.
                                 </p>
                                 <a href={GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer">
@@ -270,9 +306,10 @@ export default function ReviewsPage() {
                                     <Sparkles className="h-3.5 w-3.5 text-zgreen-400" />
                                     <span className="text-xs font-bold text-white tracking-wide uppercase">Direct Feedback</span>
                                 </div>
-                                <h2 className="text-2xl font-bold text-white mb-2">Send Us Your Review</h2>
+                                <h2 className="text-h2 font-bold text-white mb-2">Send Us Your Review</h2>
                                 <p className="text-gray-400 mb-8">
-                                    Prefer to write to us directly? Fill this out and it'll open in your email app, ready to send.
+                                    Prefer to write to us directly? Share your experience below — our team reviews
+                                    every submission and may feature it on our site.
                                 </p>
 
                                 <form onSubmit={handleSubmit} className="space-y-7">
@@ -313,12 +350,12 @@ export default function ReviewsPage() {
                                             )}
                                         </div>
                                         {avatarName ? (
-                                            <p className="text-xs text-zyellow-400/90 text-center max-w-xs">
+                                            <p className="text-caption text-zyellow-400/90 text-center max-w-xs">
                                                 Email apps can't auto-attach files — remember to attach{" "}
                                                 <span className="font-bold">{avatarName}</span> before sending.
                                             </p>
                                         ) : (
-                                            <p className="text-xs text-gray-500 text-center max-w-xs">
+                                            <p className="text-caption text-gray-500 text-center max-w-xs">
                                                 Adds a face to your review. PNG or JPG works best.
                                             </p>
                                         )}
@@ -385,7 +422,10 @@ export default function ReviewsPage() {
                                         <label className="text-sm font-bold text-gray-200 ml-1">What Service Did We Do For You?</label>
                                         <Select
                                             value={formData.service}
-                                            onValueChange={(value) => setFormData((prev) => ({ ...prev, service: value }))}
+                                            onValueChange={(value) => {
+                                                setFormData((prev) => ({ ...prev, service: value }));
+                                                if (value !== "Other") setCustomService("");
+                                            }}
                                         >
                                             <SelectTrigger className="group relative h-auto w-full bg-black/50 border border-white/20 rounded-2xl py-4 pl-12 pr-4 text-base text-white hover:border-white/25 focus:border-zgreen-500/60 focus:ring-4 focus:ring-zgreen-500/10 data-[state=open]:border-zgreen-500/60 data-[state=open]:ring-4 data-[state=open]:ring-zgreen-500/10 transition-all font-friendly [&>svg]:text-gray-400 [&>svg]:h-5 [&>svg]:w-5">
                                                 <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-data-[state=open]:text-zgreen-500 transition-colors pointer-events-none" />
@@ -403,6 +443,19 @@ export default function ReviewsPage() {
                                                 ))}
                                             </SelectContent>
                                         </Select>
+                                        {formData.service === "Other" && (
+                                            <div className="relative group pt-1">
+                                                <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 group-focus-within:text-zgreen-500 transition-colors" />
+                                                <input
+                                                    type="text"
+                                                    required
+                                                    value={customService}
+                                                    onChange={(e) => setCustomService(e.target.value)}
+                                                    placeholder="Tell us what service we did for you"
+                                                    className="w-full bg-black/50 border border-white/20 rounded-2xl py-4 pl-12 pr-4 text-white placeholder:text-gray-600 outline-none hover:border-white/25 focus:border-zgreen-500/60 focus:ring-4 focus:ring-zgreen-500/10 transition-all font-friendly"
+                                                />
+                                            </div>
+                                        )}
                                     </div>
 
                                     <div className="space-y-2">
@@ -421,11 +474,24 @@ export default function ReviewsPage() {
                                         </div>
                                     </div>
 
+                                    {error && (
+                                        <p className="text-caption text-red-400 text-center -mb-2">{error}</p>
+                                    )}
+
                                     <Button
                                         type="submit"
-                                        className="w-full h-16 bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-2xl text-lg font-bold shadow-[0_10px_40px_-8px_rgba(34,197,94,0.7)] transition-all hover:scale-[1.02] active:scale-95"
+                                        disabled={submitting}
+                                        className="w-full h-16 bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-2xl text-lg font-bold shadow-[0_10px_40px_-8px_rgba(34,197,94,0.7)] transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-60 disabled:hover:scale-100"
                                     >
-                                        Send Review <Send className="ml-2 h-5 w-5" />
+                                        {submitting ? (
+                                            <>
+                                                Sending <LoaderCircle className="ml-2 h-5 w-5 animate-spin" />
+                                            </>
+                                        ) : (
+                                            <>
+                                                Send Review <Send className="ml-2 h-5 w-5" />
+                                            </>
+                                        )}
                                     </Button>
                                 </form>
                             </>

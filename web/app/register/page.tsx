@@ -116,7 +116,7 @@ Payment proof attached separately if provided.
                         <div className="bg-zgreen-500 rounded-full p-4 w-16 h-16 mx-auto mb-6 flex items-center justify-center shadow-lg shadow-zgreen-500/20">
                             <CheckCircle className="h-8 w-8 text-white" />
                         </div>
-                        <h2 className="text-2xl font-bold text-white mb-4">Registration Submitted!</h2>
+                        <h2 className="text-h2 font-bold text-white mb-4">Registration Submitted!</h2>
                         <p className="text-gray-200 mb-8 leading-relaxed font-medium">
                             Thank you for your interest in Zeplynk Tech Academy. We'll review your application and contact you soon.
                         </p>
@@ -136,10 +136,10 @@ Payment proof attached separately if provided.
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="text-center mb-12">
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+                    <h1 className="text-h1 font-bold text-white mb-4">
                         Register for <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-600">Zeplynk Tech Academy</span>
                     </h1>
-                    <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-medium">
+                    <p className="text-body text-gray-300 max-w-2xl mx-auto leading-relaxed font-medium">
                         Start your 3-month journey to becoming a skilled developer. Complete payment and fill out the form below.
                     </p>
                 </div>
@@ -148,7 +148,7 @@ Payment proof attached separately if provided.
                     {/* Payment Instructions */}
                     <div className="space-y-8">
                         <div>
-                            <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
+                            <h2 className="text-h2 font-bold text-white mb-6 flex items-center">
                                 <CreditCard className="h-6 w-6 text-zgreen-500 mr-3" />
                                 Payment Instructions
                             </h2>
@@ -157,7 +157,7 @@ Payment proof attached separately if provided.
                                     <AlertCircle className="h-5 w-5 text-zyellow-400 mr-3" />
                                     <p className="font-bold text-zyellow-400 uppercase tracking-wide">Complete payment before registration</p>
                                 </div>
-                                <p className="text-gray-200 text-sm leading-relaxed font-medium">
+                                <p className="text-gray-200 text-caption leading-relaxed font-medium">
                                     Please transfer the course fee to one of the accounts below, then fill out the registration form.
                                 </p>
                             </div>
@@ -165,12 +165,12 @@ Payment proof attached separately if provided.
 
                         {/* Diamond Access Bank */}
                         <div className="bg-zinc-900/60 border border-white/20 rounded-xl p-6 hover:border-zgreen-500/40 transition-colors backdrop-blur-md">
-                            <h3 className="text-lg font-bold text-white mb-4">Diamond Access Bank</h3>
+                            <h3 className="text-h3 font-bold text-white mb-4">Diamond Access Bank</h3>
                             <div className="space-y-3">
                                 <div className="flex justify-between items-center p-4 bg-black/60 rounded-lg border border-white/10">
                                     <div>
-                                        <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">Account Number</p>
-                                        <p className="font-mono text-lg font-bold text-white tracking-widest">0097029187</p>
+                                        <p className="text-caption text-gray-400 uppercase tracking-widest font-bold mb-1">Account Number</p>
+                                        <p className="font-mono text-body font-bold text-white tracking-widest">0097029187</p>
                                     </div>
                                     <Tooltip>
                                         <TooltipTrigger asChild>
@@ -185,7 +185,7 @@ Payment proof attached separately if provided.
                                     </Tooltip>
                                 </div>
                                 <div className="p-4 bg-black/60 rounded-lg border border-white/10">
-                                    <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">Account Name</p>
+                                    <p className="text-caption text-gray-400 uppercase tracking-widest font-bold mb-1">Account Name</p>
                                     <p className="font-bold text-white">Nash Ezekiel Pam</p>
                                 </div>
                             </div>
@@ -193,12 +193,12 @@ Payment proof attached separately if provided.
 
                         {/* Opay */}
                         <div className="bg-zinc-900/60 border border-white/20 rounded-xl p-6 hover:border-zgreen-500/40 transition-colors backdrop-blur-md">
-                            <h3 className="text-lg font-bold text-white mb-4">Opay</h3>
+                            <h3 className="text-h3 font-bold text-white mb-4">Opay</h3>
                             <div className="space-y-3">
                                 <div className="flex justify-between items-center p-4 bg-black/60 rounded-lg border border-white/10">
                                     <div>
-                                        <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">Account Number</p>
-                                        <p className="font-mono text-lg font-bold text-white tracking-widest">8067263891</p>
+                                        <p className="text-caption text-gray-400 uppercase tracking-widest font-bold mb-1">Account Number</p>
+                                        <p className="font-mono text-body font-bold text-white tracking-widest">8067263891</p>
                                     </div>
                                     <Tooltip>
                                         <TooltipTrigger asChild>
@@ -213,7 +213,7 @@ Payment proof attached separately if provided.
                                     </Tooltip>
                                 </div>
                                 <div className="p-4 bg-black/60 rounded-lg border border-white/10">
-                                    <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">Account Name</p>
+                                    <p className="text-caption text-gray-400 uppercase tracking-widest font-bold mb-1">Account Name</p>
                                     <p className="font-bold text-white">Nash Ezekiel Pam</p>
                                 </div>
                             </div>
@@ -222,7 +222,7 @@ Payment proof attached separately if provided.
 
                     {/* Registration Form */}
                     <div>
-                        <h2 className="text-2xl font-bold text-white mb-6 flex items-center">
+                        <h2 className="text-h2 font-bold text-white mb-6 flex items-center">
                             <User className="h-6 w-6 text-zgreen-500 mr-3" />
                             Registration Form
                         </h2>
@@ -361,7 +361,7 @@ Payment proof attached separately if provided.
                                         className="w-full bg-zinc-900/60 pl-10 pr-4 py-2.5 border border-white/20 rounded-xl focus:border-zgreen-500 focus:ring-1 focus:ring-zgreen-500 focus:outline-none transition-all duration-200 text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-bold file:bg-zgreen-500/20 file:text-zgreen-400 hover:file:bg-zgreen-500/30 cursor-pointer"
                                     />
                                 </div>
-                                <p className="text-xs text-gray-400 mt-2 ml-1 font-medium">
+                                <p className="text-caption text-gray-400 mt-2 ml-1 font-medium">
                                     Upload screenshot or receipt of payment (JPG, PNG, PDF)
                                 </p>
                             </div>
@@ -396,7 +396,7 @@ Payment proof attached separately if provided.
 
                         {/* Notice */}
                         <div className="mt-8 bg-black/60 border border-white/20 rounded-xl p-6 backdrop-blur-md">
-                            <h3 className="font-bold text-white mb-3 uppercase tracking-wide text-sm">What happens next?</h3>
+                            <h3 className="font-bold text-white mb-3 uppercase tracking-wide text-caption">What happens next?</h3>
                             <ul className="space-y-3 text-gray-200 text-sm font-medium">
                                 <li className="flex items-start">
                                     <CheckCircle className="h-4 w-4 text-zgreen-500 mr-3 mt-0.5" />

@@ -81,7 +81,7 @@ export default function SolutionsPageContent() {
           {/* headline */}
           <motion.h1
             variants={cardVariants}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] max-w-4xl"
+            className="text-h1 font-bold tracking-tight leading-[1.05] max-w-4xl"
           >
             The technology
             <br />
@@ -91,7 +91,7 @@ export default function SolutionsPageContent() {
           {/* sub */}
           <motion.p
             variants={cardVariants}
-            className="text-lg text-zinc-400 max-w-2xl leading-relaxed font-medium"
+            className="text-body text-zinc-400 max-w-2xl leading-relaxed font-medium"
           >
             Ten practice areas. One accountable partner. From custom web engineering and AI automation
             to enterprise digitization and professional tech education we engineer outcomes, not just deliverables.
@@ -169,10 +169,10 @@ export default function SolutionsPageContent() {
                   </div>
 
                   {/* Title + tagline */}
-                  <h2 className="text-xl font-bold text-white mb-2 tracking-tight relative z-10">
+                  <h2 className="text-h2 font-bold text-white mb-2 tracking-tight relative z-10">
                     {solution.title}
                   </h2>
-                  <p className="text-sm text-zinc-300 leading-relaxed mb-6 flex-1 relative z-10">
+                  <p className="text-caption text-zinc-300 leading-relaxed mb-6 flex-1 relative z-10">
                     {solution.tagline}
                   </p>
 
@@ -217,10 +217,10 @@ export default function SolutionsPageContent() {
           className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-10 rounded-2xl border border-white/8 bg-zinc-900/30"
         >
           <div>
-            <h2 className="text-2xl font-bold text-white mb-2">
+            <h2 className="text-h2 font-bold text-white mb-2">
               Not sure where to start?
             </h2>
-            <p className="text-zinc-500 text-sm max-w-md leading-relaxed">
+            <p className="text-zinc-500 text-caption max-w-md leading-relaxed">
               Book a free 30-minute strategy call. We&apos;ll audit your current
               stack and tell you exactly where we can add the most value.
             </p>
