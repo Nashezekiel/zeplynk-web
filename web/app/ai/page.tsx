@@ -1,42 +1,39 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "AI Services & Automation Nigeria | Machine Learning Solutions | Zeplynk",
+    title: "AI Automation Services Nigeria — Chatbots, Workflows & ML",
     description:
-        "Zeplynk delivers leading AI automation services in Nigeria. Custom machine learning, chatbot development, LLM integration, and workflow automation for businesses across Africa.",
+        "Zeplynk builds AI automation systems for Nigerian businesses — WhatsApp chatbots, workflow automation, LLM integration, and machine learning solutions. Based in Kaduna, serving all of Nigeria.",
     keywords: [
         "AI automation Nigeria",
-        "artificial intelligence Africa",
-        "AI consulting Nigeria",
-        "machine learning services Nigeria",
-        "chatbot development Nigeria",
-        "workflow automation Africa",
+        "WhatsApp chatbot Nigeria",
+        "business process automation Nigeria",
+        "AI workflow automation Nigeria",
+        "machine learning Nigeria",
+        "AI chatbot development Nigeria",
         "LLM integration Nigeria",
         "Zeplynk AI",
-        "AI solutions Lagos",
-        "machine learning Nigeria",
-        "AI development Africa",
+        "custom AI solutions Nigeria",
+        "AI for Nigerian SMEs",
+        "chatbot development Kaduna",
         "intelligent automation Nigeria",
-        "AI chatbot development",
-        "predictive analytics Nigeria",
-        "AI consulting services",
-        "artificial intelligence solutions",
-        "AI implementation Nigeria"
+        "AI customer support Nigeria",
+        "workflow automation Kaduna",
     ],
     alternates: {
         canonical: "https://zeplynk.com/ai",
     },
     openGraph: {
-        title: "AI Services & Automation Nigeria | Machine Learning Solutions | Zeplynk",
+        title: "AI Automation Services Nigeria — Chatbots, Workflows & ML | Zeplynk",
         description:
-            "Zeplynk delivers leading AI automation services in Nigeria. Custom machine learning, chatbot development, LLM integration, and workflow automation for businesses across Africa.",
+            "Zeplynk builds AI automation systems for Nigerian businesses — WhatsApp chatbots, workflow automation, LLM integration, and machine learning solutions from Kaduna.",
         url: "https://zeplynk.com/ai",
     },
     twitter: {
         card: "summary_large_image",
-        title: "AI Services & Automation Nigeria | Zeplynk",
+        title: "AI Automation Nigeria — WhatsApp Chatbots, Workflows & ML | Zeplynk",
         description:
-            "Zeplynk AI automation in Nigeria — machine learning, chatbots, LLM integration & workflow automation for African businesses.",
+            "Custom AI automation for Nigerian businesses — chatbots, workflow automation, LLM integration — Zeplynk, Kaduna.",
     },
 };
 
@@ -52,8 +49,60 @@ import { Button } from "@/components/ui/button";
 import ServiceCards from "@/components/sections/ServiceCards";
 import { aiPages } from "@/lib/ai-pages-data";
 
+const aiServiceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "AI Automation Services Nigeria",
+    description: "Zeplynk provides AI automation services for Nigerian businesses including WhatsApp chatbots, workflow automation, LLM integration, machine learning systems, and intelligent process automation.",
+    serviceType: "AI Automation",
+    provider: {
+        "@type": "Organization",
+        name: "Zeplynk",
+        url: "https://zeplynk.com",
+        logo: "https://zeplynk.com/theLogo-removebg-preview.png",
+        telephone: "+234-806-726-3891",
+        address: {
+            "@type": "PostalAddress",
+            addressLocality: "Kaduna",
+            addressRegion: "Kaduna State",
+            addressCountry: "NG",
+        },
+    },
+    areaServed: ["Kaduna", "Lagos", "Abuja", "Jos", "Nigeria", "Africa"],
+    url: "https://zeplynk.com/ai",
+    hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "AI Services",
+        itemListElement: [
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "WhatsApp Chatbot Development Nigeria" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Business Workflow Automation Nigeria" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "LLM & AI Integration Nigeria" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Machine Learning Model Development" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Customer Support Systems" } },
+        ],
+    },
+};
+
+const aiBreadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://zeplynk.com" },
+        { "@type": "ListItem", position: 2, name: "AI & Automation", item: "https://zeplynk.com/ai" },
+    ],
+};
+
 export default function AiPage() {
     return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(aiServiceSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(aiBreadcrumbSchema) }}
+            />
         <div className="min-h-screen bg-black text-white selection:bg-zgreen-500/30 selection:text-zgreen-200 font-friendly">
 
             {/* Hero Section */}
@@ -257,5 +306,6 @@ export default function AiPage() {
             </section>
 
         </div>
+        </>
     );
 }
