@@ -2,22 +2,22 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "Zeplynk - Tech Solutions & Web Development Company Nigeria",
+  title: "AI Automation & Custom Software Development Nigeria | Zeplynk",
   description:
-    "Zeplynk: Nigeria's #1 tech solutions company in Kaduna. Web engineering, AI automation, software development & Academy training across Nigeria and Africa.",
+    "Zeplynk builds AI automation systems, custom software, and high-performance web applications for businesses in Nigeria. Based in Kaduna — serving Lagos, Abuja, Jos, and nationwide.",
   keywords: [
-    "Zeplynk",
-    "tech solutions Nigeria",
-    "web development company Nigeria",
-    "tech company Kaduna",
-    "web development Kaduna",
     "AI automation Nigeria",
-    "software development company Nigeria",
-    "Zeplynk Academy",
-    "tech education Nigeria",
-    "coding bootcamp Nigeria",
-    "Next.js agency Nigeria",
-    "tech solutions Kaduna Nigeria",
+    "custom software development Nigeria",
+    "web development company Nigeria",
+    "web development Kaduna",
+    "AI chatbot development Nigeria",
+    "WhatsApp chatbot Nigeria",
+    "software development Kaduna",
+    "tech company Kaduna",
+    "business process automation Nigeria",
+    "SaaS development Nigeria",
+    "Zeplynk",
+    "coding bootcamp Kaduna",
     "northern Nigeria tech company",
     "tech startup Kaduna",
   ],
@@ -25,16 +25,16 @@ export const metadata: Metadata = {
     canonical: "https://zeplynk.com",
   },
   openGraph: {
-    title: "Tech Solutions & Web Development Company Nigeria | Zeplynk",
+    title: "AI Automation & Custom Software Development Nigeria | Zeplynk",
     description:
-      "Nigeria's premier tech solutions and education company in Kaduna. Web engineering, AI automation, and developer training across Nigeria and Africa.",
+      "Zeplynk builds AI automation systems, custom software, and high-performance web applications for Nigerian businesses — based in Kaduna, serving all of Nigeria.",
     url: "https://zeplynk.com",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tech Solutions & Web Development Company Nigeria | Zeplynk",
+    title: "AI Automation & Custom Software Development Nigeria | Zeplynk",
     description:
-      "Zeplynk is Nigeria's premier tech solutions company in Kaduna — web engineering, AI automation & developer training.",
+      "AI automation, custom software & web development for Nigerian businesses — Zeplynk, Kaduna.",
   },
 };
 
@@ -131,10 +131,79 @@ const NewsSection = dynamic(() => import("@/components/sections/NewsSection"), {
   ),
 });
 
+const homepageFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What services does Zeplynk offer in Nigeria?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Zeplynk offers AI automation, custom software development, web application engineering, mobile app development, backend & API development, cloud & DevOps, UI/UX design, data & business intelligence, cybersecurity, and enterprise digitization services for businesses across Nigeria.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Where is Zeplynk based in Nigeria?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Zeplynk is headquartered in Kaduna, Nigeria. We also serve clients in Jos, Abuja, Lagos, and remotely across all of Nigeria and Africa.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How much does AI automation cost for a Nigerian business?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "AI automation projects at Zeplynk start from ₦200,000 for simple chatbot or workflow automation. More complex custom AI systems and integrations typically range from ₦500,000 to ₦3,000,000+ depending on scope. We provide a free consultation and tailored quote.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does Zeplynk offer a coding bootcamp in Kaduna?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Zeplynk Academy runs coding bootcamps in Kaduna covering software engineering, AI development, backend development, and web development. Both in-person and remote options are available for Nigerian students and professionals.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can Zeplynk build a WhatsApp chatbot for my Nigerian business?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Zeplynk builds custom WhatsApp chatbots and AI customer support systems for Nigerian businesses. Our chatbots handle customer enquiries, lead qualification, order management, and appointment booking — integrated directly with your existing systems.",
+      },
+    },
+  ],
+};
+
+const homepageBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://zeplynk.com",
+    },
+  ],
+};
+
 export default async function Home() {
   const newsItems = await getAllNews();
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageFaqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageBreadcrumbSchema) }}
+      />
     <main className="min-h-screen bg-black text-white selection:bg-zgreen-500/30 selection:text-zgreen-200 overflow-x-hidden font-friendly">
 
       <Suspense fallback={<div className="h-96 bg-zinc-950 animate-pulse" />}>
@@ -243,5 +312,6 @@ export default async function Home() {
         </ScrollReveal>
       </section>
     </main>
+    </>
   );
 }

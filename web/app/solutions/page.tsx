@@ -85,12 +85,25 @@ const solutionsFaqSchema = {
     ],
 };
 
+const solutionsBreadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://zeplynk.com" },
+        { "@type": "ListItem", position: 2, name: "Solutions", item: "https://zeplynk.com/solutions" },
+    ],
+};
+
 export default function SolutionsPage() {
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(solutionsFaqSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(solutionsBreadcrumbSchema) }}
             />
             <SolutionsPageContent />
         </>
