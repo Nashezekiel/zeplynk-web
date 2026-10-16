@@ -44,7 +44,7 @@ const kadunaLocalBusinessSchema = {
     name: "Zeplynk — Tech Solutions Kaduna",
     description: "Kaduna's premier tech solutions and education company. Providing web development, AI automation, software engineering, and developer training across Kaduna State and northern Nigeria.",
     url: "https://zeplynk.com/kaduna",
-    telephone: "+234-806-726-3891",
+    telephone: "+234-706-369-5334",
     email: "hello@zeplynk.com",
     address: {
         "@type": "PostalAddress",
@@ -253,7 +253,7 @@ export default function KadunaPage() {
                                         <span className="text-zgreen-400 mt-1">📞</span>
                                         <div>
                                             <p className="font-bold text-white">Phone</p>
-                                            <a href="tel:+2348067263891" className="text-gray-400 hover:text-zgreen-400 transition-colors">+234-806-726-3891</a>
+                                            <a href="tel:+2347063695334" className="text-gray-400 hover:text-zgreen-400 transition-colors">+234-706-369-5334</a>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">

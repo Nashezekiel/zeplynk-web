@@ -80,7 +80,7 @@ export default function NotFound() {
                             Still can't find what you're looking for?
                         </p>
                         <a
-                            href="https://wa.me/2348067263891?text=Hello%20Zeplynk!%20I%20couldn't%20find%20the%20page%20I%20was%20looking%20for."
+                            href="https://wa.me/2347063695334?text=Hello%20Zeplynk!%20I%20couldn't%20find%20the%20page%20I%20was%20looking%20for."
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center text-zgreen-500 hover:text-zgreen-400 transition-colors duration-200 font-medium"

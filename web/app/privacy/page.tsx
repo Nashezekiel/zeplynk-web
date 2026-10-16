@@ -178,7 +178,7 @@ export default function Privacy() {
                                     Email Privacy Team
                                 </a>
                                 <a
-                                    href="https://wa.me/2348067263891?text=Hello%20Zeplynk!%20I%20have%20questions%20about%20your%20Privacy%20Policy."
+                                    href="https://wa.me/2347063695334?text=Hello%20Zeplynk!%20I%20have%20questions%20about%20your%20Privacy%20Policy."
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center border border-zgreen-500 text-zgreen-500 px-6 py-3 rounded-lg hover:bg-zgreen-500/10 transition-colors duration-200 font-medium"

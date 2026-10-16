@@ -45,7 +45,6 @@ export default function ContactMethods() {
                                 Speak directly with our team for immediate assistance and consultation.
                             </p>
                             <div className="space-y-2">
-                                <a href="tel:+2348067263891" className="block text-blue-500 font-bold hover:text-blue-400 text-lg">08067263891</a>
                                 <a href="tel:+2347063695334" className="block text-blue-500 font-bold hover:text-blue-400 text-lg">07063695334</a>
                             </div>
                         </motion.div>
@@ -69,7 +68,7 @@ export default function ContactMethods() {
                                     </p>
                                 </div>
                                 <a
-                                    href="https://wa.me/2348067263891"
+                                    href="https://wa.me/2347063695334"
                                     target="_blank"
                                     className="inline-flex items-center justify-center h-16 px-8 bg-green-600 hover:bg-green-500 text-white rounded-2xl font-bold transition-all hover:scale-[1.02] shadow-[0_10px_30px_-10px_rgba(34,197,94,0.4)]"
                                 >

@@ -38,7 +38,7 @@ const reviewsSchema = {
     "@type": "LocalBusiness",
     name: "Zeplynk",
     url: "https://zeplynk.com",
-    telephone: "+234-806-726-3891",
+    telephone: "+234-706-369-5334",
     address: {
         "@type": "PostalAddress",
         addressLocality: "Kaduna",

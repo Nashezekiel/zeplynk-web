@@ -48,6 +48,7 @@ export function Footer() {
                         <ul className="space-y-4">
                             {[
                                 { label: "Solutions", href: "/solutions" },
+                                { label: "Google Business Profile", href: "/google-business-profile" },
                                 { label: "Academy", href: "/academy" },
                                 { label: "Our Work", href: "/work" },
                                 { label: "About", href: "/about" },
@@ -72,7 +73,7 @@ export function Footer() {
                             </li>
                             <li className="text-gray-400 hover:text-white transition-colors cursor-default">
                                 <span className="block text-xs uppercase text-gray-600 mb-1">Phone</span>
-                                08067263891
+                                07063695334
                             </li>
                         </ul>
                     </div>
@@ -89,7 +90,7 @@ export function Footer() {
 
             {/* WhatsApp Floating Button */}
             <a
-                href="https://wa.me/2348067263891?text=Hello%20Zeplynk!"
+                href="https://wa.me/2347063695334?text=Hello%20Zeplynk!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fixed bottom-6 right-6 z-50 bg-zgreen-600 hover:bg-zgreen-500 text-white p-4 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
