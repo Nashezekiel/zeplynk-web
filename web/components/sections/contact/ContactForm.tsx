@@ -61,10 +61,21 @@ export default function ContactForm() {
         }
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const validationErrors = validate(formData);
+        // Read what is actually in the fields: anything typed before the page finished
+        // loading is in the inputs but never reached React state.
+        const fields = new FormData(e.currentTarget);
+        const current: FormData = {
+            name: String(fields.get("name") ?? ""),
+            email: String(fields.get("email") ?? ""),
+            subject: String(fields.get("subject") ?? formData.subject),
+            message: String(fields.get("message") ?? ""),
+        };
+        setFormData(current);
+
+        const validationErrors = validate(current);
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
@@ -76,7 +87,7 @@ export default function ContactForm() {
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ ...formData, website: honeypotRef.current?.value }),
+                body: JSON.stringify({ ...current, website: honeypotRef.current?.value }),
             });
             const data = await res.json().catch(() => ({}));
             if (!res.ok) throw new Error(data.error || "We couldn't send your message. Please try again.");
@@ -143,7 +154,7 @@ export default function ContactForm() {
                                 type="text"
                                 id="name"
                                 name="name"
-                                value={formData.name}
+                                defaultValue={formData.name}
                                 onChange={handleChange}
                                 placeholder="John Doe"
                                 aria-invalid={!!errors.name}
@@ -169,7 +180,7 @@ export default function ContactForm() {
                                 type="email"
                                 id="email"
                                 name="email"
-                                value={formData.email}
+                                defaultValue={formData.email}
                                 onChange={handleChange}
                                 placeholder="john@company.com"
                                 aria-invalid={!!errors.email}
@@ -196,7 +207,7 @@ export default function ContactForm() {
                         <select
                             id="subject"
                             name="subject"
-                            value={formData.subject}
+                            defaultValue={formData.subject}
                             onChange={handleChange}
                             className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white outline-none focus:border-zgreen-500/50 focus:ring-4 focus:ring-zgreen-500/10 transition-all appearance-none font-friendly"
                         >
@@ -217,7 +228,7 @@ export default function ContactForm() {
                             id="message"
                             name="message"
                             rows={5}
-                            value={formData.message}
+                            defaultValue={formData.message}
                             onChange={handleChange}
                             placeholder="Tell us about your goals..."
                             aria-invalid={!!errors.message}
