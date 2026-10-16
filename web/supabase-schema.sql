@@ -47,3 +47,39 @@ create index if not exists feedback_featured_idx on feedback (featured, display_
 insert into storage.buckets (id, name, public)
 values ('avatars', 'avatars', true)
 on conflict (id) do nothing;
+
+-- Contact-page messages and Academy registrations. Both used to be mailto: links,
+-- which silently lost anything sent from a device without an email app.
+create table if not exists form_submissions (
+    id uuid primary key default gen_random_uuid(),
+    type text not null check (type in ('contact', 'registration')),
+    name text not null,
+    email text not null,
+    phone text,
+    subject text,
+    course_interest text,
+    message text,
+    attachment_path text,
+    handled boolean not null default false,
+    created_at timestamptz not null default now()
+);
+
+alter table form_submissions enable row level security;
+
+create index if not exists form_submissions_type_idx on form_submissions (type, created_at desc);
+
+-- Newsletter sign-ups from the homepage, Insights and News pages.
+create table if not exists newsletter_subscribers (
+    id uuid primary key default gen_random_uuid(),
+    email text unique not null,
+    source text,
+    created_at timestamptz not null default now()
+);
+
+alter table newsletter_subscribers enable row level security;
+
+-- Private bucket for Academy payment proofs: never public, admin views them via
+-- short-lived signed URLs.
+insert into storage.buckets (id, name, public)
+values ('payment-proofs', 'payment-proofs', false)
+on conflict (id) do nothing;

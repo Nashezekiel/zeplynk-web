@@ -4,20 +4,25 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, CheckCircle, Sparkles, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { subscribeToNewsletter } from "@/lib/subscribe";
 
 export default function Newsletter() {
     const [email, setEmail] = useState("");
     const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+    const [error, setError] = useState<string | null>(null);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus("loading");
-
-        // Simulate API call
-        setTimeout(() => {
+        setError(null);
+        try {
+            await subscribeToNewsletter(email, "homepage");
             setStatus("success");
             setEmail("");
-        }, 1500);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : "We couldn't subscribe you right now. Please try again.");
+            setStatus("idle");
+        }
     };
 
     return (
@@ -85,7 +90,7 @@ export default function Newsletter() {
                                             <CheckCircle className="h-8 w-8 text-zgreen-500" />
                                         </div>
                                         <h3 className="text-h3 font-bold text-white mb-2">You're on the list!</h3>
-                                        <p className="text-gray-300 text-caption font-medium">Check your inbox for the the first deep-dive.</p>
+                                        <p className="text-gray-300 text-caption font-medium">We&apos;ll send our next deep-dive straight to your inbox.</p>
                                     </motion.div>
                                 ) : (
                                     <motion.form
@@ -121,6 +126,11 @@ export default function Newsletter() {
                                                 </Button>
                                             </div>
                                         </div>
+                                        {error && (
+                                            <p role="alert" className="mt-4 text-sm text-red-400 font-medium text-center lg:text-left">
+                                                {error}
+                                            </p>
+                                        )}
                                         <p className="mt-4 text-caption text-gray-400 uppercase tracking-widest text-center lg:text-left font-bold">
                                             Join 2,500+ Engineers & Tech Leaders
                                         </p>

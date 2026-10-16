@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { validateAttachment } from "@/lib/validate-submission-input";
 
 type RegisterErrors = Partial<Record<'name' | 'email' | 'phone' | 'courseInterest', string>>;
 
@@ -35,6 +36,8 @@ export default function Register() {
     const [errors, setErrors] = useState<RegisterErrors>({});
     const [copied, setCopied] = useState({ diamond: false, opay: false });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSending, setIsSending] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
 
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -81,7 +84,7 @@ export default function Register() {
         }, 2000);
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const validationErrors = validate();
@@ -89,23 +92,35 @@ export default function Register() {
             setErrors(validationErrors);
             return;
         }
+        if (formData.paymentProof) {
+            const fileError = validateAttachment(formData.paymentProof);
+            if (fileError) {
+                setSubmitError(fileError);
+                return;
+            }
+        }
 
-        // Create mailto link with form data
-        const subject = encodeURIComponent('Zeplynk Academy Registration');
-        const body = encodeURIComponent(`
-Registration Details:
+        const body = new FormData();
+        body.append('name', formData.name);
+        body.append('email', formData.email);
+        body.append('phone', formData.phone);
+        body.append('courseInterest', formData.courseInterest);
+        body.append('additionalNote', formData.additionalNote);
+        body.append('website', new FormData(e.currentTarget).get('website')?.toString() ?? '');
+        if (formData.paymentProof) body.append('paymentProof', formData.paymentProof);
 
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Course Interest: ${formData.courseInterest}
-Additional Note: ${formData.additionalNote}
-
-Payment proof attached separately if provided.
-    `);
-
-        window.location.href = `mailto:zeplynk001@gmail.com?subject=${subject}&body=${body}`;
-        setIsSubmitted(true);
+        setIsSending(true);
+        setSubmitError(null);
+        try {
+            const res = await fetch('/api/register', { method: 'POST', body });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok) throw new Error(data.error || "We couldn't submit your registration. Please try again.");
+            setIsSubmitted(true);
+        } catch (err) {
+            setSubmitError(err instanceof Error ? err.message : "We couldn't submit your registration. Please try again.");
+        } finally {
+            setIsSending(false);
+        }
     };
 
     if (isSubmitted) {
@@ -228,6 +243,15 @@ Payment proof attached separately if provided.
                         </h2>
 
                         <form onSubmit={handleSubmit} className="space-y-6">
+                            {/* Honeypot: hidden from people, filled in by bots. */}
+                            <input
+                                type="text"
+                                name="website"
+                                tabIndex={-1}
+                                autoComplete="off"
+                                aria-hidden="true"
+                                className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                            />
                             {/* Name */}
                             <div>
                                 <label htmlFor="name" className="block text-sm font-bold text-white mb-2 uppercase tracking-wide">
@@ -356,13 +380,13 @@ Payment proof attached separately if provided.
                                         type="file"
                                         id="paymentProof"
                                         name="paymentProof"
-                                        accept="image/*,.pdf"
+                                        accept="image/png,image/jpeg,image/webp,application/pdf"
                                         onChange={handleFileChange}
                                         className="w-full bg-zinc-900/60 pl-10 pr-4 py-2.5 border border-white/20 rounded-xl focus:border-zgreen-500 focus:ring-1 focus:ring-zgreen-500 focus:outline-none transition-all duration-200 text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-bold file:bg-zgreen-500/20 file:text-zgreen-400 hover:file:bg-zgreen-500/30 cursor-pointer"
                                     />
                                 </div>
                                 <p className="text-caption text-gray-400 mt-2 ml-1 font-medium">
-                                    Upload screenshot or receipt of payment (JPG, PNG, PDF)
+                                    Upload screenshot or receipt of payment (JPG, PNG, WebP or PDF, max 5MB)
                                 </p>
                             </div>
 
@@ -385,12 +409,19 @@ Payment proof attached separately if provided.
                                 </div>
                             </div>
 
+                            {submitError && (
+                                <p role="alert" className="flex items-center gap-2 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300 font-medium">
+                                    <AlertCircle className="h-4 w-4 shrink-0" /> {submitError}
+                                </p>
+                            )}
+
                             {/* Submit Button */}
                             <Button
                                 type="submit"
-                                className="w-full bg-zgreen-600 hover:bg-zgreen-500 text-white py-6 rounded-xl text-lg font-semibold shadow-lg shadow-zgreen-500/20 hover:shadow-zgreen-500/30 transition-all duration-200"
+                                disabled={isSending}
+                                className="w-full bg-zgreen-600 hover:bg-zgreen-500 text-white py-6 rounded-xl text-lg font-semibold shadow-lg shadow-zgreen-500/20 hover:shadow-zgreen-500/30 transition-all duration-200 disabled:opacity-70"
                             >
-                                Submit Registration
+                                {isSending ? 'Submitting...' : 'Submit Registration'}
                             </Button>
                         </form>
 
