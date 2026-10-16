@@ -51,6 +51,7 @@ const pages: SearchResult[] = [
 ];
 
 const solutions: SearchResult[] = [
+    { title: "Google Business Profile Management", href: "/google-business-profile", icon: MapPin },
     { title: "Web Engineering", href: "/solutions/web-engineering", icon: Code },
     { title: "AI & Automation", href: "/solutions/ai-automation", icon: Bot },
     { title: "Mobile App Development", href: "/solutions/mobile-apps", icon: Smartphone },

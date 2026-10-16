@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Send, User, Mail, MessageSquare, Briefcase, CheckCircle, AlertCircle } from "lucide-react";
+import { Send, User, Mail, MessageSquare, Briefcase, CheckCircle, AlertCircle, LoaderCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { HONEYPOT_FIELD } from "@/lib/validate-submission-input";
 
 type FormData = {
     name: string;
@@ -47,6 +48,9 @@ export default function ContactForm() {
     });
     const [errors, setErrors] = useState<FormErrors>({});
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSending, setIsSending] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
+    const honeypotRef = useRef<HTMLInputElement>(null);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -58,21 +62,42 @@ export default function ContactForm() {
         }
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const validationErrors = validate(formData);
+        // Read what is actually in the fields: anything typed before the page finished
+        // loading is in the inputs but never reached React state.
+        const fields = new FormData(e.currentTarget);
+        const current: FormData = {
+            name: String(fields.get("name") ?? ""),
+            email: String(fields.get("email") ?? ""),
+            subject: String(fields.get("subject") ?? formData.subject),
+            message: String(fields.get("message") ?? ""),
+        };
+        setFormData(current);
+
+        const validationErrors = validate(current);
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
         }
 
-        const subject = encodeURIComponent(`Zeplynk Contact — ${formData.subject}`);
-        const body = encodeURIComponent(
-            `Name: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`
-        );
-        window.location.href = `mailto:zeplynk001@gmail.com?subject=${subject}&body=${body}`;
-        setIsSubmitted(true);
+        setIsSending(true);
+        setSubmitError(null);
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ ...current, [HONEYPOT_FIELD]: honeypotRef.current?.value }),
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok) throw new Error(data.error || "We couldn't send your message. Please try again.");
+            setIsSubmitted(true);
+        } catch (err) {
+            setSubmitError(err instanceof Error ? err.message : "We couldn't send your message. Please try again.");
+        } finally {
+            setIsSending(false);
+        }
     };
 
     if (isSubmitted) {
@@ -85,9 +110,9 @@ export default function ContactForm() {
                 <div className="bg-zgreen-500 rounded-full p-4 w-16 h-16 mx-auto mb-6 flex items-center justify-center shadow-lg shadow-zgreen-500/20">
                     <CheckCircle className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-h3 font-bold text-white mb-3">Message ready to send!</h3>
+                <h3 className="text-h3 font-bold text-white mb-3">Message sent!</h3>
                 <p className="text-gray-200 font-medium">
-                    Your email client should have opened with your message pre-filled. We'll get back to you within 24 hours.
+                    Thanks for reaching out. We&apos;ll get back to you within 24 hours.
                 </p>
                 <button
                     onClick={() => {
@@ -111,6 +136,19 @@ export default function ContactForm() {
             className="bg-zinc-900/60 backdrop-blur-xl border border-white/20 rounded-[2.5rem] p-8 md:p-12 shadow-2xl"
         >
             <form className="space-y-6" onSubmit={handleSubmit} noValidate>
+                {/* Honeypot: hidden from people, filled in by bots. */}
+                <input
+                    ref={honeypotRef}
+                    type="text"
+                    name={HONEYPOT_FIELD}
+                    data-lpignore="true"
+                    data-1p-ignore="true"
+                    data-form-type="other"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                         <label htmlFor="name" className="text-sm font-bold text-gray-200 ml-1">Full Name</label>
@@ -120,7 +158,7 @@ export default function ContactForm() {
                                 type="text"
                                 id="name"
                                 name="name"
-                                value={formData.name}
+                                defaultValue={formData.name}
                                 onChange={handleChange}
                                 placeholder="John Doe"
                                 aria-invalid={!!errors.name}
@@ -146,7 +184,7 @@ export default function ContactForm() {
                                 type="email"
                                 id="email"
                                 name="email"
-                                value={formData.email}
+                                defaultValue={formData.email}
                                 onChange={handleChange}
                                 placeholder="john@company.com"
                                 aria-invalid={!!errors.email}
@@ -173,7 +211,7 @@ export default function ContactForm() {
                         <select
                             id="subject"
                             name="subject"
-                            value={formData.subject}
+                            defaultValue={formData.subject}
                             onChange={handleChange}
                             className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-white outline-none focus:border-zgreen-500/50 focus:ring-4 focus:ring-zgreen-500/10 transition-all appearance-none font-friendly"
                         >
@@ -194,7 +232,7 @@ export default function ContactForm() {
                             id="message"
                             name="message"
                             rows={5}
-                            value={formData.message}
+                            defaultValue={formData.message}
                             onChange={handleChange}
                             placeholder="Tell us about your goals..."
                             aria-invalid={!!errors.message}
@@ -213,8 +251,26 @@ export default function ContactForm() {
                     )}
                 </div>
 
-                <Button type="submit" className="w-full h-16 bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-2xl text-lg font-bold shadow-[0_10px_40px_-10px_rgba(34,197,94,0.5)] transition-all hover:scale-[1.02] active:scale-95">
-                    Send Message <Send className="ml-2 h-5 w-5" />
+                {submitError && (
+                    <p role="alert" className="flex items-center gap-2 rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300 font-medium">
+                        <AlertCircle className="h-4 w-4 shrink-0" /> {submitError}
+                    </p>
+                )}
+
+                <Button
+                    type="submit"
+                    disabled={isSending}
+                    className="w-full h-16 bg-zgreen-600 hover:bg-zgreen-500 text-white rounded-2xl text-lg font-bold shadow-[0_10px_40px_-10px_rgba(34,197,94,0.5)] transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-70 disabled:hover:scale-100"
+                >
+                    {isSending ? (
+                        <>
+                            Sending <LoaderCircle className="ml-2 h-5 w-5 animate-spin" />
+                        </>
+                    ) : (
+                        <>
+                            Send Message <Send className="ml-2 h-5 w-5" />
+                        </>
+                    )}
                 </Button>
             </form>
         </motion.div>

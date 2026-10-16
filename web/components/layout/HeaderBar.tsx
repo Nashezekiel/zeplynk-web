@@ -47,13 +47,13 @@ export default function HeaderBar() {
 
                     <div className="hidden sm:block w-px h-4 bg-white/20 flex-shrink-0" />
                     <a
-                        href="tel:+2348067263891"
+                        href="tel:+2347063695334"
                         className="flex items-center gap-1.5 md:gap-2.5 text-white/75 hover:text-white transition-all duration-200 text-xs md:text-[13px] font-semibold tracking-wide group"
                     >
                         <span className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
                             <Phone className="h-2.5 w-2.5 md:h-3 md:w-3" />
                         </span>
-                        <span>08067263891</span>
+                        <span>07063695334</span>
                     </a>
 
                     <div className="hidden lg:block w-px h-4 bg-white/20 flex-shrink-0" />

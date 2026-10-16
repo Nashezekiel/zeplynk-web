@@ -42,7 +42,7 @@ const josLocalBusinessSchema = {
     name: "Zeplynk — Tech Solutions Jos",
     description: "Tech solutions and developer training serving Jos and Plateau State, Nigeria. Web development, AI automation, software engineering, and coding bootcamp programmes.",
     url: "https://zeplynk.com/jos",
-    telephone: "+234-806-726-3891",
+    telephone: "+234-706-369-5334",
     email: "hello@zeplynk.com",
     address: {
         "@type": "PostalAddress",
@@ -176,7 +176,7 @@ export default function JosPage() {
                                         <span className="text-zgreen-400 mt-1">📞</span>
                                         <div>
                                             <p className="font-bold text-white">Call / WhatsApp</p>
-                                            <a href="tel:+2348067263891" className="text-gray-400 hover:text-zgreen-400 transition-colors">+234-806-726-3891</a>
+                                            <a href="tel:+2347063695334" className="text-gray-400 hover:text-zgreen-400 transition-colors">+234-706-369-5334</a>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">

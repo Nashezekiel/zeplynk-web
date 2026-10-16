@@ -129,7 +129,7 @@ export default async function SolutionPage({ params }: Props) {
         addressRegion: "Kaduna State",
         addressCountry: "NG",
       },
-      telephone: "+234-806-726-3891",
+      telephone: "+234-706-369-5334",
     },
     areaServed: ["Kaduna", "Lagos", "Abuja", "Jos", "Nigeria", "Africa"],
     url: `https://zeplynk.com/solutions/${slug}`,

@@ -64,9 +64,9 @@ export default function CorporateTraining() {
                                     <ArrowRight className="h-5 w-5 ml-1" />
                                 </Button>
                             </Link>
-                            <a href="tel:08067263891" className="inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-blue-400 transition-colors">
+                            <a href="tel:07063695334" className="inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-blue-400 transition-colors">
                                 <Phone className="h-4 w-4" />
-                                Or call 0806 726 3891
+                                Or call 0706 369 5334
                             </a>
                         </div>
                     </motion.div>

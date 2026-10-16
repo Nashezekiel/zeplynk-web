@@ -20,11 +20,13 @@ import {
     LogOut,
     X,
     Star,
+    Inbox,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import type { NewsItem } from "@/constants/news";
 import FeedbackPanel from "./FeedbackPanel";
+import SubmissionsPanel from "./SubmissionsPanel";
 
 interface PostDraft {
     title: string;
@@ -67,7 +69,7 @@ function isPreviewableUrl(url: string) {
 
 export default function AdminDashboard() {
     const router = useRouter();
-    const [section, setSection] = useState<"insights" | "testimonials">("insights");
+    const [section, setSection] = useState<"insights" | "testimonials" | "inbox">("insights");
     const [posts, setPosts] = useState<NewsItem[]>([]);
     const [loadingPosts, setLoadingPosts] = useState(true);
     const [view, setView] = useState<"list" | "editor">("list");
@@ -203,6 +205,16 @@ export default function AdminDashboard() {
                             >
                                 <Star className="h-3.5 w-3.5" /> Testimonials
                             </button>
+                            <button
+                                onClick={() => setSection("inbox")}
+                                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest transition-all ${
+                                    section === "inbox"
+                                        ? "bg-zgreen-600 text-white"
+                                        : "bg-white/5 hover:bg-white/10 border border-white/10 text-gray-400"
+                                }`}
+                            >
+                                <Inbox className="h-3.5 w-3.5" /> Inbox
+                            </button>
                         </div>
                     </div>
 
@@ -232,7 +244,9 @@ export default function AdminDashboard() {
                     </div>
                 </header>
 
-                {section === "testimonials" ? (
+                {section === "inbox" ? (
+                    <SubmissionsPanel />
+                ) : section === "testimonials" ? (
                     <FeedbackPanel />
                 ) : view === "list" ? (
                     <div className="bg-zinc-900/30 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-md">

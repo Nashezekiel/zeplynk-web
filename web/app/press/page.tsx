@@ -51,7 +51,7 @@ const pressSchema = {
         addressRegion: "Kaduna State",
         addressCountry: "NG",
     },
-    telephone: "+234-806-726-3891",
+    telephone: "+234-706-369-5334",
     email: "hello@zeplynk.com",
     numberOfEmployees: { "@type": "QuantitativeValue", minValue: 5, maxValue: 50 },
     sameAs: [
@@ -69,7 +69,7 @@ const facts = [
     { label: "Services", value: "Web Development, AI Automation, Software Engineering, Tech Education" },
     { label: "Markets Served", value: "Nigeria, Africa" },
     { label: "Education Wing", value: "Zeplynk Academy — coding bootcamp in Kaduna" },
-    { label: "Phone", value: "+234-806-726-3891" },
+    { label: "Phone", value: "+234-706-369-5334" },
     { label: "Media Enquiries", value: "hello@zeplynk.com" },
     { label: "Website", value: "https://zeplynk.com" },
 ];
@@ -211,10 +211,10 @@ export default function PressPage() {
                                 ✉️ hello@zeplynk.com
                             </a>
                             <a
-                                href="tel:+2348067263891"
+                                href="tel:+2347063695334"
                                 className="inline-flex items-center justify-center px-8 py-4 border border-white/20 text-white font-bold rounded-xl transition-all hover:bg-white/10"
                             >
-                                📞 +234-806-726-3891
+                                📞 +234-706-369-5334
                             </a>
                         </div>
                         <div className="mt-8 flex flex-wrap gap-4 text-sm text-gray-500">

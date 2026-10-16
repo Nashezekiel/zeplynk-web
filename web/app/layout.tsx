@@ -120,7 +120,7 @@ export default function RootLayout({
     contactPoint: [
       {
         "@type": "ContactPoint",
-        telephone: "+234-806-726-3891",
+        telephone: "+234-706-369-5334",
         contactType: "customer service",
         areaServed: "NG",
         availableLanguage: "English",
@@ -148,7 +148,7 @@ export default function RootLayout({
     name: "Zeplynk",
     description: "Premier tech solutions and education company in Kaduna, Nigeria. Offering web development, AI automation, software engineering, and developer training programs across Nigeria.",
     url: BASE_URL,
-    telephone: "+234-806-726-3891",
+    telephone: "+234-706-369-5334",
     email: "hello@zeplynk.com",
     address: {
       "@type": "PostalAddress",

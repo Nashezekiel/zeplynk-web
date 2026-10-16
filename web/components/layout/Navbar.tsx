@@ -9,7 +9,7 @@ import {
     BarChart3, Bot, MessageSquare, Mail,
     Users, GraduationCap, Building2,
     ArrowRight, Layers, Cloud, Shield,
-    Code, Smartphone, Server, Palette, Star
+    Code, Smartphone, Server, Palette, Star, MapPin
 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -68,6 +68,18 @@ export default function Navbar() {
     // Comprehensive Navigation Data
     const navData = {
         solutions: [
+            {
+                id: "google-business-profile",
+                title: "Google Business Profile",
+                icon: MapPin,
+                href: "/google-business-profile",
+                items: [
+                    { name: "Profile Setup & Optimization", href: "/google-business-profile" },
+                    { name: "Review Management", href: "/google-business-profile" },
+                    { name: "Google Posts & Photos", href: "/google-business-profile" },
+                    { name: "Monthly Performance Reports", href: "/google-business-profile" }
+                ]
+            },
             {
                 id: "web-engineering",
                 title: "Web Engineering",
@@ -342,7 +354,7 @@ export default function Navbar() {
                                                         {navData.solutions.map((cat) => (
                                                             <Link
                                                                 key={cat.id}
-                                                                href={`/solutions/${cat.id}`}
+                                                                href={cat.href ?? `/solutions/${cat.id}`}
                                                                 onClick={() => setActiveDropdown(null)}
                                                                 className="flex items-center gap-3 group/course px-3 py-2 rounded-xl hover:bg-white/5 transition-all"
                                                             >
@@ -625,11 +637,12 @@ export default function Navbar() {
                                                 className="overflow-hidden pl-2 pr-1 space-y-2 pb-4 pt-2"
                                             >
                                                 {navData.solutions.map((cat) => {
-                                                    const catActive = isSectionActive(`/solutions/${cat.id}`);
+                                                    const catHref = cat.href ?? `/solutions/${cat.id}`;
+                                                    const catActive = isSectionActive(catHref);
                                                     return (
                                                         <Link
                                                             key={cat.title}
-                                                            href={`/solutions/${cat.id}`}
+                                                            href={catHref}
                                                             className={`border rounded-xl p-3 flex items-center justify-between group/cat transition-all ${catActive ? 'bg-zgreen-500/10 border-zgreen-500/30' : 'bg-white/[0.03] hover:bg-white/[0.08] border-white/5'}`}
                                                             onClick={() => setMobileMenuOpen(false)}
                                                          >

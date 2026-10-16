@@ -60,7 +60,7 @@ const aiServiceSchema = {
         name: "Zeplynk",
         url: "https://zeplynk.com",
         logo: "https://zeplynk.com/theLogo-removebg-preview.png",
-        telephone: "+234-806-726-3891",
+        telephone: "+234-706-369-5334",
         address: {
             "@type": "PostalAddress",
             addressLocality: "Kaduna",

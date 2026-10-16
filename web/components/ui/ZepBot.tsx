@@ -11,7 +11,7 @@ interface Message {
     timestamp: Date;
 }
 
-const CONTACT_PHONE = "0806 726 3891";
+const CONTACT_PHONE = "0706 369 5334";
 const CONTACT_EMAIL = "zeplynk001@gmail.com";
 const CONTACT_LINE = `You can reach the team directly on ${CONTACT_PHONE} or ${CONTACT_EMAIL} and we'll pick it up from there.`;
 

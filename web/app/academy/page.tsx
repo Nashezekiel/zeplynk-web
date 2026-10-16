@@ -43,7 +43,7 @@ const academySchema = [
         name: "Zeplynk Academy",
         description: "Nigeria's leading tech education program based in Kaduna. Offering coding bootcamps in web development, backend engineering, and AI for Nigerian professionals.",
         url: "https://zeplynk.com/academy",
-        telephone: "+234-806-726-3891",
+        telephone: "+234-706-369-5334",
         address: {
             "@type": "PostalAddress",
             addressLocality: "Kaduna",

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowLeft, Calendar, Tag, Mail, Send, Sparkles, CheckCircle } from "lucide-react";
 import type { NewsItem } from "@/constants/news";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { subscribeToNewsletter } from "@/lib/subscribe";
 
 export default function NewsListingContent({
     items: newsItems,
@@ -16,14 +17,22 @@ export default function NewsListingContent({
 }) {
     const [email, setEmail] = useState("");
     const [subscribed, setSubscribed] = useState(false);
+    const [subscribing, setSubscribing] = useState(false);
+    const [subscribeError, setSubscribeError] = useState<string | null>(null);
 
-    const handleSubscribe = (e: React.FormEvent) => {
+    const handleSubscribe = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!email) return;
-        const subject = encodeURIComponent("Newsletter Signup — Engineering Weekly");
-        const body = encodeURIComponent(`Please subscribe this email to Engineering Weekly: ${email}`);
-        window.location.href = `mailto:zeplynk001@gmail.com?subject=${subject}&body=${body}`;
-        setSubscribed(true);
+        setSubscribing(true);
+        setSubscribeError(null);
+        try {
+            await subscribeToNewsletter(email, "news");
+            setSubscribed(true);
+        } catch (err) {
+            setSubscribeError(err instanceof Error ? err.message : "We couldn't subscribe you right now. Please try again.");
+        } finally {
+            setSubscribing(false);
+        }
     };
 
     return (
@@ -74,7 +83,7 @@ export default function NewsListingContent({
                         {subscribed ? (
                             <div className="flex items-center justify-center gap-2 text-zgreen-400 font-bold px-6 py-3 w-full lg:w-auto">
                                 <CheckCircle className="h-5 w-5 shrink-0" />
-                                Check your email app to confirm!
+                                You're subscribed!
                             </div>
                         ) : (
                             <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row w-full lg:w-auto gap-3">
@@ -91,10 +100,16 @@ export default function NewsListingContent({
                                 </div>
                                 <button
                                     type="submit"
-                                    className="flex items-center justify-center gap-2 bg-zgreen-600 hover:bg-zgreen-500 text-white font-bold px-8 py-3 rounded-xl transition-all whitespace-nowrap shadow-[0_10px_30px_-10px_rgba(34,197,94,0.5)] hover:scale-[1.02] active:scale-95"
+                                    disabled={subscribing}
+                                    className="flex items-center justify-center gap-2 bg-zgreen-600 hover:bg-zgreen-500 text-white font-bold px-8 py-3 rounded-xl transition-all whitespace-nowrap shadow-[0_10px_30px_-10px_rgba(34,197,94,0.5)] hover:scale-[1.02] active:scale-95 disabled:opacity-60 disabled:hover:scale-100"
                                 >
-                                    Join Now <Send className="h-4 w-4" />
+                                    {subscribing ? "Joining..." : "Join Now"} <Send className="h-4 w-4" />
                                 </button>
+                                {subscribeError && (
+                                    <p role="alert" className="text-sm text-red-400 font-medium sm:self-center">
+                                        {subscribeError}
+                                    </p>
+                                )}
                             </form>
                         )}
                     </div>
