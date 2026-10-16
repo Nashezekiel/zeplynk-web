@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { deliverSubmission, sendFormEmail } from "@/lib/notify-email";
 import { createRegistration } from "@/lib/submissions-store";
 import {
     isHoneypotFilled,
@@ -27,14 +28,34 @@ export async function POST(request: NextRequest) {
         if (fileError) return NextResponse.json({ error: fileError }, { status: 400 });
     }
 
-    try {
-        await createRegistration(result.input, file);
-        return NextResponse.json({ ok: true }, { status: 201 });
-    } catch (error) {
-        console.error("[register]", error);
+    const { name, email, phone, courseInterest, message } = result.input;
+    const delivered = await deliverSubmission("register", [
+        sendFormEmail({
+            subject: `New Academy registration: ${name} (${courseInterest})`,
+            heading: "New Zeplynk Academy registration",
+            replyTo: email,
+            fields: [
+                { label: "Name", value: name },
+                { label: "Email", value: email },
+                { label: "Phone", value: phone },
+                { label: "Course", value: courseInterest },
+                { label: "Notes", value: message },
+                { label: "Payment proof", value: file ? "Attached" : "Not provided" },
+            ],
+            attachment: file ? { filename: `payment-proof-${name.replace(/[^a-z0-9]+/gi, "-")}.${extensionFor(file)}`, file } : undefined,
+        }),
+        createRegistration(result.input, file),
+    ]);
+
+    if (!delivered) {
         return NextResponse.json(
             { error: "We couldn't submit your registration. Please try again or reach us on WhatsApp." },
             { status: 500 }
         );
     }
+    return NextResponse.json({ ok: true }, { status: 201 });
+}
+
+function extensionFor(file: File): string {
+    return file.type === "application/pdf" ? "pdf" : file.type.split("/")[1] || "bin";
 }
