@@ -30,6 +30,12 @@ function validEmail(value: string): boolean {
 }
 
 /**
+ * Name of the hidden spam-trap field. Deliberately meaningless: a recognisable name such as
+ * "website" gets filled in by browser autofill, which silently dropped real submissions.
+ */
+export const HONEYPOT_FIELD = "hp_x7q";
+
+/**
  * Bots fill every field, including ones hidden from people. A filled honeypot means
  * the request should be accepted silently and dropped.
  */

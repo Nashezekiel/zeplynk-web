@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { deliverSubmission, sendFormEmail } from "@/lib/notify-email";
 import { createContactSubmission } from "@/lib/submissions-store";
-import { isHoneypotFilled, validateContactInput } from "@/lib/validate-submission-input";
+import { HONEYPOT_FIELD, isHoneypotFilled, validateContactInput } from "@/lib/validate-submission-input";
 
 export async function POST(request: NextRequest) {
     const body = await request.json().catch(() => null);
-    if (isHoneypotFilled(body?.website)) {
+    if (isHoneypotFilled(body?.[HONEYPOT_FIELD])) {
+        console.warn("[contact] dropped: spam-trap field was filled");
         return NextResponse.json({ ok: true }, { status: 201 });
     }
 

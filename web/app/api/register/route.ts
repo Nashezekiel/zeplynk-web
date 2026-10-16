@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { deliverSubmission, sendFormEmail } from "@/lib/notify-email";
 import { createRegistration } from "@/lib/submissions-store";
 import {
+    HONEYPOT_FIELD,
     isHoneypotFilled,
     validateAttachment,
     validateRegistrationInput,
@@ -12,7 +13,8 @@ export async function POST(request: NextRequest) {
     if (!formData) {
         return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
     }
-    if (isHoneypotFilled(formData.get("website"))) {
+    if (isHoneypotFilled(formData.get(HONEYPOT_FIELD))) {
+        console.warn("[register] dropped: spam-trap field was filled");
         return NextResponse.json({ ok: true }, { status: 201 });
     }
 

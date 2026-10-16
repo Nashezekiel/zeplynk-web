@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { validateAttachment } from "@/lib/validate-submission-input";
+import { HONEYPOT_FIELD, validateAttachment } from "@/lib/validate-submission-input";
 
 type RegisterErrors = Partial<Record<'name' | 'email' | 'phone' | 'courseInterest', string>>;
 
@@ -106,7 +106,7 @@ export default function Register() {
         body.append('phone', formData.phone);
         body.append('courseInterest', formData.courseInterest);
         body.append('additionalNote', formData.additionalNote);
-        body.append('website', new FormData(e.currentTarget).get('website')?.toString() ?? '');
+        body.append(HONEYPOT_FIELD, new FormData(e.currentTarget).get(HONEYPOT_FIELD)?.toString() ?? '');
         if (formData.paymentProof) body.append('paymentProof', formData.paymentProof);
 
         setIsSending(true);
@@ -246,7 +246,10 @@ export default function Register() {
                             {/* Honeypot: hidden from people, filled in by bots. */}
                             <input
                                 type="text"
-                                name="website"
+                                name={HONEYPOT_FIELD}
+                                data-lpignore="true"
+                                data-1p-ignore="true"
+                                data-form-type="other"
                                 tabIndex={-1}
                                 autoComplete="off"
                                 aria-hidden="true"

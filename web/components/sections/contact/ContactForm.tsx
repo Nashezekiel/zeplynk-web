@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Send, User, Mail, MessageSquare, Briefcase, CheckCircle, AlertCircle, LoaderCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { HONEYPOT_FIELD } from "@/lib/validate-submission-input";
 
 type FormData = {
     name: string;
@@ -87,7 +88,7 @@ export default function ContactForm() {
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ ...current, website: honeypotRef.current?.value }),
+                body: JSON.stringify({ ...current, [HONEYPOT_FIELD]: honeypotRef.current?.value }),
             });
             const data = await res.json().catch(() => ({}));
             if (!res.ok) throw new Error(data.error || "We couldn't send your message. Please try again.");
@@ -139,7 +140,10 @@ export default function ContactForm() {
                 <input
                     ref={honeypotRef}
                     type="text"
-                    name="website"
+                    name={HONEYPOT_FIELD}
+                    data-lpignore="true"
+                    data-1p-ignore="true"
+                    data-form-type="other"
                     tabIndex={-1}
                     autoComplete="off"
                     aria-hidden="true"
