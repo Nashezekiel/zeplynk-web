@@ -13,6 +13,7 @@ import {
     Star,
     X,
 } from "lucide-react";
+import { HeroVisual, Reveal, ScrollProgress, Stagger, StaggerItem } from "./GbpMotion";
 
 // The number on the GBP flyers — ads and outreach send people here, so the page must match it.
 const WHATSAPP_NUMBER = "2347063695334";
@@ -209,15 +210,20 @@ const breadcrumbSchema = {
     ],
 };
 
+// Shared layout tokens so every section keeps the same rhythm and outline weight.
+const SECTION = "relative px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 border-t border-white/10";
+const CARD =
+    "h-full rounded-3xl border border-white/15 bg-zinc-900/40 transition-all duration-300 hover:-translate-y-1 hover:border-zgreen-500/50 hover:bg-zinc-900/70 hover:shadow-[0_20px_50px_-20px_rgba(34,197,94,0.35)]";
+
 function WhatsAppButton({ label = "Get Your Free Profile Check", className = "" }: { label?: string; className?: string }) {
     return (
         <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center justify-center gap-2 whitespace-nowrap px-6 py-3.5 bg-zgreen-600 hover:bg-zgreen-500 text-black font-bold rounded-full text-base transition-all hover:shadow-[0_0_40px_-8px_rgba(34,197,94,0.6)] ${className}`}
+            className={`group/btn inline-flex items-center justify-center gap-2 whitespace-nowrap px-6 py-3.5 bg-zgreen-600 hover:bg-zgreen-500 text-black font-bold rounded-full text-base transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_-10px_rgba(34,197,94,0.7)] active:translate-y-0 ${className}`}
         >
-            <MessageCircle className="h-5 w-5 shrink-0" />
+            <MessageCircle className="h-5 w-5 shrink-0 transition-transform duration-300 group-hover/btn:-rotate-12" />
             {label}
         </a>
     );
@@ -225,11 +231,25 @@ function WhatsAppButton({ label = "Get Your Free Profile Check", className = "" 
 
 function SectionHeading({ eyebrow, title, intro, center = false }: { eyebrow: string; title: string; intro?: string; center?: boolean }) {
     return (
-        <div className={`mb-10 sm:mb-14 ${center ? "text-center mx-auto" : ""} max-w-2xl`}>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zgreen-400 mb-4">{eyebrow}</p>
+        <Reveal className={`mb-10 sm:mb-12 max-w-2xl ${center ? "text-center mx-auto" : ""}`}>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zgreen-400 mb-3">{eyebrow}</p>
             <h2 className="text-h2 font-bold text-white tracking-tight">{title}</h2>
             {intro && <p className="mt-4 text-gray-400 leading-relaxed">{intro}</p>}
-        </div>
+        </Reveal>
+    );
+}
+
+function CheckList({ items, tone = "good" }: { items: string[]; tone?: "good" | "bad" }) {
+    const Icon = tone === "good" ? Check : X;
+    return (
+        <Stagger as="ul" className="space-y-3">
+            {items.map((item) => (
+                <StaggerItem as="li" key={item} className="flex items-start gap-3 text-sm sm:text-base text-gray-300">
+                    <Icon className={`h-4 w-4 shrink-0 mt-1 ${tone === "good" ? "text-zgreen-400" : "text-red-400"}`} />
+                    {item}
+                </StaggerItem>
+            ))}
+        </Stagger>
     );
 }
 
@@ -239,168 +259,204 @@ export default function GoogleBusinessProfilePage() {
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <ScrollProgress />
             <main className="min-h-screen bg-black text-white overflow-x-hidden">
                 {/* Hero */}
-                <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8">
+                <section className="relative px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-16 sm:pb-20 lg:pb-24">
                     <div className="absolute -top-20 right-0 w-[500px] h-[500px] bg-zgreen-500/10 rounded-full blur-[140px] pointer-events-none" />
+                    <div
+                        aria-hidden="true"
+                        className="absolute inset-0 pointer-events-none [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_70%)]"
+                    />
                     <div className="max-w-6xl mx-auto relative grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
-                        <div className="text-center lg:text-left">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zgreen-500/10 border border-zgreen-500/20 text-zgreen-400 text-[11px] sm:text-xs font-bold mb-6 tracking-widest uppercase">
-                                <span className="h-1.5 w-1.5 rounded-full bg-zgreen-400" />
-                                Google Business Profile Management
-                            </div>
-                            <h1 className="text-h1 font-black tracking-tight leading-[1.05] mb-6">
-                                Is your business{" "}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">
-                                    visible on Google?
-                                </span>
-                            </h1>
-                            <p className="text-base sm:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-                                Customers search Google before they call, visit or buy. We manage your Google
-                                Business Profile so they can find you, trust you and contact you.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                        <Stagger className="text-center lg:text-left" gap={0.1}>
+                            <StaggerItem>
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zgreen-500/10 border border-zgreen-500/30 text-zgreen-400 text-[11px] sm:text-xs font-bold mb-6 tracking-widest uppercase">
+                                    <span className="relative flex h-1.5 w-1.5">
+                                        <span className="absolute inline-flex h-full w-full rounded-full bg-zgreen-400 opacity-75 animate-ping motion-reduce:animate-none" />
+                                        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-zgreen-400" />
+                                    </span>
+                                    Google Business Profile Management
+                                </div>
+                            </StaggerItem>
+                            <StaggerItem>
+                                <h1 className="text-h1 font-black tracking-tight leading-[1.05] mb-6">
+                                    Is your business{" "}
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">
+                                        visible on Google?
+                                    </span>
+                                </h1>
+                            </StaggerItem>
+                            <StaggerItem>
+                                <p className="text-base sm:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+                                    Customers search Google before they call, visit or buy. We manage your Google
+                                    Business Profile so they can find you, trust you and contact you.
+                                </p>
+                            </StaggerItem>
+                            <StaggerItem className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                                 <WhatsAppButton />
                                 <a
                                     href="#services"
-                                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap px-6 py-3.5 border border-white/15 text-white font-semibold rounded-full text-base transition-all hover:bg-white/5"
+                                    className="group/link inline-flex items-center justify-center gap-2 whitespace-nowrap px-6 py-3.5 border border-white/20 text-white font-semibold rounded-full text-base transition-all duration-300 hover:bg-white/5 hover:border-white/40"
                                 >
                                     See what&apos;s included
-                                    <ArrowRight className="h-4 w-4" />
+                                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
                                 </a>
-                            </div>
-                            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 justify-center lg:justify-start text-sm text-gray-500">
-                                {["Free profile check", "No obligation", "All on WhatsApp"].map((item) => (
-                                    <li key={item} className="flex items-center gap-2">
-                                        <Check className="h-4 w-4 text-zgreen-400" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                            </StaggerItem>
+                            <StaggerItem>
+                                <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 justify-center lg:justify-start text-sm text-gray-400">
+                                    {["Free profile check", "No obligation", "All on WhatsApp"].map((item) => (
+                                        <li key={item} className="flex items-center gap-2">
+                                            <Check className="h-4 w-4 text-zgreen-400" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </StaggerItem>
+                        </Stagger>
 
-                        <a
-                            href={WHATSAPP_URL}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Get your free Google profile check on WhatsApp"
-                            className="group relative mx-auto w-full max-w-sm sm:max-w-md lg:max-w-none"
-                        >
-                            <div className="absolute -inset-4 bg-gradient-to-tr from-zgreen-500/30 to-emerald-400/10 rounded-[2rem] blur-2xl opacity-60 group-hover:opacity-90 transition-opacity" />
-                            <Image
-                                src="/images/gbp/gbp-flyer-dark.png"
-                                alt="Zeplynk Google Business Profile management: profile setup, performance tracking, content updates and local SEO"
-                                width={1254}
-                                height={1254}
-                                priority
-                                sizes="(min-width: 1024px) 480px, (min-width: 640px) 448px, 90vw"
-                                className="relative w-full h-auto rounded-3xl border border-white/10 shadow-2xl transition-transform duration-500 lg:rotate-2 group-hover:rotate-0"
-                            />
-                        </a>
+                        <HeroVisual className="mx-auto w-full max-w-sm sm:max-w-md lg:max-w-none">
+                            <a
+                                href={WHATSAPP_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Get your free Google profile check on WhatsApp"
+                                className="group relative block"
+                            >
+                                <div className="absolute -inset-4 bg-gradient-to-tr from-zgreen-500/30 to-emerald-400/10 rounded-[2rem] blur-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                                <Image
+                                    src="/images/gbp/gbp-flyer-dark.png"
+                                    alt="Zeplynk Google Business Profile management: profile setup, performance tracking, content updates and local SEO"
+                                    width={1254}
+                                    height={1254}
+                                    priority
+                                    sizes="(min-width: 1024px) 480px, (min-width: 640px) 448px, 90vw"
+                                    className="relative w-full h-auto rounded-3xl border border-white/20 shadow-2xl transition-transform duration-500 lg:rotate-2 group-hover:rotate-0 group-hover:scale-[1.02]"
+                                />
+                            </a>
+                        </HeroVisual>
                     </div>
                 </section>
 
                 {/* Problems */}
-                <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5">
-                    <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16">
-                        <SectionHeading
-                            eyebrow="The problem"
-                            title="Having a profile isn't enough."
-                            intro="Many businesses set up a Google profile once and never touch it again. These are the problems we see most often, and each one can cost you customers."
-                        />
-                        <ul className="rounded-3xl border border-white/10 bg-zinc-950 divide-y divide-white/5 overflow-hidden">
+                <section className={SECTION}>
+                    <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-16 items-start">
+                        <div className="lg:sticky lg:top-32">
+                            <SectionHeading
+                                eyebrow="The problem"
+                                title="Having a profile isn't enough."
+                                intro="Many businesses set up a Google profile once and never touch it again. These are the problems we see most often, and each one can cost you customers."
+                            />
+                        </div>
+                        <Stagger as="ul" gap={0.06} className="rounded-3xl border border-white/15 bg-zinc-900/40 divide-y divide-white/10 overflow-hidden">
                             {problems.map((problem) => (
-                                <li key={problem} className="flex items-start gap-4 px-5 sm:px-6 py-4 sm:py-5">
-                                    <span className="mt-0.5 h-6 w-6 shrink-0 rounded-full bg-red-500/10 flex items-center justify-center">
+                                <StaggerItem
+                                    as="li"
+                                    key={problem}
+                                    className="flex items-start gap-4 px-5 sm:px-6 py-4 sm:py-5 transition-colors duration-300 hover:bg-white/[0.03]"
+                                >
+                                    <span className="mt-0.5 h-6 w-6 shrink-0 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center">
                                         <X className="h-3.5 w-3.5 text-red-400" />
                                     </span>
                                     <span className="text-gray-300 text-sm sm:text-base">{problem}</span>
-                                </li>
+                                </StaggerItem>
                             ))}
-                        </ul>
+                        </Stagger>
                     </div>
                 </section>
 
                 {/* Services */}
-                <section id="services" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-zinc-950/50 scroll-mt-24">
+                <section id="services" className={`${SECTION} bg-zinc-950/60 scroll-mt-24`}>
                     <div className="max-w-6xl mx-auto">
                         <SectionHeading
                             eyebrow="What we handle"
                             title="Your Google presence, managed every month."
                             intro="You focus on running your business. We keep your profile accurate, active and trustworthy."
                         />
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                        <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
                             {services.map((service) => (
-                                <div
-                                    key={service.title}
-                                    className="p-6 rounded-3xl bg-black border border-white/10 hover:border-zgreen-500/40 transition-colors"
-                                >
-                                    <div className="h-11 w-11 rounded-2xl bg-zgreen-500/10 flex items-center justify-center mb-5">
-                                        <service.icon className="h-5 w-5 text-zgreen-400" />
+                                <StaggerItem key={service.title}>
+                                    <div className={`group p-6 ${CARD}`}>
+                                        <div className="h-11 w-11 rounded-2xl bg-zgreen-500/10 border border-zgreen-500/25 flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-zgreen-500/20 group-hover:scale-110">
+                                            <service.icon className="h-5 w-5 text-zgreen-400" />
+                                        </div>
+                                        <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
+                                        <p className="text-gray-400 text-sm leading-relaxed">{service.desc}</p>
                                     </div>
-                                    <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed">{service.desc}</p>
-                                </div>
+                                </StaggerItem>
                             ))}
-                        </div>
+                        </Stagger>
                     </div>
                 </section>
 
                 {/* How it works */}
-                <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5">
+                <section className={SECTION}>
                     <div className="max-w-6xl mx-auto">
                         <SectionHeading eyebrow="How it works" title="Four simple steps." />
-                        <div className="relative">
-                        <div aria-hidden="true" className="hidden lg:block absolute top-5 left-5 right-5 h-px bg-gradient-to-r from-zgreen-500/40 via-white/10 to-transparent" />
-                        <ol className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+                        <Stagger as="ol" gap={0.12} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
                             {steps.map((step, i) => (
-                                <li key={step.title} className="relative">
-                                    <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-zgreen-600 text-black font-black text-sm mb-5">
-                                        {i + 1}
-                                    </span>
-                                    <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
-                                </li>
+                                <StaggerItem as="li" key={step.title}>
+                                    <div className={`group p-6 ${CARD}`}>
+                                        <div className="flex items-center gap-3 mb-5">
+                                            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-zgreen-600 text-black font-black text-sm shadow-[0_0_24px_-6px_rgba(34,197,94,0.7)] transition-transform duration-300 group-hover:scale-110">
+                                                {i + 1}
+                                            </span>
+                                            {i < steps.length - 1 && (
+                                                <span aria-hidden="true" className="hidden lg:block h-px flex-1 bg-gradient-to-r from-zgreen-500/50 to-transparent" />
+                                            )}
+                                        </div>
+                                        <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
+                                        <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
+                                    </div>
+                                </StaggerItem>
                             ))}
-                        </ol>
-                        </div>
+                        </Stagger>
                     </div>
                 </section>
 
                 {/* Free profile check */}
-                <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-zinc-950/50">
-                    <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                        <div className="order-2 lg:order-1 mx-auto w-full max-w-sm sm:max-w-md lg:max-w-none">
-                            <Image
-                                src="/images/gbp/gbp-flyer-light.jpg"
-                                alt="Get your business listed and verified on Google with Zeplynk"
-                                width={2048}
-                                height={2048}
-                                sizes="(min-width: 1024px) 520px, (min-width: 640px) 448px, 90vw"
-                                className="w-full h-auto rounded-3xl border border-white/10 shadow-2xl"
-                            />
-                        </div>
+                <section className={`${SECTION} bg-zinc-950/60`}>
+                    <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                        <Reveal className="order-2 lg:order-1 mx-auto w-full max-w-sm sm:max-w-md lg:max-w-none">
+                            <div className="group relative">
+                                <div className="absolute -inset-3 bg-zgreen-500/15 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <Image
+                                    src="/images/gbp/gbp-flyer-light.jpg"
+                                    alt="Get your business listed and verified on Google with Zeplynk"
+                                    width={2048}
+                                    height={2048}
+                                    sizes="(min-width: 1024px) 520px, (min-width: 640px) 448px, 90vw"
+                                    className="relative w-full h-auto rounded-3xl border border-white/20 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+                                />
+                            </div>
+                        </Reveal>
                         <div className="order-1 lg:order-2">
                             <SectionHeading
                                 eyebrow="Free profile check"
                                 title="Find out what your profile needs."
                                 intro="Send us your Google Maps link and we'll review it for free. You get a short, plain-English summary of what to fix first, whether or not you work with us."
                             />
-                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 -mt-4">
+                            <Stagger as="ul" gap={0.06} className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
                                 {checkItems.map((item) => (
-                                    <li key={item} className="flex items-start gap-3 text-sm text-gray-300">
+                                    <StaggerItem
+                                        as="li"
+                                        key={item}
+                                        className="flex items-start gap-3 rounded-2xl border border-white/15 bg-black/40 px-4 py-3 text-sm text-gray-300"
+                                    >
                                         <Check className="h-4 w-4 text-zgreen-400 shrink-0 mt-0.5" />
                                         {item}
-                                    </li>
+                                    </StaggerItem>
                                 ))}
-                            </ul>
-                            <WhatsAppButton label="Send Us Your Maps Link" className="w-full sm:w-auto" />
+                            </Stagger>
+                            <Reveal>
+                                <WhatsAppButton label="Send Us Your Maps Link" className="w-full sm:w-auto" />
+                            </Reveal>
                         </div>
                     </div>
                 </section>
 
                 {/* Who it's for */}
-                <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5">
+                <section className={SECTION}>
                     <div className="max-w-4xl mx-auto">
                         <SectionHeading
                             center
@@ -408,82 +464,72 @@ export default function GoogleBusinessProfilePage() {
                             title="Built for businesses customers search for."
                             intro="If people search “near me” to find a business like yours, your Google profile is your most important shop window."
                         />
-                        <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+                        <Stagger gap={0.04} className="flex flex-wrap justify-center gap-2 sm:gap-3">
                             {industries.map((industry) => (
-                                <span
-                                    key={industry}
-                                    className="px-4 py-2 rounded-full bg-zinc-950 border border-white/10 text-gray-300 text-sm"
-                                >
-                                    {industry}
-                                </span>
+                                <StaggerItem key={industry}>
+                                    <span className="block px-4 py-2 rounded-full bg-zinc-900/40 border border-white/15 text-gray-300 text-sm transition-colors duration-300 hover:border-zgreen-500/50 hover:text-white">
+                                        {industry}
+                                    </span>
+                                </StaggerItem>
                             ))}
-                        </div>
+                        </Stagger>
                     </div>
                 </section>
 
                 {/* Honest promise */}
-                <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-zinc-950/50">
+                <section className={`${SECTION} bg-zinc-950/60`}>
                     <div className="max-w-6xl mx-auto">
                         <SectionHeading
                             eyebrow="Our promise"
                             title="We do it the right way."
                             intro="Shortcuts on Google can get your profile suspended. Here's exactly what you can expect from us."
                         />
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-                            <div className="p-6 sm:p-8 rounded-3xl bg-black border border-zgreen-500/20">
-                                <p className="flex items-center gap-2 font-bold text-white mb-5">
-                                    <ShieldCheck className="h-5 w-5 text-zgreen-400" /> We will
-                                </p>
-                                <ul className="space-y-3">
-                                    {willDo.map((item) => (
-                                        <li key={item} className="flex items-start gap-3 text-sm sm:text-base text-gray-300">
-                                            <Check className="h-4 w-4 text-zgreen-400 shrink-0 mt-1" />
-                                            {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="p-6 sm:p-8 rounded-3xl bg-black border border-white/10">
-                                <p className="flex items-center gap-2 font-bold text-white mb-5">
-                                    <X className="h-5 w-5 text-red-400" /> We won&apos;t
-                                </p>
-                                <ul className="space-y-3">
-                                    {wontDo.map((item) => (
-                                        <li key={item} className="flex items-start gap-3 text-sm sm:text-base text-gray-300">
-                                            <X className="h-4 w-4 text-red-400 shrink-0 mt-1" />
-                                            {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
+                        <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+                            <StaggerItem>
+                                <div className="h-full p-6 sm:p-8 rounded-3xl border border-zgreen-500/30 bg-zgreen-500/[0.04]">
+                                    <p className="flex items-center gap-2 font-bold text-white mb-5">
+                                        <ShieldCheck className="h-5 w-5 text-zgreen-400" /> We will
+                                    </p>
+                                    <CheckList items={willDo} />
+                                </div>
+                            </StaggerItem>
+                            <StaggerItem>
+                                <div className="h-full p-6 sm:p-8 rounded-3xl border border-white/15 bg-zinc-900/40">
+                                    <p className="flex items-center gap-2 font-bold text-white mb-5">
+                                        <X className="h-5 w-5 text-red-400" /> We won&apos;t
+                                    </p>
+                                    <CheckList items={wontDo} tone="bad" />
+                                </div>
+                            </StaggerItem>
+                        </Stagger>
                     </div>
                 </section>
 
                 {/* FAQ */}
-                <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-white/5">
+                <section className={SECTION}>
                     <div className="max-w-3xl mx-auto">
                         <SectionHeading center eyebrow="FAQ" title="Questions business owners ask." />
-                        <div className="space-y-3">
+                        <Stagger gap={0.05} className="space-y-3">
                             {faqs.map((faq) => (
-                                <details
-                                    key={faq.question}
-                                    className="group rounded-2xl bg-zinc-950 border border-white/10 open:border-zgreen-500/30 transition-colors"
-                                >
-                                    <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-5 sm:px-6 py-4 sm:py-5 font-semibold text-white text-sm sm:text-base [&::-webkit-details-marker]:hidden">
-                                        {faq.question}
-                                        <ChevronDown className="h-5 w-5 text-gray-500 shrink-0 transition-transform group-open:rotate-180" />
-                                    </summary>
-                                    <p className="px-5 sm:px-6 pb-5 text-gray-400 text-sm sm:text-base leading-relaxed">{faq.answer}</p>
-                                </details>
+                                <StaggerItem key={faq.question}>
+                                    <details className="group rounded-2xl border border-white/15 bg-zinc-900/40 transition-colors duration-300 hover:border-white/25 open:border-zgreen-500/40 open:bg-zinc-900/70">
+                                        <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-5 sm:px-6 py-4 sm:py-5 font-semibold text-white text-sm sm:text-base [&::-webkit-details-marker]:hidden">
+                                            {faq.question}
+                                            <ChevronDown className="h-5 w-5 text-gray-500 shrink-0 transition-transform duration-300 group-open:rotate-180 group-open:text-zgreen-400" />
+                                        </summary>
+                                        <p className="px-5 sm:px-6 pb-5 text-gray-400 text-sm sm:text-base leading-relaxed animate-in fade-in slide-in-from-top-1 duration-300">
+                                            {faq.answer}
+                                        </p>
+                                    </details>
+                                </StaggerItem>
                             ))}
-                        </div>
+                        </Stagger>
                     </div>
                 </section>
 
                 {/* Final CTA */}
-                <section className="pb-20 sm:pb-28 px-4 sm:px-6 lg:px-8">
-                    <div className="relative max-w-5xl mx-auto overflow-hidden rounded-[2rem] border border-zgreen-500/20 bg-gradient-to-br from-zgreen-950 via-black to-black px-6 py-14 sm:px-12 sm:py-16 text-center">
+                <section className={SECTION}>
+                    <Reveal className="relative max-w-5xl mx-auto overflow-hidden rounded-[2rem] border border-zgreen-500/30 bg-gradient-to-br from-zgreen-950 via-black to-black px-6 py-12 sm:px-12 sm:py-16 text-center shadow-[0_0_80px_-30px_rgba(34,197,94,0.5)]">
                         <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[480px] h-[240px] bg-zgreen-500/20 rounded-full blur-[100px] pointer-events-none" />
                         <h2 className="relative text-h2 font-bold text-white tracking-tight mb-4">
                             Your customers are searching.
@@ -499,7 +545,7 @@ export default function GoogleBusinessProfilePage() {
                                 {WHATSAPP_DISPLAY}
                             </a>
                         </p>
-                    </div>
+                    </Reveal>
                     <nav aria-label="Related pages" className="max-w-5xl mx-auto mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-gray-500">
                         <Link href="/solutions" className="hover:text-zgreen-400 transition-colors">Our Solutions</Link>
                         <Link href="/solutions/web-engineering" className="hover:text-zgreen-400 transition-colors">Website Development</Link>
