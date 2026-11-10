@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE } from "@/lib/site";
 import ContactContent from "./ContactContent";
 
 export const metadata: Metadata = {
@@ -18,13 +19,13 @@ export const metadata: Metadata = {
         "tech solutions Kaduna contact",
     ],
     alternates: {
-        canonical: "https://zeplynk.com/contact",
+        canonical: `${SITE.url}/contact`,
     },
     openGraph: {
         title: "Contact Zeplynk — Tech Solutions in Kaduna & Jos Nigeria",
         description:
             "Start your web development or AI project in Nigeria. Book a free strategy call with Zeplynk — based in Kaduna, serving all of Nigeria.",
-        url: "https://zeplynk.com/contact",
+        url: `${SITE.url}/contact`,
         images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
@@ -44,13 +45,13 @@ const breadcrumbSchema = {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://zeplynk.com",
+            item: `${SITE.url}`,
         },
         {
             "@type": "ListItem",
             position: 2,
             name: "Contact",
-            item: "https://zeplynk.com/contact",
+            item: `${SITE.url}/contact`,
         },
     ],
 };

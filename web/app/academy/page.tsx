@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE, ACADEMY_REF, ACADEMY_ID, ORG_REF } from "@/lib/site";
 import AcademyContent from "./AcademyContent";
 
 export const metadata: Metadata = {
@@ -20,13 +21,13 @@ export const metadata: Metadata = {
         "tech academy Kaduna",
     ],
     alternates: {
-        canonical: "https://zeplynk.com/academy",
+        canonical: `${SITE.url}/academy`,
     },
     openGraph: {
         title: "Tech Education & Coding Bootcamp in Nigeria | Zeplynk Academy",
         description:
             "Nigeria's leading coding bootcamp in Kaduna. Learn web development, backend engineering, and AI. Become a job-ready developer with Zeplynk Academy.",
-        url: "https://zeplynk.com/academy",
+        url: `${SITE.url}/academy`,
     },
     twitter: {
         card: "summary_large_image",
@@ -40,16 +41,11 @@ const academySchema = [
     {
         "@context": "https://schema.org",
         "@type": "EducationalOrganization",
+        "@id": ACADEMY_ID,
         name: "Zeplynk Academy",
         description: "Nigeria's leading tech education program based in Kaduna. Offering coding bootcamps in web development, backend engineering, and AI for Nigerian professionals.",
-        url: "https://zeplynk.com/academy",
-        telephone: "+234-706-369-5334",
-        address: {
-            "@type": "PostalAddress",
-            addressLocality: "Kaduna",
-            addressRegion: "Kaduna State",
-            addressCountry: "NG",
-        },
+        url: `${SITE.url}/academy`,
+        parentOrganization: ORG_REF,
         areaServed: ["Kaduna", "Jos", "Nigeria"],
         hasOfferCatalog: {
             "@type": "OfferCatalog",
@@ -61,8 +57,8 @@ const academySchema = [
                         "@type": "Course",
                         name: "Web Development Bootcamp Nigeria",
                         description: "Learn HTML, CSS, JavaScript, React, and Next.js. Build production-ready web applications and become a job-ready frontend developer in Nigeria.",
-                        provider: { "@type": "Organization", name: "Zeplynk Academy", url: "https://zeplynk.com/academy" },
-                        url: "https://zeplynk.com/academy",
+                        provider: ACADEMY_REF,
+                        url: `${SITE.url}/academy`,
                         courseMode: ["onsite", "online"],
                         inLanguage: "en",
                         offers: { "@type": "Offer", priceCurrency: "NGN", availability: "https://schema.org/InStock" },
@@ -74,8 +70,8 @@ const academySchema = [
                         "@type": "Course",
                         name: "Backend Engineering Course Nigeria",
                         description: "Master Node.js, databases, APIs, and server-side architecture. Build scalable backend systems for Nigerian and global businesses.",
-                        provider: { "@type": "Organization", name: "Zeplynk Academy", url: "https://zeplynk.com/academy" },
-                        url: "https://zeplynk.com/academy",
+                        provider: ACADEMY_REF,
+                        url: `${SITE.url}/academy`,
                         courseMode: ["onsite", "online"],
                         inLanguage: "en",
                         offers: { "@type": "Offer", priceCurrency: "NGN", availability: "https://schema.org/InStock" },
@@ -87,8 +83,8 @@ const academySchema = [
                         "@type": "Course",
                         name: "AI & Machine Learning Training Nigeria",
                         description: "Learn artificial intelligence, machine learning, and data science. Apply AI solutions to real Nigerian business problems.",
-                        provider: { "@type": "Organization", name: "Zeplynk Academy", url: "https://zeplynk.com/academy" },
-                        url: "https://zeplynk.com/academy",
+                        provider: ACADEMY_REF,
+                        url: `${SITE.url}/academy`,
                         courseMode: ["onsite", "online"],
                         inLanguage: "en",
                         offers: { "@type": "Offer", priceCurrency: "NGN", availability: "https://schema.org/InStock" },
@@ -138,13 +134,13 @@ const breadcrumbSchema = {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://zeplynk.com",
+            item: `${SITE.url}`,
         },
         {
             "@type": "ListItem",
             position: 2,
             name: "Academy",
-            item: "https://zeplynk.com/academy",
+            item: `${SITE.url}/academy`,
         },
     ],
 };

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { SITE, ORG_REF } from "@/lib/site";
 import type { Metadata } from "next";
 import { getAiPageBySlug, aiPages } from "@/lib/ai-pages-data";
 import AiPageDetail from "@/components/sections/ai/AiPageDetail";
@@ -17,16 +18,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!page) return {};
 
   return {
-    title: page.metaTitle,
+    title: { absolute: page.metaTitle },
     description: page.metaDescription,
     keywords: page.keywords,
     alternates: {
-      canonical: `https://zeplynk.com/ai/${slug}`,
+      canonical: `${SITE.url}/ai/${slug}`,
     },
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,
-      url: `https://zeplynk.com/ai/${slug}`,
+      url: `${SITE.url}/ai/${slug}`,
       images: [{ url: "/ai/opengraph-image", width: 1200, height: 630, alt: "Zeplynk AI & Automation" }],
     },
     twitter: {
@@ -52,13 +53,9 @@ export default async function AiSubPage({ params }: Props) {
     serviceType: page.title,
     name: `${page.title} — Zeplynk`,
     description: page.metaDescription,
-    provider: {
-      "@type": "Organization",
-      name: "Zeplynk",
-      url: "https://zeplynk.com",
-    },
+    provider: ORG_REF,
     areaServed: ["Nigeria", "Kaduna", "Lagos", "Abuja", "Jos"],
-    url: `https://zeplynk.com/ai/${slug}`,
+    url: `${SITE.url}/ai/${slug}`,
   };
 
   const faqSchema = {
@@ -78,9 +75,9 @@ export default async function AiSubPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://zeplynk.com" },
-      { "@type": "ListItem", position: 2, name: "AI & Automation", item: "https://zeplynk.com/ai" },
-      { "@type": "ListItem", position: 3, name: page.title, item: `https://zeplynk.com/ai/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}` },
+      { "@type": "ListItem", position: 2, name: "AI & Automation", item: `${SITE.url}/ai` },
+      { "@type": "ListItem", position: 3, name: page.title, item: `${SITE.url}/ai/${slug}` },
     ],
   };
 

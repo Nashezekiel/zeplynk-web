@@ -1,6 +1,7 @@
 "use client";
 
 import { Shield, Eye, Lock, MessageCircle, Mail } from "lucide-react";
+import { SITE } from "@/lib/site";
 
 export default function Privacy() {
     return (
@@ -171,14 +172,14 @@ export default function Privacy() {
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a
-                                    href="mailto:zeplynk001@gmail.com?subject=Privacy%20Policy%20Inquiry"
+                                    href={`mailto:${SITE.email}?subject=Privacy%20Policy%20Inquiry`}
                                     className="inline-flex items-center bg-zgreen-600 text-white px-6 py-3 rounded-lg hover:bg-zgreen-500 transition-colors duration-200 font-medium"
                                 >
                                     <Mail className="h-4 w-4 mr-2" />
                                     Email Privacy Team
                                 </a>
                                 <a
-                                    href="https://wa.me/2347063695334?text=Hello%20Zeplynk!%20I%20have%20questions%20about%20your%20Privacy%20Policy."
+                                    href={`${SITE.whatsapp}?text=Hello%20Zeplynk!%20I%20have%20questions%20about%20your%20Privacy%20Policy.`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center border border-zgreen-500 text-zgreen-500 px-6 py-3 rounded-lg hover:bg-zgreen-500/10 transition-colors duration-200 font-medium"

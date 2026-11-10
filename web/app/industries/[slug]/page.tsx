@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { SITE, ORG_REF } from "@/lib/site";
 import type { Metadata } from "next";
 import { getIndustryBySlug, industries } from "@/lib/industries-data";
 import IndustryDetailPage from "@/components/sections/industries/IndustryDetailPage";
@@ -17,16 +18,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!industry) return {};
 
   return {
-    title: industry.metaTitle,
+    title: { absolute: industry.metaTitle },
     description: industry.metaDescription,
     keywords: industry.keywords,
     alternates: {
-      canonical: `https://zeplynk.com/industries/${slug}`,
+      canonical: `${SITE.url}/industries/${slug}`,
     },
     openGraph: {
       title: industry.metaTitle,
       description: industry.metaDescription,
-      url: `https://zeplynk.com/industries/${slug}`,
+      url: `${SITE.url}/industries/${slug}`,
       images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
@@ -52,13 +53,9 @@ export default async function IndustryPage({ params }: Props) {
     serviceType: industry.title,
     name: `${industry.title} — Zeplynk`,
     description: industry.metaDescription,
-    provider: {
-      "@type": "Organization",
-      name: "Zeplynk",
-      url: "https://zeplynk.com",
-    },
+    provider: ORG_REF,
     areaServed: ["Nigeria", "Kaduna", "Lagos", "Abuja", "Jos"],
-    url: `https://zeplynk.com/industries/${slug}`,
+    url: `${SITE.url}/industries/${slug}`,
   };
 
   const faqSchema = {
@@ -78,9 +75,9 @@ export default async function IndustryPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://zeplynk.com" },
-      { "@type": "ListItem", position: 2, name: "Industries", item: "https://zeplynk.com/industries" },
-      { "@type": "ListItem", position: 3, name: industry.name, item: `https://zeplynk.com/industries/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}` },
+      { "@type": "ListItem", position: 2, name: "Industries", item: `${SITE.url}/industries` },
+      { "@type": "ListItem", position: 3, name: industry.name, item: `${SITE.url}/industries/${slug}` },
     ],
   };
 

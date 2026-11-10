@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MessageCircle, Clock, Send, CheckCircle, Landmark, ShieldCheck } from "lucide-react";
+import { SITE } from "@/lib/site";
+import { Mail, Phone, MessageCircle, Clock, Send, CheckCircle, Landmark, ShieldCheck, MapPin } from "lucide-react";
 
 export default function ContactMethods() {
     return (
@@ -24,8 +25,8 @@ export default function ContactMethods() {
                             <p className="text-gray-200 mb-6 text-caption font-medium">
                                 Send us a detailed message and we'll get back to you within 24 hours.
                             </p>
-                            <a href="mailto:zeplynk001@gmail.com" className="text-zgreen-500 font-bold hover:text-zgreen-400 text-lg">
-                                zeplynk001@gmail.com
+                            <a href={`mailto:${SITE.email}`} className="text-zgreen-500 font-bold hover:text-zgreen-400 text-lg">
+                                {SITE.email}
                             </a>
                         </motion.div>
 
@@ -45,7 +46,7 @@ export default function ContactMethods() {
                                 Speak directly with our team for immediate assistance and consultation.
                             </p>
                             <div className="space-y-2">
-                                <a href="tel:+2347063695334" className="block text-blue-500 font-bold hover:text-blue-400 text-lg">07063695334</a>
+                                <a href={`tel:${SITE.phoneE164}`} className="block text-blue-500 font-bold hover:text-blue-400 text-lg">{SITE.phoneDisplay}</a>
                             </div>
                         </motion.div>
 
@@ -68,7 +69,7 @@ export default function ContactMethods() {
                                     </p>
                                 </div>
                                 <a
-                                    href="https://wa.me/2347063695334"
+                                    href={SITE.whatsapp}
                                     target="_blank"
                                     className="inline-flex items-center justify-center h-16 px-8 bg-green-600 hover:bg-green-500 text-white rounded-2xl font-bold transition-all hover:scale-[1.02] shadow-[0_10px_30px_-10px_rgba(34,197,94,0.4)]"
                                 >
@@ -126,14 +127,10 @@ export default function ContactMethods() {
                             <h3 className="text-h3 font-bold text-white">Business Hours</h3>
                         </div>
                         <div className="space-y-6">
-                            {[
-                                { day: "Mon - Fri", time: "9:00 AM - 6:00 PM" },
-                                { day: "Saturday", time: "10:00 AM - 4:00 PM" },
-                                { day: "Sunday", time: "24/7 WhatsApp Only", focus: true },
-                            ].map((row, i) => (
-                                <div key={i} className="flex justify-between items-center py-4 border-b border-white/10 last:border-0">
+                            {SITE.hours.display.map((row) => (
+                                <div key={row.day} className="flex justify-between items-center py-4 border-b border-white/10 last:border-0">
                                     <span className="text-white font-bold">{row.day}</span>
-                                    <span className={`font-bold ${row.focus ? "text-zgreen-400" : "text-white text-lg"}`}>{row.time}</span>
+                                    <span className="font-bold text-white text-lg">{row.time}</span>
                                 </div>
                             ))}
                         </div>
@@ -153,6 +150,22 @@ export default function ContactMethods() {
                                     WhatsApp: Within 2 hours
                                 </div>
                             </div>
+                        </div>
+
+                        <div className="mt-12 pt-8 border-t border-white/10">
+                            <div className="flex items-center text-sm text-zgreen-500 font-bold mb-4">
+                                <MapPin className="h-4 w-4 mr-2" />
+                                Location
+                            </div>
+                            <address className="not-italic text-gray-200">
+                                <span className="block text-white font-bold">{SITE.name}</span>
+                                {SITE.address.display}
+                            </address>
+                            {SITE.gbpUrl && (
+                                <a href={SITE.gbpUrl} target="_blank" rel="noopener" className="inline-block mt-3 text-sm text-zgreen-500 hover:text-zgreen-400 font-bold transition-colors">
+                                    Find us on Google
+                                </a>
+                            )}
                         </div>
                     </motion.div>
                 </div>

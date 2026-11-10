@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { SITE } from "@/lib/site";
 import { Suspense } from "react";
 
 export const metadata: Metadata = {
-  title: "AI Automation & Custom Software Development Nigeria | Zeplynk",
+  title: { absolute: "Zeplynk | AI Automation & Custom Software Development, Kaduna Nigeria" },
   description:
     "Zeplynk builds AI automation systems, custom software, and high-performance web applications for businesses in Nigeria. Based in Kaduna — serving Lagos, Abuja, Jos, and nationwide.",
   keywords: [
@@ -22,17 +23,17 @@ export const metadata: Metadata = {
     "tech startup Kaduna",
   ],
   alternates: {
-    canonical: "https://zeplynk.com",
+    canonical: "/",
   },
   openGraph: {
-    title: "AI Automation & Custom Software Development Nigeria | Zeplynk",
+    title: "Zeplynk | AI Automation & Custom Software Development, Kaduna Nigeria",
     description:
       "Zeplynk builds AI automation systems, custom software, and high-performance web applications for Nigerian businesses — based in Kaduna, serving all of Nigeria.",
-    url: "https://zeplynk.com",
+    url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Automation & Custom Software Development Nigeria | Zeplynk",
+    title: "Zeplynk | AI Automation & Custom Software Development, Kaduna Nigeria",
     description:
       "AI automation, custom software & web development for Nigerian businesses — Zeplynk, Kaduna.",
   },
@@ -186,7 +187,7 @@ const homepageBreadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: "https://zeplynk.com",
+      item: `${SITE.url}`,
     },
   ],
 };
@@ -306,7 +307,7 @@ export default async function Home() {
 
             <div className="flex items-center justify-center gap-2 text-sm text-gray-500 font-medium">
               <CheckCircle2 className="h-4 w-4 text-zgreen-500" />
-              Trusted by 50+ startups and businesses across Nigeria
+              Trusted by startups and businesses across Nigeria
             </div>
           </div>
         </ScrollReveal>

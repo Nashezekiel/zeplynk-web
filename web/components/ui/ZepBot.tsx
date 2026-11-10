@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
+import { SITE } from "@/lib/site";
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, X, Send, Bot, Sparkles, Brain, GraduationCap } from 'lucide-react';
 
@@ -11,8 +12,8 @@ interface Message {
     timestamp: Date;
 }
 
-const CONTACT_PHONE = "0706 369 5334";
-const CONTACT_EMAIL = "zeplynk001@gmail.com";
+const CONTACT_PHONE = SITE.phoneDisplay;
+const CONTACT_EMAIL = SITE.email;
 const CONTACT_LINE = `You can reach the team directly on ${CONTACT_PHONE} or ${CONTACT_EMAIL} and we'll pick it up from there.`;
 
 const ZepKnowledge = {
@@ -32,7 +33,7 @@ const ZepKnowledge = {
 
     academy: {
         mission: "Zeplynk Academy's mission is to train 1 million+ developers across Africa by 2030, bridging the talent gap in modern engineering and Agentic AI. Start your journey at /academy.",
-        impact: "We have already trained over 2,000 students in Nigeria and our alumni contribute to leading global tech firms.",
+        impact: "Zeplynk Academy runs hands-on, project-based courses online and in Kaduna, so students finish with real projects in their portfolio.",
         courses: "Academy tracks include Frontend, Backend & Full Stack Engineering, Mobile App Dev, Data Analytics & Data Science, AI Engineering, Cloud Computing, DevOps, Cybersecurity, UI/UX Design, and Product Management. Browse the full catalog at /academy.",
         corporate: "We also run Corporate Training for teams — custom upskilling programs in software engineering, AI, and cloud for your workforce. See /academy#corporate or reach out via /contact."
     },
@@ -40,7 +41,7 @@ const ZepKnowledge = {
     company: {
         about: "Zeplynk is a Nigerian tech solutions and education company founded in 2024 and based in Kaduna, building web engineering, AI automation, and software products while running Zeplynk Academy to train developers across Africa. More at /about.",
         founder: "Zeplynk was founded by Nash Ezekiel Pam, who serves as Founder & CEO.",
-        impact: "Zeplynk has helped launch over 50 startups, automated 100+ business processes, and has a community footprint across Nigeria's 36 states.",
+        impact: "Zeplynk builds custom software and AI automation for businesses across Nigeria, and trains developers through Zeplynk Academy. You can see client projects at /work.",
         values: "We are driven by Excellence, Innovation, Impact, and Accessibility. Every line of code is an investment in Africa's digital future.",
         industries: "We work across Recruitment & HR, Startups & SaaS, E-commerce, Education, and SMEs & Corporate businesses. See /industries for details.",
         work: "You can see real client work and case studies on our Portfolio page at /work.",
@@ -86,7 +87,7 @@ const rules: Rule[] = [
     { keywords: ['portfolio', 'case stud', 'previous work', 'projects you', 'examples'], response: ZepKnowledge.company.work },
     { keywords: ['blog', 'insight', 'article', 'news'], response: ZepKnowledge.company.insights },
     { keywords: ['review', 'testimonial', 'feedback', 'rating'], response: ZepKnowledge.company.reviews },
-    { keywords: ['impact', 'startup', 'success', 'track record', 'results'], response: `${ZepKnowledge.company.impact} We've helped launch 50+ startups and automated over 100 business processes.` },
+    { keywords: ['impact', 'startup', 'success', 'track record', 'results'], response: ZepKnowledge.company.impact },
     { keywords: ['value', 'culture', 'why zeplynk', 'why choose'], response: ZepKnowledge.company.values },
 
     // Contact & Location

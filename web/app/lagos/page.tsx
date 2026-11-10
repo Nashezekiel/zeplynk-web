@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { SITE, ORG_REF } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Web Development & Tech Training in Lagos, Nigeria | Zeplynk",
+    title: "Web Development & Tech Training in Lagos, Nigeria",
     description:
         "Zeplynk delivers web development, software engineering, AI automation, and tech training to businesses in Lagos, Nigeria. Get a free consultation today.",
     keywords: [
@@ -18,13 +19,13 @@ export const metadata: Metadata = {
         "software development Lagos State",
     ],
     alternates: {
-        canonical: "https://zeplynk.com/lagos",
+        canonical: `${SITE.url}/lagos`,
     },
     openGraph: {
         title: "Web Development & Tech Training in Lagos, Nigeria | Zeplynk",
         description:
             "Zeplynk brings world-class web development, AI automation, and developer training to Lagos, Nigeria. Serving businesses across Nigeria.",
-        url: "https://zeplynk.com/lagos",
+        url: `${SITE.url}/lagos`,
         images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
@@ -38,24 +39,13 @@ export const metadata: Metadata = {
 
 const lagosLocalBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "ITService",
+    "@type": "Service",
     name: "Zeplynk — Tech Solutions Lagos",
     description: "Tech solutions and developer training serving Lagos State, Nigeria. Web development, AI automation, software engineering, and coding bootcamp programmes.",
-    url: "https://zeplynk.com/lagos",
-    telephone: "+234-706-369-5334",
-    email: "hello@zeplynk.com",
-    address: {
-        "@type": "PostalAddress",
-        addressLocality: "Lagos",
-        addressRegion: "Lagos State",
-        addressCountry: "NG",
-    },
+    url: `${SITE.url}/lagos`,
+    serviceType: ["Web Development", "AI Automation", "Software Development", "Developer Training"],
+    provider: ORG_REF,
     areaServed: ["Lagos", "Lagos State", "Nigeria"],
-    sameAs: [
-        "https://www.linkedin.com/company/zeplynk/",
-        "https://www.instagram.com/zeplynk/",
-        "https://www.facebook.com/share/1JghGYmUWr/",
-    ],
 };
 
 const lagosBreadcrumbSchema = {
@@ -66,13 +56,13 @@ const lagosBreadcrumbSchema = {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://zeplynk.com",
+            item: `${SITE.url}`,
         },
         {
             "@type": "ListItem",
             position: 2,
             name: "Lagos",
-            item: "https://zeplynk.com/lagos",
+            item: `${SITE.url}/lagos`,
         },
     ],
 };
@@ -176,21 +166,21 @@ export default function LagosPage() {
                                         <span className="text-zgreen-400 mt-1">📞</span>
                                         <div>
                                             <p className="font-bold text-white">Call / WhatsApp</p>
-                                            <a href="tel:+2347063695334" className="text-gray-400 hover:text-zgreen-400 transition-colors">+234-706-369-5334</a>
+                                            <a href={`tel:${SITE.phoneE164}`} className="text-gray-400 hover:text-zgreen-400 transition-colors">{SITE.phoneIntl}</a>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-zgreen-400 mt-1">✉️</span>
                                         <div>
                                             <p className="font-bold text-white">Email</p>
-                                            <a href="mailto:hello@zeplynk.com" className="text-gray-400 hover:text-zgreen-400 transition-colors">hello@zeplynk.com</a>
+                                            <a href={`mailto:${SITE.email}`} className="text-gray-400 hover:text-zgreen-400 transition-colors">{SITE.email}</a>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-zgreen-400 mt-1">🕐</span>
                                         <div>
                                             <p className="font-bold text-white">Hours</p>
-                                            <p className="text-gray-400">Monday – Friday, 9:00 AM – 5:00 PM WAT</p>
+                                            <p className="text-gray-400">Mon – Fri 9:00 AM – 6:00 PM, Sat 10:00 AM – 4:00 PM WAT</p>
                                         </div>
                                     </div>
                                 </div>

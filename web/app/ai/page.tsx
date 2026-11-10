@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE, ORG_REF } from "@/lib/site";
 
 export const metadata: Metadata = {
     title: "AI Automation Services Nigeria — Chatbots, Workflows & ML",
@@ -21,13 +22,13 @@ export const metadata: Metadata = {
         "workflow automation Kaduna",
     ],
     alternates: {
-        canonical: "https://zeplynk.com/ai",
+        canonical: `${SITE.url}/ai`,
     },
     openGraph: {
         title: "AI Automation Services Nigeria — Chatbots, Workflows & ML | Zeplynk",
         description:
             "Zeplynk builds AI automation systems for Nigerian businesses — WhatsApp chatbots, workflow automation, LLM integration, and machine learning solutions from Kaduna.",
-        url: "https://zeplynk.com/ai",
+        url: `${SITE.url}/ai`,
     },
     twitter: {
         card: "summary_large_image",
@@ -55,21 +56,9 @@ const aiServiceSchema = {
     name: "AI Automation Services Nigeria",
     description: "Zeplynk provides AI automation services for Nigerian businesses including WhatsApp chatbots, workflow automation, LLM integration, machine learning systems, and intelligent process automation.",
     serviceType: "AI Automation",
-    provider: {
-        "@type": "Organization",
-        name: "Zeplynk",
-        url: "https://zeplynk.com",
-        logo: "https://zeplynk.com/theLogo-removebg-preview.png",
-        telephone: "+234-706-369-5334",
-        address: {
-            "@type": "PostalAddress",
-            addressLocality: "Kaduna",
-            addressRegion: "Kaduna State",
-            addressCountry: "NG",
-        },
-    },
+    provider: ORG_REF,
     areaServed: ["Kaduna", "Lagos", "Abuja", "Jos", "Nigeria", "Africa"],
-    url: "https://zeplynk.com/ai",
+    url: `${SITE.url}/ai`,
     hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "AI Services",
@@ -87,8 +76,8 @@ const aiBreadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://zeplynk.com" },
-        { "@type": "ListItem", position: 2, name: "AI & Automation", item: "https://zeplynk.com/ai" },
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}` },
+        { "@type": "ListItem", position: 2, name: "AI & Automation", item: `${SITE.url}/ai` },
     ],
 };
 
@@ -202,7 +191,7 @@ export default function AiPage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
                             { icon: Laptop, title: "Workflow Automation", desc: "connect disparate apps and automate data flow seamlessly." },
-                            { icon: MessageSquare, title: "Customer Support Agents", desc: "AI chatbots that resolve 80% of queries instantly." },
+                            { icon: MessageSquare, title: "Customer Support Agents", desc: "AI chatbots that answer common customer questions instantly, 24/7." },
                             { icon: BarChart3, title: "Document Processing", desc: "Extract data from invoices, contracts, and forms automatically." }
                         ].map((item, i) => (
                             <div key={i} className="bg-zinc-900/60 border border-white/20 p-8 rounded-2xl hover:bg-zinc-900/80 transition-all group backdrop-blur-md">

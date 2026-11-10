@@ -132,7 +132,7 @@ export default function Newsletter() {
                                             </p>
                                         )}
                                         <p className="mt-4 text-caption text-gray-400 uppercase tracking-widest text-center lg:text-left font-bold">
-                                            Join 2,500+ Engineers & Tech Leaders
+                                            Join Engineers & Tech Leaders
                                         </p>
                                     </motion.form>
                                 )}

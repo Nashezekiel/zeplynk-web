@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { SITE, ORG_REF } from "@/lib/site";
 import type { Metadata } from "next";
 import { getSolutionBySlug, solutions } from "@/lib/solutions-data";
 import SolutionDetailPage from "@/components/sections/solutions/SolutionDetailPage";
@@ -84,12 +85,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     keywords,
     alternates: {
-      canonical: `https://zeplynk.com/solutions/${slug}`,
+      canonical: `${SITE.url}/solutions/${slug}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://zeplynk.com/solutions/${slug}`,
+      url: `${SITE.url}/solutions/${slug}`,
       images: [{ url: "/solutions/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Software Development & AI Automation Services" }],
     },
     twitter: {
@@ -118,21 +119,9 @@ export default async function SolutionPage({ params }: Props) {
     name: solution.title,
     description: solution.description,
     serviceType: slugMeta?.serviceType ?? solution.title,
-    provider: {
-      "@type": "Organization",
-      name: "Zeplynk",
-      url: "https://zeplynk.com",
-      logo: "https://zeplynk.com/theLogo-removebg-preview.png",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Kaduna",
-        addressRegion: "Kaduna State",
-        addressCountry: "NG",
-      },
-      telephone: "+234-706-369-5334",
-    },
+    provider: ORG_REF,
     areaServed: ["Kaduna", "Lagos", "Abuja", "Jos", "Nigeria", "Africa"],
-    url: `https://zeplynk.com/solutions/${slug}`,
+    url: `${SITE.url}/solutions/${slug}`,
   };
 
   // Breadcrumb schema
@@ -140,9 +129,9 @@ export default async function SolutionPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://zeplynk.com" },
-      { "@type": "ListItem", position: 2, name: "Solutions", item: "https://zeplynk.com/solutions" },
-      { "@type": "ListItem", position: 3, name: solution.title, item: `https://zeplynk.com/solutions/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}` },
+      { "@type": "ListItem", position: 2, name: "Solutions", item: `${SITE.url}/solutions` },
+      { "@type": "ListItem", position: 3, name: solution.title, item: `${SITE.url}/solutions/${slug}` },
     ],
   };
 

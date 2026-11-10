@@ -34,7 +34,7 @@ export default function Register() {
     });
 
     const [errors, setErrors] = useState<RegisterErrors>({});
-    const [copied, setCopied] = useState({ diamond: false, opay: false });
+    const [copied, setCopied] = useState({ diamond: false });
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSending, setIsSending] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
@@ -76,7 +76,7 @@ export default function Register() {
         }));
     };
 
-    const copyToClipboard = (text: string, type: 'diamond' | 'opay') => {
+    const copyToClipboard = (text: string, type: 'diamond') => {
         navigator.clipboard.writeText(text);
         setCopied(prev => ({ ...prev, [type]: true }));
         setTimeout(() => {
@@ -173,7 +173,7 @@ export default function Register() {
                                     <p className="font-bold text-zyellow-400 uppercase tracking-wide">Complete payment before registration</p>
                                 </div>
                                 <p className="text-gray-200 text-caption leading-relaxed font-medium">
-                                    Please transfer the course fee to one of the accounts below, then fill out the registration form.
+                                    Please transfer the course fee to the account below, then fill out the registration form.
                                 </p>
                             </div>
                         </div>
@@ -197,34 +197,6 @@ export default function Register() {
                                             </button>
                                         </TooltipTrigger>
                                         <TooltipContent>{copied.diamond ? "Copied!" : "Copy account number"}</TooltipContent>
-                                    </Tooltip>
-                                </div>
-                                <div className="p-4 bg-black/60 rounded-lg border border-white/10">
-                                    <p className="text-caption text-gray-400 uppercase tracking-widest font-bold mb-1">Account Name</p>
-                                    <p className="font-bold text-white">Nash Ezekiel Pam</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Opay */}
-                        <div className="bg-zinc-900/60 border border-white/20 rounded-xl p-6 hover:border-zgreen-500/40 transition-colors backdrop-blur-md">
-                            <h3 className="text-h3 font-bold text-white mb-4">Opay</h3>
-                            <div className="space-y-3">
-                                <div className="flex justify-between items-center p-4 bg-black/60 rounded-lg border border-white/10">
-                                    <div>
-                                        <p className="text-caption text-gray-400 uppercase tracking-widest font-bold mb-1">Account Number</p>
-                                        <p className="font-mono text-body font-bold text-white tracking-widest">8067263891</p>
-                                    </div>
-                                    <Tooltip>
-                                        <TooltipTrigger asChild>
-                                            <button
-                                                onClick={() => copyToClipboard('8067263891', 'opay')}
-                                                className="flex items-center px-4 py-2 bg-zgreen-500/20 text-zgreen-400 rounded-lg hover:bg-zgreen-500 hover:text-white transition-all duration-200 font-bold"
-                                            >
-                                                {copied.opay ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                                            </button>
-                                        </TooltipTrigger>
-                                        <TooltipContent>{copied.opay ? "Copied!" : "Copy account number"}</TooltipContent>
                                     </Tooltip>
                                 </div>
                                 <div className="p-4 bg-black/60 rounded-lg border border-white/10">

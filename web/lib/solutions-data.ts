@@ -69,10 +69,10 @@ export const solutions: Solution[] = [
     borderColor: "border-zgreen-500/20",
     gradientFrom: "from-zgreen-500/20",
     stats: [
-      { value: "100+", label: "Projects Delivered" },
-      { value: "<1.5s", label: "Avg. Page Load Time" },
-      { value: "99.9%", label: "Availability SLA" },
-      { value: "5★", label: "Client Satisfaction" },
+      { value: "Next.js", label: "Modern Web Stack" },
+      { value: "SEO", label: "Optimized From Day One" },
+      { value: "Mobile-first", label: "Responsive Design" },
+      { value: "100%", label: "Source Code Ownership" },
     ],
     items: [
       {
@@ -160,9 +160,9 @@ export const solutions: Solution[] = [
     borderColor: "border-purple-500/20",
     gradientFrom: "from-purple-500/20",
     stats: [
-      { value: "40+", label: "AI Systems Deployed" },
-      { value: "10x", label: "Process Speed Gain" },
-      { value: "98%", label: "Uptime SLA" },
+      { value: "Custom", label: "Trained on Your Data" },
+      { value: "Your tools", label: "Connected via APIs" },
+      { value: "Ongoing", label: "Monitoring & Updates" },
       { value: "24/7", label: "Model Monitoring" },
     ],
     items: [
@@ -247,10 +247,10 @@ export const solutions: Solution[] = [
     borderColor: "border-blue-500/20",
     gradientFrom: "from-blue-500/20",
     stats: [
-      { value: "30+", label: "Apps Launched" },
-      { value: "50%", label: "Bandwidth Savings" },
-      { value: "4.8★", label: "App Store Rating" },
-      { value: "<2s", label: "Push Latency" },
+      { value: "iOS", label: "& Android" },
+      { value: "Store", label: "Launch Support" },
+      { value: "Push", label: "Notifications Built In" },
+      { value: "Analytics", label: "& Crash Reporting" },
     ],
     items: [
       {
@@ -334,10 +334,10 @@ export const solutions: Solution[] = [
     borderColor: "border-orange-500/20",
     gradientFrom: "from-orange-500/20",
     stats: [
-      { value: "10M+", label: "Daily API Requests" },
-      { value: "<100ms", label: "Response Latency" },
-      { value: "99.99%", label: "Availability SLA" },
-      { value: "Terabytes", label: "Data Scaled" },
+      { value: "REST", label: "& GraphQL APIs" },
+      { value: "Secure", label: "Auth & Access Control" },
+      { value: "Documented", label: "APIs for Your Team" },
+      { value: "Scalable", label: "Cloud Architecture" },
     ],
     items: [
       {
@@ -421,10 +421,10 @@ export const solutions: Solution[] = [
     borderColor: "border-amber-500/20",
     gradientFrom: "from-amber-500/20",
     stats: [
-      { value: "70%", label: "Manual Process Reduction" },
-      { value: "3x", label: "Faster Reporting Cycles" },
-      { value: "100%", label: "Data Integration" },
-      { value: "40+", label: "SME/Corp Clients" },
+      { value: "Automated", label: "Approvals & Workflows" },
+      { value: "Live", label: "Management Dashboards" },
+      { value: "Connected", label: "Systems & Data" },
+      { value: "Role-based", label: "Access Control" },
     ],
     items: [
       {
@@ -508,10 +508,10 @@ export const solutions: Solution[] = [
     borderColor: "border-sky-500/20",
     gradientFrom: "from-sky-500/20",
     stats: [
-      { value: "60%", label: "Avg. Infra Cost Saved" },
-      { value: "10x", label: "Deploy Frequency Gain" },
-      { value: "99.99%", label: "Uptime Achieved" },
-      { value: "<5min", label: "Mean Recovery Time" },
+      { value: "CI/CD", label: "Automated Deployments" },
+      { value: "Infrastructure", label: "as Code" },
+      { value: "Monitoring", label: "& Alerts" },
+      { value: "Backups", label: "& Recovery Plans" },
     ],
     items: [
       {
@@ -595,10 +595,10 @@ export const solutions: Solution[] = [
     borderColor: "border-pink-500/20",
     gradientFrom: "from-pink-500/20",
     stats: [
-      { value: "500+", label: "Figma Screens Designed" },
-      { value: "+30%", label: "User Retention Gain" },
-      { value: "2.5x", label: "Conversion Ratio Boost" },
-      { value: "100+", label: "User Usability Tests" },
+      { value: "Figma", label: "Design Files You Own" },
+      { value: "User", label: "Research & Testing" },
+      { value: "Clickable", label: "Prototypes" },
+      { value: "Design", label: "Systems" },
     ],
     items: [
       {
@@ -682,10 +682,10 @@ export const solutions: Solution[] = [
     borderColor: "border-teal-500/20",
     gradientFrom: "from-teal-500/20",
     stats: [
-      { value: "5x", label: "Faster Report Delivery" },
-      { value: "100%", label: "Data Source Sync" },
+      { value: "Automated", label: "Reports" },
+      { value: "Connected", label: "Data Sources" },
       { value: "Real-Time", label: "Dashboard Refresh" },
-      { value: "Terabytes", label: "Data Scaled" },
+      { value: "Clear", label: "KPI Dashboards" },
     ],
     items: [
       {
@@ -769,10 +769,10 @@ export const solutions: Solution[] = [
     borderColor: "border-red-500/20",
     gradientFrom: "from-red-500/20",
     stats: [
-      { value: "Zero", label: "Client Breaches Post-Audit" },
-      { value: "200+", label: "Security Vulnerabilities Patched" },
-      { value: "<24hr", label: "SLA Response Window" },
-      { value: "100%", label: "Audit Pass Rate" },
+      { value: "Security", label: "Audits" },
+      { value: "Vulnerability", label: "Assessments" },
+      { value: "Practical", label: "Fix Recommendations" },
+      { value: "Staff", label: "Security Training" },
     ],
     items: [
       {
@@ -856,10 +856,10 @@ export const solutions: Solution[] = [
     borderColor: "border-cyan-500/20",
     gradientFrom: "from-cyan-500/20",
     stats: [
-      { value: "1000+", label: "Developers Trained" },
-      { value: "15+", label: "Bootcamps Run" },
-      { value: "85%", label: "Placement Rate" },
-      { value: "4.9★", label: "Student Rating" },
+      { value: "Online", label: "& Onsite Classes" },
+      { value: "Corporate", label: "Team Training" },
+      { value: "Hands-on", label: "Project-Based Learning" },
+      { value: "Beginner", label: "Friendly Tracks" },
     ],
     items: [
       {

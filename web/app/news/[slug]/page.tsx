@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE, ORG_REF } from "@/lib/site";
 import { getAllNews, getNewsBySlug } from "@/lib/news-store";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -29,15 +30,15 @@ export async function generateMetadata({
     const description = `Zeplynk insights: ${post.excerpt}`;
 
     return {
-        title,
+        title: { absolute: title },
         description,
         alternates: {
-            canonical: `https://zeplynk.com/news/${slug}`,
+            canonical: `${SITE.url}/news/${slug}`,
         },
         openGraph: {
             title,
             description,
-            url: `https://zeplynk.com/news/${slug}`,
+            url: `${SITE.url}/news/${slug}`,
             type: "article",
             images: [{ url: post.image, width: 800, height: 600, alt: post.title }],
         },
@@ -75,22 +76,13 @@ export default async function BlogPostPage({
         headline: post.title,
         description: post.excerpt,
         image: post.image,
-        author: {
-            "@type": "Organization",
-            name: "Zeplynk",
-            url: "https://zeplynk.com",
-        },
-        publisher: {
-            "@type": "Organization",
-            name: "Zeplynk",
-            url: "https://zeplynk.com",
-            logo: "https://zeplynk.com/theLogo-removebg-preview.png",
-        },
+        author: ORG_REF,
+        publisher: ORG_REF,
         datePublished: post.date,
         dateModified: post.date,
         mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": `https://zeplynk.com/news/${slug}`,
+            "@id": `${SITE.url}/news/${slug}`,
         },
     };
 
@@ -103,19 +95,19 @@ export default async function BlogPostPage({
                 "@type": "ListItem",
                 position: 1,
                 name: "Home",
-                item: "https://zeplynk.com",
+                item: `${SITE.url}`,
             },
             {
                 "@type": "ListItem",
                 position: 2,
                 name: "News",
-                item: "https://zeplynk.com/news",
+                item: `${SITE.url}/news`,
             },
             {
                 "@type": "ListItem",
                 position: 3,
                 name: post.title,
-                item: `https://zeplynk.com/news/${slug}`,
+                item: `${SITE.url}/news/${slug}`,
             },
         ],
     };

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE } from "@/lib/site";
 import Link from "next/link";
 import { ArrowUpRight, Globe, Satellite, BrainCircuit, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -16,13 +17,13 @@ export const metadata: Metadata = {
         "software development portfolio",
     ],
     alternates: {
-        canonical: "https://zeplynk.com/work",
+        canonical: `${SITE.url}/work`,
     },
     openGraph: {
         title: "Our Work — Zeplynk Client Projects",
         description:
             "Zeplynk client projects — real platforms built for real businesses. From Starlink installation services to enterprise AI intelligence systems.",
-        url: "https://zeplynk.com/work",
+        url: `${SITE.url}/work`,
     },
     twitter: {
         card: "summary_large_image",

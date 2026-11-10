@@ -1,90 +1,52 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { CONTAINER, Reveal, SECTION, SectionHeader } from "./shared";
 
 const events = [
     {
         year: "2024",
-        title: "The Genesis",
+        title: "The genesis",
         desc: "Zeplynk was founded with a mission to bridge the digital divide in Africa.",
-        side: "left"
     },
     {
         year: "2024",
-        title: "Academy Launch",
-        desc: "Successfully launched our first cohort of tech training, empowering 500+ students.",
-        side: "right"
+        title: "Academy launch",
+        desc: "Launched Zeplynk Academy and welcomed our first cohort of tech students.",
     },
     {
         year: "2025",
-        title: "Service Expansion",
+        title: "Service expansion",
         desc: "Started offering dedicated AI and high-end software engineering services globally.",
-        side: "left"
     },
     {
         year: "2025",
-        title: "Strategic Partnerships",
+        title: "Strategic partnerships",
         desc: "Partnered with leading tech firms and NGOs to scale our community impact.",
-        side: "right"
-    }
+    },
 ];
 
 export default function JourneyTimeline() {
     return (
-        <section className="py-24 bg-black relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center mb-20">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-h2 font-bold text-white mb-6"
-                    >
-                        Our Journey
-                    </motion.h2>
-                    <p className="text-gray-300 max-w-2xl mx-auto text-body font-medium">
-                        A retrospective look at how we've grown from an idea to a leading catalyst for tech innovation.
-                    </p>
-                </div>
+        <section className={`${SECTION} bg-white/[0.015] border-y border-white/5`}>
+            <div className={`${CONTAINER} grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16`}>
+                <SectionHeader
+                    eyebrow="Our journey"
+                    title="From an idea to a growing tech company"
+                    lead="How Zeplynk has grown since it started in Kaduna."
+                />
 
-                <div className="relative">
-                    {/* Vertical Line */}
-                    <div className="absolute left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-zgreen-500/50 via-zgreen-500/20 to-transparent hidden md:block" />
-
-                    <div className="space-y-12 md:space-y-24">
-                        {events.map((event, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, x: event.side === "left" ? -50 : 50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.6, delay: i * 0.1 }}
-                                className={`flex flex-col md:flex-row items-center ${event.side === "right" ? "md:flex-row-reverse" : ""
-                                    }`}
-                            >
-                                {/* Content Card */}
-                                <div className="md:w-1/2 w-full flex justify-center px-4">
-                                    <div className="bg-zinc-900/60 border border-white/20 p-8 rounded-[2rem] hover:border-zgreen-500/50 transition-all group relative backdrop-blur-md">
-                                        <div className="absolute -top-4 -left-4 bg-zgreen-600/20 border border-zgreen-500/30 px-3 py-1 rounded-full text-zgreen-400 text-sm font-bold backdrop-blur-md">
-                                            {event.year}
-                                        </div>
-                                        <h3 className="text-h3 font-bold text-white mb-4 group-hover:text-zgreen-400 transition-colors">
-                                            {event.title}
-                                        </h3>
-                                        <p className="text-gray-200 leading-relaxed text-caption font-medium">
-                                            {event.desc}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                {/* Center Orb */}
-                                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zgreen-500 shadow-[0_0_20px_rgba(34,197,94,0.8)] z-20 border-4 border-black" />
-
-                                <div className="md:w-1/2 hidden md:block" />
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
+                <ol className="relative border-l border-white/10 ml-2">
+                    {events.map((event, i) => (
+                        <li key={event.title} className="relative pl-8 pb-10 last:pb-0">
+                            <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-zgreen-500 ring-4 ring-black" />
+                            <Reveal delay={i * 0.06}>
+                                <p className="text-xs font-bold tracking-widest text-zgreen-400 mb-1">{event.year}</p>
+                                <h3 className="text-lg font-bold text-white mb-1.5">{event.title}</h3>
+                                <p className="text-gray-400 leading-relaxed">{event.desc}</p>
+                            </Reveal>
+                        </li>
+                    ))}
+                </ol>
             </div>
         </section>
     );

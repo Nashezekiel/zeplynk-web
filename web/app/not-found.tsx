@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { SITE } from "@/lib/site";
 import Link from "next/link";
 import { Home, Search, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-    title: "Page Not Found | Zeplynk",
+    title: "Page Not Found",
     description:
         "The page you're looking for could not be found on Zeplynk. Return to our homepage or explore Zeplynk Academy, solutions, and contact pages.",
     robots: {
@@ -80,7 +81,7 @@ export default function NotFound() {
                             Still can't find what you're looking for?
                         </p>
                         <a
-                            href="https://wa.me/2347063695334?text=Hello%20Zeplynk!%20I%20couldn't%20find%20the%20page%20I%20was%20looking%20for."
+                            href={`${SITE.whatsapp}?text=Hello%20Zeplynk!%20I%20couldn't%20find%20the%20page%20I%20was%20looking%20for.`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center text-zgreen-500 hover:text-zgreen-400 transition-colors duration-200 font-medium"

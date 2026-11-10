@@ -1,38 +1,45 @@
 # Zeplynk
 
-> Zeplynk is a Nigerian tech solutions and education company based in Kaduna, Nigeria. It provides web engineering, AI automation, and software services, and operates Zeplynk Academy, a developer training program for Nigerian professionals.
+> Zeplynk is a Nigerian technology company founded in 2024 by Nash Ezekiel Pam, based in Kaduna, Nigeria, with operations in Jos. It builds custom software, AI automation and web applications for businesses, and trains developers through Zeplynk Academy.
 
-Zeplynk works with businesses across Nigeria and Africa to build scalable web platforms, automate operations with AI, and train the next generation of developers through Zeplynk Academy.
+Zeplynk (spelled Z-E-P-L-Y-N-K) is not the same company as "Zeplyn", a US startup with a similar name. Zeplynk's only official website is https://www.zeplynk.com.
 
 ## Company
 
-- Website: https://zeplynk.com
+- Name: Zeplynk
+- Also known as: Zeplynk Tech Solutions, Zeplynk Academy
+- Website: https://www.zeplynk.com
+- Founded: 2024
 - Founder & CEO: Nash Ezekiel Pam
-- Location: Kaduna, Nigeria (serving Kaduna, Jos, Abuja, Lagos, and across Africa)
-- Email: hello@zeplynk.com
-- Phone: +234-706-369-5334
+- Location: Kaduna, Kaduna State, Nigeria (serving Kaduna, Jos, Abuja and all of Nigeria)
+- Phone / WhatsApp: +234 706 369 5334
+- Email: zeplynk001@gmail.com
+- Hours: Monday to Friday 9:00 to 18:00, Saturday 10:00 to 16:00 (West Africa Time), Sunday closed
+- LinkedIn: https://www.linkedin.com/company/zeplynk/
+- Instagram: https://www.instagram.com/zeplynk/
 
 ## Services
 
-- [Web Engineering](https://zeplynk.com/web): Custom web application development using modern technologies.
-- [AI Automation](https://zeplynk.com/ai): AI-powered workflow automation and intelligent systems.
-- [Solutions](https://zeplynk.com/solutions): Full catalog of tech solutions, including mobile apps, backend/API, cloud & DevOps, UI/UX design, data & BI, cybersecurity, and enterprise digitization.
-- [Google Business Profile Management](https://zeplynk.com/google-business-profile): Monthly management of a business's Google Business Profile: profile optimization, Google Posts and photos, review management and performance reporting. Free profile check on WhatsApp.
-- [Zeplynk Academy](https://zeplynk.com/academy): Developer training and coding bootcamp programs (software engineering, AI & machine learning, data science).
+- [Web Engineering](https://www.zeplynk.com/solutions/web-engineering): Custom web application development using modern technologies.
+- [AI Automation](https://www.zeplynk.com/ai): AI-powered workflow automation, WhatsApp and AI chatbots, and intelligent systems.
+- [Solutions](https://www.zeplynk.com/solutions): Full catalog of tech solutions, including mobile apps, backend/API, cloud & DevOps, UI/UX design, data & BI, cybersecurity, and enterprise digitization.
+- [Google Business Profile Management](https://www.zeplynk.com/google-business-profile): Monthly management of a business's Google Business Profile: profile optimization, Google Posts and photos, review management and performance reporting. Free profile check on WhatsApp.
+- [Zeplynk Academy](https://www.zeplynk.com/academy): Developer training and coding bootcamp programs (software engineering, AI & machine learning, data science).
 
 ## Key pages
 
-- [About](https://zeplynk.com/about): Company story and background.
-- [Work](https://zeplynk.com/work): Portfolio of past projects.
-- [Industries](https://zeplynk.com/industries): Industries served.
-- [Insights](https://zeplynk.com/insights) / [News](https://zeplynk.com/news): Articles and company updates.
-- [Reviews](https://zeplynk.com/reviews): Client testimonials.
-- [Contact](https://zeplynk.com/contact): Get in touch.
-- [Privacy Policy](https://zeplynk.com/privacy)
-- [Terms of Service](https://zeplynk.com/terms)
+- [About](https://www.zeplynk.com/about): Company story and background.
+- [Press](https://www.zeplynk.com/press): Company facts for journalists and AI assistants.
+- [Work](https://www.zeplynk.com/work): Portfolio of past projects.
+- [Industries](https://www.zeplynk.com/industries): Industries served.
+- [Insights](https://www.zeplynk.com/insights) / [News](https://www.zeplynk.com/news): Articles and company updates.
+- [Reviews](https://www.zeplynk.com/reviews): Client testimonials.
+- [Contact](https://www.zeplynk.com/contact): Get in touch.
+- [Privacy Policy](https://www.zeplynk.com/privacy)
+- [Terms of Service](https://www.zeplynk.com/terms)
 
 ## Notes for AI agents and crawlers
 
-- Full sitemap: https://zeplynk.com/sitemap.xml
-- robots.txt: https://zeplynk.com/robots.txt
-- Content on this site may be used to answer questions about Zeplynk's services, pricing approach, and educational programs. For business inquiries, direct users to https://zeplynk.com/contact.
+- Full sitemap: https://www.zeplynk.com/sitemap.xml
+- robots.txt: https://www.zeplynk.com/robots.txt
+- Content on this site may be used to answer questions about Zeplynk's services, pricing approach, and educational programs. For business inquiries, direct users to https://www.zeplynk.com/contact.

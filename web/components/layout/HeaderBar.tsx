@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { SITE } from "@/lib/site";
 import Link from "next/link";
 import { Phone, Mail, Linkedin, Instagram, Facebook, Sparkles } from "lucide-react";
 
@@ -47,25 +48,25 @@ export default function HeaderBar() {
 
                     <div className="hidden sm:block w-px h-4 bg-white/20 flex-shrink-0" />
                     <a
-                        href="tel:+2347063695334"
+                        href={`tel:${SITE.phoneE164}`}
                         className="flex items-center gap-1.5 md:gap-2.5 text-white/75 hover:text-white transition-all duration-200 text-xs md:text-[13px] font-semibold tracking-wide group"
                     >
                         <span className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
                             <Phone className="h-2.5 w-2.5 md:h-3 md:w-3" />
                         </span>
-                        <span>07063695334</span>
+                        <span>{SITE.phoneDisplay}</span>
                     </a>
 
                     <div className="hidden lg:block w-px h-4 bg-white/20 flex-shrink-0" />
 
                     <a
-                        href="mailto:zeplynk001@gmail.com"
+                        href={`mailto:${SITE.email}`}
                         className="hidden lg:flex items-center gap-2.5 text-white/75 hover:text-white transition-all duration-200 text-[13px] font-semibold tracking-wide group"
                     >
                         <span className="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
                             <Mail className="h-3 w-3" />
                         </span>
-                        <span>zeplynk001@gmail.com</span>
+                        <span>{SITE.email}</span>
                     </a>
                 </div>
 
@@ -86,9 +87,9 @@ export default function HeaderBar() {
                 {/* Right — Socials */}
                 <div className="flex items-center gap-3 flex-shrink-0">
                     {[
-                        { icon: Linkedin, href: "https://www.linkedin.com/company/zeplynk/", label: "LinkedIn" },
-                        { icon: Instagram, href: "https://www.instagram.com/zeplynk/", label: "Instagram" },
-                        { icon: Facebook, href: "https://www.facebook.com/share/1JghGYmUWr/", label: "Facebook" },
+                        { icon: Linkedin, href: SITE.social.linkedin, label: "LinkedIn" },
+                        { icon: Instagram, href: SITE.social.instagram, label: "Instagram" },
+                        { icon: Facebook, href: SITE.social.facebook, label: "Facebook" },
                     ].map((s) => (
                         <a
                             key={s.label}

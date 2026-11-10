@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { SITE, ACADEMY_REF } from "@/lib/site";
 import type { Metadata } from "next";
 import { getCourseBySlug, courses } from "@/lib/courses-data";
 import CourseDetailPage from "@/components/sections/academy/CourseDetailPage";
@@ -17,16 +18,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!course) return {};
 
   return {
-    title: course.metaTitle,
+    title: { absolute: course.metaTitle },
     description: course.metaDescription,
     keywords: course.keywords,
     alternates: {
-      canonical: `https://zeplynk.com/academy/${slug}`,
+      canonical: `${SITE.url}/academy/${slug}`,
     },
     openGraph: {
       title: course.metaTitle,
       description: course.metaDescription,
-      url: `https://zeplynk.com/academy/${slug}`,
+      url: `${SITE.url}/academy/${slug}`,
       images: [{ url: "/academy/opengraph-image", width: 1200, height: 630, alt: "Zeplynk Academy — Tech Education Nigeria" }],
     },
     twitter: {
@@ -51,12 +52,8 @@ export default async function CoursePage({ params }: Props) {
     "@type": "Course",
     name: course.title,
     description: course.metaDescription,
-    provider: {
-      "@type": "Organization",
-      name: "Zeplynk Academy",
-      url: "https://zeplynk.com/academy",
-    },
-    url: `https://zeplynk.com/academy/${slug}`,
+    provider: ACADEMY_REF,
+    url: `${SITE.url}/academy/${slug}`,
     inLanguage: "en",
     courseMode: ["onsite", "online"],
     timeRequired: course.duration,
@@ -98,9 +95,9 @@ export default async function CoursePage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://zeplynk.com" },
-      { "@type": "ListItem", position: 2, name: "Academy", item: "https://zeplynk.com/academy" },
-      { "@type": "ListItem", position: 3, name: course.title, item: `https://zeplynk.com/academy/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}` },
+      { "@type": "ListItem", position: 2, name: "Academy", item: `${SITE.url}/academy` },
+      { "@type": "ListItem", position: 3, name: course.title, item: `${SITE.url}/academy/${slug}` },
     ],
   };
 

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { SITE } from "@/lib/site";
 import InsightsPageContent from "./InsightsPageContent";
 import { getAllNews } from "@/lib/news-store";
 
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-    title: "Tech Blog — Web Dev & AI Insights for Nigerian Businesses | Zeplynk",
+    title: "Tech Blog — Web Dev & AI Insights for Nigerian Businesses",
     description:
         "The Zeplynk blog covers web development, AI automation, software engineering, and digital transformation for Nigerian businesses. Practical insights from our Kaduna engineering team.",
     keywords: [
@@ -21,13 +22,13 @@ export const metadata: Metadata = {
         "Zeplynk insights",
     ],
     alternates: {
-        canonical: "https://zeplynk.com/insights",
+        canonical: `${SITE.url}/insights`,
     },
     openGraph: {
         title: "Tech Blog — Web Dev & AI Insights for Nigerian Businesses | Zeplynk",
         description:
             "Practical web development and AI insights for Nigerian businesses from the Zeplynk engineering team in Kaduna.",
-        url: "https://zeplynk.com/insights",
+        url: `${SITE.url}/insights`,
         images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {

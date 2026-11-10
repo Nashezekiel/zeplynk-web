@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { SITE } from "@/lib/site";
 import Link from "next/link";
 import { Building2, CheckCircle, Brain, Workflow, ShieldCheck, Code2, Users, ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -64,9 +65,9 @@ export default function CorporateTraining() {
                                     <ArrowRight className="h-5 w-5 ml-1" />
                                 </Button>
                             </Link>
-                            <a href="tel:07063695334" className="inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-blue-400 transition-colors">
+                            <a href={`tel:${SITE.phoneE164}`} className="inline-flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-blue-400 transition-colors">
                                 <Phone className="h-4 w-4" />
-                                Or call 0706 369 5334
+                                Or call {SITE.phoneDisplay}
                             </a>
                         </div>
                     </motion.div>
