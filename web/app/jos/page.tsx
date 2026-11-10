@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { SITE, ORG_REF } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Web Development & Tech Training in Jos, Plateau State | Zeplynk",
+    title: "Web Development & Tech Training in Jos, Plateau State",
     description:
         "Zeplynk delivers web development, software engineering, AI automation & tech training to businesses in Jos, Plateau State, Nigeria. Get a free consultation.",
     keywords: [
@@ -18,13 +19,13 @@ export const metadata: Metadata = {
         "software development Plateau State",
     ],
     alternates: {
-        canonical: "https://zeplynk.com/jos",
+        canonical: `${SITE.url}/jos`,
     },
     openGraph: {
         title: "Web Development & Tech Training in Jos, Plateau State | Zeplynk",
         description:
             "Zeplynk brings world-class web development, AI automation, and developer training to Jos, Plateau State. Serving businesses across northern Nigeria.",
-        url: "https://zeplynk.com/jos",
+        url: `${SITE.url}/jos`,
         images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
@@ -38,24 +39,13 @@ export const metadata: Metadata = {
 
 const josLocalBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "ITService",
+    "@type": "Service",
     name: "Zeplynk — Tech Solutions Jos",
     description: "Tech solutions and developer training serving Jos and Plateau State, Nigeria. Web development, AI automation, software engineering, and coding bootcamp programmes.",
-    url: "https://zeplynk.com/jos",
-    telephone: "+234-706-369-5334",
-    email: "hello@zeplynk.com",
-    address: {
-        "@type": "PostalAddress",
-        addressLocality: "Jos",
-        addressRegion: "Plateau State",
-        addressCountry: "NG",
-    },
+    url: `${SITE.url}/jos`,
+    serviceType: ["Web Development", "AI Automation", "Software Development", "Developer Training"],
+    provider: ORG_REF,
     areaServed: ["Jos", "Plateau State", "Northern Nigeria", "Nigeria"],
-    sameAs: [
-        "https://www.linkedin.com/company/zeplynk/",
-        "https://www.instagram.com/zeplynk/",
-        "https://www.facebook.com/share/1JghGYmUWr/",
-    ],
 };
 
 const josBreadcrumbSchema = {
@@ -66,13 +56,13 @@ const josBreadcrumbSchema = {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://zeplynk.com",
+            item: `${SITE.url}`,
         },
         {
             "@type": "ListItem",
             position: 2,
             name: "Jos",
-            item: "https://zeplynk.com/jos",
+            item: `${SITE.url}/jos`,
         },
     ],
 };
@@ -176,21 +166,21 @@ export default function JosPage() {
                                         <span className="text-zgreen-400 mt-1">📞</span>
                                         <div>
                                             <p className="font-bold text-white">Call / WhatsApp</p>
-                                            <a href="tel:+2347063695334" className="text-gray-400 hover:text-zgreen-400 transition-colors">+234-706-369-5334</a>
+                                            <a href={`tel:${SITE.phoneE164}`} className="text-gray-400 hover:text-zgreen-400 transition-colors">{SITE.phoneIntl}</a>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-zgreen-400 mt-1">✉️</span>
                                         <div>
                                             <p className="font-bold text-white">Email</p>
-                                            <a href="mailto:hello@zeplynk.com" className="text-gray-400 hover:text-zgreen-400 transition-colors">hello@zeplynk.com</a>
+                                            <a href={`mailto:${SITE.email}`} className="text-gray-400 hover:text-zgreen-400 transition-colors">{SITE.email}</a>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-zgreen-400 mt-1">🕐</span>
                                         <div>
                                             <p className="font-bold text-white">Hours</p>
-                                            <p className="text-gray-400">Monday – Friday, 9:00 AM – 5:00 PM WAT</p>
+                                            <p className="text-gray-400">Mon – Fri 9:00 AM – 6:00 PM, Sat 10:00 AM – 4:00 PM WAT</p>
                                         </div>
                                     </div>
                                 </div>

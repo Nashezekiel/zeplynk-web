@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE, ORG_REF } from "@/lib/site";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -16,16 +17,16 @@ import {
 import { HeroVisual, Reveal, ScrollProgress, Stagger, StaggerItem } from "./GbpMotion";
 
 // The number on the GBP flyers — ads and outreach send people here, so the page must match it.
-const WHATSAPP_NUMBER = "2347063695334";
-const WHATSAPP_DISPLAY = "+234 706 369 5334";
+const WHATSAPP_NUMBER = SITE.phoneE164.slice(1);
+const WHATSAPP_DISPLAY = SITE.phoneIntl;
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     "Hi Zeplynk, I'd like a free Google profile check. Here's my business's Google Maps link: "
 )}`;
 
-const PAGE_URL = "https://zeplynk.com/google-business-profile";
+const PAGE_URL = `${SITE.url}/google-business-profile`;
 
 export const metadata: Metadata = {
-    title: "Google Business Profile Management in Nigeria | Zeplynk",
+    title: "Google Business Profile Management in Nigeria",
     description:
         "Zeplynk manages your Google Business Profile so customers can find, trust and contact your business on Google Search and Maps. Get a free profile check on WhatsApp.",
     keywords: [
@@ -182,12 +183,7 @@ const serviceSchema = {
     description:
         "Monthly Google Business Profile management for Nigerian businesses: profile optimization, Google Posts and photos, review management and performance reporting.",
     url: PAGE_URL,
-    provider: {
-        "@type": "Organization",
-        name: "Zeplynk",
-        url: "https://zeplynk.com",
-        telephone: "+234-706-369-5334",
-    },
+    provider: ORG_REF,
     areaServed: { "@type": "Country", name: "Nigeria" },
 };
 
@@ -205,7 +201,7 @@ const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://zeplynk.com" },
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}` },
         { "@type": "ListItem", position: 2, name: "Google Business Profile Management", item: PAGE_URL },
     ],
 };

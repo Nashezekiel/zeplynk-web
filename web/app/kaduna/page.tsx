@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { SITE, ORG_REF } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Tech Solutions Company in Kaduna, Nigeria | Zeplynk",
+    title: "Tech Solutions Company in Kaduna, Nigeria",
     description:
         "Zeplynk: Kaduna's leading tech solutions company. We build websites, web applications & AI automation tools for businesses in Kaduna State and northern Nigeria.",
     keywords: [
@@ -20,13 +21,13 @@ export const metadata: Metadata = {
         "IT company Kaduna Nigeria",
     ],
     alternates: {
-        canonical: "https://zeplynk.com/kaduna",
+        canonical: `${SITE.url}/kaduna`,
     },
     openGraph: {
         title: "Tech Solutions Company in Kaduna, Nigeria | Zeplynk",
         description:
             "Zeplynk is Kaduna's leading tech solutions company — web development, AI automation, and developer training for businesses in Kaduna and northern Nigeria.",
-        url: "https://zeplynk.com/kaduna",
+        url: `${SITE.url}/kaduna`,
         images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
@@ -40,37 +41,13 @@ export const metadata: Metadata = {
 
 const kadunaLocalBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "ITService",
+    "@type": "Service",
     name: "Zeplynk — Tech Solutions Kaduna",
     description: "Kaduna's premier tech solutions and education company. Providing web development, AI automation, software engineering, and developer training across Kaduna State and northern Nigeria.",
-    url: "https://zeplynk.com/kaduna",
-    telephone: "+234-706-369-5334",
-    email: "hello@zeplynk.com",
-    address: {
-        "@type": "PostalAddress",
-        addressLocality: "Kaduna",
-        addressRegion: "Kaduna State",
-        addressCountry: "NG",
-    },
-    geo: {
-        "@type": "GeoCoordinates",
-        latitude: 10.5105,
-        longitude: 7.4165,
-    },
+    url: `${SITE.url}/kaduna`,
+    serviceType: ["Web Development", "AI Automation", "Software Development", "Developer Training"],
+    provider: ORG_REF,
     areaServed: ["Kaduna", "Kaduna State", "Northern Nigeria", "Nigeria"],
-    openingHoursSpecification: [
-        {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            opens: "09:00",
-            closes: "17:00",
-        },
-    ],
-    sameAs: [
-        "https://www.linkedin.com/company/zeplynk/",
-        "https://www.instagram.com/zeplynk/",
-        "https://www.facebook.com/share/1JghGYmUWr/",
-    ],
 };
 
 const kadunaBreadcrumbSchema = {
@@ -81,13 +58,13 @@ const kadunaBreadcrumbSchema = {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://zeplynk.com",
+            item: `${SITE.url}`,
         },
         {
             "@type": "ListItem",
             position: 2,
             name: "Kaduna",
-            item: "https://zeplynk.com/kaduna",
+            item: `${SITE.url}/kaduna`,
         },
     ],
 };
@@ -215,7 +192,7 @@ export default function KadunaPage() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
                             {[
                                 { title: "Local Presence, Global Standards", desc: "We are based in Kaduna — so we understand local business needs. But we build to international standards, ensuring your product competes globally." },
-                                { title: "Trained 100+ Nigerian Developers", desc: "Through Zeplynk Academy, we have trained over 100 developers across northern Nigeria. We understand the local talent pipeline." },
+                                { title: "We Train Nigerian Developers", desc: "Through Zeplynk Academy, we train developers across northern Nigeria. We understand the local talent pipeline." },
                                 { title: "Fast Response & Support", desc: "As a Kaduna-based company, we offer fast turnaround, regular check-ins, and face-to-face meetings when needed." },
                                 { title: "Fair, Transparent Pricing", desc: "We price our services fairly for the Nigerian market — no hidden costs. We'll always give you a clear, itemized quote before any work begins." },
                             ].map((item) => (
@@ -253,21 +230,21 @@ export default function KadunaPage() {
                                         <span className="text-zgreen-400 mt-1">📞</span>
                                         <div>
                                             <p className="font-bold text-white">Phone</p>
-                                            <a href="tel:+2347063695334" className="text-gray-400 hover:text-zgreen-400 transition-colors">+234-706-369-5334</a>
+                                            <a href={`tel:${SITE.phoneE164}`} className="text-gray-400 hover:text-zgreen-400 transition-colors">{SITE.phoneIntl}</a>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-zgreen-400 mt-1">✉️</span>
                                         <div>
                                             <p className="font-bold text-white">Email</p>
-                                            <a href="mailto:hello@zeplynk.com" className="text-gray-400 hover:text-zgreen-400 transition-colors">hello@zeplynk.com</a>
+                                            <a href={`mailto:${SITE.email}`} className="text-gray-400 hover:text-zgreen-400 transition-colors">{SITE.email}</a>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <span className="text-zgreen-400 mt-1">🕐</span>
                                         <div>
                                             <p className="font-bold text-white">Office Hours</p>
-                                            <p className="text-gray-400">Monday – Friday, 9:00 AM – 5:00 PM WAT</p>
+                                            <p className="text-gray-400">Mon – Fri 9:00 AM – 6:00 PM, Sat 10:00 AM – 4:00 PM WAT</p>
                                         </div>
                                     </div>
                                 </div>

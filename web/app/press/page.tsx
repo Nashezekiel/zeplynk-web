@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { SITE, ORG_REF } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: "Press & Media | Zeplynk",
+    title: "Press & Media",
     description:
         "Press resources for Zeplynk — Nigeria's premier tech solutions and education company in Kaduna. Download our logo, read our company factsheet, and contact our media team.",
     keywords: [
@@ -15,13 +16,13 @@ export const metadata: Metadata = {
         "Zeplynk Kaduna",
     ],
     alternates: {
-        canonical: "https://zeplynk.com/press",
+        canonical: `${SITE.url}/press`,
     },
     openGraph: {
         title: "Press & Media | Zeplynk",
         description:
             "Press resources for Zeplynk — Nigeria's premier tech solutions and education company based in Kaduna.",
-        url: "https://zeplynk.com/press",
+        url: `${SITE.url}/press`,
         images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {
@@ -34,31 +35,11 @@ export const metadata: Metadata = {
 
 const pressSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Zeplynk",
-    url: "https://zeplynk.com",
-    logo: "https://zeplynk.com/theLogo-removebg-preview.png",
-    description: "Zeplynk is a Nigerian tech solutions and education company founded in Kaduna in 2024 by Nash Ezekiel Pam. It provides web development, AI automation, and software services, and operates Zeplynk Academy — a developer training program for Nigerian professionals.",
-    foundingDate: "2024",
-    founder: {
-        "@type": "Person",
-        name: "Nash Ezekiel Pam",
-        jobTitle: "Founder & CEO",
-    },
-    address: {
-        "@type": "PostalAddress",
-        addressLocality: "Kaduna",
-        addressRegion: "Kaduna State",
-        addressCountry: "NG",
-    },
-    telephone: "+234-706-369-5334",
-    email: "hello@zeplynk.com",
-    numberOfEmployees: { "@type": "QuantitativeValue", minValue: 5, maxValue: 50 },
-    sameAs: [
-        "https://www.linkedin.com/company/zeplynk/",
-        "https://www.instagram.com/zeplynk/",
-        "https://www.facebook.com/share/1JghGYmUWr/",
-    ],
+    "@type": "AboutPage",
+    name: "Zeplynk Press & Media",
+    url: `${SITE.url}/press`,
+    about: ORG_REF,
+    mainEntity: ORG_REF,
 };
 
 const facts = [
@@ -69,9 +50,9 @@ const facts = [
     { label: "Services", value: "Web Development, AI Automation, Software Engineering, Tech Education" },
     { label: "Markets Served", value: "Nigeria, Africa" },
     { label: "Education Wing", value: "Zeplynk Academy — coding bootcamp in Kaduna" },
-    { label: "Phone", value: "+234-706-369-5334" },
-    { label: "Media Enquiries", value: "hello@zeplynk.com" },
-    { label: "Website", value: "https://zeplynk.com" },
+    { label: "Phone", value: SITE.phoneIntl },
+    { label: "Media Enquiries", value: SITE.email },
+    { label: "Website", value: `${SITE.url}` },
 ];
 
 export default function PressPage() {
@@ -97,8 +78,8 @@ export default function PressPage() {
                         <p className="text-body text-gray-400 max-w-2xl leading-relaxed">
                             Resources for journalists, analysts, and media professionals covering
                             Nigerian tech. For press enquiries, contact{" "}
-                            <a href="mailto:hello@zeplynk.com" className="text-zgreen-400 hover:text-zgreen-300 transition-colors">
-                                hello@zeplynk.com
+                            <a href={`mailto:${SITE.email}`} className="text-zgreen-400 hover:text-zgreen-300 transition-colors">
+                                {SITE.email}
                             </a>
                         </p>
                     </div>
@@ -115,8 +96,7 @@ export default function PressPage() {
                         <p className="text-gray-300 leading-relaxed text-body mb-4">
                             Zeplynk also operates <strong className="text-white">Zeplynk Academy</strong> — a developer
                             training programme based in Kaduna that offers coding bootcamps in web development,
-                            backend engineering, and artificial intelligence. The Academy has trained over 100
-                            Nigerian developers since its founding.
+                            backend engineering, and artificial intelligence, online and in person.
                         </p>
                         <p className="text-gray-300 leading-relaxed text-body">
                             Zeplynk&apos;s mission is to build world-class digital infrastructure for Nigerian
@@ -169,8 +149,8 @@ export default function PressPage() {
                         </div>
                         <p className="text-gray-500 text-caption mt-4">
                             For high-resolution logo files, email{" "}
-                            <a href="mailto:hello@zeplynk.com" className="text-zgreen-400 hover:text-zgreen-300 transition-colors">
-                                hello@zeplynk.com
+                            <a href={`mailto:${SITE.email}`} className="text-zgreen-400 hover:text-zgreen-300 transition-colors">
+                                {SITE.email}
                             </a>
                         </p>
                     </section>
@@ -205,16 +185,16 @@ export default function PressPage() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <a
-                                href="mailto:hello@zeplynk.com"
+                                href={`mailto:${SITE.email}`}
                                 className="inline-flex items-center justify-center px-8 py-4 bg-zgreen-600 hover:bg-zgreen-500 text-white font-bold rounded-xl transition-all"
                             >
-                                ✉️ hello@zeplynk.com
+                                ✉️ {SITE.email}
                             </a>
                             <a
-                                href="tel:+2347063695334"
+                                href={`tel:${SITE.phoneE164}`}
                                 className="inline-flex items-center justify-center px-8 py-4 border border-white/20 text-white font-bold rounded-xl transition-all hover:bg-white/10"
                             >
-                                📞 +234-706-369-5334
+                                📞 {SITE.phoneIntl}
                             </a>
                         </div>
                         <div className="mt-8 flex flex-wrap gap-4 text-sm text-gray-500">

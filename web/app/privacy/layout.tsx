@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-    title: "Privacy Policy | Zeplynk",
+    title: "Privacy Policy",
     description:
         "Zeplynk privacy policy — how we protect your personal information, data security measures, and your rights regarding data usage at Zeplynk in Nigeria.",
     alternates: {
-        canonical: "https://zeplynk.com/privacy",
+        canonical: `${SITE.url}/privacy`,
     },
     openGraph: {
         title: "Privacy Policy | Zeplynk",
         description:
             "How Zeplynk protects your personal information and data security. Read our privacy policy.",
-        url: "https://zeplynk.com/privacy",
+        url: `${SITE.url}/privacy`,
         images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {

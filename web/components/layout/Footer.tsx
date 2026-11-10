@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SITE } from "@/lib/site";
 import Image from "next/image";
 import { MessageCircle, Linkedin, Instagram, Facebook } from "lucide-react";
 
@@ -25,9 +26,9 @@ export function Footer() {
                         </p>
                         <div className="flex gap-4">
                             {[
-                                { icon: Linkedin, href: "https://www.linkedin.com/company/zeplynk/", label: "LinkedIn" },
-                                { icon: Instagram, href: "https://www.instagram.com/zeplynk/", label: "Instagram" },
-                                { icon: Facebook, href: "https://www.facebook.com/share/1JghGYmUWr/", label: "Facebook" }
+                                { icon: Linkedin, href: SITE.social.linkedin, label: "LinkedIn" },
+                                { icon: Instagram, href: SITE.social.instagram, label: "Instagram" },
+                                { icon: Facebook, href: SITE.social.facebook, label: "Facebook" }
                             ].map((social) => (
                                 <a
                                     key={social.label}
@@ -67,13 +68,25 @@ export function Footer() {
                     <div>
                         <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-xs">Connect</h4>
                         <ul className="space-y-4">
-                            <li className="text-gray-400 hover:text-white transition-colors cursor-default">
+                            <li className="text-gray-400">
                                 <span className="block text-xs uppercase text-gray-600 mb-1">Email</span>
-                                zeplynk001@gmail.com
+                                <a href={`mailto:${SITE.email}`} className="hover:text-white transition-colors">{SITE.email}</a>
                             </li>
-                            <li className="text-gray-400 hover:text-white transition-colors cursor-default">
+                            <li className="text-gray-400">
                                 <span className="block text-xs uppercase text-gray-600 mb-1">Phone</span>
-                                07063695334
+                                <a href={`tel:${SITE.phoneE164}`} className="hover:text-white transition-colors">{SITE.phoneDisplay}</a>
+                            </li>
+                            <li className="text-gray-400">
+                                <span className="block text-xs uppercase text-gray-600 mb-1">Location</span>
+                                <address className="not-italic">
+                                    {SITE.name}<br />
+                                    {SITE.address.display}
+                                </address>
+                                {SITE.gbpUrl && (
+                                    <a href={SITE.gbpUrl} target="_blank" rel="noopener" className="inline-block mt-2 text-zgreen-500 hover:text-zgreen-400 font-bold transition-colors">
+                                        Find us on Google
+                                    </a>
+                                )}
                             </li>
                         </ul>
                     </div>
@@ -90,7 +103,7 @@ export function Footer() {
 
             {/* WhatsApp Floating Button */}
             <a
-                href="https://wa.me/2347063695334?text=Hello%20Zeplynk!"
+                href={`${SITE.whatsapp}?text=Hello%20Zeplynk!`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="fixed bottom-6 right-6 z-50 bg-zgreen-600 hover:bg-zgreen-500 text-white p-4 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"

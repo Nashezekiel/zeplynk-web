@@ -95,8 +95,8 @@ export const courses: Course[] = [
     ],
     stats: [
       { value: "12wk", label: "Course Duration" },
-      { value: "300+", label: "Frontend Devs Trained" },
-      { value: "85%", label: "Placement Rate" },
+      { value: "Online", label: "& Onsite in Kaduna" },
+      { value: "Hands-on", label: "Project-Based Learning" },
       { value: "0", label: "Prior Experience Required" },
     ],
     whoFor: [
@@ -162,8 +162,8 @@ export const courses: Course[] = [
     ],
     stats: [
       { value: "12wk", label: "Course Duration" },
-      { value: "250+", label: "Backend Devs Trained" },
-      { value: "85%", label: "Placement Rate" },
+      { value: "Online", label: "& Onsite in Kaduna" },
+      { value: "Hands-on", label: "Project-Based Learning" },
       { value: "0", label: "Prior Experience Required" },
     ],
     whoFor: [
@@ -229,8 +229,8 @@ export const courses: Course[] = [
     ],
     stats: [
       { value: "24wk", label: "Course Duration" },
-      { value: "400+", label: "Full-Stack Devs Trained" },
-      { value: "85%", label: "Placement Rate" },
+      { value: "Online", label: "& Onsite in Kaduna" },
+      { value: "Hands-on", label: "Project-Based Learning" },
       { value: "10+", label: "Projects Shipped" },
     ],
     whoFor: [
@@ -294,8 +294,8 @@ export const courses: Course[] = [
     ],
     stats: [
       { value: "16wk", label: "Course Duration" },
-      { value: "120+", label: "Mobile Devs Trained" },
-      { value: "80%", label: "Placement Rate" },
+      { value: "Online", label: "& Onsite in Kaduna" },
+      { value: "Hands-on", label: "Project-Based Learning" },
       { value: "2", label: "Frameworks Covered" },
     ],
     whoFor: [
@@ -360,8 +360,8 @@ export const courses: Course[] = [
     ],
     stats: [
       { value: "10wk", label: "Course Duration" },
-      { value: "180+", label: "Analysts Trained" },
-      { value: "80%", label: "Placement Rate" },
+      { value: "Online", label: "& Onsite in Kaduna" },
+      { value: "Hands-on", label: "Project-Based Learning" },
       { value: "0", label: "Prior Experience Required" },
     ],
     whoFor: [
@@ -425,8 +425,8 @@ export const courses: Course[] = [
     ],
     stats: [
       { value: "16wk", label: "Course Duration" },
-      { value: "90+", label: "Data Scientists Trained" },
-      { value: "75%", label: "Placement Rate" },
+      { value: "Online", label: "& Onsite in Kaduna" },
+      { value: "Hands-on", label: "Project-Based Learning" },
       { value: "5+", label: "ML Projects Built" },
     ],
     whoFor: [
@@ -492,8 +492,8 @@ export const courses: Course[] = [
     ],
     stats: [
       { value: "12wk", label: "Course Duration" },
-      { value: "60+", label: "AI Engineers Trained" },
-      { value: "75%", label: "Placement Rate" },
+      { value: "Online", label: "& Onsite in Kaduna" },
+      { value: "Hands-on", label: "Project-Based Learning" },
       { value: "3+", label: "AI Apps Shipped" },
     ],
     whoFor: [
@@ -557,8 +557,8 @@ export const courses: Course[] = [
     ],
     stats: [
       { value: "12wk", label: "Course Duration" },
-      { value: "100+", label: "Cloud Practitioners Trained" },
-      { value: "78%", label: "Placement Rate" },
+      { value: "Online", label: "& Onsite in Kaduna" },
+      { value: "Hands-on", label: "Project-Based Learning" },
       { value: "2", label: "Cloud Platforms Covered" },
     ],
     whoFor: [
@@ -622,8 +622,8 @@ export const courses: Course[] = [
     ],
     stats: [
       { value: "16wk", label: "Course Duration" },
-      { value: "70+", label: "DevOps Engineers Trained" },
-      { value: "78%", label: "Placement Rate" },
+      { value: "Online", label: "& Onsite in Kaduna" },
+      { value: "Hands-on", label: "Project-Based Learning" },
       { value: "5+", label: "Pipelines Built" },
     ],
     whoFor: [
@@ -687,8 +687,8 @@ export const courses: Course[] = [
     ],
     stats: [
       { value: "16wk", label: "Course Duration" },
-      { value: "80+", label: "Security Practitioners Trained" },
-      { value: "75%", label: "Placement Rate" },
+      { value: "Online", label: "& Onsite in Kaduna" },
+      { value: "Hands-on", label: "Project-Based Learning" },
       { value: "10+", label: "Lab Exercises" },
     ],
     whoFor: [
@@ -752,8 +752,8 @@ export const courses: Course[] = [
     ],
     stats: [
       { value: "10wk", label: "Course Duration" },
-      { value: "150+", label: "Designers Trained" },
-      { value: "80%", label: "Placement Rate" },
+      { value: "Online", label: "& Onsite in Kaduna" },
+      { value: "Hands-on", label: "Project-Based Learning" },
       { value: "5+", label: "Portfolio Projects" },
     ],
     whoFor: [
@@ -816,8 +816,8 @@ export const courses: Course[] = [
     ],
     stats: [
       { value: "8wk", label: "Course Duration" },
-      { value: "60+", label: "PMs Trained" },
-      { value: "75%", label: "Placement Rate" },
+      { value: "Online", label: "& Onsite in Kaduna" },
+      { value: "Hands-on", label: "Project-Based Learning" },
       { value: "3+", label: "Roadmaps Built" },
     ],
     whoFor: [

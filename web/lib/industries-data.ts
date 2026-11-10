@@ -84,9 +84,9 @@ export const industries: Industry[] = [
       "AI recruitment automation",
     ],
     stats: [
-      { value: "70%", label: "Less Manual Screening Time" },
-      { value: "3x", label: "Faster Time-to-Hire" },
-      { value: "100%", label: "Payroll Integration" },
+      { value: "Automated", label: "CV Screening & Shortlisting" },
+      { value: "One", label: "Dashboard for Your Pipeline" },
+      { value: "Payroll", label: "Integration Ready" },
       { value: "24/7", label: "Candidate Self-Service" },
     ],
     challenges: [
@@ -170,7 +170,7 @@ export const industries: Industry[] = [
     ],
     stats: [
       { value: "6–10wk", label: "Typical MVP Timeline" },
-      { value: "40+", label: "Startup Products Shipped" },
+      { value: "MVP-first", label: "Ship, Learn, Iterate" },
       { value: "100%", label: "Source Code Ownership" },
       { value: "Multi-tenant", label: "Architecture as Standard" },
     ],
@@ -254,10 +254,10 @@ export const industries: Industry[] = [
       "online shop development Nigeria",
     ],
     stats: [
-      { value: "<2s", label: "Avg. Storefront Load Time" },
-      { value: "100%", label: "Local Payment Gateway Coverage" },
+      { value: "Fast", label: "Mobile-First Storefronts" },
+      { value: "Local", label: "Payment Gateways Integrated" },
       { value: "Real-time", label: "Inventory Sync" },
-      { value: "2.5x", label: "Avg. Conversion Lift" },
+      { value: "SEO", label: "Ready Product Pages" },
     ],
     challenges: [
       {
@@ -340,7 +340,7 @@ export const industries: Industry[] = [
     ],
     stats: [
       { value: "100%", label: "Result & Fee Digitization" },
-      { value: "5x", label: "Faster Report Generation" },
+      { value: "Automated", label: "Report Card Generation" },
       { value: "24/7", label: "Parent/Student Portal Access" },
       { value: "Zero", label: "Paper Result Sheets" },
     ],
@@ -425,10 +425,10 @@ export const industries: Industry[] = [
       "legacy system migration Nigeria",
     ],
     stats: [
-      { value: "70%", label: "Manual Process Reduction" },
-      { value: "3x", label: "Faster Reporting Cycles" },
+      { value: "Automated", label: "Approvals & Workflows" },
+      { value: "Live", label: "Management Dashboards" },
       { value: "100%", label: "Audit-Ready Data" },
-      { value: "40+", label: "SME/Corporate Clients" },
+      { value: "Role-based", label: "Access Control" },
     ],
     challenges: [
       {

@@ -103,10 +103,10 @@ export default function SolutionsPageContent() {
             className="flex flex-wrap gap-8 pt-4 border-t border-white/5"
           >
             {[
-              { value: "100+", label: "Projects delivered" },
-              { value: "1000+", label: "Developers trained" },
-              { value: "99.9%", label: "Uptime SLA" },
-              { value: "5★", label: "Client satisfaction" },
+              { value: "Software", label: "Web, mobile & APIs" },
+              { value: "AI", label: "Automation & chatbots" },
+              { value: "Academy", label: "Developer training" },
+              { value: "100%", label: "Source code ownership" },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-2xl font-bold text-white">{stat.value}</div>

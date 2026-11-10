@@ -1,4 +1,5 @@
 import { getFeaturedFeedback } from "@/lib/feedback-store";
+import { ORG_ID } from "@/lib/site";
 import TestimonialsGrid from "./TestimonialsGrid";
 
 export default async function Testimonials() {
@@ -7,17 +8,11 @@ export default async function Testimonials() {
 
     const averageRating = testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length;
 
+    // Real, approved testimonials shown right below, attached to the one
+    // Organization node (same @id) rather than a separate entity.
     const aggregateRatingSchema = {
         "@context": "https://schema.org",
-        "@type": "Product",
-        name: "Zeplynk Tech Solutions",
-        image: "https://zeplynk.com/theLogo-removebg-preview.png",
-        description:
-            "Premier tech solutions and education company in Nigeria. Web development, AI automation, software engineering, and developer training.",
-        brand: {
-            "@type": "Brand",
-            name: "Zeplynk",
-        },
+        "@id": ORG_ID,
         aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: averageRating.toFixed(1),

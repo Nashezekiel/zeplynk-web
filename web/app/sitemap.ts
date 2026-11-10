@@ -2,241 +2,56 @@ import { MetadataRoute } from "next";
 import { getAllNews } from "@/lib/news-store";
 import { courses } from "@/lib/courses-data";
 import { aiPages } from "@/lib/ai-pages-data";
+import { industries } from "@/lib/industries-data";
+import { solutions } from "@/lib/solutions-data";
+import { absoluteUrl } from "@/lib/site";
+
+type Freq = MetadataRoute.Sitemap[number]["changeFrequency"];
+
+// Update by hand when page content actually changes. A build timestamp on every
+// URL tells Google nothing, so it ignores the field.
+const STATIC_UPDATED = new Date("2026-10-21");
+
+const staticPages: [path: string, priority: number, freq: Freq][] = [
+    ["", 1.0, "monthly"],
+    ["/solutions", 1.0, "monthly"],
+    ["/academy", 1.0, "weekly"],
+    ["/ai", 0.8, "monthly"],
+    ["/google-business-profile", 0.9, "monthly"],
+    ["/work", 0.8, "monthly"],
+    ["/industries", 0.7, "monthly"],
+    ["/insights", 0.8, "weekly"],
+    ["/news", 0.7, "weekly"],
+    ["/about", 0.7, "yearly"],
+    ["/contact", 0.6, "yearly"],
+    ["/reviews", 0.6, "monthly"],
+    // Press page helps AI/LLM entity recognition
+    ["/press", 0.6, "monthly"],
+    // Location landing pages, critical for local SEO
+    ["/kaduna", 0.9, "monthly"],
+    ["/jos", 0.8, "monthly"],
+    ["/abuja", 0.8, "monthly"],
+    ["/lagos", 0.8, "monthly"],
+    ["/privacy", 0.3, "yearly"],
+    ["/terms", 0.3, "yearly"],
+];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = "https://zeplynk.com";
     const newsItems = await getAllNews();
 
-    const newsRoutes: MetadataRoute.Sitemap = newsItems.map((item) => ({
-        url: `${baseUrl}/news/${item.slug}`,
-        lastModified: new Date(item.date),
-        changeFrequency: "monthly",
-        priority: 0.6,
-    }));
-
-    const courseRoutes: MetadataRoute.Sitemap = courses.map((course) => ({
-        url: `${baseUrl}/academy/${course.slug}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.85,
-    }));
-
-    const aiRoutes: MetadataRoute.Sitemap = aiPages.map((page) => ({
-        url: `${baseUrl}/ai/${page.slug}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.85,
-    }));
+    const page = (path: string, priority: number, changeFrequency: Freq, lastModified = STATIC_UPDATED) => ({
+        url: absoluteUrl(path),
+        lastModified,
+        changeFrequency,
+        priority,
+    });
 
     return [
-        {
-            url: baseUrl,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 1,
-        },
-        {
-            url: `${baseUrl}/ai`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/academy`,
-            lastModified: new Date(),
-            changeFrequency: "weekly", // Academy might change more often
-            priority: 1.0,
-        },
-        {
-            url: `${baseUrl}/about`,
-            lastModified: new Date(),
-            changeFrequency: "yearly",
-            priority: 0.5,
-        },
-        {
-            url: `${baseUrl}/contact`,
-            lastModified: new Date(),
-            changeFrequency: "yearly",
-            priority: 0.5,
-        },
-        {
-            url: `${baseUrl}/work`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/industries`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.7,
-        },
-        {
-            url: `${baseUrl}/industries/hr-recruitment`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.85,
-        },
-        {
-            url: `${baseUrl}/industries/startups-saas`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.85,
-        },
-        {
-            url: `${baseUrl}/industries/ecommerce`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.85,
-        },
-        {
-            url: `${baseUrl}/industries/education`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.85,
-        },
-        {
-            url: `${baseUrl}/industries/sme-corporate`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.85,
-        },
-        {
-            url: `${baseUrl}/news`,
-            lastModified: new Date(),
-            changeFrequency: "weekly",
-            priority: 0.7,
-        },
-        {
-            url: `${baseUrl}/solutions`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 1.0,
-        },
-        {
-            url: `${baseUrl}/solutions/web-engineering`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/solutions/ai-automation`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/solutions/mobile-apps`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/solutions/backend-api`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/solutions/enterprise-digitization`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/solutions/cloud-devops`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/solutions/ui-ux-design`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/solutions/data-bi`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/solutions/cybersecurity`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/solutions/tech-education`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/google-business-profile`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/insights`,
-            lastModified: new Date(),
-            changeFrequency: "weekly",
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/reviews`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.6,
-        },
-        {
-            url: `${baseUrl}/privacy`,
-            lastModified: new Date(),
-            changeFrequency: "yearly",
-            priority: 0.3,
-        },
-        {
-            url: `${baseUrl}/terms`,
-            lastModified: new Date(),
-            changeFrequency: "yearly",
-            priority: 0.3,
-        },
-        // Location landing pages — critical for local SEO
-        {
-            url: `${baseUrl}/kaduna`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.9,
-        },
-        {
-            url: `${baseUrl}/jos`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/abuja`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/lagos`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        // Press page — helps AI/LLM entity recognition
-        {
-            url: `${baseUrl}/press`,
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.6,
-        },
-        ...newsRoutes,
-        ...courseRoutes,
-        ...aiRoutes,
+        ...staticPages.map(([path, priority, freq]) => page(path, priority, freq)),
+        ...solutions.map((s) => page(`/solutions/${s.slug}`, 0.9, "monthly")),
+        ...industries.map((i) => page(`/industries/${i.slug}`, 0.85, "monthly")),
+        ...courses.map((c) => page(`/academy/${c.slug}`, 0.85, "monthly")),
+        ...aiPages.map((p) => page(`/ai/${p.slug}`, 0.85, "monthly")),
+        ...newsItems.map((n) => page(`/news/${n.slug}`, 0.6, "monthly", new Date(n.date))),
     ];
 }

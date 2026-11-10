@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { SITE } from "@/lib/site";
 import IndustriesPageContent from "./IndustriesPageContent";
 
 export const metadata: Metadata = {
-    title: "Industries We Serve — Fintech, Healthcare, Education | Zeplynk",
+    title: "Industries We Serve — Fintech, Healthcare, Education",
     description:
         "Zeplynk builds industry-specific tech solutions for recruitment, startups, e-commerce, education, and SMEs across Nigeria. Custom software engineering from our Kaduna headquarters.",
     keywords: [
@@ -18,13 +19,13 @@ export const metadata: Metadata = {
         "SME tech solutions Nigeria",
     ],
     alternates: {
-        canonical: "https://zeplynk.com/industries",
+        canonical: `${SITE.url}/industries`,
     },
     openGraph: {
         title: "Industries We Serve — Fintech, Healthcare, Education | Zeplynk",
         description:
             "Zeplynk builds industry-specific tech solutions for Nigerian businesses — recruitment, startups, e-commerce, education, and SMEs. Custom software from Kaduna.",
-        url: "https://zeplynk.com/industries",
+        url: `${SITE.url}/industries`,
         images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zeplynk — Link to Greatness in Tech" }],
     },
     twitter: {

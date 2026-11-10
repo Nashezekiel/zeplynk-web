@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
     title: "Register for Zeplynk Academy | Start Your Tech Journey",
@@ -11,13 +12,13 @@ export const metadata: Metadata = {
         "Zeplynk tech courses",
     ],
     alternates: {
-        canonical: "https://zeplynk.com/register",
+        canonical: `${SITE.url}/register`,
     },
     openGraph: {
         title: "Register for Zeplynk Academy | Start Your Tech Journey",
         description:
             "Enrol in Zeplynk Academy — web development, backend engineering, and AI courses in Kaduna, Nigeria.",
-        url: "https://zeplynk.com/register",
+        url: `${SITE.url}/register`,
         images: [{ url: "/academy/opengraph-image", width: 1200, height: 630, alt: "Zeplynk Academy — Launch Your Tech Career" }],
     },
     twitter: {

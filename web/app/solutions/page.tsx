@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { SITE } from "@/lib/site";
 import SolutionsPageContent from "./SolutionsPageContent";
 
 export const metadata: Metadata = {
-    title: "Software Development & AI Automation Services Nigeria | Zeplynk",
+    title: "Software Development & AI Automation Services Nigeria",
     description:
         "Zeplynk delivers world-class software development, AI automation, cloud infrastructure, and cybersecurity services to businesses in Nigeria and Africa. Zeplynk is based in Kaduna, serving clients nationwide.",
     keywords: [
@@ -22,13 +23,13 @@ export const metadata: Metadata = {
         "Zeplynk tech solutions",
     ],
     alternates: {
-        canonical: "https://zeplynk.com/solutions",
+        canonical: `${SITE.url}/solutions`,
     },
     openGraph: {
         title: "Software Development & AI Automation Services Nigeria | Zeplynk",
         description:
             "Zeplynk delivers world-class software development, AI automation, cloud infrastructure, and cybersecurity services for Nigerian businesses from Kaduna.",
-        url: "https://zeplynk.com/solutions",
+        url: `${SITE.url}/solutions`,
     },
     twitter: {
         card: "summary_large_image",
@@ -89,8 +90,8 @@ const solutionsBreadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://zeplynk.com" },
-        { "@type": "ListItem", position: 2, name: "Solutions", item: "https://zeplynk.com/solutions" },
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE.url}` },
+        { "@type": "ListItem", position: 2, name: "Solutions", item: `${SITE.url}/solutions` },
     ],
 };
 

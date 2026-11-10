@@ -82,7 +82,7 @@ export const aiPages: AiPage[] = [
     stats: [
       { value: "24/7", label: "Automated Response Coverage" },
       { value: "<5s", label: "Avg. First Response Time" },
-      { value: "70%+", label: "Queries Resolved Without a Human" },
+      { value: "Your data", label: "Answers From Your Business Info" },
       { value: "1", label: "Number, Every Channel" },
     ],
     useCases: [
@@ -134,9 +134,9 @@ export const aiPages: AiPage[] = [
       "conversational AI Nigeria",
     ],
     stats: [
-      { value: "40+", label: "AI Systems Deployed" },
-      { value: "98%", label: "Uptime SLA" },
-      { value: "<2s", label: "Avg. Response Latency" },
+      { value: "End-to-end", label: "Build, Deploy & Support" },
+      { value: "Ongoing", label: "Monitoring & Updates" },
+      { value: "Your stack", label: "Integrates With Your Tools" },
       { value: "Custom", label: "Trained on Your Data" },
     ],
     useCases: [
@@ -187,7 +187,7 @@ export const aiPages: AiPage[] = [
       "AI automation agency Nigeria",
     ],
     stats: [
-      { value: "10x", label: "Process Speed Gain" },
+      { value: "Your tools", label: "Connected via APIs" },
       { value: "24/7", label: "Autonomous Operation" },
       { value: "Multi-step", label: "Task Execution" },
       { value: "Full", label: "Audit Trail Logging" },
@@ -241,8 +241,8 @@ export const aiPages: AiPage[] = [
       "n8n automation Nigeria",
     ],
     stats: [
-      { value: "70%", label: "Manual Task Reduction" },
-      { value: "10x", label: "Faster Process Cycles" },
+      { value: "Your apps", label: "Connected End to End" },
+      { value: "Custom", label: "Built Around Your Process" },
       { value: "Zero", label: "Copy-Paste Between Tools" },
       { value: "24/7", label: "Always-On Workflows" },
     ],
@@ -295,7 +295,7 @@ export const aiPages: AiPage[] = [
       "generative AI consulting Nigeria",
     ],
     stats: [
-      { value: "40+", label: "AI Roadmaps Delivered" },
+      { value: "Practical", label: "A Plan You Can Act On" },
       { value: "2wk", label: "Typical Audit Turnaround" },
       { value: "ROI-First", label: "Use-Case Prioritization" },
       { value: "Vendor-Neutral", label: "Recommendations" },

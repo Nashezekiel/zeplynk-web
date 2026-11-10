@@ -421,7 +421,7 @@ export default function Navbar() {
                                                             <div className="relative z-10">
                                                                 <GraduationCap className="h-12 w-12 text-white mb-6" />
                                                                 <h4 className="text-2xl font-bold text-white mb-4 leading-tight">Master The <br /> Future Of Code</h4>
-                                                                <p className="text-white/70 text-caption mb-8 leading-relaxed">Join 1,000+ developers training with Zeplynk experts in modern engineering.</p>
+                                                                <p className="text-white/70 text-caption mb-8 leading-relaxed">Train with Zeplynk experts in modern software engineering and AI.</p>
                                                                 <Link href="/academy" onClick={() => setActiveDropdown(null)}>
                                                                     <Button className="bg-white text-black hover:bg-zinc-200 rounded-xl px-6 h-12 font-bold">Start Learning</Button>
                                                                 </Link>

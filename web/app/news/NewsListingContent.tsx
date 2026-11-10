@@ -72,7 +72,7 @@ export default function NewsListingContent({
                                 Engineering Weekly
                             </div>
                             <h3 className="text-h3 font-bold text-white mb-3 tracking-tight leading-tight">
-                                Join 2,500+ leaders getting the{" "}
+                                Join leaders getting the{" "}
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-zgreen-400 to-emerald-500">
                                     stack blueprint
                                 </span>{" "}

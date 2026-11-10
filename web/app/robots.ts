@@ -1,14 +1,14 @@
 import { MetadataRoute } from "next";
+import { SITE } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
-    const baseUrl = "https://zeplynk.com";
-
     return {
         rules: {
             userAgent: "*",
             allow: "/",
             disallow: ["/admin", "/api", "/register"],
         },
-        sitemap: `${baseUrl}/sitemap.xml`,
+        sitemap: `${SITE.url}/sitemap.xml`,
+        host: SITE.url,
     };
 }

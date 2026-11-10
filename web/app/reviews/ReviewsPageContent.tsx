@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { SITE } from "@/lib/site";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -44,9 +45,9 @@ const SERVICE_OPTIONS = [
 ];
 
 const socials = [
-    { icon: Linkedin, href: "https://www.linkedin.com/company/zeplynk/", label: "LinkedIn", rgb: "10,102,194" },
-    { icon: Instagram, href: "https://www.instagram.com/zeplynk/", label: "Instagram", rgb: "225,48,108" },
-    { icon: Facebook, href: "https://www.facebook.com/share/1JghGYmUWr/", label: "Facebook", rgb: "24,119,242" },
+    { icon: Linkedin, href: SITE.social.linkedin, label: "LinkedIn", rgb: "10,102,194" },
+    { icon: Instagram, href: SITE.social.instagram, label: "Instagram", rgb: "225,48,108" },
+    { icon: Facebook, href: SITE.social.facebook, label: "Facebook", rgb: "24,119,242" },
 ];
 
 const whyItMatters = [
